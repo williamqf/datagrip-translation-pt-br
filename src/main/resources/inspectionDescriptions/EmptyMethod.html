@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata métodos vazios que podem ser removidos.
+<p>Um método é considerado vazio se o método em si estiver vazio e for apenas sobrescrito ou implementado por métodos vazios. Observe que métodos contendo apenas comentários e chamadas <code>super()</code> com seus próprios parâmetros também são considerados vazios.</p>
+<p>Esta inspeção ignora métodos com anotações especiais, como as anotações EJB <code>javax.ejb.Init</code> e <code>javax.ejb.Remove</code>.</p>
+<p>A correção rápida remove métodos desnecessários com segurança.</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Comentários e javadoc contam como conteúdo</b> para escolher se métodos com comentários devem ser tratados como não vazios.</li>
+  <li>Use a opção <b>Anotações especiais adicionais</b> para configurar outras anotações que esta inspeção deve ignorar.</li>
+</ul>
+</body>
+</html>

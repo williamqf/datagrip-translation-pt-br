@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata referências de método não resolvidas nos parâmetros <code>initMethod</code> e <code>destroyMethod</code> da anotação <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/Bean.html">@Bean</a>.</p>
+
+<p><b>Exemplo:</b></p>
+Se a classe MyBean não contiver o método 'public void doInit(){...}', o erro 'Não é possível resolver o método' será relatado na expressão 'doInit'.
+<pre><code lang="java">
+  public class MyBean {...}
+
+  @Component
+  public class MyComponent {
+     @Bean(initMethod="doInit" )
+     public MyBean myBean() {...}
+  }
+</code></pre>
+
+<p>Neste exemplo, se <code>MyBean</code> não definir o método <code>doInit()</code>, a inspeção relatará a referência de método não resolvida.</p>
+</body>
+</html>

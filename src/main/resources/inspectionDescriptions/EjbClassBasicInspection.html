@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata as seguintes violações da especificação EJB:
+<ul>
+  <li>A classe não implementa as interfaces esperadas (EJBLocalObject, EJBObject, etc.)</li>
+  <li>A classe não define um construtor público sem argumentos</li>
+  <li>Uso de uma classe em vez de uma interface ou de uma interface em vez de uma classe</li>
+  <li>Os métodos EJB são <code>static</code></li>
+  <li>A classe de Bean de Sessão sem estado define múltiplos métodos <code>ejbCreate</code></li>
+  <li>O tipo de retorno do método da classe Session Bean está incorreto</li>
+  <li>O EJB define o método <code>finalize</code></li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+public class SessionEJB implements java.io.Serializable { // Erro: a classe deve estender `SessionBean`
+  private SessionEJB() {} // Erro: a classe deve definir um construtor público sem argumentos
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata a anotação <code>@Aspect</code> em versões do Spring anteriores a 2.5 se o elemento <strong>&lt;aop:aspectj-autoproxy/&gt;</strong> não estiver presente na configuração XML.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+@Aspect // Suporte ao @AspectJ não ativado
+class MyAspect {
+   ...
+}
+</code></pre>
+<pre><code lang="xml">
+&lt;beans&gt;
+   &lt;!-- &lt;aop:aspectj-autoproxy/&gt; --&gt;
+&lt;/beans&gt;
+</code></pre>
+
+</body>
+</html>

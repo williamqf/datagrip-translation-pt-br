@@ -1,0 +1,17 @@
+<html>
+<body>
+Relatórios o uso do identificador <code>?</code> na sintaxe kind-projector.
+<p>O identificador <code>?</code> será usado para argumentos curinga nos tipos no Scala 3 (veja <a href="https://dotty.epfl.ch/docs/reference/changed-features/wildcards.html">Argumentos curinga nos tipos</a>).
+Seu uso em lambdas do tipo kind-projector foi descontinuado e será substituído por <code>*</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  List[?]
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  List[*]
+</code></pre>
+<!-- tooltip end -->
+<p><small>Esta inspeção é executada quando o plugin <b>Kind Projector</b> está habilitado.</small></p>
+</body>
+</html>

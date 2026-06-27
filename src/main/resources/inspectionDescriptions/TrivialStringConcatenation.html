@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata operandos de string vazia em concatenações de strings.
+A concatenação com uma string vazia pode ser usada para converter objetos que não são <code>String</code> ou primitivos em <code>String</code>, mas o uso de uma chamada de método <code>String.valueOf()</code> pode ser mais claro.
+<p>
+  Uma correção rápida é sugerida para simplificar a concatenação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(int x, int y) {
+    String s = "" + x + " ; " + y;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void foo(int x, int y) {
+    String s = x + " ; " + y;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Relatar apenas quando a string vazia puder ser removida sem outras alterações</b> para ignorar situações em que a remoção da string vazia exigiria a adição de uma conversão <code>String.valueOf()</code> de outro operando.
+</body>
+</html>

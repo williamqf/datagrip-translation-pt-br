@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Esta inspeção visa identificar seções de código potencialmente vulneráveis, nas quais dados obtidos de fontes potencialmente não confiáveis podem ser usados em operações que representam um risco de segurança.</p>
+
+<p>Rastreamento de fluxo de dados:</p>
+
+<p>A inspeção rastreia o fluxo de dados desde a origem até o seu uso em operações críticas.
+  Isso inclui a análise da transferência de dados por meio de métodos, objetos e variáveis.</p>
+
+<p>Considere um exemplo em que a entrada do usuário é usada diretamente em uma consulta SQL sem o devido pré-processamento.
+  A inspeção emitirá um aviso sobre uma potencial injeção de SQL.</p>
+<pre>
+String userInput = getUserInput();
+String sqlQuery = "SELECT * FROM users WHERE username = '" + userInput + "'";
+</pre>
+</body>
+</html>

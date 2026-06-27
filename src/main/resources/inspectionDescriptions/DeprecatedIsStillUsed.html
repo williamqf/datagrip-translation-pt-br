@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata classes, métodos e campos depreciados que ainda estão sendo usados no código.
+<p>Exemplo:</p>
+
+<pre><code>
+  class MyCode {
+  @Deprecated
+  void oldMethod() {}// Aviso: "Membro depreciado ainda em uso"
+
+  void newMethod() {
+    oldMethod(); // Uso esquecido
+  }
+  }
+</code></pre>
+<p>Usos dentro de elementos depreciados são ignorados.</p>
+<p><b>Nota:</b> Por motivos de desempenho, membros não privados são verificados apenas se seus nomes aparecerem raramente no projeto.</p>
+</body>
+</html>

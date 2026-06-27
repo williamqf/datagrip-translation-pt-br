@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata um construtor primário <code>private</code> em uma classe <code>data</code>.
+<p>
+    As classes <code>data</code> possuem o método de fábrica <code>copy()</code>, que pode ser usado de forma semelhante a um construtor.
+    Para fornecer segurança suficiente, o construtor não deve ser marcado como <code>private</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  data class User private constructor(val name: String)
+</code></pre>
+<p>A correção rápida alterará o modificador de visibilidade do construtor para <code>public</code>:</p>
+<pre><code>
+  data class User(val name: String)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

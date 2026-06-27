@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>
+    Relata funções e propriedades <code>public</code> e <code>protected</code> com tipos de retorno implícitos.
+    Por motivos de estabilidade da API, recomenda-se especificar explicitamente esse tipo.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun publicFunctionWhichAbusesTypeInference() =
+      otherFunctionWithNotObviousReturnType() ?: yetAnotherFunctionWithNotObviousReturnType()
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun publicFunctionWhichAbusesTypeInference(): <b>Api</b> =
+      otherFunctionWithNotObviousReturnType() ?: yetAnotherFunctionWithNotObviousReturnType()
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata rótulos redundantes que não podem ser referenciados pelas instruções 'break', 'continue' ou 'return'.
+<p>
+Tais rótulos podem ser removidos com segurança.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun foo(c: Boolean) {
+    b@ while (true) a@ {
+        while (true) {
+            break@b
+        }
+    }
+}
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+fun foo(c: Boolean) {
+    b@ while (true) {
+        while (true) {
+            break@b
+        }
+    }
+}
+</code></pre>
+</body>
+</html>

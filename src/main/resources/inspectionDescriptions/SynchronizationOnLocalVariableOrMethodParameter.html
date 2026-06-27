@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata a sincronização em uma variável local ou parâmetro.
+<p>
+  Ao usar esse tipo de sincronização, é muito difícil garantir o funcionamento correto.
+  Esse código pode ser melhorado, por exemplo, controlando o acesso por meio de classes wrapper sincronizadas ou sincronizando em um campo.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void bar() {
+    final Object lock = new Object();
+    synchronized (lock) { }
+  }
+</code></pre>
+</body>
+</html>

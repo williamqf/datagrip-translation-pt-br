@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata declarações de tipo redundantes em literais compostos.
+<p>Exemplo:</p>
+<pre><code>nums := [][]int{[]int{1}, []int{2}}</code></pre>
+<p>Este é um slice de slices do tipo <code>int</code>. Nesse caso, você pode usar uma definição mais curta. Você pode corrigir este código manualmente ou usar a correção rápida <b>Remover tipo redundante</b>. Após aplicar a correção rápida, o código ficará assim:</p>
+<pre><code>nums := [][]int{{1},{2}}</code></pre>
+<p>Para mais informações sobre literais compostos, consulte a <a href="https://go.dev/ref/spec#Composite_literals">Go Language Specification: Composite Literals em go.dev</a>.</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata expressões <code>if-then</code> que podem ser convertidas em expressões de acesso seguro (<code>?.</code>).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun bar(x: String) = ""
+
+  fun foo(a: String?) {
+     if (a != null) bar(a) else null
+  }
+</code></pre>
+<p>A correção rápida converterá a expressão <code>if-then</code> em uma expressão de acesso seguro (<code>?.</code>):</p>
+<pre><code>
+  fun bar(x: String) = ""
+
+  fun foo(a: String?) {
+     a?.let { bar(it) }
+  }
+</code></pre>
+</body>
+</html>

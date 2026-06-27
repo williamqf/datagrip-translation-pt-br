@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata instruções <code>continue</code> que são as últimas instruções acessíveis em um loop.
+Essas instruções <code>continue</code> são desnecessárias e podem ser removidas com segurança.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for(int i in array) {
+      println(i)
+      <b>continue</b>
+  }
+</code></pre>
+<p>Após a aplicação do quick fix:</p>
+<pre><code>
+  for(int i in array) {
+      println(i)
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Para mais detalhes, consulte a mesma inspeção em Java.</p>
+</body>
+</html>

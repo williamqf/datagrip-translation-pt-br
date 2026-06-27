@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata templates de string usados como argumentos para métodos de log do <b>SLF4J</b> e <b>Log4j 2</b>.
+O método <code>org.apache.logging.log4j.Logger.log()</code> e suas sobrecargas são suportados apenas com a opção <b>Todos os níveis de log</b>.
+Os templates de string são avaliados em tempo de execução, mesmo quando a mensagem de log não é registrada; isso pode impactar negativamente o desempenho.
+Recomenda-se o uso de mensagens de log parametrizadas, que não são avaliadas quando o log está desativado.
+<p><b>Exemplo (para Kotlin):</b></p>
+<pre><code lang="kotlin">
+      val variable1 = getVariable()
+      logger.info("variable1: $variable1")
+</code></pre>
+<p><b>Após a aplicação da correção rápida (para Kotlin):</b></p>
+<pre><code lang="kotlin">
+      val variable1 = getVariable()
+      logger.info("variable1: {}", variable1)
+</code></pre>
+<p>
+  Observe que a substituição sugerida pode não ser equivalente ao código original, por exemplo, quando o template de string contém chamadas de método ou expressões de atribuição.
+</p>
+<!-- tooltip end -->
+<ul>
+  <li>
+    Use a lista <b>Avisar em</b> para ignorar certos níveis de log mais altos. Níveis de log mais altos podem estar sempre habilitados e os argumentos serão sempre avaliados.
+  </li>
+  <li>
+    Use a opção <b>Não avisar quando apenas expressões com tipos primitivos, seus wrappers ou String estiverem contidos</b> para ignorar templates de string que contenham apenas expressões com tipos primitivos, seus wrappers ou Strings.
+    Por exemplo, isso pode ajudar a evitar o carregamento tardio (lazy loading) de coleções.
+    Note que a criação de uma string em tempo de execução, mesmo usando apenas expressões com tipos primitivos, seus wrappers ou Strings, pode impactar negativamente o desempenho.
+  </li>
+  <li>
+    Use a opção <b>Não avisar para chamadas contendo apenas uma exceção como argumento após o argumento da mensagem</b> para ignorar chamadas que contenham apenas uma exceção como argumento após o argumento da mensagem.
+    Por exemplo, isso pode ser útil ao ajustar o comportamento da inspeção com um estilo de código personalizado.
+  </li>
+</ul>
+
+<p><small>Novidade na versão 2023.1</small></p>
+</body>
+</html>

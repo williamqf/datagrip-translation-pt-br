@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata variáveis ou constantes exportadas em uma lista de declarações separadas por vírgulas.
+<p>Exemplo:</p>
+<pre><code>const C1, C3, C2, C44, C9, C11, C6 = 1, 2, 3, 1, 3, 2, 1</code></pre>
+<p>Esta declaração dificulta saber o valor de cada constante. Para tornar esta declaração mais fácil de ler, você pode aplicar a correção rápida <b>Extrair para declaração própria</b>. Após aplicar a correção rápida a cada constante, a declaração ficará assim:</p>
+<pre><code>const (
+ C3  = 2
+ C2  = 3
+ C44 = 1
+ C9  = 3
+ C11 = 2
+ C6  = 1
+ C1  = 1
+)</code></pre>
+</body>
+</html>

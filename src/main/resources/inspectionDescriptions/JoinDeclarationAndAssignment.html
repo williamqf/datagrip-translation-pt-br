@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata declarações de propriedades que podem ser unidas a uma atribuição subsequente.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val x: String
+  x = System.getProperty("")
+</code></pre>
+<p>A correção rápida unirá a declaração com a atribuição:</p>
+<pre><code>
+  val x = System.getProperty("")
+</code></pre>
+
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Você pode desativar a opção <b>Relatar inicialização complexa de propriedades de membro</b> para ignorar propriedades que possuem inicializações complexas. Isso abrange dois casos:</p>
+<ol>
+    <li>O inicializador da propriedade é complexo (é uma expressão de várias linhas ou composta/de fluxo de controle)</li>
+    <li>A propriedade é inicializada primeiro e, em seguida, usada imediatamente no código subsequente (por exemplo, para chamar outros métodos de inicialização)</li>
+</ol>
+</body>
+</html>

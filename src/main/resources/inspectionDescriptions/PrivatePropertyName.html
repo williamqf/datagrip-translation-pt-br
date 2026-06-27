@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata nomes de propriedades <b>private</b> que não seguem as convenções de nomenclatura recomendadas.</p>
+<p>
+    Uma nomenclatura consistente torna o código mais fácil de ler e entender.
+    De acordo com o <a href="https://kotlinlang.org/docs/coding-conventions.html#naming-rules">guia de estilo oficial do Kotlin</a>, nomes de propriedades <b>private</b> devem começar com uma letra minúscula e usar camelCase.
+    Como alternativa, é permitido o uso de um prefixo de sublinhado, mas apenas para propriedades <b>private</b>.
+</p>
+<p>Outras regras de nomenclatura podem ser introduzidas alterando a expressão regular do "Padrão".</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val _My_Cool_Property = ""
+</code></pre>
+<p>A correção rápida renomeia a propriedade de acordo com as convenções de nomenclatura do Kotlin:</p>
+<pre><code>
+  val _myCoolProperty = ""
+</code></pre>
+</body>
+</html>

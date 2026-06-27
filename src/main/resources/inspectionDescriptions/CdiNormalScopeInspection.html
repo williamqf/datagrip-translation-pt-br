@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata beans gerenciados que possuem campos de instância públicos e não estão no escopo padrão <code>@Dependent</code>.</p>
+<p>De acordo com a especificação CDI, escopos de contexto (<code>@RequestScoped</code>, <code>@ApplicationScoped</code>, <code>@SessionScoped</code> e <code>ConversationScoped</code>) não são permitidos para beans gerenciados que possuam campos de instância públicos.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @ApplicationScoped // Aviso: Beans com escopos que não sejam o padrão não podem ter campos públicos
+  class Car {
+    public String engine;
+  }
+</code></pre>
+</body>
+</html>

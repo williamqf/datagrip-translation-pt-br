@@ -1,0 +1,14 @@
+<!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
+<html>
+<body>
+Relata chamadas de método <code>java.time</code> (<code>get()</code>, <code>getLong()</code>, <code>with()</code>, <code>plus()</code>, <code>minus()</code>) que utilizam constantes de enumeração <code>java.time.temporal.ChronoField</code> ou <code>java.time.temporal.ChronoUnit</code> não suportadas como argumentos.
+Tais chamadas lançarão uma <code>UnsupportedTemporalTypeException</code> em tempo de execução.
+<p>Exemplo:</p>
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int year = localTime.get(ChronoField.YEAR);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small></p>
+</body>
+</html>

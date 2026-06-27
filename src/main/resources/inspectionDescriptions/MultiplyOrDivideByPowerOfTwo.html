@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata a multiplicação de um valor inteiro por uma constante inteira que pode ser expressa como uma potência de 2. Tais expressões podem ser substituídas por operações de deslocamento (shift) para a esquerda ou para a direita para melhorar o desempenho.
+<p>
+  Observe que esta inspeção não é relevante para JVMs modernas (como HotSpot ou OpenJ9), pois seus compiladores JIT realizam essa otimização.
+  Ela pode ser útil apenas em alguns sistemas embarcados que não executam compilação JIT.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int y = x * 4;
+</code></pre>
+<p>É sugerido substituir a operação de multiplicação ou divisão por uma operação de deslocamento por meio de uma correção rápida:</p>
+<pre><code>
+  int y = x &lt;&lt; 2;
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção para fazer com que a inspeção também relate divisões por potências de 2.
+  Observe que a substituição da divisão por potência de 2 por um deslocamento não funciona para números negativos.
+</p>
+</body>
+</html>

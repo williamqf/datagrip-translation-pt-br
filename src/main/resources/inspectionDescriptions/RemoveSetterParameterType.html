@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata tipos de parâmetro explicitamente especificados em setters de propriedade.
+<p>
+    O tipo do parâmetro do setter sempre corresponde ao tipo da propriedade, portanto, não é necessário que ele seja explícito.
+    A correção rápida 'Remover especificação de tipo explícita' permite modificar o código adequadamente.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun process(x: Int) {}
+
+  var x: Int = 0
+      set(value: Int) = process(value) // &lt;== a especificação 'Int' pode ser omitida com segurança
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun process(x: Int) {}
+
+  var x: Int = 0
+      set(value) = process(value)
+</code></pre>
+</body>
+</html>

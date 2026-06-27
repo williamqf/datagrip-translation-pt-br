@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Informa verificações de ausência em coleções filtradas.</p>
+
+<p>A correção rápida usa <code>exists</code> ou <code>forall</code> para verificar a ausência.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var x: Seq[Int]
+  x.filter(p).size == 0
+  x.filter(p).length > 0
+  x.filterNot(p).isEmpty
+  x.filterNot(p).nonEmpty
+</code></pre>
+<p>Depois que a correção rápida for aplicada:</p>
+<pre><code>
+  var x: Seq[Int]
+  !x.exists(p)
+  x.exists(p)
+  x.forall(p)
+  !x.forall(p)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

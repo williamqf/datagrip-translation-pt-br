@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata um segundo índice (limite superior) redundante em expressões de slice.
+<p>Geralmente, o segundo índice é opcional. Removê-lo pode melhorar a legibilidade do código.</p>
+<p>Exemplo:</p>
+<pre><code>var a []int
+a = a[0:len(a)] // `a[0:len(a)]` é o mesmo que `a[0:]`</code>
+</pre>
+<p>Você pode aplicar a correção rápida <b>Remover índice redundante</b> para esses casos. Após aplicar a correção rápida, o código ficará assim:</p>
+<pre><code>var a []int
+a = a[0:]</code>
+</pre>
+</body>
+</html>

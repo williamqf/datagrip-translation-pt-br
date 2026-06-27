@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes aninhadas declaradas sem nenhum modificador de acesso (também conhecido como <b>package-private</b>).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Outer {
+    static class Nested {}  // Aviso
+    class Inner {}          // Aviso
+    enum Mode {}            // O aviso depende das configurações
+    interface I {}          // O aviso depende das configurações
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar enums internos com visibilidade de pacote</b> para ignorar enums internos package-private.</li>
+  <li>Use a opção <b>Ignorar interfaces internas com visibilidade de pacote</b> para ignorar interfaces internas package-private.</li>
+</ul>
+</body>
+</html>

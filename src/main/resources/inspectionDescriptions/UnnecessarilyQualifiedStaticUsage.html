@@ -1,0 +1,51 @@
+<html>
+<body>
+Relata o uso de membros <code>static</code> que estão qualificados desnecessariamente pelo nome da classe.
+<p>
+Quando um membro <code>static</code> está disponível na classe envolvente ou em uma superclasse da classe envolvente, a qualificação pela classe não é necessária. Essa qualificação pode ser removida com segurança.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+
+    void bar() {
+      Foo.foo();
+      System.out.println(Foo.x);
+    }
+
+    static void baz() { Foo.foo(); }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+
+    void bar() {
+      foo();
+      System.out.println(x);
+    }
+
+    static void baz() { foo(); }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as opções de inspeção para alternar o que é relatado:
+</p>
+<ul>
+  <li>
+    <p>Acesso a campos <code>static</code>:<br><code>void bar() { System.out.println(Foo.x); }</code></p>
+  </li>
+  <li>
+    <p>Chamadas a métodos <code>static</code>:<br><code>void bar() { Foo.foo(); }</code></p>
+  </li>
+</ul>
+<p>
+  Além disso, você pode configurar a inspeção para relatar apenas o uso de membros <code>static</code> em um contexto <code>static</code>. Nesse caso, apenas <code>static void baz() { Foo.foo(); }</code> será relatado.
+</p>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o uso de variáveis <code>static</code> não <code>final</code> durante a inicialização da classe.
+<p>Nesses casos, a semântica do código pode se tornar dependente da ordem de criação da classe. Além disso, isso pode levar ao uso de uma variável antes de sua inicialização, o que geralmente resulta em erros difíceis e confusos.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    public static int bar = 0;
+
+    static {
+      System.out.println(bar);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

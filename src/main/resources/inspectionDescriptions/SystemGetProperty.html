@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata o uso do método <code>System.getProperty(str)</code> e sugere correções nos seguintes 2 casos:
+<ul>
+  <li><code>System.getProperty("path.separator")</code> -> <code>File.pathSeparator</code></li>
+  <li><code>System.getProperty("line.separator")</code> -> <code>System.lineSeparator()</code></li>
+</ul>
+A segunda abordagem não é apenas menos propensa a erros, mas também potencialmente mais rápida, pois <code>System.lineSeparator()</code> retorna um valor em cache, enquanto <code>System.getProperty("line.separator")</code> chama as propriedades (Hashtable ou CHM, dependendo da implementação) todas as vezes.
+</body>
+</html>

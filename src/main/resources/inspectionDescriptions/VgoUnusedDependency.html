@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata dependências não utilizadas.</p>
+<p>Para cada dependência no arquivo <i>go.mod</i> atual, esta inspeção pesquisa em todos os arquivos Go por quaisquer declarações de importação que comecem com o nome da dependência.
+  Se nenhuma importação desse tipo for encontrada, a dependência será considerada não utilizada.
+  Esta inspeção é equivalente ao <a href="https://go.dev/ref/mod#go-mod-why">comando <code>go mod why</code></a>.</p>
+<p>A inspeção processa as diretivas <code>require</code> e <code>replace</code>.
+  Diretivas <code>require</code> com o comentário <code>// indirect</code> também são processadas.</p>
+<p>A inspeção pode não conseguir determinar com precisão se uma dependência substituída ou indiretamente exigida não está sendo usada nos seguintes casos:</p>
+<ul>
+  <li>O modo de vendoring está ativado</li>
+  <li>Algumas dependências não foram baixadas</li>
+</ul>
+</body>
+</html>

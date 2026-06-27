@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata a concatenação de strings não constantes usadas como argumentos em chamadas para <code>MessageFormat.format()</code>.
+<p>
+  Embora ocasionalmente intencional, isso geralmente é um uso incorreto do método de formatação e pode até levar a exceções se a string concatenada contiver caracteres especiais como <code>{</code>.
+</p>
+<p>
+  Além disso, às vezes isso pode ser o resultado de concatenar incorretamente argumentos de formatação de string digitando <code>+</code> onde uma <code>,</code> deveria ter sido inserida.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String formatGreeting(String userName, int balance) {
+    return MessageFormat.format("Hello, " + userName + "! Your balance is {0}.", balance);
+  }
+</code></pre>
+<p>
+  Aqui, <code>userName</code> é interpretado como parte da string de formato, o que pode resultar em uma <code>IllegalArgumentException</code> (por exemplo, se <code>userName</code> for <code>"{"</code>).
+  Esta chamada provavelmente deveria ser substituída por <code>MessageFormat.format("Hello, {0}! Your balance is {1}.", userName, balance)</code>.
+</p>
+<!-- tooltip end -->
+
+</body>
+</html>

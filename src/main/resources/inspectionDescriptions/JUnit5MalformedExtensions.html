@@ -1,0 +1,15 @@
+<html>
+<body>
+Inspeciona os campos anotados com <code>@RegisterExtension</code> que têm o tipo incorreto ou que não são declarados como estáticos quando necessário.
+Essas extensões não podem ser registradas corretamente, o que pode causar falhas na inicialização do teste.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class MyTest {
+    @RegisterExtension
+    private JUnit4Rule rule;
+  }
+</code></pre>
+
+<!-- tooltip end -->
+</body>
+</html>

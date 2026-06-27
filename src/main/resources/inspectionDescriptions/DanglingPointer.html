@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata o uso de ponteiros que apontam para memória que já foi liberada pelo operador <code>delete</code> ou pela função <code>free(void* ptr)</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void process() {
+    for(node *pt = head; pt != nullptr; pt = pt->next) {
+        delete pt;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

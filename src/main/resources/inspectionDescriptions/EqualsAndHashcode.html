@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata classes que sobrescrevem o método <code>equals()</code>, mas não o método <code>hashCode()</code>, ou vice-versa. Isso pode causar problemas ao adicionar a classe a uma <code>Collection</code> ou <code>HashMap</code>.
+<p>A correção rápida gera uma implementação padrão para o método ausente.</p>
+<p>Exemplo:</p>
+<pre><code>
+class StringHolder {
+  String s;
+
+  @Override public int hashCode() {
+    return s != null ? s.hashCode() : 0;
+  }
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+class StringHolder {
+  String s;
+
+  @Override public int hashCode() {
+    return s != null ? s.hashCode() : 0;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (!(o instanceof StringHolder)) return false;
+
+    StringHolder holder = (StringHolder)o;
+
+    if (s != null ? !s.equals(holder.s) : holder.s != null) return false;
+
+    return true;
+  }
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Relata docstrings ausentes e vazias.</p>
+<p><b>Exemplo de docstring ausente</b></p>
+<pre><code>
+def demo(a):
+    c = a ** 2
+</code></pre>
+<p><b>Exemplo de docstring vazia</b></p>
+<pre><code>
+def demo(a):
+    """
+    """
+    c = a ** 2
+</code></pre>
+<p>Após a aplicação da correção rápida, o fragmento de código é alterado para:</p>
+<pre><code>
+def demo(a):
+    """
+
+    :param a:
+    """
+    c = a ** 2
+</code></pre>
+<p>Você deve fornecer alguns detalhes sobre os parâmetros no modelo gerado.</p>
+</body>
+</html>

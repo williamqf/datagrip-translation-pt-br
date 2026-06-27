@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata instruções <code>switch</code> sobre tipos <code>enum</code> que não são exaustivas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>enum</b> AlphaBetaGamma {
+    A, B, C;
+
+    <b>void</b> x(AlphaBetaGamma e) {
+      <b>switch</b> (e) {
+
+      }
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>enum</b> AlphaBetaGamma {
+    A, B, C;
+
+    <b>void</b> x(AlphaBetaGamma e) {
+      <b>switch</b> (e) {
+        <b>case</b> A -> {}
+        <b>case</b> B -> {}
+        <b>case</b> C -> {}
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar instruções 'switch' com ramo 'default'</b> para ignorar instruções <code>switch</code> que possuam um ramo <code>default</code>.
+<p>
+
+</body>
+</html>

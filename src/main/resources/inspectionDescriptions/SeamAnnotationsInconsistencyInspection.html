@@ -1,0 +1,157 @@
+<html>
+<body>
+<p>Relata uso de anotações Seam em tipos de componentes inválidos.</p>
+
+<p>Anotações Seam apenas podem ser usadas em classes que fazem parte de componentes Seam 
+(exceto <code>@Around</code>, <code>@Within</code>, <code>@DataBinderClass</code> and <code>@DataSelectorClass</code>).<br>
+Além disso, muitas anotações são válidas apenas para tipos específicos de componentes, por exemplo, Entity Beans não suportam injeção bidirecional, divisão de contexto ou divisão de transação.</p>
+
+<p>Anotações Seam são permitidas nos seguintes tipos de componentes:</p>
+<table border="1">
+  <tr>
+    <th>Tipo</th>
+    <th>Anotações</th>
+    <th>Bean de Sessão<br>Stateless</th>
+    <th>Bean de Sessão<br>Stateful</th>
+    <th>Entity Bean</th>
+    <th>Java Bean</th>
+  </tr>
+  <tr>
+    <td>Definição do<br>componente</td>
+    <td>@Name</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>@Scope</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>@Role</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>@Roles</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+    <td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Intercept</td><td>X</td><td>X</td><td>X</td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@JndiName</td><td>X</td><td>X</td><td></td><td></td>
+  </tr>
+  <tr>
+  <td></td><td>@Startup</td><td>X</td><td>X</td><td>X</td><td>X</td>
+  </tr>
+  <tr>
+  <td>Injeção<br>Bidirecional</td><td>@In</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Out</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Unwrap</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Factory</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Logger</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@RequestParameter</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Ciclo de Vida</td><td>@Create</td><td></td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Destroy</td><td></td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Observer</td><td>X</td><td>X</td><td>X</td><td>X</td>
+  </tr>
+  <tr>
+  <td>Divisão de<br>Contexto</td><td>@Begin</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@BeginTask</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@End</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@EndTask</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@StartTask</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@ResumeProcess</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@CreateProcess</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Divisão de<br>Transação</td><td>@Transactional</td><td></td><td></td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@Rollback</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Validação</td><td>@IfInvalid</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Processamento<br>Remoto</td><td>@Remote</td><td>X<br>em interfaces locais</td><td>X<br>em interfaces locais</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Tabela de<br>Dados JSF</td><td>@DataModel</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@DataModelIndex</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td></td><td>@DataModelSelection</td><td>X</td><td>X</td><td></td><td>X</td>
+  </tr>
+  <tr>
+  <td>Ligação de<br>Dados</td><td>@DataBinderClass</td><td></td><td></td><td></td><td>X</td>
+  </tr>
+    <tr>
+      <td></td>
+      <td>@DataSelectorClass</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td>X</td>
+    </tr>
+</table>
+<style type="text/css">
+  <!--
+  th {
+    font-family: monospace;
+    vertical-align: top;
+  }
+
+  td {
+    font-family: monospace;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  -->
+</style>
+</body>
+</html>

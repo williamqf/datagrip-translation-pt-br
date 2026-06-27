@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas para o método <code>java.util.List.set()</code>. Tais chamadas podem ser substituídas por uma forma de acesso indexado mais curta e clara.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+def list = ["foo"]
+list.set(0, "bar") // list.set(0, "bar") pode ser substituído por list[0] = "bar"
+</code>
+</pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre>
+<code>
+def list = ["foo"]
+list[0] = "bar"
+</code>
+</pre>
+</body>
+</html>

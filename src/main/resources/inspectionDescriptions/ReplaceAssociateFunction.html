@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata chamadas a <code>associate()</code> e <code>associateTo()</code> que podem ser substituídas por <code>associateBy()</code> ou <code>associateWith()</code>.
+<p>
+    Ambas as funções aceitam funções transformadoras aplicadas aos elementos de uma sequência ou coleção determinada (como receptor).
+    O par resultante é então usado para construir o <code>Map</code> final.
+</p>
+<p>
+    Considerando que o transformador faz referência a <code>it</code>, as chamadas a <code>associate[To]()</code> podem ser substituídas por <code>associateBy()</code> ou <code>associateWith()</code>, que oferecem melhor desempenho.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  fun getKey(i: Int) = 1L
+  fun getValue(i: Int) = 1L
+
+  fun test() {
+      arrayOf(1).associate { getKey(it) to it }  // 'associate()' substituível
+      listOf(1).associate { it to getValue(it) } // 'associate()' substituível
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>  fun getKey(i: Int) = 1L
+  fun getValue(i: Int) = 1L
+
+  fun test() {
+      arrayOf(1).associateBy { getKey(it) }
+      listOf(1).associateWith { getValue(it) }
+  }
+</code></pre>
+</body>
+</html>

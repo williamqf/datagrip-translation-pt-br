@@ -1,0 +1,15 @@
+<html>
+<body>
+O relatório contém variáveis `java.util.Set` e `java.util.Map` de objetos `java.net.URL`.
+Essas coleções chamarão os métodos `equals()` e `hashCode()` nos objetos inseridos, o que poderá causar problemas de desempenho com os objetos `URL`.
+<p>
+  Os métodos `equals()` e `hashCode()` do `URL` podem executar pesquisa de DNS para resolver nomes de host.
+  Isso poderá levar a uma latência significativa, dependendo da disponibilidade e velocidade da rede e do servidor DNS. Usar `java.net.URL` em vez de `java.net.URI` evitará a pesquisa de DNS.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Set&lt;URL&gt; set = new HashSet&lt;URL&gt;();
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

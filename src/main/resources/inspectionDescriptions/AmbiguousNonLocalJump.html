@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata o uso de <code>break</code> ou <code>continue</code> dentro de lambdas de funções semelhantes a loops.
+<p>
+    As palavras-chave <code>break</code> e <code>continue</code> sempre se aplicam a loops reais (<code>for</code>, <code>while</code>, <code>do-while</code>). <code>break</code> e <code>continue</code> nunca se aplicam a funções; por exemplo, <code>break</code> e <code>continue</code> não se aplicam a <code>forEach</code>, <code>filter</code> ou <code>map</code>.
+</p>
+<p>
+    O uso de <code>break</code> ou <code>continue</code> dentro de funções semelhantes a loops (como <code>forEach</code>) pode causar confusão.
+    Esta inspeção sugere a adição de rótulos para esclarecer a qual instrução o <code>break</code> ou <code>continue</code> se aplica.
+</p>
+<p>
+    Como o Kotlin não possui o conceito de funções semelhantes a loops, esta inspeção utiliza uma heurística. Ela assume que funções que não possuem um dos contratos <code>callsInPlace(EXACTLY_ONCE)</code> ou <code>callsInPlace(AT_LEAST_ONCE)</code> são funções semelhantes a loops.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    for (file in files) {
+        file.readLines().forEach { line ->
+            if (line == commentMarkerLine) continue
+            println(line)
+        }
+    }
+</code></pre>
+<p>A correção rápida adiciona rótulos de esclarecimento:</p>
+<pre><code>
+    loop@ for (file in files) {
+        file.readLines().forEach { line ->
+            if (line == commentMarkerLine) continue@loop
+            println(line)
+        }
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

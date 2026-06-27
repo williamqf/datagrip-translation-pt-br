@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata incompatibilidades de tipo de propriedade para atributos JPA.
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  public class JavaEntity {
+
+    @OneToOne
+    Map&lt;Integer, AnotherEntity&gt; incorrectRelationship; // Erro: o tipo do atributo 'One To One' deve ser Entity, não Map
+
+    @ManyToMany
+    Map&lt;Integer, AnotherEntity&gt; correctRelationship;
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata instruções <code>defer</code> dentro de loops.
+<p>O uso de <code>defer</code> dentro de um loop pode causar vazamentos de recursos ou uma ordem de execução imprevisível das instruções.</p>
+<p>Exemplo:</p>
+<pre><code>func main() {
+ for {
+  field, err := db.Query("SELECT 1")
+  if err != nil {
+   // ...
+  }
+  defer field.Close()
+  // ...
+ }
+}</code></pre>
+<p>A chamada <code>defer row.Close()</code> dentro do loop não será executada até que a função termine sua execução, e não ao final de cada iteração do loop <code>for</code>. Essa implementação pode levar ao estouro da pilha (stack overflow) da função e outros problemas.</p>
+</body>
+</html>

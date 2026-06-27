@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas <code>equals()</code> em constantes de enumeração.
+<p>Tais chamadas podem ser substituídas por uma comparação de identidade (<code>==</code>), pois duas constantes de enumeração são iguais apenas se possuírem a mesma identidade.</p>
+<p>Uma correção rápida pode ser usada para alterar a chamada para uma comparação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean foo(MyEnum value) {
+    return value.equals(MyEnum.FOO);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  boolean foo(MyEnum value) {
+    return value == MyEnum.FOO;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

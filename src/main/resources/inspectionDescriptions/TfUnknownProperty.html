@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Relata propriedades desconhecidas em um bloco</p>
+<p>Exemplo de problema:</p>
+<pre><code>
+resource "awscc_appflow_flow" "aws_flow1" {
+  flow_name          = ""
+  source_flow_config = ""
+  trigger_config     = ""
+  destination_flow_config_list {}
+  tasks {}
+  test = ""
+}
+
+</code></pre>
+<p>
+  Neste exemplo, a propriedade <code>test</code> no bloco é desconhecida.
+</p>
+<p>Exemplo de correção:</p>
+<pre><code>
+resource "awscc_appflow_flow" "aws_flow1" {
+  flow_name          = ""
+  source_flow_config = ""
+  trigger_config     = ""
+  destination_flow_config_list {}
+  tasks {}
+}
+
+</code></pre>
+</body>
+</html>

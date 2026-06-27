@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata o uso explícito de <code>this</code> que pode ser omitido.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class C {
+      private val i = 1
+      fun f() = this.i
+  }
+</code></pre>
+<p>A correção rápida remove o <code>this</code> redundante:</p>
+<pre><code>
+  class C {
+      private val i = 1
+      fun f() = i
+  }
+</code></pre>
+</body>
+</html>

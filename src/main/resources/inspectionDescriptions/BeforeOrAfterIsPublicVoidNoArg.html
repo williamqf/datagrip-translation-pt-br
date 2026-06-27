@@ -1,0 +1,14 @@
+<html>
+<body>
+Métodos JUnit 4 <code>@Before</code> ou <code>@After</code> não declarados como <code>public</code>, que não retornam <code>void</code> ou recebem parâmetros são relatados. Tais métodos podem ser criados inadvertidamente, mas não serão executados pelo executor de testes JUnit.
+<p>Esta inspeção fornecerá uma correção da assinatura do método.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @Before private int foo(int arg) { ... }
+</code></pre>
+<p>Após aplicação da correção rápida:</p>
+<pre><code>
+  @Before public void foo() { ... }
+</code></pre>
+</body>
+</html>

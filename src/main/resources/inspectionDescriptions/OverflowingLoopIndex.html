@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata loops que não podem ser concluídos sem overflow do índice ou loops que não realizam nenhuma iteração.
+Isso geralmente ocorre devido a um erro na operação de atualização.
+<p>Exemplo:</p>
+<pre><code>
+  void foo(int s) {
+    for (int i = s; i > 12; i++) { // i-- deveria estar aqui
+      System.out.println(i);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

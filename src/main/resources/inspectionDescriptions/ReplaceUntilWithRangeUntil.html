@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata o uso de <code>until</code> que pode ser substituído pelo operador <code>..&lt;</code>.</p>
+<p>Nenhuma substituição de <code>until</code> por <code>..&lt;</code> altera a semântica de forma alguma.</p>
+<p>Pesquisas de UX mostram que desenvolvedores cometem cerca de 20 a 30% menos erros ao ler códigos contendo <code>..&lt;</code> em comparação com <code>until</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0 until args.size) {
+          println(index)
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0..&lt;args.size) {
+          println(index)
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem Kotlin do projeto ou módulo for 1.7 ou superior.</p>
+</body>
+</html>

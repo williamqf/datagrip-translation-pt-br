@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata instâncias de <code>AutoCloseable</code> que não são usadas em uma instrução try-with-resources, também conhecida como <i>Gerenciamento Automático de Recursos</i>.
+<p>
+  Isso significa que o estilo "abrir recurso antes/dentro de <code>try</code>, fechar em <code>finally</code>", usado antes do try-with-resources estar disponível, também é relatado.
+  Esta inspeção visa substituir todas as inspeções de <i>aberto, mas não fechado com segurança</i> ao desenvolver no Java 7 e versões superiores.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  private static void foo() throws IOException {
+    InputStream profile = Thread.currentThread().getContextClassLoader().getResourceAsStream("/someFile");
+    System.out.println(profile.read());
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção usando as seguintes opções:
+</p>
+<ul>
+  <li>
+    Liste as subclasses de <code>AutoCloseable</code> que não precisam ser fechadas e devem ser ignoradas por esta inspeção.
+    <br/>
+    <b>Observação</b>: mesmo que <code>java.util.stream.Stream</code> seja listado para ser ignorado, a inspeção ainda relatará streams retornados dos métodos de <code>java.nio.file.Files</code>: <code>lines()</code>, <code>walk()</code>, <code>list()</code> e <code>find()</code>.
+    Esses streams contêm recursos de I/O associados que precisam ser fechados.
+  </li>
+  <li>
+    Liste os métodos que retornam <code>AutoCloseable</code> que devem ser ignorados quando chamados.
+  </li>
+  <li>
+    Se deve ignorar o <code>AutoCloseable</code> quando ele for o resultado de uma chamada de método. Quando ativado, os resultados de métodos factory também serão ignorados.
+  </li>
+  <li>
+    Se a inspeção deve relatar quando uma instância de <code>AutoCloseable</code> é passada como argumento de chamada de método. Se ativado, a inspeção assumirá que o recurso é fechado no método chamado.
+    Chamadas de método dentro de um bloco <code>finally</code> e argumentos <code>AutoCloseable</code> com 'close' no nome não serão ignorados.
+  </li>
+  <li>
+    Se deve ignorar referências de método para construtores de classe de recurso.
+  </li>
+  <li>
+    Se deve ignorar métodos que retornam um recurso e cujo nome começa com 'get'.
+    Isso pode reduzir falsos positivos, pois a maioria dos getters não transfere a propriedade do recurso e seus locais de chamada não são responsáveis por fechá-lo.
+  </li>
+</ul>
+</body>
+</html>

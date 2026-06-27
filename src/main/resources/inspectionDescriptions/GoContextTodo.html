@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata o uso de <code>context.TODO()</code>.
+<p>De acordo com a <a href="https://pkg.go.dev/context#TODO">documentação em pkg.go.dev</a>, o <code>context.TODO</code> deve ser usado quando não estiver claro qual <code>Context</code> utilizar ou quando o <code>Context</code> ainda não estiver disponível.
+O <code>Context</code> pode não estar disponível porque as funções circundantes ainda não foram estendidas para aceitar um parâmetro <code>Context</code>.</p>
+<p>Observe que ele é um marcador temporário que deve ser alterado no futuro para um contexto mais significativo (por exemplo, <code>context.Background()</code>).</p>
+</body>
+</html>

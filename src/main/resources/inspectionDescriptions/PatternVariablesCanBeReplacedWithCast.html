@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata o <code>instanceof</code> com padrões e sugere convertê-lo em um <code>instanceof</code> comum com cast.
+<p>Ao aplicar uma correção rápida, esta inspeção permite mover o <code>instanceof</code> com padrões para uma base de código que utiliza versões anteriores do Java.</p>
+<p>
+  Observe que, ao usar expressões complexas antes do <code>instanceof</code>, o resultado pode não ser totalmente equivalente ao <code>instanceof</code> original com padrões. Nesse caso, a expressão será reavaliada.
+</p>
+<!-- tooltip end -->
+<p>Exemplo:</p>
+<pre><code>
+  if (object instanceof String txt && txt.length() == 1) {
+      System.out.println(txt);
+  } else {
+      return;
+  }
+  System.out.println(txt);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (object instanceof String && ((String) object).length() ==1) {
+      String txt = (String) object;
+      System.out.println(txt);
+  } else {
+      return;
+  }
+  String txt = (String) object;
+  System.out.println(txt);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.1</small></p>
+</body>
+</html>

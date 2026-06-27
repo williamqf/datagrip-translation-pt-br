@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata declarações que podem ser definidas como <code>private</code> para seguir o princípio do encapsulamento.
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Service(val url: String) {
+    fun connect(): URLConnection = URL(url).openConnection()
+}
+</code></pre>
+<p>Após aplicar a correção rápida (considerando que <code>url</code> não é utilizada fora da classe <code>Service</code>):</p>
+<pre><code>
+class Service(private val url: String) {
+    fun connect(): URLConnection = URL(url).openConnection()
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas a <code>Thread.yield()</code>.
+<p>
+  O comportamento de <code>yield()</code> é indeterminístico e dependente da plataforma, sendo raramente apropriado usar este método.
+  Seu uso deve ser combinado com profiling e benchmarking detalhados para garantir que o efeito desejado seja realmente alcançado.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public static void main(String[] args) {
+    Runnable r = () -> {
+      for (int i = 0; i &lt; 10; i++) {
+        System.out.println(i);
+        Thread.yield();
+      }
+    };
+    new Thread(r).start();
+    new Thread(r).start();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

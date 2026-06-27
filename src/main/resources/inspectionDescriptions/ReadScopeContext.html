@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata uma chamada <code>ReadScope</code> inválida de uma suspensão ou contexto de ação.
+<p>
+  Não é possível chamar a função <code>ReadScope</code> de uma corrotina ou uma ação.
+  Se isso ocorrer, pode levar a uma exceção de tempo de execução.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun ReadScope.kernel(/*...*/) { /*...*/ }
+
+  fun ReadScope.foo() {
+      readEditorAction { ac ->
+          kernel() // Incorreto
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

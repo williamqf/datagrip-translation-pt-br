@@ -1,0 +1,45 @@
+<html>
+<body>
+<p>
+  Detecta recursos/fontes de dados que não podem ser resolvidos em relação aos provedores conhecidos.
+  Os provedores devem ser especificados na seção <code>required_providers</code> ou devem vir do namespace <code>hashicorp</code>.
+</p>
+<p>
+  Por exemplo, o código abaixo causará um erro:
+</p>
+<pre><code>
+terraform {
+  required_version = "1.1.3"
+}
+resource "abbey_demo" "demo" {
+  email      = "user@mail.company"
+  permission = "user"
+}
+</code></pre>
+<p>
+  O Terraform tentará importar o provedor <code>hashicorp/abbey</code> para o recurso <code>abbey_demo</code>.
+</p>
+<p>
+  Para corrigir isso, precisamos especificar as coordenadas exatas do provedor:
+</p>
+<pre><code>
+terraform {
+  required_version = "1.1.3"
+  required_providers {
+    abbey = {
+      source  = "abbeylabs/abbey"
+      version = "0.2.9"
+    }
+  }
+}
+resource "abbey_demo" "demo" {
+  email      = "user@mail.company"
+  permission = "user"
+}
+</code></pre>
+<p>
+  Para mais detalhes, consulte a <a href ="https://developer.hashicorp.com/terraform/language/providers/requirements#requiring-providers">documentação do Terraform</a>.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

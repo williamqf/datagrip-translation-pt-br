@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata declarações de método com sintaxe de procedimento.</p>
+<p>Não é recomendado que desenvolvedores usem sintaxe do tipo procedimento para métodos.
+    É inconsistente, pode levar a erros e será removido no Scala 3.</p>
+<p>A correção rápida converte a declaração da sintaxe de procedimento para a sintaxe de função.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Test {
+    def method()
+  }
+</code></pre>
+<p>Depois que a correção rápida é aplicada:</p>
+<pre><code>
+  trait Test {
+    def method(): Unit
+  }
+</code></pre>
+
+<p><em>Dica:</em> Você pode usar Analisar / Executar Inspeção por Nome (Ctrl+Alt+Shift+I) para aplicar essa inspeção ao projeto inteiro.</p>
+</body>
+</html>

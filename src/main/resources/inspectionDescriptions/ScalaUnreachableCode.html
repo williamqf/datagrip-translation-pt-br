@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata código inacessível.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def test(): Unit = {
+    throw new Exception()
+    println("isso nunca será alcançado")
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  def test(): Unit = {
+    throw new Exception()
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

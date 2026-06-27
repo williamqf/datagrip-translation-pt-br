@@ -1,0 +1,14 @@
+<html>
+<body>
+
+Relata expressões aritméticas e bitwise com operandos não suportados.
+
+<p>
+  A partir do PHP 8.0, o uso dos operadores aritméticos e bitwise <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>**</code>, <code>%</code>, <code>&lt;&lt;</code>, <code>&gt;&gt;</code>, <code>&amp;</code>, <code>|</code>, <code>^</code>, <code>~</code>, <code>++</code>, <code>--</code> resultará em um <code>TypeError</code> quando um dos operandos for um array, um recurso ou um objeto não sobrecarregado. A única exceção é a operação de união <code>array + array</code>, que continua sendo suportada.
+</p>
+
+<p>
+  Para a lista completa de operações, consulte o <a href="https://github.com/php/php-src/blob/master/Zend/tests/operator_unsupported_types.phpt">código-fonte de teste interno do PHP</a>.
+</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<body>
+Relata o uso de anotações de parâmetro de valor sem um alvo explícito, onde o alvo padrão pode se tornar inesperado e indesejado.
+<p>
+    Anotações de parâmetro de valor sem um alvo explícito antes do Kotlin 2.1.20 são aplicadas apenas ao próprio parâmetro.
+    Para anotações aplicáveis tanto a parâmetros quanto a campos ou propriedades, esse comportamento pode ser inesperado quando a anotação é usada em um parâmetro de construtor <code>val</code> ou <code>var</code>.
+</p>
+<p>
+Exemplo:
+</p>
+<pre><code>
+class Example(
+    @Param val foo: String,
+    @ParamField val bar: String, // o campo não está anotado, apenas o parâmetro está
+    @ParamProperty val baz: String, // a propriedade não está anotada, apenas o parâmetro está
+    @ParamProperty boo: String,
+)
+
+@Target(AnnotationTarget.VALUE_PARAMETER)
+annotation class Param
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD)
+annotation class ParamField
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.PROPERTY)
+annotation class ParamProperty
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+class Example(
+    @Param val foo: String,
+    @field:ParamField val bar: String,
+    @property:ParamProperty val baz: String,
+    @ParamProperty boo: String,
+)
+
+@Target(AnnotationTarget.VALUE_PARAMETER)
+annotation class Param
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.FIELD)
+annotation class ParamField
+@Target(AnnotationTarget.VALUE_PARAMETER, AnnotationTarget.PROPERTY)
+annotation class ParamProperty
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

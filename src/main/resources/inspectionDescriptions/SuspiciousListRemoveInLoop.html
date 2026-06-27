@@ -1,0 +1,29 @@
+<html>
+<body>
+Reporta chamadas <code>list.remove(index)</code> em loops de contagem crescente.
+<p>
+  Isso é suspeito porque, após a remoção, a lista encurta e o próximo elemento é ignorado. Uma correção simples é decrementar a variável de índice após a remoção, mas uma abordagem mais robusta seria remover por meio de um iterador ou usar o método <code>removeIf()</code> (Java 8 e superior).
+  Se você não espera que o <code>remove()</code> seja chamado mais de uma vez no loop, considere adicionar um <code>break</code> após a chamada.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>  public static void main(String[] args) {
+    process(new ArrayList&lt;>(
+      Arrays.asList("1", "2", "|", "3", "4")));
+  }
+
+  static void process(List&lt;String&gt; list) {
+    for (int i = 0; i &lt; list.size(); i++) {
+      if (list.get(i).equals("|")) {
+        list.remove(i);
+        continue;
+      }
+      System.out.println(list.get(i));
+    }
+  }
+</code></pre>
+<p>O código parece que imprimirá <code>1 2 3 4</code>, mas, na verdade, o <code>3</code> será ignorado na saída.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.2</small></p>
+</body>
+</html>

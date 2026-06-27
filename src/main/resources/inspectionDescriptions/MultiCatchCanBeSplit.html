@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata seções <code>catch</code> múltiplas e sugere dividi-las em blocos <code>catch</code> separados.
+<p>Exemplo:</p>
+<pre><code>
+  try {
+    int i = getIndex();
+  } catch (NullPointerException|IndexOutOfBoundsException e) {
+    e.printStackTrace();
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  try {
+    int i = getIndex();
+  } catch (NullPointerException e) {
+    e.printStackTrace();
+  } catch (IndexOutOfBoundsException e) {
+    e.printStackTrace();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata referências não resolvidas em comentários Javadoc.
+<p>No exemplo a seguir, o parâmetro <code>someParam</code> será destacado porque está ausente:</p>
+<pre><code>
+class A {
+    /**
+     * @param someParam descrição
+     **/
+    void foo() {
+    }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Desative a opção <b>Relatar símbolos inacessíveis</b> para ignorar tags que referenciam parâmetros de método, classes, campos e métodos ausentes.</p>
+
+</body>
+</html>

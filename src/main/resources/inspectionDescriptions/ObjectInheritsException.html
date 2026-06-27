@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata objetos que herdam de <code>Exception</code>, pois as exceções são inerentemente stateful, contendo informações como rastreamentos de pilha.
+<p><b>Exemplo:</b></p>
+<pre><code>
+object MyEx: Exception()
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+class MyEx: Exception()
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata chamadas a funções e métodos específicos que não tratam o resultado da chamada.
+<p>A API de tais funções sugere que o propósito principal de chamá-las deve ser obter o valor de retorno e processá-lo, em vez de focar em efeitos colaterais. Chamadas que não tratam o resultado da chamada podem indicar um uso indevido da API.</p>
+<p>Exemplo:</p>
+<pre><code>fmt.Errorf("error: %s", reason) // o erro construído será ignorado</code></pre>
+<p>Após aplicar o ajuste rápido <b>Introduzir variável local</b>:</p>
+<pre><code>err := fmt.Errorf("error: %s", reason)</code></pre>
+</body>
+</html>

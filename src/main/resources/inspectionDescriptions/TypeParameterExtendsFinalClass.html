@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata parâmetros de tipo declarados para estender uma classe <code>final</code>.
+<p>Como as classes <code>final</code> não podem ser estendidas, sugere-se substituir o parâmetro de tipo pelo tipo da classe <code>final</code> especificada.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>void</b> foo() {
+    List&lt;? <b>extends</b> Integer&gt; list; // Aviso: a classe Integer é uma classe final
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>void</b> foo() {
+    List&lt;Integer&gt; list;
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

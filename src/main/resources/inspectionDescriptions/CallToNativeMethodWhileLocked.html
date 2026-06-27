@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas a métodos <code>native</code> dentro de blocos ou métodos <code>synchronized</code>.
+<p>
+  Se possível, recomenda-se manter as chamadas a métodos <code>native</code> fora de contextos sincronizados, pois tais chamadas induzem trocas de contexto dispendiosas e podem causar problemas de desempenho.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  native void nativeMethod();
+
+  void example(){
+    synchronized (lock){
+      nativeMethod();//aviso
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

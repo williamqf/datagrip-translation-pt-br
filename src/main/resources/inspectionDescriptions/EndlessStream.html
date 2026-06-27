@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata operações sem curto-circuito que consomem streams infinitos. Tais operações só podem ser concluídas lançando uma exceção.
+<p>Exemplo:</p>
+<pre><code>
+  Stream.iterate(0, i -> i + 1).collect(Collectors.toList())
+</code></pre>
+</body>
+</html>

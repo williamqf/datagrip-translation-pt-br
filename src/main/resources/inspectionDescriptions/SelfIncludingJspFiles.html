@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata quaisquer diretivas include em um arquivo JSP que referenciem o próprio arquivo JSP que as contém.<br/>
+
+<p><b>Exemplo de arquivo JSP chamado main.jsp:</b></p>
+<pre><code>
+  &lt;jsp:include page="./main.jsp" /&gt; // Erro: tentando incluir o arquivo que o contém
+  ...
+</code></pre><br/>
+
+<!-- tooltip end -->
+<p>
+  <b>Nota</b>: Essa auto-inclusão resultará em recursão infinita, portanto, o arquivo JSP não poderá ser compilado.
+</p>
+</body>
+</html>

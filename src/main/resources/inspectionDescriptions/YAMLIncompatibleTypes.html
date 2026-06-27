@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata incompatibilidades entre o tipo de um valor escalar em um arquivo YAML e os tipos de valores em posições semelhantes.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+myElements:
+  - value1
+  - value2
+  - false # &lt;- relatado porque é um booleano, enquanto os outros valores são strings
+</code></pre>
+</body>
+</html>

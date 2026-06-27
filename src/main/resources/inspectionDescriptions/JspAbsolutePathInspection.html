@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata caminhos absolutos em arquivos JSP.
+<p>Caminhos absolutos são proibidos em JSP porque não serão resolvidos se o contexto da aplicação não estiver vazio.</p>
+<p>A correção rápida adicionará um prefixo dinâmico ao caminho.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;%@page contentType=&quot;text/html; ISO-8859-1&quot; %&gt;
+
+  &lt;a href=&quot;/hey.jsp&quot;&gt;hey&lt;/a&gt;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  &lt;%@page contentType=&quot;text/html; ISO-8859-1&quot; %&gt;
+
+  &lt;a href=&quot;${pageContext.request.contextPath}/hey.jsp&quot;&gt;hey&lt;/a&gt;
+</code></pre>
+</body>
+</html>

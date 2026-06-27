@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata chamadas de obtenção de serviço que podem ser substituídas por chamadas aos métodos <code>static</code> <code>getInstance()</code> ou <code>getInstance(Project)</code> existentes.
+<p>Exemplo (Java):</p>
+<pre><code lang="java">
+@Service
+public class MyAppService {
+  public static MyAppService getInstance() {
+    return ApplicationManager.getApplication().getService(MyAppService.class);
+  }
+}
+
+@Service(Service.Level.PROJECT)
+public class MyProjectService {
+  public static MyProjectService getInstance(Project project) {
+    return project.getService(MyProjectService.class);
+  }
+}
+</code></pre>
+<pre><code lang="java">
+// Incorreto:
+MyAppService applicationService = ApplicationManager.getApplication().getService(MyAppService.class);
+MyProjectService projectService = project.getService(MyProjectService.class);
+</code></pre>
+<pre><code lang="java">
+// Correto:
+MyAppService applicationService = MyAppService.getInstance();
+MyProjectService projectService = MyProjectService.getInstance(project);
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small>
+</body>
+</html>

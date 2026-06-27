@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata quaisquer instâncias de <code>java.util.Optional&lt;T&gt;</code>, <code>java.util.OptionalDouble</code>, <code>java.util.OptionalInt</code>, <code>java.util.OptionalLong</code> ou <code>com.google.common.base.Optional</code> sendo usados como tipos de campos ou parâmetros.
+<p>O <code>Optional</code> foi projetado para fornecer um mecanismo limitado para tipos de retorno de métodos de biblioteca onde há a necessidade de uma forma clara de representar "nenhum resultado".</p>
+<p>Usar campos com o tipo <code>java.util.Optional</code> também é problemático se a classe precisar ser <code>Serializable</code>, pois o <code>java.util.Optional</code> não é serializável.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class MyClass {
+    Optional&lt;String&gt; name; // campo Optional
+
+    // parâmetro Optional
+    void setName(Optional&lt;String&gt; name) {
+      this.name = name;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

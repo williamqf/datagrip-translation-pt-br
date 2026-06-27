@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Relata casos quando o ator possui estado mutável.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import akka.actor._
+
+  class ActorImpl(private var counter: Int = 0) extends AbstractActor {
+    override def receive = {
+      case _ => counter += 1
+    }
+  }    
+</code></pre>
+<p>Após a correção rápida:</p>  
+<pre><code>
+  import akka.actor._
+  
+  class ActorImpl(private val counter: Int = 0) extends AbstractActor {
+    override def receive = onMessage(counter)
+  
+    private def onMessage(counter: Int): Receive = {
+      case _ => context.become(onMessage(counter + 1))
+    }
+  }
+</code></pre>  
+<!-- tooltip end -->
+</body>
+</html>

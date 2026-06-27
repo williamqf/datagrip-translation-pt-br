@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata classes que contêm uma referência a uma de suas subclasses.
+Tais referências podem ser confusas e violar várias regras de design orientado a objetos.
+<p>Exemplo:</p>
+<pre><code>
+  class Entity {
+    // Aviso: a classe referencia sua subclasse
+    void compare(SimpleEntity entity) {
+      ...
+    }
+  }
+  class SimpleEntity extends Entity {
+    ...
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

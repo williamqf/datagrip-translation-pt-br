@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata variáveis locais declaradas com a palavra-chave <code>var</code> que nunca são modificadas.
+<p>O Kotlin incentiva o uso da palavra-chave <code>val</code> para declarar variáveis efetivamente imutáveis, garantindo que seus valores nunca mudem.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun example() {
+      var primeNumbers = listOf(1, 2, 3, 5, 7, 11, 13)
+      var fibonacciNumbers = listOf(1, 1, 2, 3, 5, 8, 13)
+      print("Same numbers: " + primeNumbers.intersect(fibonacciNumbers))
+  }
+</code></pre>
+<p>A correção rápida substituirá a palavra-chave <code>var</code> por <code>val</code>:</p>
+<pre><code>
+  fun example() {
+      val primeNumbers = dummyListOf(1, 2, 3, 5, 7, 11, 13)
+      val fibonacciNumbers = dummyListOf(1, 1, 2, 3, 5, 8, 13)
+      print("Same numbers: " + primeNumbers.intersect(fibonacciNumbers))
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata verificações de type guard <code>typeof</code> ou <code>instanceof</code> que não são íntegras.
+Um type guard <code>typeof x</code> pode não ser íntegro em um dos dois casos a seguir:
+<ul>
+<li><code>typeof x</code> nunca corresponde ao valor especificado (por exemplo, <code>typeof x === 'number'</code> quando <code>x</code> é do tipo 'string | boolean')</li>
+<li><code>typeof x</code> sempre corresponde ao valor especificado (por exemplo, <code>typeof x === 'string'</code> quando <code>x</code> é do tipo 'string')</li>
+</ul>
+<br>
+Um type guard <code>x instanceof A</code> pode não ser íntegro em um dos dois casos a seguir:
+<ul>
+  <li>O tipo de <code>x</code> não está relacionado a <code>A</code></li>
+  <li>O tipo de <code>x</code> é <code>A</code> ou um subtipo de <code>A</code></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata o uso redundante de <code>await</code>, como <code>await await</code>, ou a espera por resultados que não são promises.
+<!-- tooltip end -->
+<p>
+  Quando a opção "Relatar para promises" é selecionada, sugere a remoção do <code>await</code> antes de uma promise quando aplicável (em instruções <code>return</code> e quando <code>Promise.resolve/reject</code> estiver presente).
+</p>
+<p>A remoção do <code>await</code> em tais contextos causa dois problemas.</p>
+<ul>
+  <li>
+    Envolver o código com <code>try-catch</code> e esquecer de adicionar o <code>await</code> alterará a semântica do código sem que você perceba.
+  </li>
+  <li>
+    O uso de um <code>await</code> explícito pode impedir que o runtime V8 forneça <a href="http://bit.ly/v8-zero-cost-async-stack-traces">rastreamentos de pilha assíncronos</a>.
+  </li>
+</ul>
+</body>
+</html>

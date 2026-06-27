@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata métodos que possuem a mesma assinatura de um método inacessível de uma superclasse, por exemplo, um método <code>private</code> ou um método <code>package-private</code> de uma superclasse em outro pacote.
+<p>
+  Tais nomes de métodos podem ser confusos, pois o método na subclasse pode parecer uma sobrescrita, quando na verdade está apenas ocultando um método inacessível da superclasse.
+  Além disso, se a visibilidade deste método na superclasse for alterada futuramente, isso poderá alterar silenciosamente a semântica da subclasse ou resultar em um erro de compilação.
+</p>
+<p>A correção rápida sugere renomear o método.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Super {
+    private void test() {
+    }
+  }
+
+  public class Sub extends Super {
+    void test() { // Tornar 'Super.test()' public resultará em um erro de compilação
+                  // Tornar 'Super.test()' package-private fará com que 'Sub.test()' se torne uma sobrescrita
+    }
+  }</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

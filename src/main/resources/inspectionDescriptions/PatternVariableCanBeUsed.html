@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata declarações de variáveis locais que podem ser substituídas por variáveis de padrão, que geralmente são mais compactas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (obj instanceof String) {
+    String str = (String) obj;
+    System.out.println(str);
+  }
+</code></pre>
+<p>Pode ser substituído por:</p>
+<pre><code>
+  if (obj instanceof String str) {
+    System.out.println(str);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.1</small></p>
+</body>
+</html>

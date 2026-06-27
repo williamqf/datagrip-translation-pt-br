@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Relata a autoconfiguração (autowiring) incorreta de Spring Beans configurados em um contexto de aplicação XML.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+public interface FooInterface {...}
+@Component public class FooBean implements FooInterface {...}
+@Component public class OtherBean implements FooInterface {...}
+
+@Component
+public class MyComponent {
+	 public void setFooInterface(FooInterface foo) {...}
+}
+</code></pre>
+<pre><code lang="xml">
+&lt;beans&gt;
+	&lt;bean class="beans.OtherBean" id="otherBean"/&gt;
+	&lt;bean class="beans.FooBean" id="fooBean"/&gt;
+
+	&lt;bean autowire="byType" class="beans.MyComponent" id="foo"/&gt; &lt;!-- Relata "Não foi possível realizar o autowiring. Existe mais de um bean do tipo 'FooInterface'." --&gt;
+                                                                   &lt;!--          Beans: otherBean,fooBean. Propriedades: 'fooInterface' " --&gt;
+&lt;/beans&gt;
+</code></pre>
+</body>
+</html>

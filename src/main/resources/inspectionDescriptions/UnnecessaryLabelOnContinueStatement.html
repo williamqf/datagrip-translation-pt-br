@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata instruções <code>continue</code> com rótulos desnecessários.
+<p>Exemplo:</p>
+<pre><code>
+  LABEL:
+  while (a &gt; b) {
+    System.out.println("Hello");
+    // O código abaixo é a última instrução dentro do loop,
+    // portanto, o rótulo e o continue desnecessários podem ser removidos
+    continue LABEL;
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

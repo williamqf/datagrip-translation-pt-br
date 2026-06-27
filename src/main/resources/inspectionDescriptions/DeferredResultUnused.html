@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata chamadas de função com o tipo de resultado <code>Deferred</code> cujo valor de retorno não é utilizado.
+<p>Se o valor de retorno <code>Deferred</code> não for utilizado, o local da chamada não aguardará a conclusão desta função.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun calcEverythingAsync() = CompletableDeferred(42)
+
+  fun usage() {
+      calcEverythingAsync()
+  }
+</code></pre>
+
+A chamada <code>calcEverythingAsync()</code> não é utilizada aqui e não é aguardada com <code>await()</code>, o que é suspeito.
+<!-- tooltip end -->
+</body>
+</html>

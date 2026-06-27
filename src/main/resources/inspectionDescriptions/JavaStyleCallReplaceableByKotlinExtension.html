@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata locais onde as extensões Kotlin do Spring podem ser usadas em vez de chamadas com argumentos <code>::class.java</code>.
+
+<p>
+  O Spring fornece várias extensões Kotlin para métodos Java genéricos com parâmetros de token de tipo (type token).
+  Esta inspeção relata usos da API do Spring onde uma chamada no estilo Java pode ser substituída por uma chamada de extensão Kotlin sem alterar a semântica.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+import org.springframework.core.env.PropertyResolver
+
+fun example(resolver: PropertyResolver): String? =
+    resolver.getProperty("test.property", String::class.java)
+</code></pre>
+
+<p><b>Após a aplicação da correção:</b></p>
+<pre><code>
+import org.springframework.core.env.PropertyResolver
+import org.springframework.core.env.getProperty
+
+fun example(resolver: PropertyResolver): String? =
+    resolver.getProperty&lt;String&gt;("test.property")
+</code></pre>
+</body>
+</html>

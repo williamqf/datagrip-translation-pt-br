@@ -1,0 +1,25 @@
+<html>
+<body>
+Reporta expressões <code>return</code> sem rótulo dentro de lambdas inline.
+<p>Tais expressões podem ser confusas, pois pode não estar claro a qual escopo o <code>return</code> pertence.</p>
+<p>A correção rápida <b>Alterar para return@...</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      list.forEach {
+          // Esta expressão de retorno retorna da função test
+          // Pode ser alterada para return@forEach para mudar o escopo
+          if (it == 10) return
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      list.forEach {
+          if (it == 10) return@test
+      }
+  }
+</code></pre>
+</body>
+</html>

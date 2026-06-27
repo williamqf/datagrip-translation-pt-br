@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas redundantes a wrappers de coleção não modificáveis da classe <code>Collections</code>.
+<p>Tais wrappers tornam-se redundantes se o argumento passado para o wrapper de coleção não modificável já for imutável.</p>
+<p>Exemplo:</p>
+<pre><code>
+  List&lt;String&gt; x = Collections.unmodifiableList(Collections.singletonList("abc"));
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;String&gt; x = Collections.singletonList("abc");
+</code></pre>
+<p>Para detectar métodos que retornam coleções não modificáveis, esta inspeção utiliza as anotações <code>org.jetbrains.annotations.Unmodifiable</code>
+e <code>org.jetbrains.annotations.UnmodifiableView</code>.
+Utilize-as para estender a inspeção aos seus próprios wrappers de coleção não modificáveis.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata herdeiros diretos de uma <code>sealed class</code> que não possuem estado nem o método <code>equals()</code> sobrescrito.
+<p>É altamente recomendável sobrescrever o <code>equals()</code> para garantir a estabilidade da comparação ou converter a <code>class</code> em um <code>object</code> para obter o mesmo efeito.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  sealed class Receiver {
+      class Everyone : Receiver()
+      class User(val id: Int) : Receiver()
+  }
+</code></pre>
+<p>A correção rápida converterá a <code>class</code> em um <code>object</code>:</p>
+<pre><code>
+  sealed class Receiver {
+      object Everyone : Receiver()
+      class User(val id: Int) : Receiver()
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

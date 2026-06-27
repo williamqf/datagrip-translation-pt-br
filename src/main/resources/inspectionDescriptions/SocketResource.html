@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata recursos de socket que não foram fechados com segurança. Os recursos de socket relatados por esta inspeção incluem <code>java.net.Socket</code>, <code>java.net.DatagramSocket</code> e <code>java.net.ServerSocket</code>.
+<p>
+  Por padrão, esta inspeção assume que os recursos podem ser fechados por qualquer método que contenha 'close' ou 'cleanup' em seu nome.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  byte[] getMessage(ServerSocket socket) throws IOException {
+    Socket client = socket.accept(); // O socket não foi fechado
+    return client.getInputStream().readAllBytes();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção usando as seguintes opções:
+</p>
+<ul>
+  <li>
+    Se deve permitir a abertura de sockets dentro de blocos <code>try</code>.
+    Este estilo é menos desejável por ser mais verboso do que abrir o recurso antes do bloco <code>try</code>.
+  </li>
+  <li>
+    Se o recurso pode ser fechado por qualquer chamada de método na qual o recurso seja passado como um argumento.
+  </li>
+</ul>
+</body>
+</html>

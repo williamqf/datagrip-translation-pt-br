@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata nomes duplicados de aliases de coluna na lista SELECT.
+<p>Exemplo (Sybase ASE):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c INT);
+
+SELECT a AS x, b AS x FROM t1;</code></pre>
+<p>O alias <code>x</code> é usado para as colunas <code>a</code> e <code>b</code>. Essas atribuições são realçadas como erros porque você não pode usar o mesmo alias para várias colunas no Sybase ASE.</p>
+</body>
+</html>

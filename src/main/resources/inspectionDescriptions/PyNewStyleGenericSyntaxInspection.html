@@ -1,0 +1,36 @@
+<html>
+<body>
+<p>Relata o uso inválido da sintaxe de parâmetros de tipo da <a href="https://www.python.org/dev/peps/pep-0695/">PEP 695</a>.
+<p>
+  Procura os seguintes problemas em definições de funções e classes, bem como em instruções de alias de tipo de novo estilo:
+<ul>
+  <li>Extensão de <code>typing.Generic</code> em classes genéricas de novo estilo</li>
+  <li>Extensão de <code>typing.Protocol</code> parametrizado em classes genéricas de novo estilo</li>
+  <li>Uso de limites superiores e restrições genéricas com parâmetros de tipo para <code>ParamSpec</code> e <code>TypeVarTuple</code></li>
+  <li>Mistura de variáveis de tipo tradicionais e de novo estilo</li>
+  <li>Uso de variáveis de tipo tradicionais em aliases de tipo de novo estilo</li>
+</ul>
+
+<p>
+  Exemplos:
+</p>
+<pre><code>
+  from typing import Generic
+
+  class Example[T](Generic[T]): ... # Uma classe com uma lista de parâmetros de tipo não deve estender 'Generic'
+</code></pre>
+
+<pre><code>
+  class Example[T: (list[S], str)]: ... # Tipos genéricos não são permitidos dentro de restrições e limites de parâmetros de tipo
+</code></pre>
+
+<pre><code>
+  from typing import TypeVar
+
+  K = TypeVar("K")
+
+  class ClassC[V]:
+      def method2[M](self, a: M, b: K) -> M | K: ... # Não é permitido misturar TypeVars tradicionais e de novo estilo
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata entradas de declaração de desestruturação que correspondem a nomes de propriedades diferentes da data class desestruturada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  data class Foo(val a: String, val b: Int, val c: String)
+
+  fun bar(f: Foo) {
+      val (a, c) = f
+  }
+</code></pre>
+<p>A correção rápida altera o nome da variável para corresponder ao nome do campo da classe correspondente:</p>
+<pre><code>
+  data class Foo(val a: String, val b: Int, val c: String)
+
+  fun bar(f: Foo) {
+      val (a, b) = f
+  }
+</code></pre>
+</body>
+</html>

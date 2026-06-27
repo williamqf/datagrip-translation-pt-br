@@ -1,0 +1,41 @@
+<html>
+<body>
+Relata o código que nunca é alcançado com base na análise de fluxo de dados.
+Pode ser o resultado de uma condição anterior que é sempre <code>true</code> ou sempre <code>false</code>, um corpo de loop inacessível ou uma seção <code>catch</code>. Geralmente (embora nem sempre), o código inacessível é o resultado de avisos anteriores, portanto, verifique os avisos das inspeções "Problemas de nulidade e fluxo de dados", "Valores constantes" ou "Operações redundantes em contêineres vazios" para entender melhor a causa.
+<p>Exemplo:</p>
+<pre><code>
+  void finishApplication() {
+    System.exit(0);
+    System.out.println("Application is terminated"); // código inacessível
+  }
+</code></pre>
+<p>
+  Observe que esta inspeção depende da inferência de contratos de método. Em particular, se você chamar um método <code>static</code> ou <code>final</code> que sempre lança uma exceção, o contrato "sempre falha" será inferido e o código após a chamada do método será considerado inacessível. Exemplo:
+</p>
+<pre><code>
+  void run() {
+    performAction();
+    System.out.println("Action is performed"); // código inacessível
+  }
+  
+  static void performAction() {
+    throw new AssertionError();
+  }
+</code></pre>
+<p>
+  Isso pode levar a falsos positivos se qualquer tipo de pós-processamento de código for usado, por exemplo, se um processador de anotações posteriormente substituir o corpo do método por algo útil. Para evitar avisos de falso positivo, suprima a inferência automática de contrato usando a anotação explícita <code>@org.jetbrains.annotations.Contract</code> do pacote <code>org.jetbrains:annotations</code>:
+</p>
+<pre><code>
+  void run() {
+    performAction();
+    System.out.println("Action is performed"); // não há mais aviso
+  }
+
+  @Contract("-> _") // a implementação será substituída
+  static void performAction() {
+    throw new AssertionError();
+  }
+</code></pre>
+<p><small>Novo na versão 2024.1</small></p>
+</body>
+</html>

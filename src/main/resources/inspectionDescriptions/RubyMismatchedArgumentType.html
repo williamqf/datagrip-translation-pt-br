@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata chamadas de método e <code>yield</code> nas quais o tipo inferido do argumento não corresponde ao tipo esperado do parâmetro. Os tipos de parâmetro esperados são obtidos de qualquer um dos seguintes:
+<ul>
+  <li>Assinaturas de tipo RBS</li>
+  <li>Assinaturas de tipo Sorbet</li>
+  <li>Tags <code>@param</code> do YARD</li>
+</ul>
+<p>Exemplo:</p>
+<pre>
+<code># @param [Integer] param
+def method(param) end
+
+method([1, 2])
+</code>
+</pre>
+</body>
+</html>

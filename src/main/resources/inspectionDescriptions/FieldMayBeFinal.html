@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata campos que podem ser definidos como <code>final</code> com segurança.
+Todos os campos <code>final</code> devem possuir um valor que não muda, tornando o código mais fácil de raciocinar sobre.
+<p>Para evitar um custo de análise excessivo, esta inspeção relata apenas se o campo possui o modificador <code>private</code> ou se é definido em uma classe local ou anônima.
+  Um campo pode ser <code>final</code> se:
+<ul>
+  <li>O campo for <code>static</code> e for inicializado uma única vez em sua declaração ou em um inicializador <code>static</code>.</li>
+  <li>O campo não for <code>static</code> e for inicializado uma única vez em sua declaração, em um inicializador de instância ou em cada construtor</li>
+</ul>
+e o campo não for modificado em nenhum outro lugar.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Person {
+    private String name; // pode ser final
+
+    Person(String name) {
+      this.name = name;
+    }
+
+    public String getName() {
+      return name;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public class Person {
+    private final String name;
+
+    Person(String name) {
+      this.name = name;
+    }
+
+    public String getName() {
+      return name;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use o botão "Anotações" para modificar a lista de anotações que assumem a escrita implícita de campos.
+</p>
+</body>
+</html>

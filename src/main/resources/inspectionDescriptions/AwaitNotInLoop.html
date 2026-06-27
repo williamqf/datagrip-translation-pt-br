@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata chamadas a <code>java.util.concurrent.locks.Condition.await()</code> que não são feitas dentro de um loop.
+<p>
+  <code>await()</code> e métodos relacionados são geralmente usados para suspender uma thread até que uma determinada condição se torne verdadeira.
+  As threads podem ser despertadas por diferentes motivos, portanto, a condição deve ser verificada após o retorno da chamada a <code>await()</code>.
+  O uso de um loop é uma maneira simples de realizar essa verificação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    released.await();
+  }
+</code></pre>
+<p>O código adequado deve ser semelhante a:</p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    while (acquired) {
+      released.await();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

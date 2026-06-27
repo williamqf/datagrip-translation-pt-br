@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata comentários Javadoc que não pertencem a nenhuma classe, método ou campo.
+A ferramenta Javadoc ignora comentários Javadoc suspensos e não os inclui na documentação HTML gerada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class A {
+    /**
+     * Comentário suspenso
+     */
+    /**
+     * Javadoc de método
+     */
+     public void m(){}
+  }
+</code></pre>
+<p>É possível excluir completamente tais comentários ou convertê-los em comentários de bloco por meio de uma correção rápida. Após a aplicação da correção rápida:</p>
+<pre><code>
+  class A {
+    /*
+      Comentário suspenso
+    */
+    /**
+     * Javadoc de método
+     */
+    public void m(){}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar comentários de cabeçalho de arquivo no formato JavaDoc</b> para ignorar comentários no início de arquivos Java.
+Estes são geralmente mensagens de copyright.
+</body>
+</html>

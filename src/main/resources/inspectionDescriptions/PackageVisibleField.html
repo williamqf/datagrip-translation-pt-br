@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata campos declarados sem nenhum modificador de acesso (também conhecido como <code>package-private</code>).
+<p>Constantes (ou seja, campos marcados como <code>static</code> e <code>final</code>) não são relatadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class A {
+    Object object;             // Aviso
+    final static int MODE = 0; // Constante, nenhum aviso
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata possíveis escapes de <code>this</code> durante a inicialização do objeto. Um escape ocorre quando <code>this</code> é usado como um argumento de método ou em uma atribuição de objeto dentro de um construtor ou inicializador. Tais escapes podem causar bugs difíceis de detectar, pois o objeto torna-se disponível em um contexto onde a sua inicialização completa não é garantida.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    {
+      System.out.println(this);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relatórios de verificação explícita de limites de índice.</p>
+
+<p>O quick-fix usa <code>lift</code> em vez disso.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var x: Seq[Int]
+  if (i &lt; x.length) Some(x(i)) else None
+</code></pre>
+<p>Após a aplicação do quick-fix:</p>
+<pre><code>
+  var x: Seq[Int]
+  x.lift(i)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata chamadas de método vararg que usam um operador ternário com ramos de array e não-array mistos.
+<p>
+No tempo de compilação, ambos os ramos são envolvidos em arrays. Como resultado, o ramo de array torna-se um array bidimensional, o que pode indicar um problema.
+</p>
+<p>
+A correção rápida envolverá o ramo que não é array em um array para evitar que o compilador realize a conversão.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+    static void bar(boolean flag) {
+        Object[] a = {1, 2};
+        Object b = "hello";
+        foo(flag ? a : b);
+    }
+    static void foo(Object... obj) {
+    }
+</code></pre>
+
+<p>Após a aplicação da correção rápida: </p>
+<pre><code>
+    static void bar(boolean flag) {
+        Object[] a = {1, 2};
+        Object b = "hello";
+        foo(flag ? a : new Object[]{b});
+    }
+    static void foo(Object... obj) {
+    }
+</code></pre>
+
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

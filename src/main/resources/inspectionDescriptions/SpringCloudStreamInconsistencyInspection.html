@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata erros de inconsistência em métodos manipuladores de stream.</p>
+<p>
+  Os métodos manipuladores de stream de entrada e saída anotados com <code>@StreamListener</code> ou <code>@StreamEmitter</code> possuem várias restrições.
+  A violação dessas restrições resultará em erros em tempo de execução.
+</p>
+<p>Exemplos:</p>
+<ul>
+  <li>
+    Canais definidos no atributo <code>value</code> de <code>@StreamListener</code> nunca podem ser combinados com parâmetros de método anotados com <code>@Input</code> ou <code>@Output</code>
+  </li>
+  <li>Um canal de entrada deve ser especificado para métodos anotados com <code>@StreamListener</code></li>
+  <li>Um canal de saída deve ser especificado para métodos que podem retornar um valor</li>
+  <li>Um canal de saída não pode ser especificado para métodos que não retornam um valor</li>
+  <li>O atributo <code>condition</code> de <code>@StreamListener</code> não pode ser definido para métodos que retornam um valor</li>
+</ul>
+<!-- tooltip end -->
+</body>
+</html>

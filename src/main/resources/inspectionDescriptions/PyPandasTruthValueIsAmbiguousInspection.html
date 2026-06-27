@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>
+  Relata o uso ambíguo de um <code>DataFrame</code> ou <code>Series</code> do pandas em um contexto booleano (por exemplo, <code>if</code>, <code>while</code> ou expressões lógicas).
+  Isso geralmente resulta em um erro de tempo de execução: <code>ValueError: The truth value of a DataFrame is ambiguous</code>.
+</p>
+
+<p>
+  No pandas, expressões como <code>df</code> ou <code>df == other</code> não retornam um único valor booleano, mas sim um DataFrame ou Series de booleanos. O uso dessas expressões no fluxo de controle sem uma redução explícita (por exemplo, <code>.any()</code>, <code>.all()</code> ou <code>.empty</code>) é ambíguo e causará uma exceção.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre style="font-family: monospace">
+if df:  # ❌ Lança ValueError: The truth value of a DataFrame is ambiguous
+    print("DataFrame exists")
+
+if not df.empty:  # ✅ Verifica se o DataFrame possui alguma linha
+    print("DataFrame exists")
+</pre>
+
+<p>
+  Após a aplicação da correção rápida, a condição será substituída por um redutor apropriado ao contexto, como <code>.any()</code>, <code>.all()</code> ou <code>.empty</code>.
+</p>
+
+</body>
+</html>

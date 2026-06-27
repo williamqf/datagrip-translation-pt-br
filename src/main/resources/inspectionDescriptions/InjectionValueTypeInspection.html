@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>Relata tipos de pontos de injeção inválidos (propriedades e argumentos do construtor).</p>
+
+<p>Os tipos de pontos de injeção permitidos são: <code>ref</code>, <code>idref</code>, qualquer tipo de coleção, beans internos, etc.</p>
+
+<p><b>Exemplo:</b></p>
+
+<pre><code lang="java">
+  public class InjectionValueTypes{
+  public List&lt;MyBean&gt; setListBeans() {...}
+    public MyBean setMyBean() {...}
+    }
+  }
+</code></pre>
+<pre><code lang="xml">
+  &lt;beans&gt;
+    &lt;bean class="MyBean" id="myBean"/&gt;
+    &lt;bean class="ErrTypeBean" id="errTypeBean"/&gt;
+    &lt;bean class="InjectionValueTypes" id="kt"&gt;
+      &lt;property name="myBean" ref="errTypeBean"/&gt;
+      &lt;!-- Relata "A propriedade do tipo 'MyBean' não pode ser injetada por 'ErrTypeBean'" --&gt;
+      &lt;property name="listBeans"&gt;
+        &lt;list&gt;
+          &lt;idref local="myBean"/&gt;
+          &lt;ref bean="myBean"/&gt;
+          &lt;ref bean="errTypeBean"/&gt; &lt;!-- Relata "Não é possível adicionar à coleção do tipo 'MyBean'" --&gt;
+          &lt;bean class="ErrTypeBean"/&gt; &lt;!-- Relata "O Bean deve ser do tipo 'MyBean'" --&gt;
+        &lt;/list&gt;
+      &lt;/property&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes que não possuem um construtor que não aceita argumentos (ou seja, sem parâmetros).
+Construtores sem argumentos são necessários em certos contextos. Por exemplo, se for necessário usar reflexão para criar uma classe.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Bean {
+    private String name;
+
+    public Bean(String name) {
+      this.name = name;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a caixa de seleção abaixo para ignorar classes sem um construtor explícito.
+  O compilador fornece um construtor padrão sem argumentos para tais classes.
+</body>
+</html>

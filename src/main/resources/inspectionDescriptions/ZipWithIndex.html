@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata o empacotamento manual do índice ao invés de usar <code>zipWithIndex</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var seq: Seq[Int]
+  seq.zip(seq.indices)
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  var seq: Seq[Int]
+  seq.zipWithIndex
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

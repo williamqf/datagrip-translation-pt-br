@@ -1,0 +1,128 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td><font face="verdana" size="-1">
+      Define o template usado para gerar JavaDoc para os campos, por exemplo,
+      quando a ação de intenção <i>Adicionar Javadoc</i> é aplicada.<br><br>
+
+      Junto com expressões e comentários Java, você também pode usar as variáveis predefinidas
+      que serão então expandidas como macros para os valores correspondentes.<br><br>
+
+      Utilizando a directiva <i>#parse</i>, você pode incluir templates a partir da guia <b>Inclusões</b>. Para incluir um template,
+      especifique o nome completo do template como um parâmetro entre aspas (por exemplo, <i>#parse("File Header.java")</i>).
+    </font></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas assumem os seguintes valores:</font></td>
+  </tr>
+
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${ELEMENT_NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome do membro da classe que é proprietário do JavaDoc gerado</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CONTAINING_CLASS}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome da classe pai</font></td>
+  </tr>
+  <!--Copied from file-->
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PACKAGE_NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome do pacote no qual um novo enum é criado</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome do novo enum especificado por você na caixa de diálogo <b>Criar nova classe</b></font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${USER}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome de login do sistema do usuário atual</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DATE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Data atual do sistema</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${TIME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Hora atual do sistema</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${YEAR}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Ano atual</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${MONTH}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Mês atual</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${MONTH_NAME_SHORT}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Primeiras 3 letras do nome do mês atual (Jan, Fev, etc.)</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${MONTH_NAME_FULL}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome completo do mês atual (Janeiro, Fevereiro, etc.)</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DAY}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Dia atual do mês</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${HOUR}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Hora atual</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${MINUTE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Minuto atual</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROJECT_NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome do projeto atual</font></td>
+  </tr>
+</table>
+</body>
+</html>
+
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td><font face="verdana" size="-1">
+      「<i>Adicionar Javadoc</i>」 ação de intenção é aplicada quando os campos do JavaDoc são gerados, como por exemplo, nos casos em que<br><br>
+
+      Em adição às expressões e comentários Java, você também pode utilizar variáveis definidas. Essas variáveis podem depois ser expandidas em seus respectivos valores, tal como ocorre com as macros.<br><br>
+
+      Com o uso da diretiva <i>#parse</i>, você também pode incluir templates a partir da guia「<b>Inclusões</b>」. Para incluir um modelo, especifique o nome completo do modelo como um parâmetro entre aspas (por exemplo, <i>#parse("File Header.java")</i>).
+    </font></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis definidas assumem os seguintes valores:</font></td>
+  </tr>
+
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${ELEMENT_NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome do membro da classe que contém o JavaDoc gerado</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CONTAINING_CLASS}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face

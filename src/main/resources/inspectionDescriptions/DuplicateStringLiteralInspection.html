@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata literais de string duplicados em todo o projeto que não foram alterados.
+Duas correções rápidas são fornecidas. Uma delas introduz uma constante para a string duplicada e a utiliza em todo o projeto, enquanto a outra exibe todos os locais onde o literal de string específico foi duplicado.
+<p>Exemplo:</p>
+<pre><code>
+  class C1 { String CONST1 = "duplicate string"; }
+  class C2 { String CONST2 = "duplicate string"; }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use o campo <b>Comprimento mínimo da string</b> para definir o tamanho mínimo da string necessário para detectar duplicatas.</li>
+  <li>Use a opção <b>Ignorar expressões @PropertyKey</b> para ignorar strings passadas como argumentos para métodos anotados com <code>org.jetbrains.annotations.PropertyKey</code>.</li>
+</ul>
+</body>
+</html>

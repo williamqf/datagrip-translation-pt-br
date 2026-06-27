@@ -1,0 +1,20 @@
+<html>
+<body>
+Reporta instruções <code>defer</code> e <code>go</code> que chamam diretamente <code>panic()</code> ou <code>recover()</code>.
+<p>Tais instruções raramente são úteis e podem indicar um uso incorreto dos mecanismos <code>panic()</code> e <code>recover()</code>.
+  Deve-se prestar atenção especial ao seguinte:</p>
+<ul>
+  <li><code>go panic()</code>: uma goroutine recém-iniciada entrará em panic imediatamente.</li>
+  <li><code>defer panic()</code>: uma função com esta instrução sempre entrará em panic ao ser encerrada.</li>
+  <li><code>go recover()</code>: não faz nada, pois uma goroutine recém-iniciada não pode estar em estado de panic.</li>
+  <li><code>defer recover()</code>: uma função com esta instrução interromperá um panic silenciosamente. Este uso pode ser válido, mas a maneira idiomática é verificar o valor retornado por <code>recover()</code>:
+    <pre><code>defer func() {
+  if r := recover(); r != nil {
+    fmt.Println("Recovered from: ", r)
+  }
+}()</code></pre>
+  </li>
+</ul>
+<p>Para mais detalhes sobre instruções Go e tratamento de panic, consulte <a href="https://go.dev/ref/spec#Handling_panics">Handling panics</a> e <a href="https://go.dev/ref/spec#Go_statements">Go statements</a> na especificação da linguagem Go.</p>
+</body>
+</html>

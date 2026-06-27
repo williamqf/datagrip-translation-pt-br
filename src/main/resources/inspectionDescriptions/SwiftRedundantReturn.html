@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>
+  Relata usos de <code>return</code> que podem ser omitidos, como em closures de expressão única, getters e funções.
+</p>
+<p>
+  Sugere a remoção do <code>return</code> redundante.
+</p>
+<!-- tooltip end -->
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>
+  func thinkDeeply() { return 42 }
+</code></pre>
+<p>
+  Após a aplicação da correção rápida:
+</p>
+<pre><code>
+  func thinkDeeply() { 42 }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata campos em classes anônimas com nomes idênticos aos de variáveis locais ou parâmetros do método envolvente ou de uma expressão lambda.
+<p>
+  Devido a essa nomenclatura, você pode usar incorretamente o campo da classe anônima nos casos em que se pretendia usar a variável ou o parâmetro de mesmo nome no método envolvente.
+</p>
+<p>Uma correção rápida para renomear o campo é sugerida.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Test {
+    public Test(String value) {
+      Object foo = new Object() {
+        private String value = "TEST";
+        public void foo() {
+          System.out.println(value); // o campo é acessado, não o parâmetro
+        }
+      };
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

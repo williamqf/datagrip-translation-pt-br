@@ -1,0 +1,29 @@
+<html>
+<body>
+Detecta o uso inadequado de métodos de serialização do Kotlin que não possuem parâmetros explícitos de estratégia de serialização/desserialização na base de código do Fleet.
+<p>
+  Esta inspeção identifica chamadas a métodos de serialização JSON que, quando não parametrizadas adequadamente, podem resultar em reflexão indesejada em tempo de execução.
+</p>
+<p>
+  A inspeção verifica especificamente chamadas aos seguintes métodos no pacote <code>kotlinx.serialization.json.Json</code>:
+</p>
+<pre><code>
+decodeFromString
+decodeFromJsonElement
+encodeToString
+encodeToJsonElement
+</code></pre>
+<!-- tooltip end -->
+<p>Esses métodos devem ser sempre chamados com parâmetros explícitos de estratégia de serialização/desserialização para evitar a dependência de reflexão, o que pode causar problemas no ambiente multiplataforma do Fleet.</p>
+
+<p>Exemplo de código problemático:</p>
+<pre><code>
+Json.encodeToString(myObject) // SerializationStrategy ausente
+</code></pre>
+
+<p>Uso correto:</p>
+<pre><code>
+Json.encodeToString(MyType.serializer(), myObject)
+</code></pre>
+</body>
+</html>

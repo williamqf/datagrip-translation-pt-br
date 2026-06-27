@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata rótulos redundantes que causam erros de compilação a partir do Kotlin 1.4.</p>
+<p>Desde o Kotlin 1.0, qualquer instrução podia ser marcada com um rótulo:</p>
+<pre><code>
+  fun foo() {
+    L1@ val x = L2@bar()
+  }
+</code></pre>
+No entanto, esses rótulos só podem ser referenciados de algumas formas limitadas:
+<ul>
+    <li>break/continue de loops</li>
+    <li>Retornos não locais de um lambda inline ou função anônima inline</li>
+</ul>
+<p>Tais rótulos são proibidos a partir do Kotlin 1.4.</p>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível da linguagem Kotlin do projeto ou módulo for 1.4 ou superior.</p>
+</body>
+</html>

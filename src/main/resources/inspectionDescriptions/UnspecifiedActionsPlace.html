@@ -1,0 +1,21 @@
+<html>
+<body>
+Reporta instâncias de passagem de parâmetros <code>place</code> não especificados para <code>ActionManager.createActionToolbar()</code> e <code>ActionManager.createActionPopupMenu()</code>.
+<p>
+  Um <code>place</code> correto deve ser especificado para permitir a distinção do uso da ação em <code>update()/actionPerformed()</code> por meio de <code>AnActionEvent.getPlace()</code>.
+</p>
+<p>
+Exemplo:
+<pre><code lang="java">
+// Incorreto:
+actionManager.createActionToolbar("", group, false);
+actionManager.createActionToolbar("unknown", group, false);
+actionManager.createActionPopupMenu(ActionPlaces.UNKNOWN, group);
+
+// Correto:
+actionManager.createActionToolbar("MyPlace", group, false);
+actionManager.createActionPopupMenu(ActionPlaces.EDITOR_TOOLBAR, group);
+</code></pre>
+</p>
+</body>
+</html>

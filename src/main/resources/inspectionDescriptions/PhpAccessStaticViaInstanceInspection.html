@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata referências a métodos e campos static por meio de uma instância de classe em vez da própria classe.
+<p>Embora a especificação da linguagem PHP permita referenciar membros static por meio de variáveis de instância, isso pode tornar o código confuso, pois os leitores podem acreditar que o método depende da instância.</p>
+<p>A correção rápida substitui a variável de instância pelo nome da classe.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class StaticClass {
+    public static function someStaticFunction(): int
+    {
+        return 3;
+    }
+
+  }
+
+  $var = new StaticClass
+  $var::someStaticFunction();
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  StaticClass::someStaticFunction()
+</code></pre>
+<p>
+
+</body>
+</html>

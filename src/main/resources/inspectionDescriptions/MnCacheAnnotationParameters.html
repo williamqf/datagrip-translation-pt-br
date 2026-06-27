@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata anotações do Micronaut Cache cujo valor do atributo <code>parameters</code> contém nomes de parâmetros de método não definidos.</p>
+<p>As seguintes anotações são suportadas:</p>
+<ul>
+  <li><code>io.micronaut.cache.annotation.Cacheable</code></li>
+  <li><code>io.micronaut.cache.annotation.CachePut</code></li>
+  <li><code>io.micronaut.cache.annotation.CacheInvalidate</code></li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @CachePut(parameters = "myParameter") // Erro: Não é possível resolver o símbolo 'myParameter'
+  public String cachedMethod(String name_is_not_equal_to_myParameter) {
+    return "...";
+  }
+</code></pre>
+</body>
+</html>

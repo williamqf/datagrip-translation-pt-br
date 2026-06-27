@@ -1,0 +1,37 @@
+<html>
+<body>
+Destaca instruções <code>return</code> inconsistentes em uma função.
+De acordo com a PEP 8, todas as instruções <code>return</code> em uma função devem retornar uma expressão ou nenhuma delas deve retornar.
+<p>
+  Recomendação da PEP 8: Todas as instruções <code>return</code> em uma função devem retornar uma expressão ou nenhuma delas deve retornar.
+  Se qualquer instrução <code>return</code> retornar uma expressão, quaisquer instruções <code>return</code> que não retornem um valor devem declarar isso explicitamente como <code>return None</code>, e uma instrução <code>return</code> explícita deve estar presente no final da função (se acessível):
+</p>
+<pre><code>
+# Correto:
+
+def foo(x):
+    if x >= 0:
+        return math.sqrt(x)
+    else:
+        return None
+
+def bar(x):
+    if x < 0:
+        return None
+    return math.sqrt(x)
+</code></pre>
+<pre><code>
+# Incorreto:
+
+def foo(x):
+    if x >= 0:
+        return math.sqrt(x)
+
+def bar(x):
+    if x < 0:
+        return
+    return math.sqrt(x)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

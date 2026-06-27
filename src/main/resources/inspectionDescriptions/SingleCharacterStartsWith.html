@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas para <code>String.startsWith()</code> e <code>String.endsWith()</code> onde literais de string de um único caractere são passados como argumentos.
+<p>
+  Uma correção rápida é sugerida para substituir tais chamadas pelo <code>String.charAt()</code>, que possui uma implementação mais eficiente.
+</p>
+<p>
+  No entanto, o ganho de desempenho dessa alteração é mínimo e reduz a legibilidade do código devido à verificação adicional de comprimento diferente de zero; recomenda-se aplicar esta correção rápida apenas dentro de loops intensos.
+</p>
+<p>
+  Esta inspeção é destinada ao Java ME e outros ambientes com recursos altamente limitados. A aplicação dos resultados desta inspeção sem critério pode afetar negativamente a clareza e o design do código.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean startsWithX(String s) {
+    return s.startsWith("x");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  boolean startsWithX(String s) {
+    return !s.isEmpty() && s.charAt(0) == 'x';
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

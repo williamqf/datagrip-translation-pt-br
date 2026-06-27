@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata expressões <code>new FileInputStream()</code> ou <code>new FileOutputStream()</code> que podem ser substituídas por chamadas a <code>Files.newInputStream()</code> ou <code>Files.newOutputStream()</code>, respectivamente.
+<br>
+Streams criados usando métodos da classe <code>Files</code> são geralmente mais eficientes do que aqueles criados usando construtores de stream.
+<p>Exemplo:</p>
+<pre><code>
+  InputStream is = new BufferedInputStream(new FileInputStream(file));
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  InputStream is = new BufferedInputStream(Files.newInputStream(file.toPath()));
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção não exibe avisos se o nível de linguagem for 10 ou superior, mas o ajuste rápido ainda estará disponível.</p>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 7 ou superior.</p>
+<p><small>Novidade em 2022.1</small></p>
+</body>
+</html>

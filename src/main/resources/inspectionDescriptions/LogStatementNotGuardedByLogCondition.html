@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas de log que não estão envolvidas por condições de guarda.
+A avaliação dos argumentos da chamada pode ter um custo elevado. Envolver a chamada de log com uma cláusula de guarda evita esse custo quando o log está desativado para o nível utilizado na instrução de log. Isso é particularmente útil para os níveis de log menos graves (trace, debug, finest), pois essas chamadas são frequentemente desativadas em ambientes de produção.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      LOG.debug("some logging " + expensiveCalculation(1));
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      if(LOG.isDebugEnabled()){
+        LOG.debug("some logging " + expensiveCalculation(1));
+      }
+    }
+  }
+</code></pre>
+<p>Esta inspeção oferece suporte aos frameworks de log <em>Log4j2</em> e <em>SLF4J</em> (exceto builders).
+<!-- tooltip end -->
+<p><small>Novidades na versão 2024.2</small></p>
+</body>
+</html>

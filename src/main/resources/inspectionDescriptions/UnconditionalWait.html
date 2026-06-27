@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas de <code>wait()</code> que são realizadas incondicionalmente dentro de um contexto sincronizado.
+<p>
+  O método <code>wait()</code> é normalmente usado para bloquear uma thread até que uma determinada condição seja verdadeira. Se <code>wait()</code> for chamado incondicionalmente, isso geralmente indica que a condição foi verificada antes da aquisição do bloqueio (lock). Nesses casos, pode ocorrer uma condição de corrida (data race) se a condição se tornar verdadeira entre o momento da verificação e a aquisição do bloqueio.
+</p>
+<p>
+  Embora a construção detectada por esta inspeção não esteja necessariamente incorreta, certamente vale a pena examiná-la.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Bar {
+      void foo() throws InterruptedException {
+          synchronized (this) {
+              wait(); // Alerta
+          }
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

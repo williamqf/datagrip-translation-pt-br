@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata qualificadores desnecessários em referências. Alguns qualificadores são desnecessários quando uma cláusula <code>use</code> ou um namespace está presente.
+<p>Uma correção rápida pode ser usada para remover qualificadores desnecessários.</p>
+<p>Exemplo:</p>
+<pre><code>use Enumerator::Generator
+class Example
+  # 'Enumerator::Generator' pode ser encurtado
+  def call: -> Enumerator::Generator
+end</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>use Enumerator::Generator
+class Example
+  def call: -> Generator
+end</code></pre>
+</body>
+</html>

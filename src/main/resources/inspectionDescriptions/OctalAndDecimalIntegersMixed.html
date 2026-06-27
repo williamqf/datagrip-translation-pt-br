@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata literais inteiros octais e decimais misturados em um único inicializador de array.
+Isso pode acontecer quando você copia uma lista de números para um inicializador de array.
+Alguns números no array podem estar preenchidos com zeros e o compilador os interpretará como octais.
+<p><b>Exemplo:</b></p>
+<pre><code>int[] elapsed = {1, 13, 052};</code></pre>
+<p>Após aplicar a correção rápida para remover zeros à esquerda:</p>
+<pre><code>int[] elapsed = {1, 13, 52};</code></pre>
+<p>Se for um número octal (por exemplo, após o inline de uma variável), você pode usar outra correção rápida para converter o octal em decimal:</p>
+<code>int[] elapsed = {1, 13, 42};</code>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

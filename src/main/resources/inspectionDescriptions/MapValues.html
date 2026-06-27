@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata métodos não padrão para extrair valores de um <code>Map</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val map = Map(1 -> 42)
+  map.map(_._2)
+  map.map(_._2).toIterator
+</code></pre>
+<p>Após a correção rápida:</p>
+<pre><code>
+  val map = Map(1 -> 42)
+  map.values
+  map.valuesIterator
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata métodos de instância que possuem o mesmo nome e número de parâmetros que um método em uma superclasse, mas em que pelo menos um dos parâmetros é de um tipo diferente e incompatível.
+<p>
+  Neste caso, o método na subclasse irá sobrecarregar em vez de sobrescrever o método na superclasse. Se isso não for intencional, pode levar a erros em potencial.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo {
+    void foo(int x) {}
+  }
+
+  public class Bar extends Foo {
+    void foo(Number x) {} // O método 'foo()' sobrecarrega um método da superclasse
+                          // quando a intenção poderia ser sobrescrevê-lo
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use esta opção para selecionar se a inspeção também deve relatar casos em que os tipos de parâmetros são incompatíveis.
+<p>
+</body>
+</html>

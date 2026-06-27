@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata pacotes e classes proibidos em EJB.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+
+  public void getAnotherBean() {
+    ...
+    java.lang.Thread.sleep(100); // Erro: pacote proibido usado na classe Bean
+  }
+}
+</code></pre>
+</body>
+</html>

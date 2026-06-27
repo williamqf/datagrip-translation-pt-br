@@ -1,0 +1,55 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3">
+      <font face="verdana" size="-1">
+        Este modelo integrado é usado para preencher o corpo do método sempre que um método for gerado (por exemplo, por meio da ação de intenção <code>Criar método a partir do uso</code>).<br>
+        O modelo é editável. Além de expressões JavaScript e comentários, você também pode usar variáveis predefinidas.
+        Ao aplicar o modelo, essas variáveis serão substituídas pelos valores correspondentes.
+      </font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas aceitarão os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${IS_ASSIGNMENT_TARGET}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Retorna 'true' se o método criado for um alvo de atribuição.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${IS_NEW_CALL}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Retorna 'true' se o método criado estiver sob uma chamada 'new'.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${HAS_EXPECTED_TYPE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Retorna 'true' se o método criado estiver em uma posição onde um tipo é esperado.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O valor padrão do tipo esperado do método criado ('undefined' se não houver um tipo esperado).</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${METHOD_NAME}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome do método criado.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${SEMICOLON}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Ponto e vírgula ou vazio, com base nas opções de estilo de código.</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Todas as variáveis predefinidas do modelo de <i>Cabeçalho de arquivo</i> (guia <i>Inclusões</i>) também estão disponíveis.
+      (Por exemplo: <font face="verdana" size="-2"><b>${USER}</b></font>, <font face="verdana" size="-2"><b>${DATE}</b></font>, etc.)</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

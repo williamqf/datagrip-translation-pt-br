@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata locks passados incorretamente por valor.
+<p>Copiar acidentalmente um valor que contém um lock pode fazer com que ambas as cópias não funcionem corretamente. Normalmente, esses valores devem ser referenciados por meio de um ponteiro. Aqui, um lock representa um tipo que implementa <code>sync.Locker</code>, como <code>sync.Mutex</code> ou <code>sync.WaitGroup</code>.</p>
+<p>Exemplo:</p>
+<pre><code>type SafeInt struct {
+  m sync.Mutex
+  i int
+}
+
+func (s SafeInt) Inc() { // mutex é copiado
+  s.m.Lock()
+  s.i++
+  s.m.Unlock()
+}</code></pre>
+<p>Após aplicar o ajuste rápido <b>Adicionar ponteiro</b>:</p>
+<pre><code>type SafeInt struct {
+  m sync.Mutex
+  i int
+}
+
+func (s *SafeInt) Inc() {
+  s.m.Lock()
+  s.i++
+  s.m.Unlock()
+}</code></pre>
+</body>
+</html>

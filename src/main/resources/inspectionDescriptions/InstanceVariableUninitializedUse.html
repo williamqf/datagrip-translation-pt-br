@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata variáveis de instância que são lidas antes de serem inicializadas.
+<p>Esta inspeção ignora verificações de igualdade com <code>null</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    int bar;
+
+    Foo() {
+      System.out.println(bar);
+    }
+  }
+</code></pre>
+<p>Observe que esta inspeção usa um algoritmo de fluxo de dados muito conservador e pode relatar incorretamente variáveis de instância como não inicializadas. Variáveis relatadas como inicializadas serão sempre inicializadas.
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar se houver anotação</b> para especificar anotações especiais. A inspeção ignorará os campos anotados com uma dessas anotações.</p>
+<p>Use a opção <b>Ignorar campos primitivos</b> para ignorar campos primitivos não inicializados.</p>
+</body>
+</html>

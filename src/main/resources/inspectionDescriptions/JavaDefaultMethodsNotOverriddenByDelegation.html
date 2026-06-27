@@ -1,0 +1,73 @@
+<html>
+<body>
+<p>
+    Relata a delegação quando o objeto delegado é uma instância de uma classe que sobrescreve (no caso de classes <code>final</code> e <code>sealed</code>) ou pode sobrescrever (no caso de classes <code>open</code> e <code>abstract</code>) métodos default do Java.
+</p>
+<p>
+    Por design, a delegação do Kotlin não sobrescreve os métodos default do Java, o que pode levar a bugs difíceis de encontrar, especialmente em hierarquias de herança profundas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+// Base.java:
+public interface Base {
+  default void print() {
+    System.out.println("Base");
+  }
+}
+</code></pre>
+<pre><code lang="kotlin">
+// BaseImpl.kt:
+class BaseImpl : Base {
+  override fun print() {
+    println("BaseImpl")
+  }
+}
+</code></pre>
+<pre><code lang="kotlin">
+// Main.kt:
+fun main() {
+  val inherited = BaseImpl()
+  val delegated = object : Base by inherited {}
+  inherited.print() // Saída: BaseImpl
+  delegated.print() // Saída: Base
+}
+</code></pre>
+<p>
+    Os desenvolvedores geralmente esperam que todos os métodos (incluindo métodos default sobrescritos no delegado) sejam encaminhados. Em vez disso, o método default do Java é chamado, o que pode levar a resultados inesperados.
+</p>
+<p>
+    Um quick-fix é sobrescrever esses métodos delegando a implementação ao objeto delegado:
+</p>
+<pre><code>
+// Main.kt:
+fun main() {
+  val inherited = BaseImpl()
+  val delegated = object : Base by inherited {
+    override fun print() {
+      inherited.print()
+    }
+  }
+  inherited.print() // Saída: BaseImpl
+  delegated.print() // Saída: BaseImpl
+}
+</code></pre>
+<p>
+    Outro quick-fix é sobrescrever esses métodos delegando explicitamente a implementação para a superclasse:
+</p>
+<pre><code>
+// Main.kt:
+fun main() {
+  val inherited = BaseImpl()
+  val delegated = object : Base by inherited {
+    override fun print() {
+      super.print()
+    }
+  }
+  inherited.print() // Saída: BaseImpl
+  delegated.print() // Saída: Base
+}
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2025.1</small></p>
+</body>
+</html>

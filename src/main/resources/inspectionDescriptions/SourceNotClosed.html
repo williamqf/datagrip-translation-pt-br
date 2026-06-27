@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Informa <code scala.io.Source</code> não fechado.</p>
+
+<p>Usar uma função como <code>.mkString</code> ou <code>.getLines</code> diretamente no <code>Source</code> aberto por
+    <code>fromFile</code>, <code>fromURL</code> ou <code>fromURI</code> vazará o identificador do arquivo subjacente.</p>
+
+<p>Considere usar <code>.close()</code> com <code>try</code>/<code>finally</code> para gerenciar o período de vida do recurso
+    ou use <a href="https://scala-lang.org/files/archive/api/2.13.0/scala/util/Using$.html"><code>Using</code> do Scala 2.13</a>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Source.fromFile("file.txt").getLines()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

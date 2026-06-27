@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata padrões de variáveis que ofuscam identificadores estáveis definidos no escopo envolvente.</p>
+<p>Para executar um teste de igualdade contra esse valor, use crases.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val foo = 0
+  0 match {
+    case foo =>
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  val foo = 0
+  0 match {
+    case `foo` =>
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

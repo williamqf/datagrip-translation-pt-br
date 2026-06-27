@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata valores de retorno de métodos e blocos cujo tipo inferido não corresponde ao tipo de retorno esperado. O tipo de retorno esperado é obtido de uma das seguintes fontes:
+<ul>
+  <li>Assinaturas de tipo RBS</li>
+  <li>Assinaturas de tipo Sorbet</li>
+  <li>Tags <code>@return</code> do YARD</li>
+</ul>
+<p>Exemplo:</p>
+<pre>
+<code># @return [Integer]
+def method
+  1.0
+end</code>
+</pre>
+</body>
+</html>

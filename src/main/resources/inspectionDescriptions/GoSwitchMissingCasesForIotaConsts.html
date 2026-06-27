@@ -1,0 +1,47 @@
+<html>
+<body>
+Relata valores não tratados em uma instrução <code>switch</code> quando o identificador <code>iota</code> está presente em uma declaração <code>const</code>. Para tratar esses valores, considere usar uma cláusula <code>case</code> ou <code>default</code>.
+<p>
+  A palavra-chave <code>iota</code> no Go cria uma sequência de inteiros em um bloco <code>const</code>. Embora o compilador Go não exija o tratamento de todos os valores <code>iota</code>, a ausência de alguns deles pode indicar um bug.
+</p>
+<p>Para mais detalhes sobre <code>iota</code>, consulte <a href="https://go.dev/ref/spec#Iota">Iota em go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>const (
+  a = iota
+  b
+  c = -5
+)
+
+func main() {
+  v := 5
+  switch v {
+  case a:
+    break;
+  case b:
+    break;
+  }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  O IDE aciona a inspeção porque <code>c</code> não é tratado pela instrução <code>switch</code>. Observe que <code>c</code> está no mesmo bloco <code>const</code>, mesmo que não use <code>iota</code>.
+</p>
+
+<p>As opções de correção rápida são <b>Criar cláusula 'case' para valores</b> e <b>Criar cláusula 'default'</b>. Após aplicar a correção rápida <b>Criar cláusula 'default'</b>:</p>
+<pre><code>const (
+  a = iota
+  b
+  c
+)
+
+func main() {
+  v := 5
+  switch v {
+  case a:
+    break;
+  default:
+  }
+}
+</code></pre>
+</body>
+</html>

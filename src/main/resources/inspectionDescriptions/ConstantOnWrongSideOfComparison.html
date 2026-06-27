@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata operações de comparação com valores constantes no lado errado.
+<p>Algumas convenções de codificação especificam que as constantes devem estar em um lado específico da comparação, seja no lado esquerdo ou no lado direito.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean compare(int x) {
+    return 1 &gt; x; // constante '1' no lado esquerdo da comparação
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida (quick fix):</p>
+<pre><code>
+  boolean compare(int x) {
+    return x &lt; 1;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as configurações de inspeção para escolher o lado da constante nas comparações e se deseja emitir um aviso quando o literal <code>null</code> estiver no lado errado.
+</p>
+<p><small>Novidade na versão 2019.2</small></p>
+</body>
+</html>

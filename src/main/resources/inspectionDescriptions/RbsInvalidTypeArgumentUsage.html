@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata variáveis de tipo usadas como argumentos em locais onde sua variância não é permitida (desde que não estejam marcadas como <code>unchecked</code>). A variância de uma variável de tipo pode ser covariante (<code>out</code>), contravariante (<code>in</code>) ou invariante (nem <code>out</code> nem <code>in</code>).
+<p>As seguintes regras são usadas para verificar os argumentos de tipo usados nas declarações de atributos e métodos:</p>
+<ul>
+  <li>Argumentos de tipo <code>unchecked</code> serão ignorados.</li>
+  <li>Argumentos de tipo covariante só podem ser usados em posições que produzem valores (por exemplo, tipos de retorno e parâmetros de bloco).</li>
+  <li>Argumentos de tipo contravariante só podem ser usados em posições que consomem argumentos (por exemplo, parâmetros e tipos de retorno de bloco).</li>
+  <li>Argumentos de tipo invariante podem ser usados tanto em posições que produzem valores quanto em posições que consomem argumentos.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>class Example[in A, out B]
+  # A variável de tipo covariante 'B' da classe 'Example' é usada em uma posição contravariante, ...
+  def call: (B) -> A
+end</code></pre>
+</body>
+</html>

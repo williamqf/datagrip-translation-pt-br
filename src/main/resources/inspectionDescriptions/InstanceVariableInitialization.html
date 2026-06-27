@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata variáveis de instância que podem não ter sido inicializadas durante a inicialização do objeto.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    public int bar;
+
+    static { }
+  }
+</code></pre>
+<p>Observe que esta inspeção utiliza um algoritmo de fluxo de dados muito conservador e pode relatar incorretamente variáveis de instância como não inicializadas. As variáveis relatadas como inicializadas serão sempre inicializadas.</p>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar campos primitivos</b> para ignorar campos primitivos não inicializados.</p>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<html>
+<body>
+Relata o uso incorreto de objetos acompanhantes (companion objects) em <a href="https://plugins.jetbrains.com/docs/intellij/plugin-extensions.html">extensões</a>.
+<p>
+  Objetos acompanhantes do Kotlin são sempre criados ao tentar carregar a classe que os contém, e as implementações de pontos de extensão devem ter um baixo custo de criação.
+  O carregamento excessivo de classes em plugins é um grande problema para a inicialização do IDE.
+</p>
+<p>Padrão incorreto:</p>
+<pre><code lang="kotlin">
+  class KotlinDocumentationProvider : AbstractDocumentationProvider(), ExternalDocumentationProvider {
+
+      companion object {
+          private val LOG = Logger.getInstance(KotlinDocumentationProvider::class.java)
+          private val javaDocumentProvider = JavaDocumentationProvider()
+      }
+  }
+</code></pre>
+<p>
+  Aqui, o <code>KotlinDocumentationProvider</code> é uma extensão registrada no <code>plugin.xml</code>:
+</p>
+<pre><code lang="xml">
+  &lt;lang.documentationProvider language="kotlin"
+                              implementationClass="org.jetbrains.kotlin.idea.KotlinDocumentationProvider"
+                              order="first"/&gt;
+</code></pre>
+<p>
+  Neste exemplo, o <code>JavaDocumentationProvider</code> é carregado do disco assim que alguém chama <code>new KotlinDocumentationProvider()</code>.
+</p>
+<p>
+  Objetos acompanhantes do Kotlin em implementações de pontos de extensão devem conter apenas loggers e constantes simples.
+  Outras declarações podem causar carregamento excessivo de classes ou inicialização precoce de recursos pesados (ex: <code>TokenSet</code>, Regex, etc.)
+  ao carregar a classe da extensão.
+  Observe que mesmo declarações marcadas com <code>@JvmStatic</code> geram uma classe extra para o objeto acompanhante, o que pode resultar em cálculos computacionalmente caros.
+</p>
+<p>
+  Essas declarações devem ser armazenadas em um <code>object</code> ou no nível superior (top-level), em vez de em um objeto acompanhante.
+</p>
+<h3>Perguntas frequentes (FAQ)</h3>
+<h4>Como reescrever um ConfigurationType de execução?</h4>
+<p>Mova a declaração para o nível superior (top-level):</p>
+<pre><code lang="kotlin">
+  // Correto, usando fun de nível superior
+  internal fun mnRunConfigurationType(): MnRunConfigurationType = runConfigurationType&lt;MnRunConfigurationType&gt;()
+
+  internal class MnRunConfigurationType : ConfigurationType {
+    companion object { // INCORRETO
+      fun getInstance(): MnRunConfigurationType = runConfigurationType&lt;MnRunConfigurationType&gt;()
+    }
+    ...
+</code></pre>
+<h4>Como reescrever um FileType?</h4>
+<p>Antes:</p>
+<pre><code lang="kotlin">
+  internal class SpringBootImportsFileType : LanguageFileType(SPILanguage.INSTANCE, true) {
+    companion object {
+      val FILE_TYPE = SpringBootImportsFileType()
+      ...
+</code></pre>
+<p>Depois:</p>
+<pre><code lang="kotlin">
+  internal object SpringBootImportsFileType : LanguageFileType(SPILanguage.INSTANCE, true) {
+  ...
+</code></pre>
+<p>No <code>plugin.xml</code>, use o fieldName <code>INSTANCE</code>:</p>
+<pre><code lang="xml">
+  &lt;fileType name="Spring Boot Imports"
+              fieldName="INSTANCE"
+              implementationClass="com.intellij.spring.boot.spi.SpringBootImportsFileType"/&gt;
+</code></pre>
+<h4>Como reescrever o CounterUsagesCollector?
+</h4>
+<h5>API Interna</h5>
+<p>Antes:</p>
+<pre><code lang="kotlin">
+  class AntActionsUsagesCollector : CounterUsagesCollector() {
+    override fun getGroup(): EventLogGroup = GROUP
+
+    companion object {
+      private val GROUP = EventLogGroup("build.ant.actions", 1)
+
+      @JvmField
+      val runSelectedBuildAction = GROUP.registerEvent("RunSelectedBuild")
+   }
+}
+</code></pre>
+<p>Depois:</p>
+<pre><code lang="kotlin">
+ object AntActionsUsagesCollector : CounterUsagesCollector() {
+  override fun getGroup(): EventLogGroup = GROUP
+
+  private val GROUP = EventLogGroup("build.ant.actions", 1)
+
+  @JvmField
+  val runSelectedBuildAction = GROUP.registerEvent("RunSelectedBuild")
+}
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.3</small>
+</body>
+</html>

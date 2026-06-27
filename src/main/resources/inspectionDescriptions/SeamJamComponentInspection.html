@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata problemas de configuração em classes Seam com anotações</p>
+<!-- tooltip end -->
+<p><strong>Exemplo:</strong></p>
+<pre><code>
+@Name("authenticator")
+class SeanComponent {
+  <strong>@Create</strong> // Não é permitido usar métodos estáticos
+  private static void create() {...}
+
+   <strong>@Destroy</strong> // Não é permitido usar métodos estáticos
+   private static void destroy() {...}
+
+   <strong>@DataModel</strong> // Não é um getter
+   private Map method() {...}
+
+   <strong>@Factory</strong> // Deve ser public
+   private Map getUniverse2() {...}
+
+   <strong>@Unwrap</strong> // Deve ser sem parâmetros
+   private static Map createUniverse(int days) { ... }
+}</code></pre>
+</body>
+</html>

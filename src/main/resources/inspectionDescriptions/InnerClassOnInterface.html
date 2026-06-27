@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata classes internas em classes <code>interface</code>.
+<p>Alguns padrões de codificação não recomendam o uso de tais classes. Esta inspeção não relata classes enum e interfaces de anotação.</p>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar interfaces internas de interfaces</b> para ignorar interfaces internas. Por exemplo:
+<pre><code>
+  interface I {
+    interface Inner {
+    }
+  }
+</code></pre>
+</body>
+</html>

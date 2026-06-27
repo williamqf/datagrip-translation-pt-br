@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata variáveis locais atribuídas a expressões de tipos diferentes dentro de uma closure ou classe anônima.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int sum = 0
+  [1, 2, 3].each { sum += 'as' }
+  println(sum)
+</code></pre>
+<p>Como resultado, a variável <code>integer</code> <b>sum</b> é reatribuída a uma expressão <code>String</code>.</p>
+</body>
+</html>

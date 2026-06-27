@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata todos os argumentos na função COALESCE, exceto pela primeira expressão que não é avaliada como NULL.
+<p>Exemplo (MySQL):</p>
+<pre><code>SELECT COALESCE(NULL, NULL, NULL, 42, NULL, 'string') as a;</code></pre>
+<p>O primeiro argumento NOT NULL é <code>42</code> e todos os outros argumentos serão exibidos em cinza.</p>
+</body>
+</html>

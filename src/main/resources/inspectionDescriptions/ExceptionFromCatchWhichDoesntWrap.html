@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata exceções lançadas de dentro de um bloco <code>catch</code> que não "envolvem" a exceção capturada.
+<p>Quando uma exceção é lançada em resposta a outra exceção, envolver a exceção inicial evita a perda de informações contextuais valiosas, como frames de pilha e números de linha.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  ...
+  catch (IOException e) {
+    closeAllConnections();
+    throw new ConnectException("Connection problem."); // Aviso: 'throw' dentro do bloco 'catch' ignora a exceção capturada 'e'
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar se o resultado de uma chamada de método de exceção for usado</b> para indicar se a inspeção deve ignorar exceções onde o argumento é o resultado de uma chamada de método na exceção original, por exemplo, <code>getMessage()</code>.</li>
+  <li>Use a opção <b>Ignorar se a exceção lançada não puder envolver a exceção</b> para ignorar instruções <code>throw</code> que lançam exceções sem um construtor que aceite uma causa <code>Throwable</code>.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata variáveis de caminho não utilizadas no Kotlin router DSL, bem como usos de variáveis de caminho não declaradas.
+<p>
+  As variáveis de caminho devem ser declaradas no caminho da rota antes do acesso.
+  A tentativa de acessar uma variável de caminho não declarada resultará em um erro de tempo de execução.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Configuration
+class RouterConfiguration {
+    @Bean
+    fun myRouter() = router {
+        GET("/test/{var}") { ServerResponse.ok().body("${it.pathVariable("bar")}") }
+    }
+}
+</code></pre>
+
+<p><b>Após aplicar a correção:</b></p>
+<pre><code>
+@Configuration
+class RouterConfiguration {
+    @Bean
+    fun myRouter() = router {
+        GET("/test/{var}") { ServerResponse.ok().body("${it.pathVariable("var")}") }
+    }
+}
+</code></pre>
+</body>
+</html>

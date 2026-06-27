@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata expressões bitwise sem sentido.
+<p>
+  Tais expressões incluem a aplicação do operador <code>&</code> ao valor máximo de um determinado tipo, a aplicação do operador <code>or</code> ao zero e deslocamentos por zero. Essas expressões podem ocorrer porque uma refatoração automática não foi concluída e é improvável que sejam intencionais.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Aviso: a operação não faz sentido e pode ser substituída por `flags`
+  // 0xFFFF_FFFF é o valor máximo de um inteiro e ambos os literais
+  // são tratados como literais inteiros de 32 bits.
+  int bits = flags & 0xFFFF_FFFF;
+
+  // Aviso: a operação não faz sentido e pode ser substituída por `bits`
+  // Uma operação OR com 0 sempre resulta no outro operando.
+  int or = bits | 0x0;
+
+  // Aviso: a operação não faz sentido, o resultado é sempre 0
+  int xor = or ^ or;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

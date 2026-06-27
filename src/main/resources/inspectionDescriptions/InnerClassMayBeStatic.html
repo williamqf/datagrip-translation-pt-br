@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata classes internas que podem ser <code>static</code>.
+<p>Uma classe interna <code>static</code> não mantém uma referência implícita à sua instância envolvente.
+  Ao usar o Java 17 ou anterior, isso evita causas comuns de vazamentos de memória e reduz a memória usada por cada instância da classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public class</b> Outer {
+    <b>class</b> Inner { // não static
+      <b>public void</b> foo() {
+        bar("x");
+      }
+
+      <b>private void</b> bar(String string) {}
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>public class</b> Outer {
+    <b>static class</b> Inner {
+      <b>public void</b> foo() {
+        bar("x");
+      }
+
+      <b>private void</b> bar(String string) {}
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

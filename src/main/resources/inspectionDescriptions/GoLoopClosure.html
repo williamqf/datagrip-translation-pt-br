@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata referências a variáveis de loop dentro de literais <code>func</code> em instruções <code>defer</code> e <code>go</code>.
+Tais variáveis podem ter valores inesperados porque não são copiadas para o literal <code>func</code>, e os literais <code>func</code> em <code>defer</code> e <code>go</code> não são executados imediatamente.
+
+<p>Para mais detalhes sobre closures e goroutines, consulte <a href="https://go.dev/doc/faq#closures_and_goroutines">What happens with closures running as goroutines?</a> em go.dev.</p>
+<p>Exemplo:</p>
+<pre><code>for _, v := range []string{"a", "b", "c"} {
+  go func() {
+    fmt.Println(v) // a saída provavelmente será `c c c`, em vez de `a b c`.
+  }()
+}</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>for _, v := range []string{"a", "b", "c"} {
+  v := v // `v` agora é copiado
+  go func() {
+    fmt.Println(v)
+  }()
+}</code></pre>
+<!-- tooltip end -->
+<p>Observe que o analisador verifica as instruções <code>defer</code> e <code>go</code> apenas se forem as últimas instruções no corpo do loop.
+Caso contrário, a análise pode produzir detecções incorretas.</p>
+</body>
+</html>

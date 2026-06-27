@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata quaisquer instâncias de instruções <code>for</code>, <code>while</code> e <code>do</code> cujo corpo seja executado no máximo uma vez. Geralmente, isso indica um erro.
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar loops for aprimorados</b> para ignorar loops foreach.
+Eles às vezes são usados para realizar uma ação apenas no primeiro item de um iterável de forma compacta.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  <b>for</b> (String s : stringIterable) {
+    doSomethingOnFirstString(s);
+    <b>break</b>;
+  }
+</code></pre>
+</body>
+</html>

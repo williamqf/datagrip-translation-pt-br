@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata o uso de expressões <code>instanceof</code> para testar o tipo de um parâmetro em um bloco <code>catch</code>.
+<p>Geralmente é melhor testar o tipo de um parâmetro <code>catch</code> usando blocos <code>catch</code> separados em vez de usar <code>instanceof</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(Runnable runnable) {
+    try {
+        runnable.run();
+    } catch (Throwable throwable) {
+        if (throwable instanceof NoClassDefFoundError) { // Aviso: 'instanceof' no parâmetro 'throwable' do 'catch'
+            System.out.println("Class not found!");
+        }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

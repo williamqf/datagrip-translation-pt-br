@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas de métodos Java <code>get</code> e <code>set</code> que podem ser substituídas por propriedades sintéticas do Kotlin.
+<p>A correção rápida <b>Usar sintaxe de acesso à propriedade</b> pode ser usada para corrigir automaticamente o código.</p>
+<p>Exemplo:</p>
+<pre><code>
+  // Java:
+  public class JavaClassWithGetter {
+      private final String expr = "result";
+
+      // ...
+
+      public String getExpr() {
+          return expr;
+      }
+  }
+</code></pre>
+<pre><code>
+  // Kotlin:
+  fun test(j: JavaClassWithGetter) {
+      // ...
+      j.getExpr() // &lt;== a correção rápida simplifica a expressão para 'j.expr'
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<html lang="pt-br">
+<body>
+Inspeciona ações de leitura e gravação executadas no escopo de inicialização do serviço:
+<ul>
+  <li>Construtores e blocos de inicialização do serviço (incluindo estáticos)</li>
+  <li>Blocos de inicialização do objeto companheiro do serviço (Kotlin)</li>
+  <li>Métodos de serviço usados em blocos de inicialização e inicialização de campos</li>
+  <li>Métodos de ciclo de vida de inicialização de <code>PersistentStateComponent</code>:
+    <ul>
+      <li><code>loadState</code></li>
+      <li><code>noStateLoaded</code></li>
+      <li><code>initializeComponent</code></li>
+    </ul>
+</ul>
+
+<p>Executar operações de leitura ou gravação durante a inicialização do serviço pode causar deadlocks.</p>
+
+<p><b>Exemplo:</b></p>
+<p>Kotlin:</p>
+<pre><code lang="kotlin">
+@Service
+internal class MyService {
+  private val myData = initMyData();
+
+  constructor() {
+    val data = runReadAction { // Erro: execução de uma ação de leitura no construtor
+      // Leitura de dados
+    }
+  }
+
+  private fun initMyData(): Data {
+    return runWriteAction { // Erro: invocado durante a inicialização da propriedade myData
+      // Gravação de dados
+    }
+  }
+
+  companion object {
+    lateinit var companionData: String
+    init {
+      companionData = runReadAction { // Erro: execução de uma ação de leitura no bloco init
+        // Leitura de dados
+      }
+    }
+  }
+}
+</code></pre>
+
+<p>Java:</p>
+<pre><code lang="java">
+@Service
+class MyService {
+  private static final Data ourData1 = ReadAction.compute(() -> {
+    // Leitura de dados
+  });
+  private static final Data ourData2;
+
+  static {
+    ourData2 = ReadAction.compute(() -> { // Erro: presença de ação de leitura no bloco de inicialização estático
+      // Leitura de dados
+    });
+  }
+
+  private final Data myData2 = initMyData();
+
+  MyService() {
+    Data data = WriteAction.compute(() -> { // Erro: execução de uma ação de leitura no construtor
+      // Gravação de dados
+    });
+  }
+
+  private Data initMyData() {
+    return ReadAction.compute(() -> { // Erro: invocado durante a inicialização da propriedade myData
+      // Leitura de dados
+    });
+  }
+}
+</code></pre>
+
+<p><code>PersistentStateComponent</code>:</p>
+<pre><code lang="kotlin">
+@Service
+@State(...)
+internal class MySettings : PersistentStateComponent&lt;MyService> {
+  var stateValue: String? = null
+
+  override fun loadState(state: MySettings) {
+    val data = runReadAction { // Erro: execução de uma ação de leitura em loadState
+      // Leitura de dados
+    }
+    // ...
+  }
+
+  override fun noStateLoaded() {
+    val data = runWriteAction { // Erro: execução de uma ação de leitura em noStateLoaded
+      // Gravação de dados
+    }
+    // ...
+  }
+
+  override fun initializeComponent() {
+    val data = runReadAction { // Erro: execução de uma ação de leitura em initializeComponent
+      // Leitura de dados
+    }
+    // ...
+  }
+
+}
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade do 2024.2</small>
+</body>
+</html>

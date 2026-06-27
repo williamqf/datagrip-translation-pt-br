@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata propriedades públicas de objetos com um tipo especificado. Sugere especificar o formato do objeto retornado por meio do atributo <code>#[ObjectShape]</code> ou de formatos de objeto em comentários PHPDoc.
+</body>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  $a = new stdClass();
+  $a->name = "name";
+  $a->age = 2;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  /** @var $a object{name: string, age: int} */
+  $a = new stdClass();
+  $a->name = "name";
+  $a->age = 2;
+</code></pre>
+</html>

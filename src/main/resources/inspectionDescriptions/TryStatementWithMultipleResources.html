@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata instruções <code>try</code> com múltiplos recursos que podem ser divididas automaticamente em várias instruções try-with-resources.
+<p>Essa transformação é útil para refatorações posteriores (por exemplo, para extrair instruções <code>try</code> aninhadas em métodos separados). </p>
+<p>Exemplo:</p>
+<pre><code>
+  try (FileInputStream in = new FileInputStream("in.txt");
+     FileOutputStream out = new FileOutputStream("out.txt")) {
+     /*leitura e escrita*/
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  try (FileInputStream in = new FileInputStream("in.txt")) {
+    try (FileOutputStream out = new FileOutputStream("out.txt")) {
+      /*leitura e escrita*/
+    }
+  }
+</code></pre>
+</body>
+</html>

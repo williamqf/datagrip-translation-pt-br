@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Relata espaçamento incorreto para pares chave-valor nos comandos <code>ARG</code>, <code>ENV</code> e <code>LABEL</code>.</p>
+<p>
+  Embora não esteja explicitamente especificado na <a href="https://docs.docker.com/engine/reference/builder/#arg">especificação do Dockerfile</a>,
+  algumas combinações de espaçamento para pares chave-valor não são permitidas.
+  O build do Docker falhará ao atingir a instrução com problema.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplos:</b></p>
+<ul>
+  <li>O comando <code>ARG</code> não permite espaços ao redor de '='</li>
+  <li><code>ENV</code> e <code>LABEL</code> não permitem espaços após '='</li>
+</ul>
+<pre><code>
+  # todos os comandos abaixo falharão
+  ARG answer = 42
+  ARG version= "1.0.0"
+  LABEL "maintained.by"= someone@gmail.com
+  ENV JAVA_HOME= "/docker-java-home"
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  ARG answer=2
+  ARG version="1.0.0"
+  LABEL "maintained.by"=someone@gmail.com
+  ENV JAVA_HOME="/docker-java-home"
+</code></pre>
+</body>
+</html>

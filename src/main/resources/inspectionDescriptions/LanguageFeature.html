@@ -1,0 +1,48 @@
+<html>
+<body>
+<p>Relata utilizações de recursos avançados da linguagem que não estão habilitados no arquivo atual.</p>
+
+<p>Recursos avançados da linguagem precisam ser habilitados pela opção do compilador correspondente
+    ou pela importação de um sinalizador de recurso explícito no arquivo em que são usados.</p>
+
+<p>
+    Notação de operador pós-fixado:<br>
+    <code>val s = 123 toString</code>
+</p>
+
+<p>
+    Chamada reflexiva:<br>
+    <code>def foo(v: {def bar()}) = v.bar()</code>
+</p>
+
+<p>
+    Seleção dinâmica de membro:<br>
+    <code>class Foo extends Dynamic</code>
+</p>
+
+<p>
+    Conversão implícita:<br>
+    <code>implicit def toInt(s: String) = s.toInt</code>
+</p>
+
+<p>
+    Tipo de ordem superior <small>(habilitado por padrão desde <em>Scala 2.13.1</em>)</small>:<br>
+    <code>class Bar[M[A]]</code>
+</p>
+
+<p>
+    Tipo existencial:<br>
+    <code>def foo(v: Seq[T] forSome { type T })</code>
+</p>
+
+<p>
+    Definição de macro:<br>
+    <code>def assert(s: String) = macro Asserts.assertImpl</code>
+</p>
+<!-- tooltip end -->
+
+<p>O compilador Scala também pode emitir estes avisos quando a opção "-feature" é fornecida. </p>
+
+<p>Para opções do compilador, consulte: <a href="settings://scala.compiler?Features">Arquivo | Configurações | Compilação, execução, implantação | Compilador | Compilador Scala | Recursos</a></p>
+</body>
+</html>

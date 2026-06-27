@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata chamadas de métodos e construtores que utilizam implicitamente o conjunto de caracteres padrão da plataforma. Essas chamadas podem produzir resultados diferentes em sistemas que utilizam diferentes conjuntos de caracteres padrão, o que pode levar a comportamentos inesperados.
+<p><b>Exemplo:</b></p>
+<pre><code>void foo(byte[] bytes) {
+  String s = new String(bytes);
+}</code>
+</pre>
+<p>Se o método sobrecarregado correspondente estiver disponível, uma correção rápida para especificar explicitamente o conjunto de caracteres UTF-8 poderá ser usada.
+  Após aplicar a correção rápida:</p>
+<pre><code>void foo(byte[] bytes) {
+  String s = new String(bytes, StandardCharsets.UTF_8);
+}</code>
+</pre>
+<!-- tooltip end -->
+</body>
+</html>

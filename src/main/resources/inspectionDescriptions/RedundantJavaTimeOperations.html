@@ -1,0 +1,46 @@
+<html>
+<body>
+Relata operações redundantes em objetos <code>java.time</code>:
+<ul>
+  <li>Criação de objetos de data/hora do pacote <code>java.time</code> do JDK quando uma chamada de método mais simples poderia ser usada ou a criação poderia ser evitada.</li>
+  <li>Chamadas de método <code>java.time</code> que usam <code>java.time.temporal.ChronoField</code> e <code>java.time.temporal.ChronoUnit</code> como argumentos quando podem ser substituídas por chamadas de métodos mais específicos.</li>
+  <li>Comparações <code>java.time</code> com chamadas <code>compareTo()</code> que podem ser substituídas por chamadas <code>isAfter()</code>, <code>isBefore()</code> ou <code>isEqual()</code>.</li>
+</ul>
+
+<p>Exemplos:</p>
+- Antes:
+<pre><code>
+LocalDateTime now = LocalDateTime.now();
+return LocalDateTime.from(now);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+LocalDateTime now = LocalDateTime.now();
+return now;
+</code></pre>
+- Antes:
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int minute = localTime.get(ChronoField.MINUTE_OF_HOUR);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+LocalTime localTime = LocalTime.now();
+int minute = localTime.getMinute();
+</code></pre>
+- Antes:
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.compareTo(date2) > 0;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.isAfter(date2);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2024.3</small></p>
+</body>
+</html>

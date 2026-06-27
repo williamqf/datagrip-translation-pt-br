@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Relata as seguintes violações da especificação EJB:</p>
+<ul>
+  <li>Nomes de classes que implementam certas interfaces relacionadas ao EJB e começam com 'ejb'.</li>
+  <li>Classes interceptoras que não definem nenhum método interceptor.</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+
+  @Interceptors(GoodInterceptor.class)
+  public void getSomeData() { ... }
+
+  @Interceptors(EmptyInterceptor.class)
+  public void getSomeData() { ... }
+}
+
+class GoodInterceptor {
+
+  @AroundInvoke
+  public Object logAll(InvocationContext context) throws Exception { ... }
+
+  @PostConstruct
+  public Object logCreate(InvocationContext context) throws Exception { ... }
+}
+
+class EmptyInterceptor {} // Erro: classe interceptora sem métodos específicos
+</code></pre>
+</body>
+</html>

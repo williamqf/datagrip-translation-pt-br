@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata padrões de formatação de data que podem ter sido usados incorretamente.
+<p>Os seguintes padrões são relatados:</p>
+<ul>
+  <li>Um "Y" maiúsculo, a menos que "w" esteja por perto. Ele representa o "ano da semana", que é quase sempre igual ao "ano" normal (padrão "y" minúsculo), mas pode apontar para o ano seguinte logo após o fim de dezembro.</li>
+  <li>Um "M" maiúsculo (mês) perto de "H", "K", "h" ou "k" (horas). Provavelmente pretendia-se usar o "m" minúsculo (minutos).</li>
+  <li>Um "m" minúsculo (minutos) perto de "y" (ano) ou "d" (dia do mês). Provavelmente pretendia-se usar o "M" maiúsculo (mês).</li>
+  <li>Um "D" maiúsculo (dia do ano) perto de "M" ou "L" (mês). Provavelmente pretendia-se usar o "d" minúsculo (dia do mês).</li>
+  <li>Um "S" maiúsculo (milissegundos) perto de "m" (minutos). Provavelmente pretendia-se usar o "s" minúsculo (segundos).</li>
+</ul>
+<p>
+  Exemplos:<br>
+  <code>new SimpleDateFormat("YYYY-MM-dd")</code>: provavelmente pretendia-se usar <code>"yyyy-MM-dd"</code>.<br>
+  <code>new SimpleDateFormat("yyyy-MM-DD")</code>: provavelmente pretendia-se usar <code>"yyyy-MM-dd"</code>.<br>
+  <code>new SimpleDateFormat("HH:MM")</code>: provavelmente pretendia-se usar <code>"HH:mm"</code>.
+</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.1</small></p>
+</body>
+</html>

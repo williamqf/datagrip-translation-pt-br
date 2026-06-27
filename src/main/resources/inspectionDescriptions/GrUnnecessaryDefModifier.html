@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Relata modificadores <code>def</code> desnecessários quando usados com uma declaração de tipo explícita.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>def</b> boolean foo() {} // Modificador desnecessário
+  <b>def</b> Object bar // Modificador desnecessário
+
+  // O modificador é necessário, portanto não é destacado
+  <b>def</b> (int a, String b) = []
+</code></pre>
+</body>
+</html>

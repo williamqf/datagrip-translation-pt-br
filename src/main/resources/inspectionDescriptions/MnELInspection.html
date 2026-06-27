@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata erros de sintaxe no código Micronaut Expression Language (MicronautEL), como referências não resolvidas.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+import io.micronaut.context.annotation.Value;
+import io.micronaut.http.annotation.Controller;
+
+@Controller("/owners")
+class OwnerController {
+    @Value("#{T(java.lang.Math).<strong>unknown</strong>()}") // Não é possível resolver o método 'unknown'
+    double injectedValue;
+}
+</code></pre>
+</body>
+</html>

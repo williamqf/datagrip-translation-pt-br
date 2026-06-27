@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata códigos que aplicam <code>==</code> ou <code>!=</code> a um objeto recém-alocado em vez de chamar <code>equals()</code>.
+<p>
+  Uma referência a um objeto recém-alocado não pode apontar para um objeto existente, portanto, a comparação sempre resultará em <code>false</code>. Esta inspeção também pode relatar objetos recém-criados retornados de métodos simples.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void test(Object obj) {
+    if (new Object() == obj) {...}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void test(Object obj) {
+    if (new Object().equals(obj)) {...}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  <small>Novo na versão 2018.3</small>
+</p>
+</body>
+</html>

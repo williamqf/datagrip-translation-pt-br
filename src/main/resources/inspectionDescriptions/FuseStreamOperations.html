@@ -1,0 +1,20 @@
+<html>
+<body>
+Detecta transformações fora de uma cadeia da Stream API que podem ser incorporadas a ela.
+<p>Exemplo:</p>
+<pre><code>
+  List&lt;String&gt; list = stream.collect(Collectors.toList());
+  list.sort(null);
+  return list.toArray(new String[list.size()]);
+</code></pre>
+<p>Após a transformação:</p>
+<pre><code>
+  return stream.sorted().toArray(String[]::new);
+</code></pre>
+<p>
+  Observe que, às vezes, a cadeia da Stream transformada pode substituir um <code>ArrayList</code> explícito por <code>Collectors.toList()</code> ou um <code>HashSet</code> explícito por <code>Collectors.toSet()</code>. A implementação atual da biblioteca usa essas coleções internamente. No entanto, essa abordagem não é totalmente confiável e pode alterar a semântica do código no futuro.</p>
+
+<!-- tooltip end -->
+<p>Se você estiver preocupado com isso, use a opção <b>Não sugerir coletores 'toList()' ou 'toSet()'</b> para sugerir <code>Collectors.toCollection()</code> em vez dos coletores <code>toList</code> e <code>toSet</code>.
+</body>
+</html>

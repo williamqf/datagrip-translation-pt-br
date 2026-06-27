@@ -1,0 +1,60 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+    Preenche o corpo do método sempre que um método sobrescrito é gerado pelo programa (por exemplo, ao chamar a função <i>Código | Sobrescrever Métodos...</i>).<br>
+    Este template integrado é editável. Além de expressões Java e comentários, você também pode usar variáveis predefinidas que serão expandidas para seus respectivos valores.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas aceitam os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CALL_SUPER}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Chamada do método super; para métodos <b>void</b> - <code><b>super</b>.<i>method_name</i>();</code>, com ou sem parâmetros;
+      para outros métodos - <code><b>return</b> <b>super</b>.<i>method_name</i>();</code>, com ou sem parâmetros
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PLAIN_CALL_SUPER}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Chamada do método super, <code><b>super</b>.<i>method_name</i>();</code>, com ou sem parâmetros
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O tipo de retorno do método criado</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O valor retornado pelo método por padrão</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${METHOD_NAME}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome do método sobrescrito</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CLASS_NAME}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome qualificado da classe na qual o método é sobrescrito</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${SIMPLE_CLASS_NAME}</b></font></nobr></td>
+    <td width="10">&nbsp;</td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome não qualificado da classe na qual o método é implementado</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Todas as variáveis predefinidas do template <i>Cabeçalho de Arquivo</i> (aba <i>Includes</i>) também estão disponíveis.
+      (Por exemplo: <font face="verdana" size="-2"><b>${USER}</b></font>, <font face="verdana" size="-2"><b>${DATE}</b></font>, etc.)</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

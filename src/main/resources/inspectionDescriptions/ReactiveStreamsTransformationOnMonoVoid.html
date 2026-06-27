@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata operações de transformação invocadas em <code>Mono with void value</code> dentro de uma cadeia Reactive Streams.</p>
+
+<p>
+  Invocar uma cadeia Reactive Streams em Mono with Void value não terá efeito.
+  A correção rápida sugere substituir <code>map(), flatMap()</code> por <code>then()</code> que retorne outro Mono.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>Mono.when(Mono.just(1), Mono.just(2))
+                .map(v -> "New value")
+                .doFinally(System.out::println);
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>Mono.when(Mono.just(1), Mono.just(2))
+                .then(Mono.fromCallable(() -> "New value"))
+                .doFinally(System.out::println);
+</code></pre>
+
+<p><small>Recurso novo no 2023.1</small></p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata qualquer comparação com <code>Double.NaN</code> ou <code>Float.NaN</code>.
+Tais comparações não fazem sentido, pois NaN não é igual a nada, inclusive a si mesmo.
+Use os métodos <code>Double.isNaN()</code> ou <code>Float.isNaN()</code> como alternativa.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (x == Double.NaN) {...}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (Double.isNaN(x)) {...}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

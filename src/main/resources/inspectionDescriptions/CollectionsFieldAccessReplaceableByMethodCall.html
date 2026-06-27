@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o uso dos campos de <code>java.util.Collections</code>: <code>EMPTY_LIST</code>, <code>EMPTY_MAP</code> ou <code>EMPTY_SET</code>.
+Esses usos de campos podem ser substituídos pelas seguintes chamadas de método: <code>emptyList()</code>, <code>emptyMap()</code> ou <code>emptySet()</code>.
+Tais chamadas de método evitam que o compilador emita avisos não verificados (unchecked warnings), pois os parâmetros de tipo podem ser inferidos.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  List&lt;Integer&gt; emptyList = Collections.EMPTY_LIST;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;Integer&gt; emptyList = Collections.emptyList();
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção somente relatará se o nível de linguagem do projeto ou módulo for 5 ou superior.</p>
+</body>
+</html>

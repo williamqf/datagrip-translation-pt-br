@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata as seguintes violações da especificação EJB:
+<ul>
+  <li>O método não declara que lança <code>java.rmi.RemoteException</code></li>
+  <li>O tipo de retorno ou os argumentos do método são incompatíveis com RMI/IIOP</li>
+  <li>A interface de endpoint do serviço EJB possui declarações de constantes</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+public interface EntityRemote extends javax.ejb.EJBObject{
+  public int businessExample(String value) throws java.lang.RuntimeException; // Erro: deve declarar 'RemoteException' em vez disso
+}
+</code></pre>
+</body>
+</html>

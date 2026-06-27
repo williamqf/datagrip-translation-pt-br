@@ -1,0 +1,43 @@
+<html>
+<body>
+Relata instruções <code>switch</code> que podem ser substituídas automaticamente por uma instrução ou expressão <code>switch</code> aprimorada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  double getPrice(String fruit) {
+    // A instrução switch pode ser substituída por um 'switch' aprimorado
+    switch (fruit) {
+      case "Apple":
+        return 1.0;
+      case "Orange":
+        return 1.5;
+      case "Mango":
+        return 2.0;
+      default:
+        throw new IllegalArgumentException();
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  double getPrice(String fruit) {
+    return switch (fruit) {
+      case "Apple" -> 1.0;
+      case "Orange" -> 1.5;
+      case "Mango" -> 2.0;
+      default -> throw new IllegalArgumentException();
+    };
+  }
+  </code></pre>
+<!-- tooltip end -->
+<p>
+<ul>
+  <li>
+    Use a opção <b>Avisar apenas quando puder ser convertido em uma expressão</b> para não emitir avisos sobre a conversão em uma instrução <code>switch</code>.
+  </li>
+  <li>
+    Use a opção <b>Número máximo de instruções em um branch para converter em uma expressão switch</b> para avisar sobre a conversão em uma expressão apenas quando o número de instruções em cada branch for menor que o valor especificado.
+  </li>
+</ul>
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

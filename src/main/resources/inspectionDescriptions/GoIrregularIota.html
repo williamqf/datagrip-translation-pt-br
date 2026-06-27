@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata o uso irregular de <code>iota</code> dentro de declarações de constantes.
+<p>O identificador <code>iota</code> é reiniciado para cada declaração de constante e incrementado automaticamente para cada especificação de constante.
+  Dentro de uma única especificação de constante, o identificador mantém seu valor. Referenciar explicitamente <code>iota</code> não reinicia o contador.</p>
+<p>Para mais detalhes, consulte <a href="https://go.dev/ref/spec#Iota">Iota</a> na especificação do Go.</p>
+<p>Esta inspeção é acionada se duas especificações de constante tiverem listas de expressões textualmente idênticas contendo ao menos uma referência a <code>iota</code>, e houver apenas especificações de constante sem listas de expressões entre elas.</p>
+<p>Considere omitir a lista de expressões redundante ou escrever a lista de expressões todas as vezes.</p>
+<p>Exemplo:</p>
+<pre><code>const (
+  a = iota  // 0
+  b         // 1
+  c = iota  // 2
+)
+</code></pre>
+<p>A inspeção é acionada porque o <code>iota</code> na definição de <code>c</code> é redundante.</p>
+<p>Exemplo:</p>
+<pre><code>const (
+  a, aa = iota, iota       // 0, 0
+  b, bb                    // 1, 1
+  c, cc = iota + 40, iota  // 42, 2
+)
+</code></pre>
+<p>A inspeção não é acionada porque nenhuma lista de expressões é redundante.</p>
+</body>
+</html>

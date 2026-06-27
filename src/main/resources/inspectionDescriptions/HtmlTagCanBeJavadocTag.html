@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata o uso de tags <code>&lt;code&gt;</code> em comentários Javadoc.
+A partir do Java 5, essas tags podem ser substituídas pela construção <code>{@code ...}</code>.
+Isso permite o uso de colchetes angulares <code>&lt;</code> e <code>&gt;</code> nos comentários, em vez de entidades de caracteres HTML.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  /**
+   * @return empty &lt;code&gt;ArrayList&amp;lt;Integer&amp;gt;&lt;/code&gt;
+   */
+  List&lt;Integer&gt; getList(){ ... }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  /**
+   * @return empty {@code ArrayList&lt;Integer&gt;}
+   */
+  List&lt;Integer&gt; getList(){ ... }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

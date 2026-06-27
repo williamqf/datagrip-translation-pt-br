@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+  Relata incompatibilidades entre os parâmetros nos comentários de documentação e os parâmetros reais da função.
+</p>
+<!-- tooltip end -->
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>
+  /// - Parameters:
+  ///   - a:
+  func foo(a: Int, b: Int) {}
+</code></pre>
+<p>
+  Após aplicar a correção rápida:
+</p>
+<pre><code>
+  /// - Parameters:
+  ///   - a:
+  ///   - b:
+  func foo(a: Int, b: Int) {}
+</code></pre>
+</body>
+</html>

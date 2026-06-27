@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata expressões legadas de formatação de string (via "format", "formatted" ou concatenação de string) que podem ser convertidas em strings interpoladas.</p>
+<p>A nova sintaxe é mais concisa, oferece mais verificações estáticas e fornece um melhor desempenho em tempo de execução.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val str = "teste"
+  "teste %s".format(str)
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  val str = "teste"
+  s"teste $str"
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

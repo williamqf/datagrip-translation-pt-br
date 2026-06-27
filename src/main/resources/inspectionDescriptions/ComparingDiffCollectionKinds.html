@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Reporta casos em que coleções Scala de categorias diferentes são comparadas.</p>
+<p>Coleções Scala de categorias diferentes (Set, Seq, Map ou Iterator) não podem ser iguais e não devem ser comparadas com arrays também. Esta inspeção sugere converter uma das coleções na mesma categoria.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  seq == iterator
+  seq != array
+</code></pre>
+<p>Depois que a correção rápida for aplicada:</p>
+<pre><code>
+  seq.toIterator == iterator or seq == iterator.toSeq
+  seq != array.toSeq
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

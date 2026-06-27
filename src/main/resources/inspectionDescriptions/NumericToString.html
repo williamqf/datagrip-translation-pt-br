@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas <code>toString()</code> em objetos de classes que estendem <code>Number</code>.
+Tais chamadas são geralmente incorretas em contextos de internacionalização, e alguma formatação específica de localidade deve ser usada em seu lugar.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void print(Double d) {
+    System.out.println(d.toString());
+  }
+</code></pre>
+Uma maneira possível de corrigir esse problema é:
+<pre><code>
+  void print(Double d) {
+    System.out.printf("%f%n", d);
+  }
+</code></pre>
+Isso formatará o número usando a localidade padrão, que é definida durante a inicialização da JVM com base no ambiente do host.
+<!-- tooltip end -->
+</body>
+</html>

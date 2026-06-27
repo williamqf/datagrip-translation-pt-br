@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Relata o valor de <code>@DefaultValue</code> se ele não puder ser convertido para o tipo de parâmetro especificado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @GET
+  @Path("/{n}")
+  public String get(@PathParam("n") @DefaultValue("<b>III</b>") int n) { // Erro: não é possível converter 'III' para int
+  }
+</code></pre>
+</body>
+</html>

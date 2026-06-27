@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas de <code>java.lang.String.concat()</code>.
+<p>
+  Se o método for chamado em uma constante com um argumento constante, tais chamadas podem ser substituídas pelo operador <code>+</code> para melhorar a clareza e o desempenho.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String foo(String name) {
+    return name.concat("foo");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String foo(String name) {
+    return name + "foo";
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

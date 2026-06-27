@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata chamadas a <code>java.sql.Statement.execute()</code> ou qualquer uma de suas variantes que recebam strings construídas dinamicamente como a consulta a ser executada.
+<p>Instruções SQL construídas são uma fonte comum de vulnerabilidades de segurança.
+  Por padrão, esta inspeção ignora constantes em tempo de compilação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  ResultSet execute(Statement statement, String name) throws SQLException {
+    return statement.executeQuery("select * from " + name); // relata um aviso
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as opções de inspeção para tratar qualquer campo <code>static</code> <code>final</code> como uma constante.
+Tome cuidado, pois quando essa opção está ativada, strings como a seguinte serão ignoradas:
+<pre><code>
+  private static final String SQL = "SELECT * FROM user WHERE name='" + getUserInput() + "'";
+</code></pre>
+<p>
+</body>
+</html>

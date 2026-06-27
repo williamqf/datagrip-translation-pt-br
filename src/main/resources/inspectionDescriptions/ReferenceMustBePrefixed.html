@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata e corrige nomes importados que sombreiam classes comuns do Scala como <code>List</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.List
+
+  val list: List[Int] = null
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  import java.util
+  import java.util.List
+
+  val list: util.List[Int] = null
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

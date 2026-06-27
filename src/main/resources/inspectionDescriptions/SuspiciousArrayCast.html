@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata casts de array suspeitos.
+Um cast de array é considerado suspeito quando um array é convertido para um tipo de array mais específico. Embora tais casts sejam válidos em tempo de compilação, eles podem falhar em tempo de execução com uma <code>ClassCastException</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Number[] numbers = new Number[]{1L, 2L, 4L};
+  Long[] longs = (Long[])numbers;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

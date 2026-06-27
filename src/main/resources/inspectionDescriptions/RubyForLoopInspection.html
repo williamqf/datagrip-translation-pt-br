@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata o uso de loops <code>for</code>. É preferível usar <code>.each</code> em vez de um loop <code>for</code>.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+for i in 0..5
+  puts &quot;Value is #{i}&quot;
+end</code>
+</pre>
+
+Uma correção rápida pode ser usada para converter o loop <code>for</code> em um loop <code>.each</code>. Após aplicar a correção rápida, o resultado será assim:
+
+<pre>
+<code># Boa prática
+(0..5).each do |i|
+  puts &quot;Value is #{i}&quot;
+end
+</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado por <a href="https://github.com/martinjandrews/roodi">'Roodi'</a></span></p>
+</body>
+</html>

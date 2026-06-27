@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata problemas com campos <code>AtomicLongFieldUpdater</code>, <code>AtomicIntegerFieldUpdater</code> ou <code>AtomicReferenceFieldUpdater</code> (pacote <code>java.util.concurrent.atomic</code>).
+<p>Os problemas relatados são os mesmos problemas de tempo de execução que podem ocorrer com atualizadores de campos atômicos: o campo especificado não foi encontrado, o campo especificado não está acessível, o tipo do campo especificado está incorreto, etc.</p>
+<p><b>Exemplos:</b></p>
+<ul>
+  <li><pre><code>
+  class A {
+    private static volatile int value = 0;
+    private static final AtomicIntegerFieldUpdater updater =
+    AtomicIntegerFieldUpdater.newUpdater((A.class), "value"); // Alerta: o campo 'value' possui o modificador 'static'
+  }
+  </code></pre></li>
+  <li><pre><code>
+  class B {
+    private static final AtomicIntegerFieldUpdater updater =
+      AtomicIntegerFieldUpdater.newUpdater(B.class, "value"); // Alerta: o campo chamado 'value' não foi encontrado na classe 'B'
+  }
+  </code></pre></li>
+</ul>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

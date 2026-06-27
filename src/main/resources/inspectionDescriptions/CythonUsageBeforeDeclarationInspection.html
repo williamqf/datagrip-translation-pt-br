@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Relata variáveis Cython referenciadas antes da sua declaração.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+cdef int c_x
+
+print(c_x, c_y)  # A variável 'c_y' é utilizada antes da sua declaração
+
+cdef int c_y = 0
+</code></pre>
+</body>
+</html>

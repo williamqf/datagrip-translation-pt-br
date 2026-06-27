@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata chamadas redundantes a construtores <code>String</code> e métodos como <code>toString()</code> ou <code>substring()</code> que podem ser substituídos por expressões mais simples.
+<p>Por exemplo, em códigos como <code>"string".substring(0)</code>, <code>"string".toString()</code> ou
+<code>new StringBuilder().toString().substring(1,3)</code>, as chamadas a esses métodos podem ser removidas com segurança.</p>
+<p>Exemplo:</p>
+<pre><code>
+  System.out.println(new String("message"));
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.out.println("message");
+</code></pre>
+<p>
+  Observe que esta correção rápida remove chamadas de construtor redundantes, o que pode afetar a igualdade de referência de <code>String</code>.
+  Mesmo que seja considerado uma má prática, se você precisar mantê-la, suprima o aviso ou use as configurações de inspeção para ignorar chamadas redundantes de construtor <code>String</code>.
+</p>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Não relatar chamadas de construtor String</b> abaixo para não relatar códigos como o exemplo acima.
+  Isso evitará a alteração dos resultados das comparações de strings usando <code>==</code> ou <code>!=</code> após a aplicação da correção rápida em códigos que usam chamadas <code>new String()</code> para garantir identidades de objetos diferentes.
+</p>
+<p>
+  Use a opção <b>Não relatar chamadas substring() de argumento único</b> abaixo para não relatar códigos como o mostrado abaixo.
+</p>
+<pre><code>
+  stringBuilder.append(string.substring(5));
+</code></pre>
+<p>Pode ser substituído pelo seguinte:
+<pre><code>
+  stringBuilder.append(string, 5, string.length());
+</code></pre>
+<p><small>Novidade em 2018.1</small></p>
+</body>
+</html>

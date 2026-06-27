@@ -1,0 +1,30 @@
+<!-- Copyright 2000-2023 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
+<html>
+<body>
+Relata padrões de formato de mensagem incorretos ou índices incorretos para espaços reservados (placeholders).
+<p>Os seguintes erros são relatados:</p>
+<ul>
+  <li>Índices não resolvidos ou negativos</li>
+  <li>Chaves não fechadas</li>
+  <li>Aspas sem par. Nesse caso, uma parte do padrão pode não ser utilizada</li>
+  <li>Número de aspas possivelmente incorreto</li>
+  <li>Limite inferior incorreto para padrões choice aninhados</li>
+  <li>Índice de espaço reservado incorreto. Nesse caso, o espaço reservado pode não ser substituído ou o argumento pode não ser utilizado</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  MessageFormat.format("{wrong}", 1); // índice incorreto
+  MessageFormat.format("{0", 1); // chaves não correspondentes
+  MessageFormat.format("'{0}", 1); // aspas sem par
+  MessageFormat.format("It''''s {0}", 1); // imprimirá "It''s" em vez de "It's"
+  MessageFormat.format("{0}", 1, 2); // o argumento com índice '1' não é utilizado no padrão
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a tabela <b>Métodos MessageFormat personalizados</b> para especificar chamadas de método cujos argumentos devem ser verificados como padrões de MessageFormat.
+  A tabela contém pares de nomes de classe totalmente qualificados e expressões regulares de nomes de método para corresponder aos nomes das classes e chamadas de método.
+  O nome da classe também corresponde a subclasses.
+</p>
+<p><small>Novidade na versão 2023.2</small>
+</body>
+</html>

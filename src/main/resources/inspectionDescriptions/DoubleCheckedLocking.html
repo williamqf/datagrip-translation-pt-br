@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata o <a href="https://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html">bloqueio de verificação dupla (double-checked locking)</a>.
+<p>
+  O bloqueio de verificação dupla tenta inicializar campos sob demanda de maneira thread-safe, evitando ao mesmo tempo o custo de sincronização.
+  Infelizmente, ele não é thread-safe quando usado em campos que não foram declarados como <code>volatile</code>.
+  Ao usar o Java 1.4 ou versões anteriores, o bloqueio de verificação dupla não funciona mesmo para campos <code>volatile</code>.
+  Leia o artigo no link acima para uma explicação detalhada sobre o problema.
+</p>
+<p>Exemplo de bloqueio de verificação dupla incorreto:</p>
+<pre><code>
+  class Foo {
+    private Helper helper = null;
+    public Helper getHelper() {
+      if (helper == null)
+        synchronized(this) {
+          if (helper == null) helper = new Helper();
+        }
+        return helper;
+      }
+    }
+    // Outras funções e membros...
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,87 @@
+thought
+*   Task: Translate IDE inspection descriptions from Chinese, Japanese, and Korean into Portuguese (Brazil).
+    *   Target Audience: Software developers.
+    *   Source Content: HTML structure containing descriptions of an inspection that detects redundant `return` keywords in `if`/`when` branches when the expression itself is being returned.
+    *   Constraints: Preserve HTML tags/formatting, use appropriate dev terminology, no explanations, no additional output.
+
+    *   "reports redundant `return` keyword": *relata a palavra-chave `return` redundante* or *informa sobre a palavra-chave `return` redundante*.
+    *   "if/when expression itself is returned": *quando a expressão `if`/`when` em si é retornada*.
+    *   "last expression of an if or when branch": *última expressão de um branch (ramo) if ou when*.
+    *   "clutter code": *poluem o código* or *tornam o código confuso*.
+    *   "quick-fix": *correção rápida*.
+    *   "removes the redundant return keyword and leaves only the expression": *remove a palavra-chave `return` redundante e mantém apenas a expressão*.
+    *   "New in 2025.3": *Novidade na versão 2025.3* or *Novidade no 2025.3*.
+
+    *   *Paragraph 1:* Relata a palavra-chave `return` redundante que aparece como a última expressão em um branch de `if` ou `when` quando toda a expressão `if`/`when` em si é retornada.
+    *   *Paragraph 2:* Essas palavras-chave não agregam valor e apenas poluem o código.
+    *   *Paragraph 3:* A correção rápida remove a palavra-chave `return` redundante, deixando apenas a expressão.
+    *   *Tooltip end comment:* `<!-- tooltip end -->`
+    *   *Examples:* Preserve code and comments.
+    *   *Footer:* `<small>Novidade na versão 2025.3</small>`
+
+    <html>
+    <body>
+    <p>
+        Relata a palavra-chave <code>return</code> redundante que aparece como a última expressão em um branch de <code>if</code> ou <code>when</code> quando toda a expressão <code>if</code>/<code>when</code> em si é retornada.
+    </p>
+    <p>Essas palavras-chave não agregam valor e apenas poluem o código.</p>
+    <p>A correção rápida remove a palavra-chave <code>return</code> redundante, mantendo apenas a expressão.</p>
+    <!-- tooltip end -->
+    <p>Exemplo:</p>
+    <pre><code>
+    fun foo(flag: Boolean): String {
+      return if (flag) {
+        "foo"
+      } else {
+        return "bar"  // palavra-chave 'return' redundante
+      }
+    }
+    </code></pre>
+    <p>Após a aplicação da correção rápida:</p>
+    <pre><code>
+    fun foo(flag: Boolean): String {
+      return if (flag) {
+        "foo"
+      } else {
+        "bar"
+      }
+    }
+    </code></pre>
+    <p><small>Novidade na versão 2025.3</small></p>
+    </body>
+    </html>
+
+    *   All tags preserved? Yes.
+    *   Terminology correct? Yes (branch, expressão, correção rápida).
+    *   Target language? Portuguese (Brazil).
+    *   No extra text? Yes.<html>
+<body>
+<p>
+    Relata a palavra-chave <code>return</code> redundante que aparece como a última expressão em um branch de <code>if</code> ou <code>when</code> quando toda a expressão <code>if</code>/<code>when</code> em si é retornada.
+</p>
+<p>Essas palavras-chave não agregam valor e apenas poluem o código.</p>
+<p>A correção rápida remove a palavra-chave <code>return</code> redundante, mantendo apenas a expressão.</p>
+<!-- tooltip end -->
+<p>Exemplo:</p>
+<pre><code>
+fun foo(flag: Boolean): String {
+  return if (flag) {
+    "foo"
+  } else {
+    return "bar"  // palavra-chave 'return' redundante
+  }
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+fun foo(flag: Boolean): String {
+  return if (flag) {
+    "foo"
+  } else {
+    "bar"
+  }
+}
+</code></pre>
+<p><small>Novidade na versão 2025.3</small></p>
+</body>
+</html>

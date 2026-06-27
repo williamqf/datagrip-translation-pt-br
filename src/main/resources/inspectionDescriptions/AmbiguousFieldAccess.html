@@ -1,0 +1,40 @@
+<html>
+<body>
+Relata o acesso a um campo de superclasse a partir de uma classe anônima, interna ou local se uma variável local, parâmetro ou campo com o mesmo nome existir no código circundante.
+Nesses casos, pode parecer que um elemento do código circundante está sendo acessado, quando, na realidade, o campo da superclasse é o que está sendo acessado.
+<p>
+  Para esclarecer a intenção do código, recomenda-se adicionar um qualificador <code>super</code> explícito ao acesso ao campo.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    class First {
+      protected String ambiguous;
+    }
+    class Second {
+      void foo(String ambiguous) {
+        new First() {
+          {
+            System.out.println(ambiguous); // Acessa o campo, não o parâmetro
+          }
+        };
+      }
+    }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+    class First {
+      protected String ambiguous;
+    }
+    class Second {
+      void foo(String ambiguous) {
+        new First() {
+          {
+            System.out.println(super.ambiguous);
+          }
+        };
+      }
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

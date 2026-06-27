@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata nomes de Bean duplicados definidos no contexto da aplicação.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;beans profile="PROD"&gt;
+    &lt;bean class="..." id="duplicatedName"/&gt;  &lt;!-- Erro --&gt;
+    &lt;bean class="..." name="foo_name, duplicatedName"/&gt; &lt;!-- Erro em 'duplicatedName' --&gt;
+    &lt;bean class="..." id="toBeAliased"/&gt;
+
+    &lt;alias alias="duplicatedName" name="toBeAliased"/&gt; &lt;!-- Erro em 'duplicatedName' --&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

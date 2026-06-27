@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata a ausência de caracteres de continuação no comando <code>RUN</code>.</p>
+<p>
+  Na forma <i>shell</i> do comando <code>RUN</code>, você deve usar uma '\' (barra invertida)
+  para continuar uma única instrução <code>RUN</code> na próxima linha.
+  Caso contrário, o build do Docker falhará.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplos:</b></p>
+<pre><code>
+  # o comando abaixo falhará
+  RUN /bin/bash -c 'source $HOME/.bashrc;
+      echo $HOME'
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  RUN /bin/bash -c 'source $HOME/.bashrc; \
+      echo $HOME'
+</code></pre>
+</body>
+</html>

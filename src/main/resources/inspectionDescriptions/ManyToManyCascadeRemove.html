@@ -1,0 +1,9 @@
+<html>
+<body>
+Verifica a existência de associações <pre><code>@ManyToMany</code></pre> com o atributo <pre><code>CascadeType.REMOVE</code></pre>.
+Especificar <pre><code>CascadeType.REMOVE</code></pre> para <pre><code>@ManyToMany</code></pre> não faz sentido para a cascata, pois ela se propagaria além da tabela de junção.
+Como o outro lado pode ser referenciado por outras entidades do lado pai, a remoção automática pode causar uma <pre><code>ConstraintViolationException</code></pre>.
+Por exemplo, se <pre><code>@ManyToMany(cascade = CascadeType.ALL)</code></pre> for definido e a primeira pessoa for removida, o Hibernate lançará uma exceção, pois outra pessoa ainda está associada ao endereço que está sendo removido.
+Para mais detalhes, consulte <a href="https://vladmihalcea.com/hypersistence-optimizer/docs/user-guide/#ManyToManyCascadeRemoveEvent">este artigo</a>.
+</body>
+</html>

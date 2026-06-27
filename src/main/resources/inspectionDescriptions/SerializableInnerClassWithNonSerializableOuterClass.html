@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata classes internas não estáticas que implementam <code>Serializable</code> e que são declaradas em classes que não implementam <code>Serializable</code>.
+<p>
+  Devido a uma referência implícita à classe externa, é improvável que tal classe seja serializada corretamente.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class A {
+      class Main implements Serializable {
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>
+    Listar as classes cujas subclasses não devem ser relatadas por esta inspeção.
+    Isso se aplica a classes que herdam <code>Serializable</code> de uma superclasse, mas não são destinadas à serialização.
+  </li>
+  <li>
+    Se deve ignorar classes anônimas <code>Serializable</code>.
+  </li>
+</ul>
+</body>
+</html>

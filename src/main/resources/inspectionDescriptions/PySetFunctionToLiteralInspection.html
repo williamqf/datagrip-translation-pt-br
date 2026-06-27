@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata chamadas da função <code>set</code> que podem ser substituídas por um literal de <code>set</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+def do_mult(a, b):
+    c = a * b
+    return set([c, a, b])
+</code></pre>
+<p>Após a aplicação da correção rápida, o código se torna:</p>
+<pre><code>
+def do_mult(a, b):
+    c = a * b
+    return {c, a, b}
+</code></pre>
+</body>
+</html>

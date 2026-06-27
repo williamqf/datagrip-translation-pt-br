@@ -1,0 +1,24 @@
+<html><body>
+Relata referências a métodos de provedor de dados inexistentes ou inacessíveis.
+<!-- tooltip end -->
+<p>Exemplo:</p>
+<pre><code>
+public class InstanceDataProviderFromForeignClass {
+  // O método data() não existe na classe A
+  @Test(dataProvider = "data", dataProviderClass = A.class)
+  public void test() {
+  }
+}
+class A { }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+// O método data() necessário é criado na classe A
+class A {
+  @DataProvider
+  public Object[][] data() {
+    return new Object[][]{};
+  }
+}
+</code></pre>
+</body></html>

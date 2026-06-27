@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relatórios construindo intervalos de índices de coleção manualmente ao invés de usar <code>.indices</code>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var x: Seq[Int]
+  Range(0, x.size)
+  0 until x.size
+  0.to(x.size - 1)
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  var x: Seq[Int]
+  x.indices
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

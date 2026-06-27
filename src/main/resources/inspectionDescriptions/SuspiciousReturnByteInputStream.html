@@ -1,0 +1,50 @@
+<html>
+<body>
+Relata expressões do tipo <code>byte</code> retornadas por métodos que implementam o método <code>InputStream.read()</code>.
+<p>
+  Isso é suspeito porque <code>InputStream.read()</code> deve retornar valores no intervalo de <code>0</code> a <code>255</code>, enquanto o tipo <code>byte</code> contém valores de <code>-128</code> a <code>127</code>.
+  A correção rápida converterá a expressão em um <code>byte</code> sem sinal aplicando a máscara de bits <code>0xFF</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+class MyInputStream extends InputStream {
+  int pos = 0;
+  byte[] data;
+
+  MyInputStream(byte[] input) {
+    data = input;
+  }
+
+  @Override
+  public int read() {
+    if (pos == data.length) {
+      return -1;
+    }
+    return data[pos++]; // Problema
+  }
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+class MyInputStream extends InputStream {
+  int pos = 0;
+  byte[] data;
+
+  MyInputStream(byte[] input) {
+    data = input;
+  }
+
+  @Override
+  public int read() {
+    if (pos == data.length) {
+      return -1;
+    }
+    return data[pos++] & 0xFF;
+  }
+}
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novo na versão 2023.2</small></p>
+</body>
+</html>

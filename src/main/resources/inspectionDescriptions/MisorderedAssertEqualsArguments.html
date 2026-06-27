@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas de <code>assertEquals()</code> com a ordem incorreta dos argumentos <code>expected</code> (esperado) e <code>actual</code> (atual).
+<p>
+  Para o JUnit 3, 4 e 5, a ordem correta é <code>(expected, actual)</code>.
+  Para o TestNG, a ordem correta é <code>(actual, expected)</code>.
+</p>
+<p>
+  Tais chamadas não apresentam problemas para asserções que passam, mas podem resultar em relatórios de erro confusos em caso de falha.
+  Use a correção rápida para inverter a ordem dos argumentos.
+</p>
+<p><b>Exemplo (JUnit):</b></p>
+<pre><code>
+  assertEquals(actual, expected)
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  assertEquals(expected, actual)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

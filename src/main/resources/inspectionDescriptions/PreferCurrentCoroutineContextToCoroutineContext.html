@@ -1,0 +1,24 @@
+<html>
+Relata o uso da propriedade <code>kotlin.coroutine.coroutineContext</code> em código que depende da biblioteca <code>kotlinx.coroutines</code>.
+<p>
+  Quando tanto <code>kotlin.coroutine.coroutineContext</code> quanto <code>kotlinx.coroutines.CoroutineScope.coroutineContext</code> estão presentes no código, isso pode causar confusão e bugs em potencial.
+</p>
+<p>
+  A biblioteca <code>kotlinx.coroutines</code> fornece a função <code>currentCoroutineContext()</code> como uma alternativa mais clara que deve ser preferida, mesmo quando não houver conflitos explícitos.
+</p>
+<p>
+  Para mais detalhes, consulte a documentação de <code>kotlin.coroutine.coroutineContext</code> e <code>kotlinx.coroutines.currentCoroutineContext</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  suspend fun getCurrentJob(): Job? {
+    return coroutineContext[Job]
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  suspend fun getCurrentJob(): Job? {
+    return currentCoroutineContext()[Job]
+  }
+</code></pre>
+</html>

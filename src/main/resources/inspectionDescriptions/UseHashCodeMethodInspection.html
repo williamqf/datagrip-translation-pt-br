@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata operações bitwise que podem ser substituídas por chamadas aos métodos <code>Long.hashCode()</code> ou <code>Double.hashCode()</code>.
+Esta inspeção detecta a construção <code>(int)(x ^ (x >>> 32))</code>, onde <code>x</code> é uma variável do tipo <code>long</code> ou o resultado de uma chamada anterior a <code>Double.doubleToLongBits()</code>. Essa substituição pode encurtar o código e melhorar a legibilidade.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int result = (int)(var ^ (var >>> 32));
+</code></pre>
+<p>Após a aplicação da correção rápida (quick fix):</p>
+<pre><code>
+  int result = Long.hashCode(var);
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção reporta apenas se o nível de linguagem do projeto ou módulo for 8 ou superior.
+<p><small>Novidade na versão 2024.1</small></p>
+</body>
+</html>

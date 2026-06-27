@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata operadores de subtração unários desnecessários. Tais expressões podem ser difíceis de entender e podem conter erros.
+<p><b>Exemplo:</b></p>
+<pre><code>void unaryMinus(int i) {
+    int x = - -i;
+  }</code></pre>
+<p>As seguintes correções rápidas são sugeridas aqui:</p>
+<ul>
+  <li><p>Remover os operadores <code>-</code> antes da variável <code>i</code>:</p>
+    <pre><code>void unaryMinus(int i) {
+    int x = i;
+  }</code></pre>
+  </li>
+  <li>
+ <p>Substituir os operadores <code>-</code> pelo operador de decremento prefixado:</p>
+    <pre><code>void unaryMinus(int i) {
+    int x = --i;
+  }</code></pre>
+  </li>
+</ul>
+
+<p><b>Outro exemplo:</b></p>
+<pre><code>void unaryMinus(int i) {
+    i += - 8;
+  }</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>void unaryMinus(int i) {
+    i -= 8;
+  }</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

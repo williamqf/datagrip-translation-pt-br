@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões ou instruções booleanas sem sentido ou desnecessariamente complexas.
+<p>Exemplo:
+<pre><code>
+  let a = !(false && x);
+  let b = false || x;
+</code></pre>
+<p>Após a aplicação da correção rápida, o resultado será o seguinte:
+<pre><code>
+  let a = true;
+  let b = x;
+</code></pre>
+</body>
+</html>

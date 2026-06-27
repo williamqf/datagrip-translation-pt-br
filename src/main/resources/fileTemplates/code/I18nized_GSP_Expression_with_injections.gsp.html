@@ -1,0 +1,56 @@
+<html>
+<body>
+
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+    Este é um modelo embutido usado para substituir texto em <b>GSP</b>.
+    Por exemplo:
+      <br>
+      
+        &lt;<span style="font-weight:bold;">html</span>&gt;
+        &lt;<span style="font-weight:bold;">body</span>&gt;
+      <font face="verdana">Olá ${'mundo'}!</font>
+      &lt;<span style="font-weight:bold;">/corpo</span>&gt;
+      &lt;<span style="font-weight:bold;">/html</span>&gt;
+      <br>
+    Usando tags GSP customizadas internacionalizadas, seria assim:
+      <br>
+      
+      &lt;<span style="font-weight:bold;">html</span>&gt;
+      &lt;<span style="font-weight:bold;">body</span>&gt;
+      <font face="verdana">&lt;g:mensagem código="HelloKey" args="['mundo']"/&gt;</font>
+    &lt;<span style="font-weight:bold;">/corpo</span>&gt;
+    &lt;<span style="font-weight:bold;">/html</span>&gt;
+    .
+    <p>
+    O modelo pode ser editado. Além das expressões permitidas no contexto do GSP, também é possível usar as variáveis predefinidas que serão expandidas para os valores correspondentes.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas assumem os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome da chave da propriedade conforme especificada no arquivo de propriedade correspondente.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O valor da propriedade conforme especificado no arquivo de propriedade correspondente.
+      É o valor selecionado de texto GSP original.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${ARGS_KEY}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Argumentos</font></td>
+  </tr>
+
+</table>
+</body>
+</html>

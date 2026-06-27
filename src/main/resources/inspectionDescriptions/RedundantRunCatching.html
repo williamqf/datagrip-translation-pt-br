@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas <code>runCatching</code> seguidas imediatamente por <code>getOrThrow</code>.
+Essas chamadas podem ser substituídas simplesmente por <code>run</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo() = runCatching { doSomething() }.getOrThrow()
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo() = run { doSomething() }
+</code></pre>
+</body>
+</html>

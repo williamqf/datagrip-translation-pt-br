@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata parâmetros do construtor primário nos quais <code>val</code> ou <code>var</code> podem ser removidos.
+<p>
+    Declarar propriedades de classe no construtor aumenta o consumo de memória.
+    Se os valores dos parâmetros forem usados apenas no construtor, eles podem ser omitidos.
+</p>
+<p>Observe que os objetos referenciados podem ser coletados pelo garbage collector antecipadamente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Task(val name: String) {
+      init {
+          print("Task created: $name")
+      }
+  }
+</code></pre>
+<p>A correção rápida remove a palavra-chave <code>val</code> ou <code>var</code> extra:</p>
+<pre><code>
+  class Task(name: String) {
+      init {
+          print("Task created: $name")
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

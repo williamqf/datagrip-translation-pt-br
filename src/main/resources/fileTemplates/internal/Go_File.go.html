@@ -1,0 +1,136 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td><font face="verdana" size="-1"><b>Arquivo Go</b> é um template embutido usado cada vez que você cria um novo arquivo Go. Para usar este template, vá para <b> Arquivo | Novo </b>, selecione <b> Arquivo Go </b> na categoria Go, e então clique em <b> Arquivo vazio </b>.<br><br>
+
+       O template é editável. Você pode usar as variáveis pré-definidas listadas abaixo. Estas variáveis serão expandidas mais tarde no editor para os valores correspondentes.<br><br>
+
+       Você também pode especificar variáveis customizadas. Variáveis customizadas usam o seguinte formato: <code>${VARIABLE_NAME}</code>, onde <code>VARIABLE_NAME</code> é o nome da variável (ex: <code>${MY_CUSTOM_FUNCTION_NAME}</code>).
+      Antes de o IDE usar variáveis customizadas para criar um novo arquivo, você verá uma caixa de diálogo onde poderá definir os valores das variáveis customizadas no template.<br><br>
+
+       Ao usar a diretiva <code>#parse</code>, você pode incluir templates que estão na aba <b>Incluir</b>. Para incluir um template, especifique o nome completo do template entre aspas como um parâmetro (ex: <code>#parse("File Header")</code>).
+    </font></td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Lista de variáveis pré-definidas</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${GO_PACKAGE_NAME_WITH_TEST_SUFFIX}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome do pacote onde o novo arquivo de teste será criado. O arquivo deve ter o sufixo <code>_test</code>. O nome usa o seguinte formato: <code>package_test</code>.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${GO_PACKAGE_NAME}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome do pacote onde o novo arquivo será criado.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DATE}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">A data atual do sistema.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O dia do mês atual.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY_NAME_SHORT}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">As primeiras 3 letras do nome do dia atual (ex: <code>Seg</code>, <code>Ter</code>, etc).</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DAY_NAME_FULL}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome completo do dia atual (ex: <code>Segunda-feira</code>, <code>Terça-feira</code>, etc).</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DIR_PATH}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O caminho para o diretório onde o novo arquivo será armazenado. Este caminho é relativo à raiz do projeto.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${DS}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O símbolo do dólar ($). Esta variável é usada para escapar o caractere dólar para que ele não seja tratado como um prefixo de variável de template.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${FILE_NAME}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome do novo arquivo.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${HOUR}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">A hora atual.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MINUTE}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O minuto atual.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${SECOND}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O segundo atual.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O mês atual.</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH_NAME_SHORT}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">As primeiras 3 letras do nome do mês atual (ex: <code>Jan</code>, <code>Fev</code>, etc).</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${MONTH_NAME_FULL}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome completo do mês atual (ex: <code>Janeiro</code>, <code>Fevereiro</code>, etc).</font>
+    </td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${NAME}</strong></font></nobr>
+    </td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome da nova entidade (arquivo, tipo, interface, etc).</font></td>
+  </tr>
+  <tr>
+    <td valign="top">
+      <nobr><font face="verdana" size="-2"><strong>${PRODUCT_

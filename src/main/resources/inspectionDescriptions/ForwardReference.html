@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Reporta os usos de referências diretas no nível da classe, o que pode levar a um comportamento inesperado durante a inicialização da classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Teste {
+    val first: Int  = second + 5 // aqui second é 0
+    val second: Int = 5
+    // first será 5 e não 10
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

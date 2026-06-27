@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata loops <code>for-in</code> não filtrados.
+<br/><br/>
+O uso dessa estrutura processa não apenas as propriedades do próprio objeto, mas também as propriedades do protótipo do objeto.
+Isso pode ser inesperado em casos específicos, como em métodos utilitários que copiam ou modificam todas as propriedades, ou onde o protótipo de <code>Object</code> pode ter sido modificado incorretamente.
+Por exemplo, o código a seguir imprimirá <b>42</b> e <b>myMethod</b>:
+<br/><br/>
+<pre><code>
+Object.prototype.myMethod = function myMethod() {};
+let a = { foo: 42 };
+for (let i in a) {
+  console.log(a[i]);
+}
+</code></pre>
+
+<p>Sugere-se substituir o loop inteiro pelo método <code>Object.keys()</code> ou adicionar uma verificação <code>hasOwnProperty()</code>. Após a aplicação da correção rápida, o código ficará assim:</p>
+<pre><code>
+for (let i in a) {
+  if (a.hasOwnProperty(i)) {
+    console.log(a[i]);
+  }
+}
+</code></pre>
+</body>
+</html>

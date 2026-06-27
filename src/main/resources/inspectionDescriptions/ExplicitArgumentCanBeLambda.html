@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata chamadas de método que aceitam expressões não triviais e que podem ser substituídas por chamadas de método equivalentes que aceitam lambdas.
+<p>
+A conversão de uma expressão em um lambda garante que as expressões não utilizadas no método não sejam avaliadas. Por exemplo, <code>optional.orElse(createDefaultValue())</code> pode ser convertido em <code>optional.orElseGet(this::createDefaultValue)</code>.
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.1</small></p>
+</body>
+</html>

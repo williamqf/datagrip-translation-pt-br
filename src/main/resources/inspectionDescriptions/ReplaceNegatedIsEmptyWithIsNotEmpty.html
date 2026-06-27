@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata a negação de <code>isEmpty()</code> e <code>isNotEmpty()</code> para coleções e <code>String</code>, ou de <code>isBlank()</code> e <code>isNotBlank()</code> para <code>String</code>.
+<p>O uso das funções correspondentes torna o código mais simples.</p>
+<p>A correção rápida substitui a chamada negada pela chamada correspondente na biblioteca padrão.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun main() {
+      val list = listOf(1,2,3)
+      if (!list.isEmpty()) {
+          // faz algo
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun main() {
+      val list = listOf(1,2,3)
+      if (list.isNotEmpty()) {
+          // faz algo
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

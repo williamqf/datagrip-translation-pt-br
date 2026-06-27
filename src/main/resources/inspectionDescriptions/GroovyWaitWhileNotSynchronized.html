@@ -1,0 +1,7 @@
+<html>
+<body>
+<p>Relata chamadas a <code>wait()</code> que não são realizadas dentro de uma instrução synchronized ou método synchronized correspondente.</p>
+<p>Chamar <code>wait()</code> em um objeto sem possuir o bloqueio resultará no lançamento de uma <code>IllegalMonitorStateException</code>.
+Tal construção não é necessariamente um erro, pois o bloqueio necessário pode ter sido adquirido antes que o método que a contém seja chamado, mas ainda assim deve ser examinada com cuidado.</p>
+</body>
+</html>

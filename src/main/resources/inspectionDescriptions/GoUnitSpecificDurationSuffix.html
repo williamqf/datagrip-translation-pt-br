@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata sufixos específicos de unidade em nomes de constantes e variáveis do tipo <code>time.Duration</code>.
+<p>Esta inspeção provém do <code>go lint</code>. A lista de sufixos que representam unidades de tempo pode ser encontrada no <a href="https://github.com/golang/lint/blob/c5fb716d6688a859aae56d26d3e6070808df29f7/lint.go#L1365-L1373">repositório golang no github.com</a>.</p>
+<p>Como <code>time.Duration</code> representa um valor em nanossegundos, adicionar um sufixo de unidade de tempo pode tornar o significado da variável confuso ou até indicar um uso incorreto da API <code>time.Duration</code>.</p>
+<p>Exemplo:</p>
+<pre><code>var timeoutSeconds = 5 * time.Second</code></pre>
+</body>
+</html>

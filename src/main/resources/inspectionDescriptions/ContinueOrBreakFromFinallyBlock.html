@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata instruções <code>break</code> ou <code>continue</code> dentro de blocos <code>finally</code>.
+<p>Embora ocasionalmente sejam intencionais, tais instruções são muito confusas, podem ocultar exceções lançadas e complicar a depuração.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    while (true) {
+        try {
+          throwingMethod();
+        } finally {
+            continue;
+        }
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

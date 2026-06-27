@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata arquivos de origem compactos e sugere substituí-los por uma classe convencional.
+<p><b>Exemplo (no arquivo Sample.java):</b></p>
+<pre><code>
+  void main() {
+      String a = "Hello, world!";
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+public class Sample {
+    void main() {
+        String a = "Hello, world!";
+    }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Esta inspeção é útil para realizar o downgrade visando a compatibilidade retroativa com versões anteriores do Java.
+</p>
+<p><small>Novidade na versão 2024.1</small></p>
+</body>
+</html>

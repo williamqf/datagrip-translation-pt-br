@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata chamadas de log do SLF4J ou Log4j2 em uma classe que possuam mensagens de log semelhantes, como <code>logger.info("message: {}", key)</code>.
+Pode ser impossível distinguir entre essas chamadas, o que dificulta entender de onde vem uma determinada mensagem de log.
+<p><b>Exemplo (Java):</b></p>
+<pre><code lang="java">
+  private static void request1(String text) {
+      log.info("Message: {}", text); // chamada semelhante
+      doSomething1();
+  }
+
+  private static void request2(int i) {
+      log.info("Message: {}", i); // chamada semelhante
+      doSomething2();
+  }
+</code></pre>
+
+<!-- tooltip end -->
+<ul>
+  <li>
+    Use a opção <b>Comprimento mínimo da sequência semelhante</b> para definir o comprimento mínimo de uma sequência semelhante a partir do qual as chamadas serão relatadas.
+  </li>
+  <li>
+    Use a opção <b>Não relatar chamadas no nível de log 'error'</b> para ignorar mensagens quando o nível de log for `error` e houver uma exceção presente.
+    Ocultar o aviso pode ser útil, pois o local da chamada ainda pode ser localizado usando o stack trace.
+  </li>
+</ul>
+
+<p><small>Novo na versão 2024.1</small></p>
+</body>
+</html>

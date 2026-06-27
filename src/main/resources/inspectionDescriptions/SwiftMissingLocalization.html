@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>
+  Reporta o uso de strings localizadas que não foram adicionadas aos arquivos de strings.
+</p>
+<p>
+  Por padrão, esta inspeção é acionada se uma chave de localização não estiver definida em nenhum dos arquivos de strings disponíveis. Use a caixa de seleção abaixo para avisar apenas se esta chave não estiver definida em todos os idiomas.
+</p>
+<p>
+  Sugere a adição dos pares chave-valor ausentes aos arquivos de strings.
+</p>
+<!-- tooltip end -->
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>
+  let presentation = "Do It"
+</code></pre>
+<p>
+  Após aplicar a correção rápida:
+</p>
+<pre><code>
+  let presentation = NSLocalizedString("Do It", comment: ""))
+</code></pre>
+</body>
+</html>

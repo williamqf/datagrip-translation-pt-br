@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata instruções INSERT que atribuem valores a colunas geradas. Colunas geradas podem ser lidas, mas seus valores não podem ser gravados diretamente.
+<p>Exemplo (PostgreSQL):</p>
+<pre><code>CREATE TABLE foo
+(
+   col1 INT,
+   col2 INT GENERATED ALWAYS AS (col1 + 1) STORED
+);
+INSERT INTO foo(col1, col2) VALUES (1, 2);</code>
+</pre>
+<p>Você não pode inserir <code>2</code> na coluna <code>col2</code>, pois esta coluna é gerada.
+  Para que este script funcione, você pode alterar <code>2</code> para DEFAULT.</p>
+<code>INSERT INTO foo(col1, col2) VALUES (1, DEFAULT);</code>
+</body>
+</html>

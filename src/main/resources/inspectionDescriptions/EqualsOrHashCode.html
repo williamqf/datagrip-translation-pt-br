@@ -1,0 +1,49 @@
+<html>
+<body>
+Relata classes que sobrescrevem <code>equals()</code>, mas não sobrescrevem <code>hashCode()</code> (ou vice-versa).
+Também relata declarações de objeto que sobrescrevem <code>equals()</code> ou <code>hashCode()</code>.
+<p>Isso pode causar comportamentos indesejados ao adicionar a classe a uma <code>Collection</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class C1 {
+      override fun equals(other: Any?) = true
+  }
+
+  class C2 {
+      override fun hashCode() = 0
+  }
+
+  object O1 {
+      override fun equals(other: Any?) = true
+  }
+
+  object O2 {
+      override fun hashCode() = 0
+  }
+</code></pre>
+<p>A correção rápida sobrescreve os métodos <code>equals()</code> ou <code>hashCode()</code> para classes e remove esses métodos para objetos:</p>
+<pre><code>
+   class C1 {
+       override fun equals(other: Any?) = true
+       override fun hashCode(): Int {
+           return javaClass.hashCode()
+       }
+   }
+
+   class C2 {
+       override fun hashCode() = 0
+       override fun equals(other: Any?): Boolean {
+           if (this === other) return true
+           if (javaClass != other?.javaClass) return false
+           return true
+       }
+   }
+
+   object O1 {
+   }
+
+   object O2 {
+   }
+</code></pre>
+</body>
+</html>

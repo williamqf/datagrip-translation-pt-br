@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata classes EJB que realizam escrita em campos <code>static</code>.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+  private static int counter = 0;
+  private AnotherBean anotherBean;
+
+  public void setAnotherBean(AnotherBean anotherBean) {
+    this.anotherBean = anotherBean;
+    counter++; // Erro: nenhum campo static deve ser gravado aqui
+  }
+}
+</code></pre>
+</body>
+</html>

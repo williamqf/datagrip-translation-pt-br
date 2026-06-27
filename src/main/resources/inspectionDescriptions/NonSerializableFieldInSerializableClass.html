@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata campos não serializáveis em classes que implementam <code>java.io.Serializable</code>. Tais campos causarão uma exceção em tempo de execução se o objeto for serializado.
+<p>
+  Campos declarados como <code>transient</code> ou <code>static</code> não são relatados, nem campos de classes que definem o método <code>writeObject</code>.
+</p>
+<p>
+  Esta inspeção assume que campos dos tipos <code>java.util.Collection</code> e <code>java.util.Map</code> são <code>Serializable</code>, a menos que sejam declarados como um tipo não <code>Serializable</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class NonSerializableClass {}
+
+  public class SerializableClass implements Serializable {
+      NonSerializableClass clazz; // Aviso: campo não serializável 'clazz' em classe Serializable
+      static NonSerializableClass staticClazz; // Sem aviso
+  }
+  </code>
+</pre>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção usando as seguintes opções:
+</p>
+<ul>
+  <li>
+    Listar as classes cujos sucessores não devem ser relatados por esta inspeção.
+    Isso se aplica a classes que herdam <code>Serializable</code> de uma superclasse, mas não se destinam à serialização.
+  </li>
+  <li>
+    Listar as anotações que farão com que a inspeção ignore os campos anotados.
+  </li>
+  <li>
+    Se deve ignorar campos inicializados com classes anônimas.
+  </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relatórios sobre métodos com nomes do tipo acessador que tem tipo de resultado <code>Unit</code>.</p>
+<p>Métodos que seguem o contrato de nomenclatura <a href="https://en.wikipedia.org/wiki/JavaBean">JavaBean</a> para acessadores
+    são esperados por não apresentarem <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>. Entretanto,
+    métodos com um tipo de resultado <code>Unit</code> são executados somente para seus efeitos colaterais.</p>
+<p>Isso indica que o método deveria resultar em um tipo diferente de <code>Unit</code> ou
+    ser renomeado para refletir melhor o efeito colateral.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Test {
+    def getTarget(): Unit
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção não relatará métodos que sobrepõem outros membros.</p>
+</body>
+</html>

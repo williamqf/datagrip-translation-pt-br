@@ -1,0 +1,15 @@
+<html>
+<body>
+Relatar condições <em>is log enabled for</em> em declarações <code>if</code> que não correspondem ao nível da chamada de log inclusa.
+<p>
+Exemplo:
+<pre><code>
+  <b>if</b> (LOG.isTraceEnabled()) {
+    // Nível de depuração é registrado, mas nível de rastreio é verificado
+    LOG.debug("some log message");
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção entende as estruturas de registro do <em>java.util.logging</em>, <em>log4j</em>, <em>Log4j 2</em>, <em>Apache Commons Logging</em> e <em>SLF4J</em>.
+</body>
+</html>

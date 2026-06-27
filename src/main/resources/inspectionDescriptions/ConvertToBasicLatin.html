@@ -1,0 +1,21 @@
+<html>
+<body>
+Reporta caracteres latinos não básicos em literais e comentários.
+A inspeção fornece uma correção rápida para substituir tais caracteres por escapes Unicode em literais e por entidades HTML em comentários.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // © 2021
+  char c = '©';
+  String s = "Áî";
+</code>
+</pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  // &amp;copy; 2021
+  char c = '\u00a9';
+  String s = "\u00c1\u00ee";
+</code></pre>
+<!-- tooltip end -->
+Por padrão, esta inspeção não realça no editor e fornece apenas correções.
+</body>
+</html>

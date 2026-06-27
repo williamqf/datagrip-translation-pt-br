@@ -1,0 +1,15 @@
+<html>
+<body>
+Reporta instruções <code>assert</code> e sugere substituí-las por instruções <code>if</code> que lançam <code>java.lang.AssertionError</code>.
+<p>Exemplo:</p>
+<pre><code>
+  assert param != null;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (param == null) throw new AssertionError();
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

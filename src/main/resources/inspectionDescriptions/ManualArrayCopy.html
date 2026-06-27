@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata a cópia manual do conteúdo de um array que pode ser substituída por uma chamada a <code>System.arraycopy()</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (int i = 0; i &lt; array.length; i++) {
+    newArray[i] = array[i];
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.arraycopy(array, 0, newArray, 0, array.length);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

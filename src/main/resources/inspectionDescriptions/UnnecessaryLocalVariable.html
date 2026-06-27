@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata variáveis locais desnecessárias que não aumentam a compreensibilidade de um método, incluindo:
+<ul>
+  <li>Variáveis locais retornadas imediatamente.</li>
+  <li>Variáveis locais que são atribuídas imediatamente a outra variável e não são mais utilizadas.</li>
+  <li>Variáveis locais que possuem sempre o mesmo valor que outra variável local ou parâmetro.</li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean yes() {
+    boolean b = true;
+    return b;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  boolean yes() {
+    return true;
+  }
+  </code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar variáveis retornadas ou lançadas imediatamente</b> para ignorar variáveis que são retornadas ou lançadas de imediato. Alguns estilos de codificação sugerem o uso de tais variáveis para fins de clareza e facilidade de depuração.</li>
+  <li>Use a opção <b>Ignorar variáveis com anotações</b> para ignorar variáveis anotadas.</li>
+</ul>
+</body>
+</html>

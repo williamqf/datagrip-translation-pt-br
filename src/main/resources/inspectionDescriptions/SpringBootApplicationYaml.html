@@ -1,0 +1,59 @@
+<html>
+<body>
+<p>
+  Relata chaves de configuração não resolvidas e depreciadas, bem como valores inválidos em arquivos de configuração <code>.yaml</code> de aplicativos Spring Boot, que podem causar erros em tempo de execução.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+server:
+  port: invalid # relata 'não é possível converter 'invalid' para java.lang.Integer'
+</code></pre>
+
+<p>Se uma chave de configuração depreciada possuir uma chave de substituição, você poderá aplicar a correção rápida "Usar chave de substituição".</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+logging:
+  path: ${path} # relata 'propriedade de configuração depreciada 'logging.path''
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+logging:
+  file:
+    path: ${path}
+</code></pre>
+
+<p>
+  Se uma chave de configuração não estiver definida em <code>spring-configuration-metadata.json</code>, você poderá aplicar a correção rápida "Definir chave de configuração" para criar o arquivo <code>META-INF/spring-additional-configuration-metadata.json</code> e definir as chaves necessárias.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+new:
+  key: value # relata 'não foi possível resolver a propriedade de configuração 'new.key''
+</code></pre>
+
+<p>Após aplicar a correção rápida, o seguinte conteúdo será adicionado ao arquivo <code>META-INF/spring-additional-configuration-metadata.json</code>:</p>
+<pre><code>
+{
+  "properties": [
+    {
+      "name": "new.key",
+      "type": "java.lang.String",
+      "description": "Description for new.key."
+  }
+] }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Tokens de substituição</b> para definir os tokens usados para placeholders de valores em arquivos de configuração.
+  Esses tokens são especificados no formato <code>beginToken*endToken</code>.
+  Se não houver um <code>*</code>, assume-se que os tokens inicial e final sejam idênticos.
+</p>
+<p>
+  Por exemplo, o valor padrão para os tokens inicial e final é <code>@</code>, o que permite definir placeholders como <code>some.property=@another.property@</code>.
+</p>
+<p>Valores dentro de tokens de substituição (<code>@property.key@</code>) não serão destacados.</p>
+</body>
+</html>

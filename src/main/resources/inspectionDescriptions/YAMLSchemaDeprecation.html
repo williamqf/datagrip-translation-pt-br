@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chaves depreciadas em arquivos YAML.
+<p>A depreciação é verificada apenas se houver um esquema JSON associado ao arquivo YAML correspondente.</p>
+<p>Observe que o mecanismo de depreciação ainda não foi definido na especificação do esquema JSON e esta inspeção usa a extensão não padrão <code>deprecationMessage</code>.</p>
+<p><b>Exemplo de depreciação de esquema:</b></p>
+<pre><code>
+  {
+    "properties": {
+      "SomeDeprecatedProperty": {
+        "deprecationMessage": "Baz",
+        "description": "Foo bar"
+      }
+    }
+  }
+</code></pre>
+<p><b>Abaixo está um exemplo com o aviso correspondente:</b></p>
+<pre><code>
+  SomeDeprecatedProperty: some value
+</code></pre>
+</body>
+</html>

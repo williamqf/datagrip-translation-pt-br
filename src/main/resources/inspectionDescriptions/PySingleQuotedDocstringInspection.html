@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata docstrings que não estão em conformidade com o formato de string de aspas duplas triplas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+def calc(self, balance=0):
+    'param: balance'
+    self.balance = balance
+</code></pre>
+<p>Após a aplicação da correção rápida, o código muda para:</p>
+<pre><code>
+def calc(self, balance=0):
+    """param: balance"""
+    self.balance = balance
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata construtores redundantes declarados em records Java.
+<p><b>Exemplo 1:</b></p>
+<pre><code>
+  record Point(int x, int y) {
+    public Point {} // pode ser removido
+  }
+  
+  record Point(int x, int y) {
+    public Point(int x, int y) { // pode ser removido
+      this.x = x;
+      this.y = y;
+    }
+  }
+</code></pre>
+<p>A correção rápida remove o construtor redundante.</p>
+<p><b>Exemplo 2:</b></p>
+<pre><code>
+   // pode ser convertido para um construtor compacto
+  record Range(int from, int to) {
+    public Range(int from, int to) {
+      if (from > to) throw new IllegalArgumentException();
+      this.from = from;
+      this.to = to;
+    }
+  }
+</code></pre>
+<p>A correção rápida converte este código em um construtor compacto.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.1</small></p>
+</body>
+</html>

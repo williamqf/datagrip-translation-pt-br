@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas para <code>java.lang.System.loadLibrary()</code>, <code>java.lang.System.load()</code>, <code>java.lang.Runtime.loadLibrary()</code> e <code>java.lang.Runtime.load()</code> que usam uma string construída dinamicamente como o nome da biblioteca.
+<p>
+  Strings de nomes de biblioteca construídas são uma fonte comum de vulnerabilidades de segurança.
+  Por padrão, esta inspeção ignora constantes de tempo de compilação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void test(int i) {
+    System.loadLibrary("foo" + i);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as configurações da inspeção para tratar qualquer campo <code>static final</code> como uma constante.
+Tenha cuidado, pois quando essa opção estiver ativada, strings como a seguinte serão ignoradas:
+</p>
+<pre><code>
+  private static final String LIBRARY = getUserInput();
+</code></pre>
+</body>
+</html>

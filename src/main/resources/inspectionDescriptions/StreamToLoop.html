@@ -1,0 +1,48 @@
+<html>
+<body>
+Reporta chamadas de cadeias da Stream API, <code>Iterable.forEach()</code> e <code>Map.forEach()</code> que podem ser convertidas automaticamente em loops clássicos.
+Esta inspeção ajuda a fazer o downgrade para compatibilidade com versões anteriores do Java.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String joinNonEmpty(List&lt;String&gt; list) {
+    return list.stream() // A stream pode ser convertida em um loop
+      .filter(s -> !s.isEmpty())
+      .map(String::trim)
+      .collect(Collectors.joining(", "));
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String joinNonEmpty(List&lt;String&gt; list) {
+    StringJoiner joiner = new StringJoiner(", ");
+    for (String s : list) {
+      if (!s.isEmpty()) {
+        String trim = s.trim();
+        joiner.add(trim);
+      }
+    }
+    return joiner.toString();
+  }
+</code></pre>
+<p>
+  Observe que, às vezes, esta inspeção pode levar a pequenas alterações semânticas.
+  Deve-se ter atenção especial com o curto-circuito, pois o número real de elementos lidos não é especificado quando ocorre um curto-circuito na stream.
+</p>
+<!-- tooltip end -->
+<p>Configurar inspeção:</p>
+<p>Use a opção <b>Iterar sobre fontes de stream desconhecidas via Stream.iterator()</b> para sugerir a conversão de streams cujas fontes não são reconhecidas.
+  Neste caso, um iterador será criado a partir da stream.
+  Por exemplo, se a caixa de seleção estiver marcada, a conversão será sugerida aqui:</p>
+<pre><code>
+  List&lt;ProcessHandle&gt; handles = ProcessHandle.allProcesses().collect(Collectors.toList());</code></pre>
+<p>Neste caso, o resultado é o seguinte:</p>
+<pre><code>
+  List&lt;ProcessHandle&gt; handles = new ArrayList&lt;&gt;();
+  for (Iterator&lt;ProcessHandle&gt; it = ProcessHandle.allProcesses().iterator(); it.hasNext(); ) {
+    ProcessHandle allProcess = it.next();
+    handles.add(allProcess);
+  }
+</code></pre>
+<p><small>Novidade na versão 2017.1</small></p>
+</body>
+</html>

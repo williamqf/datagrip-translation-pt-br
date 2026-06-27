@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata instruções <code>if</code> que apenas lançam <code>java.lang.Throwable</code> a partir do ramo <code>then</code> e não possuem um ramo <code>else</code>. Tais instruções podem ser convertidas em instruções <code>assert</code> mais compactas.
+<p>
+A inspeção também relata o <code>Preconditions.checkNotNull()</code> do Guava.
+  Eles podem ser substituídos por chamadas a <code>Objects.requireNonNull()</code> que dispensam a biblioteca.</p>
+<p>Exemplo:</p>
+<pre><code>
+  <b>if</b> (x == 2) <b>throw new</b> RuntimeException("fail");
+  <b>if</b> (y == null) <b>throw new</b> AssertionError();
+  Preconditions.checkNotNull(z, "z");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>assert</b> x != 2 : "fail";
+  Objects.requireNonNull(y);
+  Objects.requireNonNull(z, "z");
+</code></pre>
+<!-- tooltip end -->
+<p>Por padrão, esta inspeção fornece uma correção rápida no editor sem realce de código.</p>
+</body>
+</html>

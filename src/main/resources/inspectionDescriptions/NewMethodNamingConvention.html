@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata métodos com nomes muito curtos, muito longos ou que não seguem o padrão de expressão regular especificado.
+<p>Métodos de instância que sobrescrevem métodos de biblioteca e construtores são ignorados por esta inspeção.</p>
+<p><b>Exemplo</b>: se esta inspeção estiver habilitada para métodos static e o comprimento mínimo especificado para o nome do método for 4 (padrão), o seguinte método static produzirá um aviso porque o comprimento do seu nome é 3, que é menor que 4: <code>public static int max(int a, int b)</code>.
+<p>A correção rápida para renomear tais métodos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>Configurar inspeção:</p>
+<p>Use a lista na seção <b>Opções</b> para especificar quais métodos devem ser verificados. Desmarque a caixa de seleção para os tipos de métodos que deseja ignorar. Especifique <b>0</b> nos campos de comprimento para ignorar a verificação correspondente.</p>
+<p>As expressões regulares devem ser especificadas no formato padrão <code>java.util.regex</code>.</p>
+</body>
+</html>

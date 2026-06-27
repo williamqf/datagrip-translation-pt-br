@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata classes, métodos ou campos que não são utilizados ou não podem ser acessados a partir de pontos de entrada.
+<p> Um ponto de entrada pode ser um método <code>main</code>, testes, classes de fora do escopo especificado, classes acessíveis a partir do <code>module-info.java</code>, etc. Pontos de entrada personalizados podem ser configurados usando padrões de nome ou anotações.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Department {
+    private Organization myOrganization;
+  }
+</code></pre>
+<p>Neste exemplo, <code>Department</code> referencia explicitamente <code>Organization</code>, mas se a classe <code>Department</code> em si não for utilizada, a inspeção relatará ambas as classes. </p>
+<p>
+  A inspeção também relata parâmetros formais não utilizados por seus métodos e por todas as implementações e sobrescritas de métodos, bem como variáveis locais declaradas, mas não utilizadas.
+</p>
+<p>
+  <b>Observação</b>: Alguns membros não utilizados podem não ser relatados durante o realce de código no editor. Por razões de desempenho, membros não privados são verificados apenas se o nome deles aparecer raramente no projeto.
+  Para ver todos os resultados, execute a inspeção selecionando <b>Código | Inspecionar código</b> ou <b>Código | Analisar código | Executar inspeção por nome</b> no menu principal.
+</p>
+
+<!-- tooltip end -->
+<p>Use as configurações de visibilidade abaixo para configurar quais membros relatar. Por exemplo, configurar para relatar apenas métodos <code>private</code> significa que métodos <code>public</code> de classes internas <code>private</code> serão relatados, enquanto métodos <code>protected</code> de classes de nível superior serão ignorados.</p>
+<p>
+  Use a guia <b>Pontos de entrada</b> para configurar os pontos de entrada a serem considerados durante a execução da inspeção.</p>
+<p> Pontos de entrada podem ser adicionados manualmente assim que os resultados da inspeção estiverem prontos.</p>
+<p> Se o seu código usa um framework não suportado, existem várias opções:</p>
+<ul>
+  <li>Se o framework depender de anotações, use o botão <b>Anotações...</b> para configurar as anotações do framework.</li>
+  <li>Se o framework não depender de anotações, tente configurar padrões de nome de classe que o framework espera.</li>
+</ul>
+<p>Dessa forma, o código anotado acessível por componentes internos do framework será considerado como utilizado.</p>
+</body>
+</html>

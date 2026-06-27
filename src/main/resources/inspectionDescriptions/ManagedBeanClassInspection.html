@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata classes Managed Bean definidas incorretamente nos seguintes casos:
+<ul>
+  <li>A classe é final</li>
+  <li>A classe é abstract</li>
+  <li>O Bean é uma classe interna não static</li>
+</ul>
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+  @ManagedBean
+  public final class JavaManagedBean { // Erro: o managed bean não deve ser final
+    ...
+  }
+</code></pre>
+</body>
+</html>

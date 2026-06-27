@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata modificadores finais ausentes para objetos case.</p>
+<p>Embora os objetos case internos sejam efetivamente final em Scala, eles não podem ser estendidos e nem sempre são sinalizados como tal no bytecode compilado. Portanto, esta inspeção encoraja você a fazê-lo.
+    Veja <a href="https://nrinaudo.github.io/scala-best-practices/adts/final_case_objects.html">boas práticas</a>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  object Outer {
+    case object Inner
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  object Outer {
+    final case object Inner
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

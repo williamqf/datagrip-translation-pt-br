@@ -1,0 +1,39 @@
+<html>
+<body>
+    Relata pontos e vírgula redundantes (<code>;</code>) que podem ser removidos com segurança.
+<p>
+    O Kotlin não exige o uso de ponto e vírgula no final de cada instrução ou expressão.
+    É sugerida uma correção rápida para remover os pontos e vírgula redundantes.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val myMap = mapOf("one" to 1, "two" to 2);
+  myMap.forEach { (key, value) ->  print("$key -> $value")};
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  val myMap = mapOf("one" to 1, "two" to 2)
+  myMap.forEach { (key, value) ->  print("$key -> $value")}
+</code></pre>
+
+<p>Existem dois casos em que o ponto e vírgula é necessário:</p>
+<ol>
+    <li>
+        Várias instruções em uma única linha devem ser separadas por ponto e vírgula:
+<pre><code>
+  map.forEach { val (key, value) = it; println("$key -> $value") }
+</code></pre>
+    </li>
+    <li>
+        Uma classe <code>enum</code> que também declara propriedades ou funções exige um ponto e vírgula após a lista de constantes de enumeração:
+        <pre><code>
+  enum class Mode {
+      SILENT, VERBOSE;
+
+      fun isSilent(): Boolean = this == SILENT
+  }
+        </code></pre>
+    </li>
+</ol>
+</body>
+</html>

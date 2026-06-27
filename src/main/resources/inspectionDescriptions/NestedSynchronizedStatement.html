@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata instruções <code>synchronized</code> aninhadas.
+Recomenda-se evitar o aninhamento de sincronização sempre que possível, pois em certos casos, a sincronização aninhada pode levar a um deadlock.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  synchronized (lockA){
+    // thread 1 aguardando lockB
+    synchronized (lockB){ // aviso
+    }
+  }
+  ...
+  synchronized (lockB) {
+    // thread 2 aguardando lockA
+    synchronized (lockA) { // aviso
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

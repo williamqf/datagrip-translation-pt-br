@@ -1,0 +1,20 @@
+<html>
+<body>
+Reporta chamadas como <code>s.substring(0, s.length - x)</code> que podem ser substituídas por <code>s.dropLast(x)</code>.
+<p>O uso da função correspondente torna o código mais simples.</p>
+<p>A correção rápida substitui a chamada <code>substring</code> por <code>dropLast</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(s: String) {
+      s.substring(0, s.length - 5)
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(s: String) {
+      s.dropLast(5)
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

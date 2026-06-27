@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata instruções <code>if</code>, <code>while</code>, <code>do</code> ou <code>for</code> sem chaves.
+Alguns estilos de código, como o <a href="https://google.github.io/styleguide/javaguide.html">Google Java Style Guide</a>, exigem chaves para todas as instruções de controle.
+<p>
+  Ao adicionar mais instruções a uma instrução de controle sem chaves, é importante não esquecer de adicionar as chaves.
+  Ao comentar uma linha de código, também é necessário ter mais cuidado ao não usar chaves, para evitar que a instrução seguinte se torne parte da instrução de fluxo de controle inadvertidamente.
+  Sempre usar chaves torna mais seguro inserir ou comentar uma linha de código.
+<p>
+  Se um estilo de código que sempre utiliza chaves fosse seguido, é muito provável que a <a href="https://www.imperialviolet.org/2014/02/22/applebug.html">vulnerabilidade goto fail</a> não teria ocorrido.
+  Instruções de controle com chaves tornam o fluxo de controle mais fácil de visualizar, sem depender de uma indentação que pode estar incorreta.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class Strange {
+    void x(boolean one, boolean two) {
+      if(one)
+        if(two)
+          foo();
+      else
+        bar();
+    }
+
+    void foo() {}
+    void bar() {}
+  }
+</code></pre>
+<p>A correção rápida envolve o corpo da instrução com chaves:</p>
+<pre><code>
+  class Strange {
+    void x(boolean one, boolean two) {
+      if(one) {
+        if(two) {
+          foo();
+        } else {
+          bar();
+        }
+      }
+    }
+
+    void foo() {}
+    void bar() {}
+  }
+</code></pre>
+</body>
+</html>

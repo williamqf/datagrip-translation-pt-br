@@ -1,0 +1,44 @@
+<html>
+<body>
+Relata a subtração no método <code>compareTo()</code> e em métodos que implementam <code>java.util.Comparator.compare()</code>.
+<p>
+  Embora o uso do resultado da subtração de inteiros como o resultado de um método <code>compareTo()</code> seja uma prática comum, essa construção pode causar bugs sutis em caso de estouro (overflow) de inteiros.
+  Na maioria dos casos, é preferível comparar os valores inteiros diretamente e retornar <code>-1</code>, <code>0</code> ou <code>1</code>.
+</p>
+<p>
+  Subtrações de valores de ponto flutuante convertidos diretamente para o tipo inteiro também são relatadas, pois o arredondamento pode levar à perda de precisão.
+</p>
+<p>
+  A inspeção não relata quando é determinado estaticamente que o intervalo de valores é limitado e que o estouro nunca ocorrerá.
+  Além disso, a subtração de números <code>int</code> maiores ou iguais a <code>0</code> nunca causará estouro.
+  Portanto, esta inspeção não emite avisos nesses casos.
+</p>
+<p>
+  Métodos que sempre retornam zero ou um valor maior podem ser marcados com a anotação <code>javax.annotation.Nonnegative</code> ou especificados nas opções desta inspeção.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class DoubleHolder implements Comparable&lt;DoubleHolder&gt; {
+    double d;
+    public int compareTo(DoubleHolder that) {
+        return (int)(this.d - that.d);
+    }
+ }
+</code></pre>
+<p>Este é um exemplo sem aviso, pois sabe-se que <code>String.length()</code> não é negativo:</p>
+<pre><code>
+  class A implements Comparable&lt;A&gt; {
+    final String s = "";
+    public int compareTo(A a) {
+        return s.length() - a.s.length();
+    }
+ }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use estas opções para listar os métodos cujo uso em subtrações é seguro.
+  Um método é seguro se sempre retornar um valor <code>int</code> maior ou igual a <code>0</code>.
+</p>
+
+</body>
+</html>

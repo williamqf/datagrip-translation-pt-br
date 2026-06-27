@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata composições de <code>drop</code> e <code>take</code> e as substitui com <code>slice</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var x: Seq[Int]
+  x.drop(n).take(m)
+  x.take(m).drop(n)
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  var x: Seq[Int]
+  x.slice(n, n + m)
+  x.slice(n, m)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

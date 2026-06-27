@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata quaisquer parênteses desnecessários.
+<p>Se a ordem de avaliação da expressão permanecer a mesma após a remoção dos parênteses, os parênteses serão considerados desnecessários.</p>
+<p>Exemplo:</p>
+<pre><code>
+  int n = 3 + (9 * 8);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  int n = 3 + 9 * 8;
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar parênteses de esclarecimento</b> para ignorar parênteses que ajudam a tornar expressões binárias mais claras. Os parênteses de esclarecimento são aqueles em que a expressão entre parênteses é uma expressão <code>instanceof</code> que faz parte de uma expressão maior ou contém um operador diferente da expressão pai.</li>
+  <li>Use a opção <b>Ignorar parênteses ao redor da condição em expressões condicionais</b> para ignorar quaisquer parênteses ao redor da condição de uma expressão condicional. Alguns padrões de codificação determinam que todas essas condições devem ser colocadas entre parênteses.</li>
+  <li>
+    Use a opção <b>Ignorar parênteses ao redor de um único parâmetro lambda sem tipo definido</b> para ignorar parênteses ao redor de um único parâmetro em uma expressão lambda.
+  </li>
+</ul>
+
+</body>
+</html>

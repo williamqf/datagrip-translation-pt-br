@@ -1,0 +1,12 @@
+<html>
+<body>
+Reporta instruções que podem ser simplificadas, como condições constantes, ramos <code>if</code> idênticos, expressões booleanas redundantes, etc.
+Use as caixas de seleção abaixo para controlar as opções de análise:
+<ul>
+<li><b>Simplificar "if (true)", "while(false)"</b>: sugere substituir as instruções <code>if</code>/<code>while</code> por literais booleanos.</li>
+<li><b>Simplificar "condition == true"</b>: sugere substituir instruções de igualdade por literais booleanos.</li>
+<li><b>Simplificar "condition1 ? true : condition2;"</b>: sugere simplificar operadores ternários em que uma das expressões é um literal booleano.</li>
+  <li><b>Simplificar "if (condition1) return true; return condition2;"</b>: sugere simplificar o <code>if</code> onde um literal booleano é retornado se a condição for verdadeira, caso contrário, outra condição é retornada.</li>
+</ul>
+</body>
+</html>

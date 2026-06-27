@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata concatenações de <code>String</code> usadas como argumentos para <code>StringBuffer.append()</code>, <code>StringBuilder.append()</code> ou <code>Appendable.append()</code>.
+<p>
+  Tais chamadas podem ser vantajosamente transformadas em chamadas de append encadeadas no <code>StringBuffer/Builder/Appendable</code> existente, economizando o custo de alocação adicional de <code>StringBuffer/Builder</code>.
+  Esta inspeção ignora concatenações de <code>String</code> avaliadas em tempo de compilação, casos em que a conversão apenas prejudicaria o desempenho.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void bar(StringBuilder builder, String name) {
+    builder.append("Hello," + name);    //aviso
+    builder.append("Hello," + "world"); //sem aviso
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

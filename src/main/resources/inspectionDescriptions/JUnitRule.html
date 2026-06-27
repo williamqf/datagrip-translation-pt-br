@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata o uso incorreto das anotações <code>@Rule</code> ou <code>@ClassRule</code>.
+Não é possível executar testes com <a href="https://github.com/junit-team/junit4/wiki/Rules">regras</a> mal formadas.
+<ul>
+  <li>
+    O membro anotado com <code>@Rule</code> deve ser <code>public</code> e um subtipo de <code>org.junit.rules.TestRule</code> ou <code>org.junit.rules.MethodRule</code>
+  <li>
+    O membro anotado com <code>@ClassRule</code> deve ser <code>public</code> e <code>static</code> e um subtipo de <code>org.junit.rules.TestRule</code>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  <b>public class</b> MomentousTest {
+    @Rule
+    <b>private final</b> TemporaryFolder tempFolder =
+      <b>new</b> TemporaryFolder();
+
+    // ... o teste vai até aqui
+  }
+</code></pre>
+<p>Correção rápida disponível para corrigir o modificador:</p>
+<pre><code>
+  <b>public class</b> MomentousTest {
+    @Rule
+    <b>public final</b> TemporaryFolder tempFolder =
+      <b>new</b> TemporaryFolder();
+
+    // ... o teste vai até aqui
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

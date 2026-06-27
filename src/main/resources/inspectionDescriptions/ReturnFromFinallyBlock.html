@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata instruções <code>return</code> dentro de blocos <code>finally</code>.
+<p>Embora ocasionalmente intencionais, tais instruções <code>return</code> podem mascarar exceções lançadas e complicar a depuração.</p>
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    foo();
+  } finally {
+    if (bar()) return;
+  }
+</code></pre>
+</body>
+</html>

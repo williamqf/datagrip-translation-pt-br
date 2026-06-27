@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata o uso implícito de <b>this</b>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+      fun s() = ""
+
+      fun test() {
+          s()
+      }
+  }
+</code></pre>
+<p>A correção rápida especifica explicitamente <b>this</b>:</p>
+<pre><code>
+  class Foo {
+      fun s() = ""
+
+      fun test() {
+          this.s()
+      }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata <code>IntProgression.fromClosedRange()</code> e <code>LongProgression.fromClosedRange()</code> com um passo <code>MIN_VALUE</code>.
+<p>
+Chamadas para <code>IntProgression.fromClosedRange()</code> e <code>LongProgression.fromClosedRange()</code> com um passo <code>MIN_VALUE</code> são proibidas. Todas essas chamadas devem ser verificadas durante a migração para o Kotlin 1.3 ou superior.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  IntProgression.fromClosedRange(12, 143, Int.MIN_VALUE)
+</code></pre>
+<p>Para corrigir este problema, altere o passo da progressão.</p>
+</body>
+</html>

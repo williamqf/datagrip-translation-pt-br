@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata literais de string entre aspas duplas que podem ser convertidos em <a href="https://go.dev/ref/spec#String_literals">literais de string brutos</a> (raw), bem como literais de string brutos que podem ser convertidos em literais de string entre aspas duplas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var s = "Hello\n   \"World\""
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  var s = `Hello
+   "World"`
+</code></pre>
+<!-- tooltip end -->
+<p>Existem dois pontos a serem considerados ao converter strings entre aspas duplas em strings brutas:</p>
+<ul>
+  <li>De acordo com a <a href="https://go.dev/ref/spec#String_literals">especificação da linguagem Go</a>, caracteres de retorno de carro (<code>'\r'</code>) são descartados de valores de string brutos. Como não há como exibir um retorno de carro em uma string bruta, descartamos o caractere de retorno de carro ao converter uma string entre aspas duplas em uma string bruta.</li>
+  <li>O caractere de crase (<code>'`'</code>) não pode estar presente em um literal de string bruto, pois não há como escapá-lo. Portanto, uma string entre aspas duplas contendo um caractere de crase não pode ser convertida em uma string bruta e resultará em um erro de sintaxe. O usuário pode decidir desfazer a conversão ou usar alguma forma de concatenação para preservar a crase da string entre aspas duplas. Por exemplo, <code>"`ab``"</code> produziria <code>`ab``</code>, o que é sintaticamente incorreto. O usuário pode desfazer a operação ou alterar a string resultante para <code>`ab` + "`"</code>.</li>
+</ul>
+</body>
+</html>

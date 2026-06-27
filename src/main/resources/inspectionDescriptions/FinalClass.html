@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata classes declaradas como <code>final</code>.
+Não relata classes final que estendem classes ou interfaces <code>sealed</code>.
+Tais classes não podem ser herdadas e podem indicar falta de design orientado a objetos.
+Alguns padrões de codificação desencorajam classes <code>final</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public final class</b> Main {
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>public class</b> Main {
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

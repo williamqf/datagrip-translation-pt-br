@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata alocações de arrays de comprimento zero conhecido quando há uma constante disponível na classe do tipo do elemento do array.
+Como arrays de comprimento zero são imutáveis, você pode reutilizar a mesma instância de array para economizar memória.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Item {
+    // Constante pública de array de comprimento zero reutilizável 
+    public static final Item[] EMPTY_ARRAY = new Item[0];
+  }
+  class EmptyNode {
+    Item[] getChildren() {
+      // Criação desnecessária de array de comprimento zero
+      return new Item[0];
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class EmptyNode {
+    Item[] getChildren() {
+      return Item.EMPTY_ARRAY;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

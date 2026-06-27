@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata quaisquer implementações do método <code>Object.finalize()</code> declaradas como <code>public</code>.
+<p>
+  De acordo com o contrato de <code>Object.finalize()</code>, apenas o coletor de lixo chama este método. Tornar este método public pode ser confuso, pois implica que o método pode ser usado por outros códigos.
+</p>
+<p>
+  Uma correção rápida está disponível para tornar o método <code>protected</code>, evitando que ele seja chamado por outras classes.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>class</b> X {
+    <b>public void</b> finalize() {
+      /* ... */
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>class</b> X {
+    <b>protected void</b> finalize() {
+      /* ... */
+    }
+  }
+</code></pre>
+</body>
+</html>

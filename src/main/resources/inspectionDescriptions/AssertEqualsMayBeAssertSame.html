@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata chamadas JUnit <code>assertEquals()</code> que podem ser substituídas por chamadas <code>assertSame()</code> equivalentes.
+Isso pode ocorrer quando os argumentos são instâncias de classes <code>final</code> que não sobrescrevem o método <code>Object.equals()</code>, o que torna explícito que a identidade do objeto está sendo comparada.
+<p>Sugere substituir <code>assertEquals()</code> por <code>assertSame()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Test
+  public void testObjectType() {
+    Object o = getObject();
+    Assert.assertEquals(String.class, o.getClass());
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  @Test
+  public void testSort() {
+    Object o = getObject();
+    Assert.assertSame(String.class, o.getClass());
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

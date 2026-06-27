@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata usos inválidos de classes, métodos e variáveis final.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import final
+
+
+@final
+class A:
+    def a_method(self):
+        pass
+
+
+class B(A):
+    def a_method(self):
+        pass
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata campos dos seguintes tipos que não são <code>static final</code>:
+<ul>
+  <li><code>java.util.concurrent.atomic.AtomicLongFieldUpdater</code></li>
+  <li><code>java.util.concurrent.atomic.AtomicIntegerFieldUpdater</code></li>
+  <li><code>java.util.concurrent.atomic.AtomicReferenceFieldUpdater</code></li>
+</ul>
+Como apenas um atualizador de campo atômico é necessário para atualizar campos <code>volatile</code> em todas as instâncias de uma classe, ele quase sempre pode ser <code>static</code>.
+
+<p>Tornar o atualizador <code>final</code> permite que a JVM otimize o acesso para melhorar o desempenho.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    private volatile int id;
+    private AtomicIntegerFieldUpdater&lt;Main&gt; idFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Main.class, "id");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Main {
+    private volatile int id;
+    private static final AtomicIntegerFieldUpdater&lt;Main&gt; idFieldUpdater = AtomicIntegerFieldUpdater.newUpdater(Main.class, "id");
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

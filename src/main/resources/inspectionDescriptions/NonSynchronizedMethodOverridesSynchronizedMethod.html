@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata métodos não <code>synchronized</code> que sobrescrevem métodos <code>synchronized</code>.
+<p>
+  Se um método da superclasse for declarado como <code>synchronized</code>, o método sobrescrito não será sincronizado automaticamente. Isso pode resultar em condições de corrida inesperadas ao usar a subclasse.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Super {
+    synchronized void process() {}
+  }
+  class Sub extends Super {
+    // O método não sincronizado 'process()' sobrescreve um método sincronizado
+    void process() {}
+  }  
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

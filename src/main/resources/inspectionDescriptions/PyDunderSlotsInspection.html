@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Relata usos inválidos de classes que contêm definições <code>__slots__</code>.</p>
+<p><b>Exemplo de acesso a atributo não definido:</b></p>
+<pre><code>
+class Foo:
+    __slots__ = ['foo', 'bar']
+
+    def __init__(self):
+        self.x = 3  # erro: 'x' não está definido em __slots__
+</code></pre>
+
+<p><b>Exemplo de conflito de atributos:</b></p>
+<pre><code>
+class A:
+    __slots__ = ("x",)
+    x = 42  # erro: conflito com "x" listado em __slots__
+</code></pre>
+
+<p><b>Exemplo de <code>slots=True</code>:</b></p>
+<pre><code>
+from dataclasses import dataclass
+
+@dataclass(slots=True)  # erro: __slots__ também está definido em Foo
+class Foo:
+    __slots__ = ['a']
+</code></pre>
+</body>
+</html>

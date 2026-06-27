@@ -1,0 +1,46 @@
+<html>
+<body>
+Reporta instruções <code>return</code> com valor <code>null</code>.
+Embora ocasionalmente útil, essa construção pode fazer com que o código falhe devido a uma maior propensão a <code>NullPointerException</code>.
+<p>
+  Se um método for projetado para retornar <code>null</code>, recomenda-se marcá-lo com a anotação <code>@Nullable</code> - tais métodos serão ignorados por esta inspeção.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Person {
+    public String getName () {
+      return null;
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  class Person {
+    public @Nullable String getName () {
+      return null;
+    }
+  }
+</code></pre>
+<p>
+  Se o tipo de retorno for <code>java.util.Optional</code>, um ajuste rápido adicional é sugerido para converter <code>null</code> em <code>Optional.empty()</code>.
+</p>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção utilizando as seguintes opções:
+</p>
+<ul>
+  <li>
+    Se deve ignorar métodos <code>private</code>.
+    Isso também ignorará retornos <code>null</code> de classes anônimas e lambdas.
+  </li>
+  <li>
+    Se devem ser relatados valores <code>null</code> retornados para arrays, objetos de coleção, objetos simples ou uma combinação dos três.
+    Sempre relata <code>null</code> retornados em métodos cujo tipo de retorno seja <code>java.util.Optional</code>.
+  </li>
+  <li>
+    Clique em <b>Configurar anotações</b> para especificar quais anotações devem ser consideradas como 'nullable'.
+  </li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,44 @@
+<html>
+<body>
+Denuncia campos ou métodos que usam a anotação <code>@DataPoint</code> e não são <code>public</code> e/ou <code>static</code>.
+Classes de teste de <a href="https://github.com/junit-team/junit4/wiki/Theories">teorias</a> com membros <code>@DataPoint</code> com formatação incorreta não podem ser executadas.
+<p>Exemplo:</p>
+<pre><code>
+  @RunWith(Theories.class)
+  <b>public class</b> SeriousTest {
+    @DataPoint
+    <b>private</b> String dataPoint = "value";
+
+    @DataPoint("generated")
+    <b>private</b> String generatedDataPoint() {
+      <b>return</b> "generated value";
+    }
+
+    @Theory
+    <b>public void</b> theoryMethod(String param) {
+      // ...
+    }
+  }
+</code></pre>
+<p>Uma correção rápida está disponível para corrigir os modificadores:</p>
+<pre><code>
+  @RunWith(Theories.class)
+  <b>public class</b> SeriousTest {
+    @DataPoint
+    <b>public static</b> String dataPoint = "value";
+
+    @DataPoint("generated")
+    <b>public static</b> String generatedDataPoint() {
+      <b>return</b> "generated value";
+    }
+
+    @Theory
+    <b>public void</b> theoryMethod(String param) {
+      // ...
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

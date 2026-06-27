@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata o uso de <code>StringBuffer</code>, <code>StringBuilder</code> ou <code>StringJoiner</code> que podem ser substituídos por uma única concatenação de <code>String</code>.
+<p>O uso da concatenação de <code>String</code> torna o código mais curto e simples.</p>
+<p>
+Esta inspeção relata apenas quando a substituição sugerida não resultará em uma degradação significativa de desempenho em JVMs modernas. Em muitos casos, a concatenação de <code>String</code> pode ter um desempenho melhor.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  StringBuilder result = new StringBuilder();
+  result.append("i = ");
+  result.append(i);
+  result.append(";");
+  return result.toString();
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  String result = "i = " + i + ";";
+  return result;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

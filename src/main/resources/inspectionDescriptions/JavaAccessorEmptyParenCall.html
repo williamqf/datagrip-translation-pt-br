@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Informa as chamadas para métodos de acesso Java com cláusulas de argumento vazias.</p>
+
+<p>Espera-se que os métodos que seguem o contrato <a href="https://en.wikipedia.org/wiki/JavaBean">JavaBean</a> de nomenclatura para métodos de acesso não tenham <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>.
+    A convenção recomendada é usar um método sem parâmetros sempre que não houver parâmetros e o método não tiver efeito colateral.
+    Esta convenção promove o <a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que diz que o código do cliente não deve ser afetado pela decisão de implementar um atributo como um campo ou método.</p>
+
+<p>O problema é que Java não implementa o princípio de acesso uniforme.
+    Para preencher essa lacuna, o Scala permite que você deixe de fora os parênteses vazios
+    em uma invocação de um método Java que não recebe argumentos.</p>
+
+<p>A correção rápida remove a cláusula de argumento vazia.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  "test".getClass()
+</code></pre>
+<p>Depois que a correção rápida é aplicada:</p>
+<pre><code>
+  "test".getClass
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

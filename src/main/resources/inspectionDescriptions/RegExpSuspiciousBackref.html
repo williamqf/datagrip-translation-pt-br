@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata retroreferências que não podem ser resolvidas em tempo de execução.
+Isso significa que a retroreferência nunca poderá corresponder a nada.
+Uma retroreferência não poderá ser resolvida se o grupo for definido após a retroreferência ou se o grupo for definido em um ramo diferente de uma alternância.
+<p><b>Exemplo de um grupo definido após sua retroreferência:</b></p>
+<pre><code>
+  \1(abc)
+</code></pre>
+<p><b>Exemplo de um grupo e retroreferência em ramos diferentes:</b></p>
+<pre><code>
+  a(b)c|(xy)\1z
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.1</small>
+</body>
+</html>

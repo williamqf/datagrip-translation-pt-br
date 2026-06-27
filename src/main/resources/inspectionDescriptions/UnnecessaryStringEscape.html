@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata caracteres escapados desnecessariamente em literais de <code>String</code> e, opcionalmente, em literais de <code>char</code>.
+<p>Caracteres de tabulação escapados (<code>\t</code>) não são relatados porque as tabulações são difíceis de distinguir de espaços, mesmo que não seja necessário escapá-los.</p>
+<p>Exemplo:</p>
+<pre><code>
+  String s = "\'Scare\' quotes";
+  String t = """
+    All you need is\n\tLove\n""";
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String s = "'Scare' quotes";
+  String t = """
+    All you need is
+    \tLove
+    """;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

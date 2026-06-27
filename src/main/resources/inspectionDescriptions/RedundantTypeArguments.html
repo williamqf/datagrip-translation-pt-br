@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata chamadas de métodos parametrizados nas quais os tipos de argumento explícitos podem ser omitidos, visto que o compilador os inferirá de forma clara.
+<p>
+  O uso de argumentos de tipo redundantes é desnecessário e reduz a legibilidade do código.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  List&lt;String&gt; list = Arrays.&lt;String&gt;asList("Hello", "World");
+</code></pre>
+<p>Uma correção rápida está disponível para remover argumentos de tipo redundantes:</p>
+<pre><code>
+  List&lt;String&gt; list = Arrays.asList("Hello", "World");
+</code></pre>
+</body>
+</html>

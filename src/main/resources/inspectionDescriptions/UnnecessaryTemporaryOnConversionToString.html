@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata a criação de objetos temporários desnecessários ao converter de um tipo primitivo para <code>String</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String foo = new Integer(3).toString();
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String foo = Integer.toString(3);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

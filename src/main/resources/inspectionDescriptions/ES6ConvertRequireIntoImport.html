@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata instruções <code>require()</code>. Sugere convertê-las em instruções <code>import</code>.
+<br/><br/>
+Ative "Converter require() em escopos internos com a ação 'Corrigir tudo'" para converter todas as chamadas <code>require()</code> dentro de funções e instruções aninhadas ao usar a ação "Corrigir tudo".
+<br/><br/>
+Observe que a conversão de instruções <code>require()</code> em escopos internos para instruções <code>import</code> pode resultar em alterações na semântica do código.
+Instruções import são dependências de módulo estáticas e sofrem hoisting, o que significa que são movidas para o topo do módulo atual. Chamadas <code>require()</code> carregam módulos dinamicamente.
+Elas podem ser executadas condicionalmente e seu escopo é definido pela expressão na qual são utilizadas.
+<br/>Desmarque a caixa de seleção "Converter require() em escopos internos com a ação 'Corrigir tudo'" para evitar quaisquer alterações nesses casos complexos ao usar a ação "Corrigir tudo".
+</body>
+</html>

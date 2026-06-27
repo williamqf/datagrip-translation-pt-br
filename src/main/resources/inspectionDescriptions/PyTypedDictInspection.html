@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata definições e usos inválidos de <a href="https://www.python.org/dev/peps/pep-0589/">TypedDict</a>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import TypedDict
+
+
+class Movie(TypedDict):
+    name: str
+    year: int
+    rate: int = 10  # Valores do lado direito não são suportados
+
+    def method(self): # Instrução inválida em TypedDict
+        pass
+
+
+m = Movie(name="name", year=1000, rate=9)
+print(m["director"])  # A chave 'director' não existe em 'Movie'
+del m["name"]  # Não é possível excluir a chave 'name'
+m["year"] = "1001"  # Esperado 'int', mas obteve 'str'
+</code></pre>
+</body>
+</html>

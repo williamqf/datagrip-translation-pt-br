@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata métodos nomeados como "main" em versões do Java até a 21 que não possuem a assinatura <code>public static void main(String[])</code>.
+A partir do Java 21 preview, a inspeção não destaca métodos main que sejam package-private, protected ou de instância (nem mesmo sem parâmetros formais).
+Além disso, relata métodos main localizados em classes anônimas ou locais.
+Classes anônimas e locais não possuem um nome totalmente qualificado e, portanto, não podem ser executadas.
+<p>Tais métodos podem ser confusos, pois espera-se que um método nomeado como "main" seja o ponto de entrada da aplicação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    void main(String[] args) {} // Há um aviso aqui devido à falta dos modificadores "public static"
+  }
+</code></pre>
+<p>A correção rápida para renomear tais métodos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

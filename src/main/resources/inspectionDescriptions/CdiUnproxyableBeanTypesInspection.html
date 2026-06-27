@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Relata o uso incorreto de tipos de Bean que não podem ser submetidos a proxy.</p>
+<p>O contêiner não pode criar proxies para certos tipos de Bean válidos: classes sem um construtor não privado e sem parâmetros, classes declaradas como <code>final</code> ou com métodos <code>final</code>, tipos primitivos e tipos de array.</p>
+
+<p>Esta inspeção relata as seguintes violações para esses tipos de Bean:</p>
+<ul>
+  <li>Beans gerenciados que declaram um escopo de passivação devem ser <code>java.io.Serializable</code></li>
+  <li>Beans de tipos não serializáveis não podem ser injetados em Beans de escopo de passivação</li>
+  <li>O contêiner deve ser capaz de criar proxies para Beans de escopo normal injetados</li>
+</ul>
+</body>
+</html>

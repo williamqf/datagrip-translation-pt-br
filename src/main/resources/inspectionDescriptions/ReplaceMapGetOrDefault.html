@@ -1,0 +1,16 @@
+<html>
+<body>
+Substitui a chamada da função <code>map.getOrDefault(key, defaultValue)</code> pelo operador de indexação e pelo operador elvis (<code>map[key] ?: defaultValue</code>).
+<p>Exemplo:</p>
+<pre><code>
+  fun test(map: Map&lt;Int, String&gt;) {
+      map<spot>.getOrDefault(1, "foo")</spot>
+  }
+</code></pre>
+<pre><code>
+  fun test(map: Map&lt;Int, String&gt;) {
+      map<spot>[1] ?: "foo"</spot>
+  }
+</code></pre>
+</body>
+</html>

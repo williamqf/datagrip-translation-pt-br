@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>
+  Reporta o uso desnecessário dos esquemas <code>grpc</code> ou <code>http[s]</code> padrão em requisições gRPC.
+</p>
+<p>
+  Exemplos de requisição:
+</p>
+<pre><code>
+# O esquema `grpc` pode ser omitido, pois uma conexão insegura é assumida por padrão
+GRPC grpc://localhost/TestService/testRpc
+</code></pre>
+
+<pre><code>
+# O esquema `http` pode ser omitido: prefira um esquema vazio para conexões inseguras e o esquema dedicado `grpcs` para conexões seguras
+GRPC http://localhost/TestService/testRpc
+</code></pre>
+
+<pre><code>
+# O esquema `https` deve ser substituído por `grpcs`: o esquema dedicado `grpcs` é preferível para indicar que o Transport Layer Security deve estar habilitado para executar a requisição
+GRPC https://localhost/TestService/testRpc
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Para evitar confusão, recomenda-se o uso do esquema dedicado <code>grpcs</code> em requisições gRPC quando a requisição deve usar um canal seguro subjacente. Caso contrário, o esquema pode ser omitido completamente.
+</p>
+</body>
+</html>

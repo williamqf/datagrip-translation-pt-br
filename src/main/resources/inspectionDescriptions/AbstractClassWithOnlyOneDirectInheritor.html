@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata classes <code>abstract</code> que possuem apenas um sucessor direto. Embora tais classes possam proporcionar uma clareza de design admirável, elas aumentam desnecessariamente a pegada (footprint) total da aplicação em ambientes com restrição de memória ou largura de banda. Considere mesclar a classe abstrata com seu sucessor.
+<p>
+  Esta inspeção destina-se ao Java ME e a outros ambientes com restrição severa de recursos.
+  A aplicação dos resultados desta inspeção sem a devida consideração pode afetar negativamente a clareza do código e o design.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  abstract class Base {} // Será relatada
+
+  class Inheritor extends Base {}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

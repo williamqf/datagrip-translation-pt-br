@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata anotações <code>@GuardedBy</code> nas quais o campo de guarda não é <code>final</code>.
+<p>A proteção em um campo não final pode levar a condições de corrida inesperadas, pois o valor do campo seria bloqueado (podendo mudar), em vez do próprio campo.</p>
+<p>Exemplo:</p>
+<pre><code>
+    private ReadWriteLock lock = new ReentrantReadWriteLock(); // campo de guarda não final
+    private Object state;
+
+    @GuardedBy("lock")
+    public void bar() {
+        state = new Object();
+    }
+</code></pre>
+<!-- tooltip end -->
+<p>As anotações <code>@GuardedBy</code> suportadas são:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Informa sobre <code>contains</code> redundantes em <code>filter</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Seq(1, 2, 3).filter(Set(1, 3).contains)
+</code></pre>
+<p>Após o quick-fix ser aplicado:</p>
+<pre><code>
+  Seq(1, 2, 3).filter(Set(1, 3))
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

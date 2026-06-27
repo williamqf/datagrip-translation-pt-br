@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata argumentos de tipo passados para tipos genéricos que não são subtipos do limite superior esperado. Os argumentos de tipo devem ser subtipos de qualquer limite superior especificado.
+<p>Exemplo:</p>
+<pre><code>class Example[A &lt; Numeric]
+end
+
+# 'String' não é um subtipo de 'Numeric'
+type example = Example[String]
+</code></pre>
+</body>
+</html>

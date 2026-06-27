@@ -1,0 +1,21 @@
+<html>
+Relata chamadas <code>forEach { it.join() }</code> em coleções de <code>Job</code>.
+<p>
+  Isso pode ser substituído por uma chamada <code>joinAll()</code> mais concisa e totalmente equivalente.
+</p>
+<p>
+  Para mais detalhes, consulte a documentação de <code>kotlinx.coroutines.joinAll</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  suspend fun waitForJobs(jobs: List&lt;Job&gt;) {
+    jobs.forEach { it.join() }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  suspend fun waitForJobs(jobs: List&lt;Job&gt;) {
+    jobs.joinAll()
+  }
+</code></pre>
+</html>

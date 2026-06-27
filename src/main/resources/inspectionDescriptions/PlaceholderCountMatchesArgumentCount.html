@@ -1,0 +1,17 @@
+<html>
+<body>
+Inspeciona chamadas de log SLF4J ou Log4j 2 como <code>logger.info("{}: {}", key)</code>, onde o número de marcadores de posição <code>{}</code> na mensagem do logger não corresponde ao número de outros argumentos na chamada de log.
+<!-- tooltip end -->
+<p>
+Utilize a opção de inspeção para especificar qual implementação o SLF4J deve usar.
+Se a opção <strong>Verificar automaticamente</strong> for selecionada, o <code>org.apache.logging.slf4j.Log4jLogger</code> será procurado no caminho da classe.
+Se esse arquivo for encontrado ou se <strong>Sim</strong> for selecionado, os casos em que o último argumento com um tipo de exceção tiver um marcador de posição não serão reportados para a API SLFJ4.
+Exemplo:
+<pre><code>
+// Não será reportado
+log.error("For id {}: {}", id, new RuntimeException());
+</code></pre>
+Essa opção só se aplica ao SLF4J.
+<p>
+</body>
+</html>

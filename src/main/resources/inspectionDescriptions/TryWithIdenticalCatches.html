@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata seções <code>catch</code> idênticas em uma única instrução <code>try</code>.
+<p>Agrupar essas seções em um único bloco <i>multi-catch</i> reduz a duplicação de código e evita situações em que uma seção <code>catch</code> é atualizada enquanto a outra não é.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    try {
+        doSmth();
+    }
+    catch (IOException e) {
+        LOG.error(e);
+    }
+    catch (URISyntaxException e) {
+        LOG.error(e);
+    }
+</code></pre>
+<p>Uma correção rápida está disponível para tornar o código mais compacto:</p>
+<pre><code>
+    try {
+        doSmth();
+    }
+    catch (IOException | URISyntaxException e) {
+        LOG.error(e);
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

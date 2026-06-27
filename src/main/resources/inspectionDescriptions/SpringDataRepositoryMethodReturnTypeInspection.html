@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata métodos de repositório Spring Data CRUD com tipos de retorno incorretos.</p>
+<p>Os seguintes tipos de retorno são suportados:</p>
+<list>
+  <li><code>void</code></li>
+  <li>tipos primitivos</li>
+  <li>tipos wrapper</li>
+  <li><code>T</code> (quando se espera que o método de consulta retorne no máximo um resultado). Retorna <code>null</code> se não houver resultado e lança <code>IncorrectResultSizeDataAccessException</code> se houver mais de um resultado.
+  </li>
+  <li><code>java.util.List</code> ou qualquer tipo <code>Iterable</code> comum</li>
+  <li><code>java.util.stream.Stream</code></li>
+  <li><code>java.util.Optional</code> ou <code>scala.Option</code> (quando se espera que o método de consulta retorne no máximo um resultado). Retorna <code>Optional.empty()</code> ou <code>Optional.absent()</code> se não houver resultado e lança <code>IncorrectResultSizeDataAccessException</code> se houver mais de um resultado.
+  </li>
+  <li><code>io.micronaut.data.model.Page</code></li>
+  <li><code>io.micronaut.data.model.Slice</code></li>
+  <li><code>java.util.concurrent.Future</code>, <code>java.util.concurrent.CompletableFuture</code> ou <code>ListenableFuture</code> (se o método estiver anotado com <code>@Async</code> e a execução de métodos assíncronos do Spring estiver habilitada)
+  </li>
+  <li><code>GeoResults&lt;T&gt;</code>, <code>GeoResult&lt;T&gt;</code> ou <code>GeoPage&lt;T&gt;</code></li>
+</list>
+</body>
+</html>

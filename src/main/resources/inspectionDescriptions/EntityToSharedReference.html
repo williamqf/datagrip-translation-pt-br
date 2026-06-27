@@ -1,0 +1,25 @@
+<html>
+<body>
+<code>Entity</code> para <code>SharedEntity</code> de referência inválida relatada.
+<p>
+  Não é possível referenciar <code>Entity</code> a partir de <code>SharedEntity</code>.
+  Só é possível referenciar <code>SharedEntity</code> a partir de <code>Entity</code> se a propriedade for anulable ou tiver a anotação <code>@CascadeDeleteBy</code>. Caso contrário, uma exceção de tempo de execução será lançada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  interface A: Entity {
+    var x: SharedEntity
+    var y: SharedEntity
+  }
+</code></pre>
+<p>A correção rápida permite gerar a anotação ou tornar o tipo anulável</p>
+<pre><code>
+  interface A: Entity {
+    var x: SharedEntity?
+    @CascadeDeleteBy
+    var y: SharedEntity
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

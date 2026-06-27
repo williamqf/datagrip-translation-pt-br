@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata casos em que o primeiro parâmetro (como <code>self</code> ou <code>cls</code>) é reatribuído em um método.
+  Como na maioria dos casos não há propósito em tal reatribuição, o IDE indica um erro.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Account:
+    def calc(self, balance):
+        if balance == 0:
+            self = balance
+        return self
+</code></pre>
+<p>A correção pode ser verificar e modificar o algoritmo para garantir que tal reatribuição seja necessária. Se tudo estiver correto, você pode invocar a ação de intenção para este código e escolher ignorar o aviso.</p>
+</body></html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata casos em que converter uma string para uma versão com prefixos de interpolação de múltiplos sinais de cifrão seria benéfico.
+<p>
+Prefixos de interpolação podem tornar as strings mais fáceis de entender, pois strings prefixadas podem usar literais de cifrão sem a necessidade de escapes adicionais.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+val jsonSchema: String = """
+{
+  "${'$'}id": "https://example.com/product.schema.json",
+}"""
+</code></pre>
+A correção rápida converterá todos os caracteres de cifrão com escape que podem ser substituídos com segurança em caracteres de cifrão normais:
+<pre><code>
+val jsonSchema: String = $$"""
+{
+  "$id": "https://example.com/product.schema.json",
+}"""
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

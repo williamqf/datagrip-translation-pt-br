@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata campos de coleção <code>public</code> <code>static</code> que podem ser modificados.
+<p>Embora esses campos sejam frequentemente usados para armazenar coleções de valores constantes, eles ainda representam um risco de segurança porque, mesmo que o campo seja declarado como <code>final</code>, seu conteúdo ainda pode ser modificado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public static final List&lt;String&gt; EVENTS = new ArrayList&lt;&gt;();
+  </code>
+</pre>
+<!-- tooltip end -->
+<p>
+  Use a tabela na seção <b>Opções</b> para especificar métodos que retornam coleções imutáveis.
+  Campos de coleção <code>public</code> <code>static</code> inicializados com esses métodos não serão relatados.
+</body>
+</html>

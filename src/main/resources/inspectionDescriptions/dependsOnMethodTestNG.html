@@ -1,0 +1,13 @@
+<html><body>
+Relata nomes de métodos inválidos passados para o atributo <code>dependsOnMethods</code> na anotação <code>@Test</code>.
+<p>Um nome de método é considerado inválido se não puder ser resolvido para um método anotado com <code>@Test</code> válido e acessível na classe atual ou em qualquer uma de suas classes pai.</p>
+<p>Exemplo:</p>
+<pre><code>
+  public class SampleTest {
+    @Test(dependsOnMethods = "testSpellignError")
+    public void testSample() {}
+    @Test
+    public void testSpellingError(){}
+  }
+</code></pre>
+</body></html>

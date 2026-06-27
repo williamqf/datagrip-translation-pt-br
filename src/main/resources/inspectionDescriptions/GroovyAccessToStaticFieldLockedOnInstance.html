@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o acesso a campos <code>static</code> não constantes que estão bloqueados em <code>this</code> ou em um campo de instância de <code>this</code>.
+<p>
+  Bloquear um campo <code>static</code> em dados de instância não impede que esse campo seja modificado por outras instâncias, o que pode levar a condições de corrida inesperadas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  static String s;
+  def foo() {
+      synchronized (this) {
+          System.out.println(s); // Aviso
+      }
+  }
+</code></pre>
+</body>
+</html>

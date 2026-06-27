@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata o uso do operador condicional ternário e sugere convertê-lo em instruções <code>if</code>/<code>else</code>.
+<p>Alguns padrões de código proíbem o uso de operadores condicionais.</p>
+<p>Exemplo:</p>
+<pre><code>
+  Object result = (condition) ? foo() : bar();
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Object result;
+  if (condition) {
+    comp = foo();
+  }
+  else {
+    comp = bar();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a opção <b>Ignorar para atribuições simples e retornos</b> para ignorar atribuições e retornos simples e permitir a seguinte estrutura:</p>
+<pre><code>
+  String s = (foo == null) ? "" : foo.toString();
+</code></pre>
+<p>
+  Em contextos onde a substituição automática por uma instrução if não é possível (por exemplo, quando uma expressão condicional é usada em uma chamada de construtor <code>super()</code>), use a opção <b>Ignorar locais onde a instrução if não é possível</b> para ignorar as expressões condicionais.
+</p>
+</body>
+</html>

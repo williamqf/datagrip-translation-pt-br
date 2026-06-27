@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata colunas que não estão na cláusula GROUP BY ou em uma chamada de função de agregação.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE t1 (a INT, b INT);
+SELECT a, b FROM t1 GROUP BY a;</code></pre>
+<p>Se você executar a consulta SELECT, receberá um erro porque o Microsoft SQL Server exige que a coluna <code>b</code> esteja no GROUP BY ou seja usada dentro de uma função de agregação. Os dois exemplos a seguir corrigem o erro.</p>
+<pre><code>SELECT a, b FROM t1 GROUP BY a, b;
+SELECT a, max(b) max_b FROM t1 GROUP BY a;</code></pre>
+</body>
+</html>

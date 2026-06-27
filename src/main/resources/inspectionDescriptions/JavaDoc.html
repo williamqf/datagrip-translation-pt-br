@@ -1,0 +1,42 @@
+<html>
+<body>
+Relata os seguintes problemas em comentários Javadoc:
+<ul>
+  <li>Javadoc ausente onde é necessário</li>
+  <li>Tags obrigatórias ausentes</li>
+  <li>Tags inválidas ou incompletas</li>
+  <li>Descrição do Javadoc ausente ou incompleta</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  class Main {
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  /**
+   *
+   */
+  class Main {
+  }
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  String id(String value) {
+    return value;
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  /**
+   * @param value
+   * @return
+   */
+  String id(String value) {
+    return value;
+  }
+</code></pre>
+<!-- tooltip end -->
+Use as abas e as opções de inspeção correspondentes para definir o escopo de visibilidade onde o Javadoc é exigido, bem como as tags Javadoc necessárias para classes, métodos, campos e classes internas.
+</body>
+</html>

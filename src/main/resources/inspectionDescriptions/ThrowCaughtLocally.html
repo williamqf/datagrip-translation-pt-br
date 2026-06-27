@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata instruções <code>throw</code> cujas exceções são sempre capturadas pela instrução <code>try</code> envolvente.
+<p>O uso de instruções <code>throw</code> como um "goto" para alterar o fluxo de controle local é confuso e resulta em desempenho insatisfatório.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    if (!Files.isDirectory(PROJECTS)) {
+        throw new IllegalStateException("Directory not found."); // Aviso: 'throw' capturado pela instrução 'try' envolvente
+    }
+    ...
+  } catch (Exception e) {
+      LOG.error("run failed");
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar exceções relançadas</b> para ignorar exceções que são lançadas novamente.</p>
+</body>
+</html>

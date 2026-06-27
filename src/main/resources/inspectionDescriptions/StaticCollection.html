@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata campos <code>static</code> do tipo <code>Collection</code>. Embora isso não seja necessariamente um problema, coleções estáticas frequentemente levam a vazamentos de memória e, portanto, são proibidas por alguns padrões de codificação.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Example {
+    static List&lt;String&gt; list = new ArrayList&lt;&gt;();
+
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configuração da inspeção:
+</p>
+<ul>
+  <li>Use a opção <b>Ignorar coleções ou mapas estáticos fracos</b> para ignorar campos do tipo <code>java.util.WeakHashMap</code>.</li>
+</ul>
+</body>
+</html>

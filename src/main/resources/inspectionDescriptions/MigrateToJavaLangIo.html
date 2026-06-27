@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas a <code>System.out.println()</code> e <code>System.out.print()</code> e sugere substituí-las por métodos da classe <code>java.lang.IO</code>.
+<p>
+  Esta inspeção ajuda na migração do código para o uso da classe <code>java.lang.IO</code> mais recente.</p>
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>System.out.println("Hello, World!");</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>IO.println("Hello, World!");</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Relatar em classes comuns</b> para relatar e sugerir correções em classes comuns</li>
+  <li>Use a opção <b>Relatar em arquivos de origem compactos</b> para relatar e sugerir correções em arquivos de origem compactos</li>
+</ul>
+<p><small>Novidade na versão 2025.2</small></p>
+</body>
+</html>

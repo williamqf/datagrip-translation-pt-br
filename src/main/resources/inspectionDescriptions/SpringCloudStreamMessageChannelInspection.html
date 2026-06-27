@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata atributos de canal não resolvidos nas anotações <code>@StreamListener</code>, <code>@SendTo</code>, <code>@Output</code> e <code>@Input</code>.</p>
+<p>O uso de nomes de vinculação (binding) inválidos causa erros de 'Bean não encontrado' em tempo de execução.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @EnableBinding(Sink.class)
+  public class LogSource {
+    @StreamListener(Sink.class)
+	  public void log1() {
+    }
+
+    @StreamListener("invalid")  // relata 'Canal não encontrado'
+	  public void log2() {
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

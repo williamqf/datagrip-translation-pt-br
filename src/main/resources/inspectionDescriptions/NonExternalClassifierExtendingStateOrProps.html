@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>
+  Relata classes, interfaces e objetos em projetos Kotlin/JS que estendem tipos React Props ou State, mas não estão marcados como <code>external</code>.
+</p>
+<p>
+  Os tipos de componentes React devem ser interfaces externas para interoperar corretamente com o runtime JavaScript.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>interface MyProps : Props { // Aviso: deve ser uma interface external
+    var title: String
+}
+
+class MyState : State { // Aviso: deve ser uma interface external
+    var count: Int = 0
+}</code></pre>
+<p><b>Após a aplicação da correção rápida:</b></p>
+<pre><code>external interface MyProps : Props {
+    var title: String
+}</code></pre>
+</body>
+</html>

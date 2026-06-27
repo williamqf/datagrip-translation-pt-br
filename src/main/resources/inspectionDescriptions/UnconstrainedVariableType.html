@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata casos em que uma expressão restringida por um concept é atribuída a uma variável declarada como <code>auto</code> e sugere a adição de uma restrição de tipo.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  template&lt;class T&gt;
+  concept Foo = true;
+
+  Foo auto func() { return true; }
+
+  void bar() {
+      auto f = func(); // aviso para adicionar a restrição 'Foo' aqui
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

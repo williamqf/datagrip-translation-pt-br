@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>
+  Relata propriedades <code>val</code> em interfaces externas que estendem os tipos React Props ou State em projetos Kotlin/JS.
+</p>
+<p>
+  As propriedades nas interfaces de componentes React devem ser mutáveis (<code>var</code>) para funcionar corretamente com o runtime do JavaScript.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>external interface MyProps : Props {
+    val title: String // Aviso: deve ser var
+}</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata nomes de classe totalmente qualificados que podem ser encurtados.
+<p>A correção rápida encurta o nome totalmente qualificado e adiciona uma instrução <code>import</code> se necessário.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class ListWrapper {
+    java.util.List&lt;Integer&gt; l;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  import java.util.List;
+  class ListWrapper {
+    List&lt;Integer&gt; l;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+
+<p>
+  Use a opção <b>Ignorar em instruções de módulo do Java 9</b> para ignorar nomes totalmente qualificados dentro das instruções de módulo <code>provides</code> e <code>uses</code> do Java 9.
+<p>
+  Em <a href="settings://preferences.sourceCode.Java?JavaDoc%20Inner">Configurações | Editor | Estilo de código | Java | Importações</a>, configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>Use a opção <b>Inserir importações para classes internas</b> se as referências a classes internas devam ser qualificadas com a classe externa.</li>
+  <li>Use a opção <b>Usar nomes de classes totalmente qualificados no Javadoc</b> para permitir nomes totalmente qualificados no Javadoc.</li>
+</ul>
+</body>
+</html>

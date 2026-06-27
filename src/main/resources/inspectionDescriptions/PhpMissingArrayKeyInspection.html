@@ -1,0 +1,23 @@
+<html>
+  <body>
+    <p>
+      Relata arrays que não fornecem todas as chaves/entradas obrigatórias definidas no formato do array (array shape).
+    </p>
+    <p>
+      Esta inspeção ajuda a identificar cenários em que a instanciação de um array pode causar problemas em tempo de execução devido à ausência de entradas obrigatórias, garantindo melhor consistência do código e conformidade com a estrutura definida.
+    </p>
+    <p>
+      Snippet de código incorporado:
+    </p>
+    <pre><code>
+      function connect(#[ArrayShape([
+          'path' => 'string',
+          'host' => [
+              'name' => 'string',
+              'port' => 'int'
+          ]
+      ])] array $options = []) { };
+      connect(['host' => ['name' => 'localhost', 'port' => 1234]]); // chave 'path' ausente
+    </code></pre>
+  </body>
+</html>

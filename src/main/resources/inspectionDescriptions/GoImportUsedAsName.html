@@ -1,0 +1,30 @@
+<html>
+<body>
+Reporta declarações de variáveis, argumentos ou funções que se sobrepõem a imports usados.
+<p>Embora tais declarações sejam válidas, elas podem tornar os identificadores exportados do pacote indisponíveis após a declaração ou causar confusão ao ler o código.</p>
+<p>Exemplo:</p>
+<pre><code>import "fmt"
+import _ "fmt"
+import iio "io"
+
+func _() {
+ fmt.Println("demo")
+ demo := true
+ _, _ = iio.EOF, demo
+}
+
+func demo() (int, int) {
+ return 1, 2
+}
+
+func _() {
+ _, _ = iio.EOF, demo
+ fmt := "demo"
+ iio := 1
+ _, _ = iio, fmt
+ a, _ := demo()
+ _ = a
+}</code></pre>
+<p>Os nomes das variáveis <code>fmt</code> e <code>iio</code> conflitam com os nomes dos pacotes importados. Para evitar confusão posterior no código, recomenda-se renomear essas variáveis.</p>
+</body>
+</html>

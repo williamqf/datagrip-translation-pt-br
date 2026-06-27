@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata incompatibilidades entre o nome e o número de parâmetros nos comentários JSDoc e os parâmetros reais da função.
+Sugere a atualização dos parâmetros no comentário JSDoc.
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+/**
+ * @param height Height in pixels
+ */
+function sq(height, width) {} // width não está documentado
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+/**
+ * @param height Height in pixels
+ * @param width
+ */
+function sq(height, width) {}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas ao método <code>copy()</code> de classes de dados (data classes) sem argumentos nomeados.
+<p>
+    Como todos os argumentos da função <code>copy()</code> são opcionais, pode ser difícil entender quais propriedades estão sendo modificadas.
+    Fornecer explicitamente os nomes dos parâmetros torna o código mais fácil de entender, sem a necessidade de navegar até a declaração da <code>data class</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  data class User(val name: String, val age: Int)
+
+  fun copyUser(user: User): User {
+      return user.copy("John")
+  }
+</code></pre>
+<p>A correção rápida fornece nomes de parâmetros para todos os argumentos de <code>copy()</code>:</p>
+<pre><code>
+  data class User(val name: String, val age: Int)
+
+  fun copyUser(user: User): User {
+      return user.copy(name = "John")
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

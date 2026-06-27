@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata chamadas de métodos de fábrica <code>MethodHandle</code> e <code>VarHandle</code> que não correspondem a nenhum método ou campo.
+<p>Também relata argumentos de <code>MethodHandle.invoke()</code> e métodos semelhantes que não correspondem à assinatura de <code>MethodHandle</code>, bem como argumentos de <code>VarHandle.set()</code> que não correspondem ao tipo de <code>VarHandle</code>.
+  <!-- tooltip end -->
+
+<p>Exemplo:</p>
+<pre>
+  MethodHandle mh = MethodHandles.lookup().findVirtual(
+      MyClass.class, "foo", MethodType.methodType(void.class, int.class));
+  <i>// Este argumento deve ser um valor <b>int</b></i>
+  mh.invoke(myObj, "<b>abc</b>");
+</pre>
+<br>
+<pre>
+  <i>// Este argumento deve ser <b>String</b>.class</i>
+  VarHandle vh = MethodHandles.lookup().findVarHandle(
+      MyClass.class, "text", <b>int</b>.class);
+</pre>
+<br>
+<pre>
+  VarHandle vh = MethodHandles.lookup().findVarHandle(
+      MyClass.class, "text", String.class);
+  <i>// Este argumento deve ser um valor <b>String</b></i>
+  vh.set(myObj, <b>42</b>);
+</pre>
+<p>
+  <small>Novidade na versão 2017.2</small>
+</p>
+</body>
+</html>

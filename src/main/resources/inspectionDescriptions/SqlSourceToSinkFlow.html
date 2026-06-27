@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata casos em que strings não seguras são passadas para métodos como consultas SQL nas linguagens Java e Kotlin.
+Isso pode ser uma causa de injeção de SQL.
+A lista de métodos é obtida em <b>Configurações</b> - <b>Injeção de linguagem</b> para <code>SQL</code>, <code>JPA QL</code>, <code>Hibernate QL</code> e <code>PostgreSQL</code>.
+<p>
+  Objetos seguros são:
+<ul>
+  <li>Literais de string, instâncias de interface ou objetos enum, int e seus wrappers, boolean e seus wrappers, objetos de classe</li>
+  <li>Resultados de chamadas de método onde o receptor e os argumentos são seguros</li>
+  <li>Campos private no mesmo arquivo atribuídos apenas com literais de string e que possuem inicializadores seguros</li>
+  <li>Campos final no mesmo arquivo que possuem inicializadores seguros</li>
+  <li>Variáveis locais atribuídas a partir de objetos seguros</li>
+</ul>
+Este campo, variável local ou parâmetro não deve ser passado como argumento para um método ou usado como um qualificador, ou deve ser um primitivo, seu wrapper ou objeto imutável.
+
+Campos static final são considerados seguros.
+<p>
+  A análise é realizada apenas dentro de um único arquivo.
+  Exemplo:
+<pre>
+<code lang="java">
+    public void save(String sql) {
+        JdbcTemplate jdbcTemplate = new JdbcTemplate();
+        jdbcTemplate.queryForList(sql);
+    }
+</code>
+</pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small></p>
+</body>
+</html>

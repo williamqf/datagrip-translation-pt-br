@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata verificações de tipo <code>is</code> não idiomáticas em objetos.</p>
+<p>Recomenda-se substituir tais verificações por comparações de referência.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  object Foo
+
+  fun foo(arg: Any) = when {
+      arg <b>is</b> Foo -> ...
+      arg <b>!is</b> Foo -> ...
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  object Foo
+
+  fun foo(arg: Any) = when {
+      arg <b>===</b> Foo -> ...
+      arg <b>!==</b> Foo -> ...
+  }
+</code></pre>
+</body>
+</html>

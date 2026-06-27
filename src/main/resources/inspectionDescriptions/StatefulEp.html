@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata extensões e correções rápidas que podem estar em um estado de vazamento potencial.
+<p>
+  Manter referências a instâncias de <code>PsiElement</code>, <code>PsiReference</code> ou <code>Project</code> pode causar vazamentos de memória.
+</p>
+<p>
+  Idealmente, elas devem ser sem estado (stateless).
+  Para correções rápidas, considere a <code>LocalQuickFixOnPsiElement</code> como uma classe base conveniente.
+</p>
+</body>
+</html>

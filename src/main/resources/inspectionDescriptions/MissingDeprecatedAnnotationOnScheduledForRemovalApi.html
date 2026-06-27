@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata declarações marcadas com <code>@ApiStatus.ScheduledForRemoval</code>, mas sem <code>@Deprecated</code>.
+<p>Exemplo:</p>
+<pre><code lang="java">
+  @ApiStatus.ScheduledForRemoval(inVersion = "2017.3")
+  public void myLegacyMethod() { }
+</code></pre>
+<p>Após a aplicação da correção rápida (quick fix), o resultado será o seguinte:</p>
+<pre><code lang="java">
+  @Deprecated
+  @ApiStatus.ScheduledForRemoval(inVersion = "2017.3")
+  public void myLegacyMethod() { }
+</code></pre>
+</body>
+</html>

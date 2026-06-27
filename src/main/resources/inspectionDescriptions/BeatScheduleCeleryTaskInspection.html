@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>
+  Relata tarefas não registradas no <a href="https://docs.celeryproject.org/en/stable/userguide/periodic-tasks.html#beat-schedule">agendamento do Celery Beat</a>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="Python">
+  #settings.py
+
+  CELERY_BEAT_SCHEDULE = {
+      'task_name': {
+          'task': 'example_app.tasks.task_name', # path to a task represented by a class or function
+          'schedule': 3.0,
+      },
+  }
+
+
+  #example_app/tasks.py
+
+  @app.task()
+  def taskName():
+      pass
+
+  class TaskName(Task):
+      pass
+</code></pre>
+<p>Se uma classe de tarefa não herdar de Task ou se uma função de tarefa não possuir o decorador necessário, ela não será considerada registrada.</p>
+</body>
+</html>

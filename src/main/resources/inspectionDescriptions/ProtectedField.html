@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata campos <code>protected</code>.
+<p>Constantes (ou seja, variáveis marcadas como <code>static</code> ou <code>final</code>) não são relatadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class A {
+    protected Object object;              // Aviso
+    protected final static int MODE = 0;  // Constante, sem aviso
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

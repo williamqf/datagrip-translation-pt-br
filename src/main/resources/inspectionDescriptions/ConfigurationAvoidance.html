@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>(Gradle 4.9+) Detecta o uso de APIs que interagem imediatamente (eager) com tarefas.</p>
+<p>A interação imediata com tarefas acarreta diversas dificuldades:</p>
+<ul>
+  <li>O usuário deve definir manualmente todas as dependências entre as tarefas;</li>
+  <li>Na <a href="https://docs.gradle.org/current/userguide/build_lifecycle.html#sec:build_phases">fase de configuração</a>, todas as tarefas acessadas por meio de APIs imediatas são configuradas, mesmo que não sejam executadas posteriormente. Isso leva à degradação do desempenho.</li>
+</ul>
+<p>Eventualmente, as APIs imediatas serão descontinuadas em favor das APIs lazy (de configuração tardia).</p>
+<p>Para um guia de migração, consulte a <a href="https://docs.gradle.org/current/userguide/task_configuration_avoidance.html">documentação do Gradle</a>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>task foo { // reporta 'task', sugere substituí-la por 'task.register'
+  // ...
+}
+</code></pre>
+</body>
+</html>

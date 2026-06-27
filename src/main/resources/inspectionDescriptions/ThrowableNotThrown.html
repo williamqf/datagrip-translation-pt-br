@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata a instanciação de <code>Throwable</code> ou de suas subclasses quando o <code>Throwable</code> criado nunca é realmente lançado.
+Além disso, esta inspeção relata chamadas de método que retornam uma instância de <code>Throwable</code> ou de suas subclasses quando o resultado da chamada de método não é lançado.
+<p>Chamadas para métodos anotados com a anotação <code>@CanIgnoreReturnValue</code> do Error Prone ou do AssertJ não são relatadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    void check(String s) {
+        if (s == null) {
+            new NullPointerException("s");
+        }
+        // ...
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

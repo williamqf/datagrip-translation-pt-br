@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>Relata chamadas <code>typing.cast</code> em que os tipos de origem e de destino não estão relacionados.</p>
+<p>Um erro é relatado quando o tipo de origem não é um subtipo do tipo de destino, nem o tipo de destino é um subtipo do tipo de origem.
+  Tais casts geralmente indicam um erro lógico, pois não se pode assumir que uma instância de um tipo seja uma instância de outro, e o <code>typing.cast</code> não verifica tipos dinamicamente.</p>
+
+<p>Esta inspeção aplica-se mesmo a tipos que poderiam, teoricamente, ter um descendente comum.
+  Por exemplo, ela sinalizará um cast entre duas classes irmãs <code>Left</code> e <code>Right</code>, pois ambas herdam de <code>Top</code>, mas não possuem uma relação de herança direta entre si.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import cast
+
+# Tipos que não se sobrepõem — provavelmente um erro
+<b>cast(int, "a")</b>          # 'str' -> 'int'
+<b>cast(list[int], ["a"])</b>  # 'list[str]' -> 'list[int]'
+
+# O escape explícito recomendado é usar um "cast duplo"
+cast(int, <b>cast(object, "a")</b>)  # ok
+
+# Casos de sobreposição legítimos
+cast(int, object())    # downcast válido
+cast(object, 1)        # upcast válido
+
+# No entanto, a conversão a seguir é inválida porque <code>list</code> é invariante.
+# Atualmente não é suportado por esta inspeção
+int_list = [1, 2, 3]
+cast(list[object], int_list)
+</code></pre>
+<!-- tooltip end -->
+<p>A inspeção depende de informações de tipo estáticas; nenhum aviso será relatado quando o tipo for desconhecido.
+
+  A variância de tipos genéricos ainda não é considerada.</p>
+</body>
+</html>

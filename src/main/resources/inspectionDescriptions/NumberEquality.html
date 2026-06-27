@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata códigos que usam <b>==</b> ou <b>!=</b> em vez de <code>equals()</code> para testar a igualdade de <code>Number</code>.
+<p>
+  Ao usar autoboxing, é fácil cometer o erro de comparar duas instâncias de tipos wrapper em vez de dois tipos primitivos, por exemplo, comparando <code>Integer</code> em vez de <code>int</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  void foo(Integer a, Integer b) {
+    final boolean bool = a == b;
+  }
+</code></pre>
+<p>Se for conhecido que <code>a</code> não é nulo, a correção rápida "insegura" pode ser aplicada com segurança para obter um resultado semelhante ao seguinte:</p>
+<pre><code>  void foo(Integer a, Integer b) {
+    final boolean bool = a.equals(b);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

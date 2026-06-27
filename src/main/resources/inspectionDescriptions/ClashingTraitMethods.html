@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata classes que implementam dois ou mais traits que contêm métodos com a mesma assinatura.
+<p>A chamada de tais métodos pode produzir resultados inesperados.</p>
+<p>A correção rápida adiciona um método de sobrescrita explícito.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait T1 {
+      def foo() {}
+  }
+
+  trait T2 {
+      def foo() {}
+  }
+
+  class X implements T1, T2 {}
+
+  // chamará T2.foo()
+  new X().foo()
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class X implements T1, T2 {
+      @Override
+      Object foo() {
+          return T2.super.foo()
+      }
+  }
+</code></pre>
+</body>
+</html>

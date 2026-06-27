@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata operações de escrita dentro de métodos <code>@SafeVarargs</code> onde o parâmetro vararg é reatribuído a outro objeto.
+Nesse caso, o array recém-atribuído não está relacionado aos argumentos de aridade variável no local de chamada e pode não ser mais seguro.
+<p><b>Exemplo:</b></p>
+<pre><code>
+    @SafeVarargs
+    public final &lt;T&gt; void test(T[] tt, T... t) {
+        t = tt;
+        System.out.println(t[0]);
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

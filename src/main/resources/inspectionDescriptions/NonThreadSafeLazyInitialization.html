@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata variáveis <code>static</code> inicializadas de forma tardia (lazy) que não são thread-safe.
+<p>A inicialização tardia de variáveis <code>static</code> deve ser realizada com construtos de sincronização apropriados para evitar que threads diferentes executem inicializações conflitantes.</p>
+<p>Se aplicável, é sugerida uma correção rápida (Quick Fix) que introduz o <a href="https://en.wikipedia.org/wiki/Initialization_on_demand_holder_idiom">idioma de classe holder de inicialização tardia</a>.
+  Esse idioma aproveita o fato de que a JVM garante que uma classe não será inicializada até que seja utilizada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+    private static List&lt;String&gt; list;
+
+    public List&lt;String&gt; getList() {
+      if (list == null) {
+        list = List.of("one", "two", "tree");
+      }
+      return list;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class X {
+    private static final class ListHolder {
+      static final List&lt;String&gt; list = List.of("one", "two", "tree");
+    }
+
+    public List&lt;String&gt; getList() {
+      return ListHolder.list;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

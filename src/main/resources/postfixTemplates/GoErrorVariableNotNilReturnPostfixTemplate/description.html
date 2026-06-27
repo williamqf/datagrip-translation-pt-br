@@ -1,0 +1,21 @@
+<html>
+<body>
+Gera código boilerplate para tratamento de erros idiomático.
+<p>
+  Pode ser chamado em variáveis e expressões do tipo <code>error</code>.
+</p>
+<ul>
+  <li><p>Substitui a variável <code>err</code> pela seguinte construção:</p>
+  <pre><code>if err != nil {
+    return value1, value2, ...
+  }</code></pre></li>
+  <li><p>Substitui a expressão <code>expr</code> pela seguinte construção:</p>
+  <pre><code>if err := expr; err != nil {
+    return value1, value2, ...
+  }</code></pre></li>
+</ul>
+<p>
+  Cada <code>value</code> é a variável <code>err</code> ou o valor padrão para o tipo de retorno correspondente da função delimitadora. Você pode chamar este template em expressões com múltiplos valores.
+</p>
+</body>
+</html>

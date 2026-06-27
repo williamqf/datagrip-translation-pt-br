@@ -1,0 +1,11 @@
+<html>
+<body>
+Reporta condições e expressões que são sempre true, false ou null.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c BOOLEAN);
+SELECT a FROM t1 WHERE 'Cat' = 'Cat';
+SELECT a FROM t1 WHERE 'Cat' = null;</code></pre>
+<p><code>'Cat' = 'Cat'</code> é sempre true e será reportado.</p>
+<p><code>'Cat' = null</code> é sempre null e será reportado.</p>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata diretórios de destino inválidos nos comandos <code>ADD</code> e <code>COPY</code>.</p>
+<p>
+  Conforme a <a href="https://docs.docker.com/engine/reference/builder/#add">especificação do Dockerfile</a>, o destino deve ser um diretório, caso sejam fornecidas múltiplas origens, e deve terminar com uma barra '/'.
+  Caso contrário, a build do Docker falhará.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+  # Todos os comandos abaixo falharão
+  ADD textA.txt textB.txt relativeDir
+  ADD ["binaryA.jar", "binary2.jar", "destination"]
+  COPY text3.txt text4.txt /absolute/path
+</code></pre>
+<p>Após aplicação da correção rápida:</p>
+<pre><code>
+  ADD textA.txt textB.txt relativeDir/
+  ADD ["binaryA.jar", "binary2.jar", "destination/"]
+  COPY text3.txt text4.txt /absolute/path/
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+  Relata tentativas de converter um objeto sem uma implementação do método <code>__toString</code> em uma <code>string</code>.
+<!-- tooltip end -->
+  <p>
+    Antes do PHP 7.4, isso resultava em um erro fatal de nível <code>E_RECOVERABLE_ERROR</code>. No PHP 7.4, um <code>ERROR</code> fatal irrecuperável é lançado. A partir do PHP 8.0, o valor de retorno segue a semântica de tipos padrão do PHP e é coagido para uma string se possível e se o modo de tipagem estrita estiver desativado.
+  </p>
+  <p>
+    Se a opção <b>Verificar a presença de __toString para cada tipo de expressão</b> estiver ativada, a inspeção verificará todos os tipos possíveis da expressão e relatará se pelo menos um deles não contiver uma implementação do método <code>__toString</code>.
+  </p>
+<p>
+  Para obter detalhes, consulte <a href="https://www.php.net/manual/en/language.oop5.magic.php#language.oop5.magic.tostring">__toString (php.net)</a>.
+</p>
+</body>
+</html>

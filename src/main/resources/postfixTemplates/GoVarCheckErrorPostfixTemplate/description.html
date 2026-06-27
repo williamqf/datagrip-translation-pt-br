@@ -1,0 +1,14 @@
+<html>
+<body>
+Gera código boilerplate para tratamento de erros idiomático.
+<p>
+  Você pode invocar o template em chamadas que retornam <code>error</code> ou em qualquer expressão do tipo <code>error</code>.
+  O template introduz novas variáveis, atribui a expressão a elas e verifica se o erro não é <code>nil</code> usando o seguinte código:
+</p>
+<pre><code>if err != nil {
+  return value1, value2, ...
+}</code></pre>
+<p>Cada <code>value</code> será a variável <code>err</code> ou o valor padrão para o tipo de retorno correspondente da função envolvente.</p>
+<!-- tooltip end -->
+</body>
+</html>

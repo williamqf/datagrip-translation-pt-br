@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata hashes que usam strings como chaves. É preferível usar símbolos em vez de strings como chaves de hash.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+{ 'foo' => 1, 'bar' => 2 }</code>
+</pre>
+
+Uma correção rápida está disponível para converter todas as chaves de string em símbolos. Após a aplicação da correção rápida, o resultado será o seguinte:
+
+<pre>
+<code># Boa prática
+{ foo: 1, bar: 2 }</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado pelo <a
+  href="https://github.com/rubocop-hq/ruby-style-guide#symbols-as-keys">'RuboCop'</a></span></p>
+</body>
+</html>

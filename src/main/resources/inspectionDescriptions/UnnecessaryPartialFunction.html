@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Reporta funções parciais que poderiam ser substituídas por funções normais.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Seq(1).foreach {
+    case _ => 3
+  }
+</code></pre>
+<p>Após o quick-fix ser aplicado:</p>
+<pre><code>
+  Seq(1).foreach(_ => 3)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

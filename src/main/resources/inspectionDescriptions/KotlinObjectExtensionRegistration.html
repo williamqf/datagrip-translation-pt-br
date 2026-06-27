@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata extensões que são instanciadas pela plataforma IntelliJ, mas declaradas como objetos Kotlin.
+<p>
+  O ciclo de vida da extensão é gerenciado pela plataforma IntelliJ.
+  O uso de objetos Kotlin para o registro de extensões pode levar à criação de instâncias de extensão desnecessárias e impedir que o plugin seja descarregado.
+</p>
+<h2>Exemplo</h2>
+<p>Registro da extensão:</p>
+<pre><code lang="xml">
+&lt;annotator language="myLang" implementationClass="com.example.MyAnnotator"/&gt;
+</code></pre>
+
+<p>Implementação da extensão:</p>
+<pre><code lang="kotlin">
+// Errado:
+object MyAnnotator : Annotator {
+  ...
+}
+
+// Correto:
+class MyAnnotator : Annotator {
+  ...
+}
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novo na versão 2023.1</small>
+</body>
+</html>

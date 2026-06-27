@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata conversões potencialmente incorretas de <code>uintptr</code> para <code>unsafe.Pointer</code>.
+<p>Uma conversão de <code>uintptr</code> para <code>unsafe.Pointer</code> é inválida se uma palavra do tipo <code>uintptr</code> que contém um valor de ponteiro estiver armazenada na memória, pois essa palavra é invisível para a cópia de pilha e para o coletor de lixo (garbage collector).
+</p>
+<p>Exemplo de uso inválido:</p>
+<pre><code>nums := []int8{42, 24}
+ptr := unsafe.Pointer(&nums[0])
+addr := uintptr(ptr) // o endereço é armazenado em uma variável local
+ptr = unsafe.Pointer(addr + uintptr(1))</code></pre>
+<p>Exemplo de uso válido:</p>
+<pre><code>nums := []int8{42, 24}
+ptr := unsafe.Pointer(&nums[0])
+ptr = unsafe.Pointer(uintptr(ptr) + uintptr(1))</code></pre>
+</body>
+</html>

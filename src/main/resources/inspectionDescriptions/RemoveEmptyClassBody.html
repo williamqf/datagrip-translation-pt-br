@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata declarações de classes e objetos com corpos vazios.
+<p>Use a correção rápida 'Remover corpo de classe vazio redundante' para limpar o código.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class EmptyA() {} // &lt;== corpo vazio
+
+  class EmptyB {
+      companion object {} // &lt;== corpo vazio
+  }
+
+  fun emptyC() {
+     object {} // &lt;== objeto anônimo, ok (não relatado)
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class EmptyA()
+
+  class EmptyB {
+      companion object
+  }
+
+  fun emptyC() {
+     object {}
+  }
+</code></pre>
+</body>
+</html>

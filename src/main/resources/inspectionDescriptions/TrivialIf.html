@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata instruções <code>if</code> que podem ser simplificadas em uma única atribuição ou em uma instrução <code>return</code> ou <code>assert</code>.
+<p>Exemplo:</p>
+<pre><code>
+  if (foo()) {
+    return true;
+  } else {
+    return false;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  return foo();
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a opção <b>Ignorar instruções 'if' encadeadas</b> se desejar ocultar avisos para instruções <code>if</code> encadeadas.</p>
+<p>Por exemplo, no código a seguir, o aviso será ocultado, mas a correção rápida ainda estará disponível:</p>
+<pre><code>
+  if (condition1) return true;
+  if (condition2) return false;
+  return true;
+</code></pre>
+<p>Observe que, se a condição tiver efeitos colaterais, substituir <code>if (isTrue()) assert false;</code> por <code>assert isTrue();</code> pode alterar a semântica do programa quando o assert estiver desativado.
+  Se desejar ocultar avisos para instruções <code>if</code> que contêm apenas uma instrução <code>assert</code> em seu corpo, use a opção <b>Ignorar instruções 'if' com 'assert' trivial</b>.</p>
+</body>
+</html>

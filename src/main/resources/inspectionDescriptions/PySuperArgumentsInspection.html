@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Relata qualquer chamada para <code>super(A, B)</code> que não atenda aos seguintes requisitos:</p>
+<ul>
+  <li><code>B</code> é uma instância de <code>A</code></li>
+  <li><code>B</code> é uma subclasse de <code>A</code></li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Figure:
+    def color(self):
+        pass
+
+
+class Rectangle(Figure):
+    def color(self):
+        pass
+
+
+class Square(Figure):
+    def color(self):
+        return super(Rectangle, self).color() # Square não é uma instância ou subclasse de Rectangle
+</code></pre>
+<p>Como correção, você pode tornar <code>Square</code> uma subclasse da classe <code>Rectangle</code>.</p>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata construtores com parâmetros de autorreferência não nulos.
+<p>Tais construtores nunca instanciam a classe.</p>
+<p>A correção rápida converte o tipo do parâmetro para anulável.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class SelfRef(val ref: SelfRef)
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class SelfRef(val ref: SelfRef?)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

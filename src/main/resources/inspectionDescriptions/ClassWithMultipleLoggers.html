@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes que declaram múltiplos loggers.
+Um passo importante para fornecer uma implementação de log uniforme para uma aplicação é garantir que cada classe tenha um único logger dedicado.
+<p>Exemplo:</p>
+<pre><code>
+  <b>public class</b> Critical {
+    <b>protected static final</b> Logger LOG = Logger.getLogger(Critical.class);
+
+    <b>protected static final</b> Logger myLogger = Logger.getLogger(getClass());
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a tabela abaixo para especificar os nomes das classes de Logger.
+Esta inspeção relatará classes que declaram múltiplos campos que possuem um dos tipos das classes especificadas.
+<p>
+
+</body>
+</html>

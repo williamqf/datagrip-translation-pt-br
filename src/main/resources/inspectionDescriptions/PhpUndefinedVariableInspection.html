@@ -1,0 +1,33 @@
+<html>
+<body>
+  Gera dois tipos de avisos:
+  <ul>
+    <li>
+      <i>Variável indefinida</i>: a definição da variável não foi encontrada nos arquivos do projeto, nos caminhos de inclusão (include paths) configurados ou nas variáveis predefinidas do PHP.
+    </li>
+    <li>
+      <i>A variável pode não ter sido definida</i>: existe um ou mais caminhos que levam ao uso de uma variável sem que ela tenha sido definida.
+    </li>
+  </ul>
+  <p>
+    Use as seguintes opções para personalizar a inspeção:
+  </p>
+
+  <ul>
+    <li>
+      <b>Relatar que a variável pode não estar definida</b>: desmarque a caixa de seleção para desativar o aviso <i>A variável pode não ter sido definida</i>.
+    </li>
+    <li>
+      <b>Ativar inspeção no espaço global</b>: por padrão, a inspeção está ativada para o espaço global. Desmarque a caixa de seleção para relatar variáveis indefinidas apenas no escopo local de funções.
+    </li>
+    <li>
+      <p>
+        <b>Procurar definições de variáveis fora do arquivo atual</b>: se selecionado, o IDE relatará variáveis globais como indefinidas apenas se não houver instruções <code>include</code> ou <code>require</code> no arquivo atual e a definição da variável não puder ser encontrada no projeto. Observe que o IDE não verifica o conteúdo real dos arquivos incluídos, mas apenas a presença das instruções <code>include</code> ou <code>require</code>.
+      </p>
+      <p>
+        Caso contrário, se não selecionado, o IDE procurará a definição da variável apenas no arquivo atual e ignorará as instruções <code>include</code> ou <code>require</code>, se houver.
+      </p>
+    </li>
+  </ul>
+</body>
+</html>

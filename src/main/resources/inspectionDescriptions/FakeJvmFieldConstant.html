@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata propriedades Kotlin que não são <code>const</code> e são usadas como argumentos de anotação Java.
+<p>
+Por exemplo, uma propriedade com a anotação <code>@JvmField</code> que possui um inicializador que pode ser avaliado em tempo de compilação e tem um tipo primitivo ou tipo <code>String</code>.
+</p>
+
+<p>
+Tais propriedades possuem o atributo <code>ConstantValue</code> no bytecode no Kotlin 1.1-1.2.
+Este atributo permite que o javac faça o fold dos usos do campo correspondente e use esse campo em anotações.
+Isso pode levar a um comportamento incorreto em casos de compilação separada ou incremental em código misto Java/Kotlin.
+Este comportamento está sujeito a mudanças no Kotlin 1.3 (o atributo <code>ConstantValue</code> não é mais utilizado).
+</p>
+<p><b>Exemplo:</b></p>
+<p>Código Kotlin no arquivo foo.kt:</p>
+<pre><code>
+  annotation class Ann(val s: String)
+  @JvmField val importantString = "important"
+</code></pre>
+<p>Código Java:</p>
+<pre><code>
+  public class JavaUser {
+      // Isso é perigoso
+      @Ann(s = FooKt.importantString)
+      public void foo() {}
+  }
+</code></pre>
+<p>Para corrigir este problema, substitua a anotação <code>@JvmField</code> pelo modificador <code>const</code> na propriedade Kotlin relevante ou faça o inline dela.</p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata incompatibilidades entre os nomes dos identificadores dos argumentos e os nomes dos parâmetros formais.
+Isso ajuda a detectar erros de programação, por exemplo, quando você troca acidentalmente argumentos do mesmo tipo.
+O artigo de pesquisa original pode ser encontrado <a href="https://static.googleusercontent.com/media/research.google.com/ru//pubs/archive/46317.pdf">aqui</a>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  const User* get_User(int64_t company_id, int64_t user_id) {
+    return new User{company_id, user_id, "foo"};
+  }
+
+  void call_User(int64_t company_id, int64_t user_id) {
+    const User* user = get_User(user_id, company_id); // Problema potencial aqui
+    //...
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a caixa de seleção abaixo para verificar argumentos com nomes com menos de três símbolos.</p>
+<p><small><a href="https://www.jetbrains.com/help/clion/argument-selection-defects-inspection.html">Saiba mais.</a></small></p>
+</body>
+</html>

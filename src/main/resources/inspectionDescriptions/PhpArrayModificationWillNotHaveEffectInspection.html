@@ -1,0 +1,17 @@
+<html>
+<body>
+Reporta chamadas a funções que retornam um array por valor, o que torna a operação de atribuição ineficaz. Em vez disso, o retorno deve ser feito por referência.
+<p><b>Exemplo:</b></p>
+<pre><code>
+&lt?php
+class A {
+    private $values = [];
+    public function getValues() {
+        return $this->values;
+    }
+}
+$config = new A();
+$config->getValues()['a'] = 'a';
+</code></pre>
+</body>
+</html>

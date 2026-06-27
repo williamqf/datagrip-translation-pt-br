@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>
+  Relata funções de extensão <code>public</code> em <code>Driver</code>/<code>Finder</code>/<code>IdeaFrameUI</code> em classes de teste dentro do módulo <code>intellij.driver.tests</code>.
+</p>
+
+<p>
+  As funções de extensão <code>public</code> no módulo <code>intellij.driver.tests</code> criam problemas de manutenibilidade porque elas:
+</p>
+<ul>
+  <li>Ficam visíveis para todos os testes em todos os contextos</li>
+  <li>Podem levar a dependências de teste pouco claras e dificultar a manutenção</li>
+</ul>
+
+<p>
+  <b>Soluções recomendadas:</b>
+</p>
+<ul>
+  <li>Mover a função para um <code>companion object</code> <code>private</code></li>
+  <li>Relocar para um Page Object apropriado:
+    <ul>
+      <li>Page Objects genéricos para funções amplamente aplicáveis</li>
+      <li>Page Objects específicos para funções dependentes de contexto</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

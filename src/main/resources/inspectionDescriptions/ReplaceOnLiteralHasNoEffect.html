@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata chamadas ineficazes aos métodos de <code>String</code> <code>replace()</code>, <code>replaceAll()</code> ou <code>replaceFirst()</code>. Tais chamadas são comprovadamente ineficazes quando o qualificador e a string de busca são constantes em tempo de compilação e a string de busca não é encontrada no qualificador. Isso é código redundante e pode indicar um erro.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // A substituição não faz nada
+  "hello".replace("$value$", value);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidades na versão 2022.1</small></p>
+</body>
+</html>

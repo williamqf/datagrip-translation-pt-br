@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata referências nas seguintes anotações ORM de Persistência que não podem ser resolvidas nas fontes de dados configuradas:<br/>
+<ul>
+  <li> Table</li>
+  <li> Column</li>
+  <li> [Any]To[Any]</li>
+  <li> JoinColumn / JoinTable</li>
+  <li> NamedQuery / NativeQuery</li>
+  <li> Embeddable</li>
+</ul><br/>
+
+Sugere atualizar a fonte de dados ou atribuir uma fonte de dados diferente.<br/>
+
+<p><b>Exemplo de tabela de banco de dados:</b></p>
+<pre><code lang="sql">
+  CREATE TABLE DATA_TABLE (
+    ID INTEGER,
+    DATA VARCHAR(100)
+);
+</code></pre><br/>
+
+<p><b>Exemplo de classe de entidade JPA:</b></p>
+<pre><code lang="java">
+  @Entity
+  @Table(name = "UNKNOWN_TABLE") // referência não resolvida
+  public class JavaEntity {
+    @Column(name = "ID") // não é possível resolver a coluna em uma tabela indefinida
+    Integer id;
+  }
+</code></pre><br/>
+
+<!-- tooltip end -->
+<p>
+  <b>Observação</b>: as fontes de dados podem ser configuradas por meio da ação `Atribuir fontes de dados` ou pelo ícone da calha correspondente da classe de entidade.
+</p>
+</body>
+</html>

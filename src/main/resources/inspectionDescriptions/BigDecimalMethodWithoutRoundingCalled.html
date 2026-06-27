@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata chamadas para <code>divide()</code> ou <code>setScale()</code> sem um argumento de modo de arredondamento.
+<p>Tais chamadas podem resultar em uma <code>ArithmeticException</code> quando o valor exato não pode ser representado no resultado (por exemplo, devido a uma expansão decimal infinita).</p>
+<p>Especificar um modo de arredondamento evita a <code>ArithmeticException</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  BigDecimal.valueOf(1).divide(BigDecimal.valueOf(3));
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata loops que podem ser substituídos por chamadas da Stream API usando expressões lambda.
+<p>Essa substituição altera o estilo de imperativo para funcional, tornando o código mais compacto.</p>
+<p>Exemplo:</p>
+<pre><code>
+  <b>boolean</b> check(List&lt;String> data) {
+    <b>for</b> (String e : data) {
+      String trimmed = e.trim();
+      <b>if</b> (!trimmed.startsWith("xyz")) {
+        <b>return</b> false;
+      }
+    }
+    return true;
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>boolean</b> check(List&lt;String> data) {
+    <b>return</b> data.stream().map(String::trim).allMatch(trimmed -> trimmed.startsWith("xyz"));
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

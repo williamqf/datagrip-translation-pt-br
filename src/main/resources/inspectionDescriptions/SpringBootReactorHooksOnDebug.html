@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata o uso de <code>Hooks.onOperatorDebug()</code> quando <code>ReactorDebugAgent.init()</code> é chamado.</p>
+<p>
+  Se o <code>ReactorDebugAgent</code> estiver no classpath e <code>spring.reactor.debug-agent.enabled</code> for <code>true</code> (valor padrão), o <code>ReactorDebugAgent.init()</code> será chamado automaticamente na inicialização.
+  O uso simultâneo de <code>Hooks.onOperatorDebug()</code> e <code>ReactorDebugAgent.init()</code> faz com que o Reactor gere stack frames de depuração duplicados.
+  Além disso, o <code>Hooks.onOperatorDebug()</code> causa sobrecarga de desempenho.
+</p>
+
+<p>A correção rápida remove a chamada para <code>Hooks.onOperatorDebug()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  public void hook() {
+    Hooks.onOperatorDebug(); // Relata 'Hooks.onOperatorDebug() chamado durante a inicialização do ReactorDebugAgent'
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code lang="java">
+  public void hook() {
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção é acionada apenas quando a versão do Spring Boot do projeto ou módulo é 2.2.0 ou superior.</p>
+</body>
+</html>

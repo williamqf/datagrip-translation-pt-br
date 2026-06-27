@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata classes que podem ser clonadas.
+<p>
+  Se uma classe for compatível com a interface <code>Cloneable</code> e seu método <code>clone()</code> não estiver definido para lançar um erro imediatamente, a classe poderá ser clonada. Classes clonáveis podem ser perigosas em códigos destinados ao uso seguro.
+</p>
+<p><b>Exemplo:</b></p>
+<code>class SecureBean implements Cloneable {}</code>
+<p>Após a aplicação da correção rápida:</p><code>class SecureBean {}</code>
+<p>
+Quando a classe estende uma classe clonável existente ou implementa uma interface clonável, após a aplicação da correção rápida, o código poderá ser o seguinte: 
+<pre><code>class SecureBean extends ParentBean {
+    @Override
+    protected SecureBean clone() throws CloneNotSupportedException {
+        throw new CloneNotSupportedException();
+    }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata as chamadas do método que possuem argumento real com tipos inferidos que não correspondem à marcação `@param` do argumento formal.
+<p>Exemplo:</p>
+<pre>
+<code>class ArrayMax
+  # @param [Integer] val
+  def parameter(val) end
+
+  def error_with_param
+    parameter([1, 2])
+  end
+end</code>
+</pre>
+</body>
+</html>

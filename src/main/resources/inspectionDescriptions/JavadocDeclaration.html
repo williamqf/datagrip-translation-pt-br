@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata comentários e tags Javadoc com os seguintes problemas:
+<ul>
+  <li>Nome de tag inválido</li>
+  <li>Descrição de tag incompleta</li>
+  <li>Tags duplicadas</li>
+  <li>Descrição Javadoc ausente</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  /**
+   * Nome de tag inválido
+   * @poram param description
+   */
+  public void sample(int param){
+  }
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  /**
+   * Autorreferência {@link #sample(int)}
+   */
+  public void sample(int param){
+  }
+</code></pre>
+<p>A correção rápida adicionará as tags Javadoc desconhecidas à lista de tags adicionais definidas pelo usuário.</p>
+<!-- tooltip end -->
+</body>
+</html>

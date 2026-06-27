@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata loops que podem ser substituídos por uma única chamada de <code>List.replaceAll()</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (int i = 0; i &lt; strings.size(); i++) {
+    String str = strings.get(i).toLowerCase();
+    strings.set(i, str);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  strings.replaceAll(String::toLowerCase);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.1</small></p>
+</body>
+</html>

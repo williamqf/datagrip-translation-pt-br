@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Relata parâmetros <code>@PathParam</code> que são declarados na assinatura do método, mas estão ausentes no caminho da URL, ou vice-versa.</p>
+<p><strong>Exemplo:</strong></p>
+<pre><code lang="java">
+  @Get("/path/{myVariable}/")
+  public String handler(@PathParam("<b>name_is_not_equal_to_myVariable</b>") String myVariable) { // Erro
+    return "...";
+  }
+</code></pre>
+</body>
+</html>

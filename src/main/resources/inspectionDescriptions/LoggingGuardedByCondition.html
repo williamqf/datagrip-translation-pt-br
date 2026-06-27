@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas de log que estão envolvidas por condições de guarda.
+Esta inspeção pode ser usada para se ajustar a estilos de código personalizados.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      if(LOG.isDebugEnabled()){
+        LOG.debug("some logging " + expensiveCalculation(1));
+      }
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  public class TestObject {
+    void test(Object object) {
+      LOG.debug("some logging " + expensiveCalculation(1));
+    }
+  }
+</code></pre>
+<p>Esta inspeção suporta os frameworks de log <em>Log4j2</em> e <em>SLF4J</em> (exceto builders).
+<!-- tooltip end -->
+<p><small>Novidade na versão 2024.2</small></p>
+</body>
+</html>

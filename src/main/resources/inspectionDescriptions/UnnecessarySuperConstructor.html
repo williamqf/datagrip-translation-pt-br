@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas ao construtor da superclasse sem argumentos durante a construção do objeto.
+<p>Essas chamadas são desnecessárias e podem ser removidas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    Foo() {
+      super();
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  class Foo {
+    Foo() {
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

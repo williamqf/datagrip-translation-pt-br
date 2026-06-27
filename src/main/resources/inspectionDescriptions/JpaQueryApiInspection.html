@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata símbolos não resolvidos em queries nomeadas e nativas, bem como em métodos de API relacionados:
+<ul>
+  <li>Query nomeada desconhecida</li>
+  <li>Parâmetro de query desconhecido</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Entity
+  @NamedQuery(name = "SelectByConditionQuery", query = "...")
+  public class JavaEntity { ... }
+
+  class Main {
+    public static void executeQuery() {
+      Persistence.createEntityManagerFactory("")
+        .createEntityManager()
+        .createNamedQuery("SelectAllQuery") // Erro: Nome de query desconhecido
+        ...
+    }
+  }
+</code></pre>
+</body>
+</html>

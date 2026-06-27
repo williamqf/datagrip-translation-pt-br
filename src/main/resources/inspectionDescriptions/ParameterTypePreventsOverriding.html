@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata tipos de parâmetro de métodos de subclasse que possuem o mesmo nome que os tipos de parâmetro do supermétodo correspondente, mas pertencem a pacotes diferentes.
+Nesses casos, o método da subclasse não pode sobrescrever o supermétodo.
+<p><b>Exemplo:</b></p>
+<pre><code>
+<b>public class</b> A {
+ <b>public void</b> method(Object o) {}
+}
+
+<b>public class</b> B <b>extends</b> A {
+ <b>public void</b> method(Object o) {} // aviso no tipo do parâmetro
+ <b>class</b> Object {}
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+<b>public class</b> A {
+ <b>public void</b> method(Object o) {}
+}
+
+<b>public class</b> B <b>extends</b> A {
+ <b>public void</b> method(java.lang.Object o) {} // novo tipo de parâmetro
+ <b>class</b> Object {}
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

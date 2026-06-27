@@ -1,0 +1,17 @@
+<html><body>
+Detecta testes TestNG que utilizam anotações Javadoc e os converte em anotações JDK.
+<p>Exemplo:</p>
+<pre><code>
+  /**
+    * @testng.before-test
+  */
+  public void sample() {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  @BeforeTest
+  public void sample() {}
+</code></pre>
+    <!-- tooltip end -->
+<p>
+</body></html>

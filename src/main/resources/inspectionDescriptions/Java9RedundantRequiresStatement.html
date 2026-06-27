@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata diretivas <code>requires</code> redundantes em arquivos <code>module-info.java</code> do Java Platform Module System.
+Uma diretiva <code>requires</code> é redundante quando o módulo <code>A</code> requer o módulo <code>B</code>, mas o código no módulo <code>A</code> não importa nenhum pacote ou classe de <code>B</code>.
+Além disso, todos os módulos possuem uma dependência declarada implicitamente do módulo <code>java.base</code>, portanto, a diretiva <code>requires java.base;</code> é sempre redundante.
+<p>
+  A correção rápida remove diretivas <code>requires</code> redundantes.
+  Se a dependência removida reexportar módulos que são realmente usados, a correção adicionará diretivas <code>requires</code> para esses módulos.
+</p>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 9 ou superior.</p>
+<p><small>Novo na versão 2017.1</small>
+</body>
+</html>

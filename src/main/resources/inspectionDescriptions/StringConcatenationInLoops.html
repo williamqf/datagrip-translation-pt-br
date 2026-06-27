@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata a concatenação de <code>String</code> dentro de loops.
+<p>
+  Como cada concatenação de <code>String</code> copia a string inteira, geralmente é preferível substituí-la por uma chamada explícita a <code>StringBuilder.append()</code> ou <code>StringBuffer.append()</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String str = "";
+  for(int i=0; i&lt;10; i++) {
+    str += i;
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  String str = "";
+  StringBuilder strBuilder = new StringBuilder(str);
+  for(int i = 0; i&lt;10; i++) {
+    strBuilder.append(i);
+  }
+  str = strBuilder.toString();
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Às vezes, uma variável <code>String</code> pode ser convertida em um <code>StringBuilder</code> ou um novo <code>StringBuilder</code> pode ser introduzido por meio desta correção rápida. Deve-se ter cuidado quando o código original trata valores <code>null</code> especificamente, pois a substituição pode alterar a semântica. Se valores <code>null</code> forem possíveis, recomenda-se uma correção segura para nulos (null-safe), gerando as verificações de nulo necessárias. Além disso, não há garantia de que a substituição automática sempre resultará em um melhor desempenho.
+</p>
+</body>
+</html>

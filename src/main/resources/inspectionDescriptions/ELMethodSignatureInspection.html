@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas de método em EL que não correspondem à restrição <code>method-signature</code> em arquivos TLD.
+
+<p><b>Exemplo de classe Java:</b></p><br/>
+<pre><code lang="java">
+public class ExampleAction {
+  public void goodAction() { ... }
+  public void badAction(String str) { ... }
+}
+</code></pre>
+
+<p><b>Exemplo de arquivo JSP:</b></p><br/>
+<pre><code lang="jsp">
+&lt;jsp:useBean id="example" scope="request" type="org.example.ExampleAction"/&gt;
+&lt;f:view&gt;
+  &lt;h:commandButton action="#{example.goodAction}"/&gt; // OK: o método aceita zero argumentos e retorna `void`
+  &lt;h:commandButton action="#{example.badAction}"/&gt; // Erro: o método `void badAction(String)` retorna o tipo `java.lang.String` em vez de `void`
+&lt;/f:view&gt;
+</code></pre>
+</body>
+</html>

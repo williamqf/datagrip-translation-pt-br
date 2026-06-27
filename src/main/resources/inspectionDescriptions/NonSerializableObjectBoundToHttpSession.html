@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata objetos de classes que não implementam <code>java.io.Serializable</code> sendo usados como argumentos para <code>javax.servlet.http.HttpSession.setAttribute()</code> ou <code>javax.servlet.http.HttpSession.putValue()</code>.
+<p>
+  Tais objetos não serão serializados se a <code>HttpSession</code> for passivada ou migrada, o que pode resultar em bugs difíceis de diagnosticar.
+</p>
+<p>
+  Esta inspeção assume que objetos dos tipos <code>java.util.Collection</code> e <code>java.util.Map</code> são <code>Serializable</code>, a menos que os parâmetros de tipo sejam não-<code>Serializable</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(HttpSession session) {
+      session.setAttribute("foo", new NonSerializable());
+  }
+  static class NonSerializable {}
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

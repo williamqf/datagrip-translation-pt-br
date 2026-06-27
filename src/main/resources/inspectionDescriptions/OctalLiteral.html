@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata literais de números inteiros octais. Alguns padrões de codificação proíbem o uso de literais octais porque eles podem ser facilmente confundidos com literais decimais.
+<p>Exemplo:</p>
+<pre><code>
+  int i = 015;
+  int j = 0_777;
+</code></pre>
+<p>Esta inspeção possui duas correções rápidas diferentes.
+  Após aplicar a correção rápida <b>Converter literal octal para literal decimal</b>, o código se torna:</p>
+<pre><code>
+  int i = 13;
+  int j = 511;
+</code></pre>
+<p>Após aplicar a correção rápida <b>Remover zero à esquerda para tornar decimal</b>, o código se torna:</p>
+<pre><code>
+  int i = 15;
+  int j = 777;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

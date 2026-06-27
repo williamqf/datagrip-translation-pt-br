@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata instruções <code>if</code> das quais partes comuns podem ser extraídas das ramificações.
+<p>Essas partes comuns são independentes da condição e tornam a instrução <code>if</code> mais difícil de entender.</p>
+<p>Exemplo:</p>
+<pre><code>
+  if (x &gt; 12) {
+    doSomethingBefore();
+    doSomethingDifferent1();
+    doSomethingAfter();
+  } else {
+    doSomethingBefore();
+    doSomethingDifferent2();
+    doSomethingAfter();
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  doSomethingBefore();
+  if (x &gt; 12) {
+    doSomethingDifferent1();
+  } else {
+    doSomethingDifferent2();
+  }
+  doSomethingAfter();
+</code></pre>
+<!-- tooltip end -->
+<p><small>Funcionalidade atualizada na versão 2018.1</small></p>
+</body>
+</html>

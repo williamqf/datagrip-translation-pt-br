@@ -1,0 +1,38 @@
+<html>
+<body>
+<p>Relata classes de caso de teste Arquillian sem implantação.</p>
+<p>
+  Segundo a <a href="https://docs.jboss.org/arquillian/reference/1.0.0.Alpha5/en-US/html/gettingstarted.html#d0e451">documentação do Arquillian</a>, as classes de teste Arquillian devem definir o arquivo de implantação utilizando um método public static com uma assinatura específica e anotado com <code>@Deployment</code>.
+</p>
+<p>A ação rápida adicionará o método necessário de acordo com o modelo de código editável pelo usuário <em>Método de implantação Arquillian</em>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Este caso de teste não pode ser inicializado pelo Arquillian
+  @RunWith(Arquillian.class)
+  public class SomeTest {
+    @Test
+    public void testSomething() {
+      Assert.fail("To be implemented");
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  @RunWith(Arquillian.class)
+  public class SomeTest {
+    // Adicionado pela correção rápida
+    @Deployment
+    public static JavaArchive ${DEPLOYMENT_NAME}() {
+      return ShrinkWrap.create(JavaArchive.class)
+                       .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
+    }
+
+    @Test
+    public void testSomething() {
+      Assert.fail("To be implemented");
+    }
+  }
+</code></pre>
+</body>
+</html>

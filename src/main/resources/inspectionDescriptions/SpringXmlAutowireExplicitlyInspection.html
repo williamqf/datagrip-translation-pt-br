@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Relata o atributo <code>autowire</code> no elemento <code>&lt;bean&gt;</code> e sugere a injeção explícita de propriedades do Bean sempre que possível.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  public class MyComponent {
+    public void setOtherBean(OtherBean bean){...}
+  }
+</code></pre>
+<pre><code lang="xml">
+  &lt;beans&gt;
+    &lt;bean class="beans.OtherBean" id="bar"/&gt;
+    &lt;bean autowire="byType" class="beans.MyComponent"/&gt;
+    &lt;!-- "Dependência autowired desnecessária" --&gt;
+    &lt;!-- Sugere "Tornar a dependência autowired explícita" --&gt;
+  &lt;/beans&gt;
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+
+<pre><code lang="xml">
+  &lt;beans&gt;
+    &lt;bean class="beans.OtherBean" id="bar"/&gt;
+    &lt;bean class="beans.MyComponent" id="foo"&gt;
+      &lt;property name="otherBean" ref="otherBean"/&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

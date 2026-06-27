@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata o uso dos operadores <code>==</code> ou <code>!=</code> em arrays que devem ser substituídos por <code>contentEquals()</code>.
+<p>
+    Os operadores <code>==</code> e <code>!=</code> comparam referências de array em vez de seus conteúdos.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  fun test() {
+      val a = arrayOf(1, 2, 3)
+      val b = arrayOf(1, 2, 3)
+      println(a == b) // comparação de referência
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  fun test() {
+      val a = arrayOf(1, 2, 3)
+      val b = arrayOf(1, 2, 3)
+      println(a.contentEquals(b))
+  }
+</code></pre>
+</body>
+</html>

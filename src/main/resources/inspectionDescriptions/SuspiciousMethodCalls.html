@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas de método em coleções parametrizadas onde o tipo do argumento real não é compatível com o tipo do elemento da coleção.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  List&lt;Integer&gt; list = getListOfElements();
+  list.remove(""); // remove é realçado
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Nas configurações da inspeção, é possível desativar avisos para códigos que podem estar corretos, como mostrado abaixo:
+</p>
+<pre><code>
+  public boolean accept(Map&lt;Integer, String&gt; map, Object key) {
+    return map.containsKey(key);
+  }
+</code></pre>
+</body>
+</html>

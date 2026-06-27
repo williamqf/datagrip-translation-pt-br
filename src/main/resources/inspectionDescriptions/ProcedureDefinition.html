@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata definições de método com sintaxe de procedimento.</p>
+<p>Não é recomendado aos desenvolvedores utilizar sintaxe similar a procedimentos para métodos.
+  É inconsistente, pode levar a erros e será removido no Scala 3.</p>
+<p>A correção rápida converte a definição de sintaxe de procedimento para sintaxe de função.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Test {
+    def method() { }
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  class Test {
+    def method(): Unit = { }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><em>Dica:</em> Você pode utilizar <it>Analisar / Executar Inspeção por Nome</it> (Ctrl+Alt+Shift+I) para aplicar esta inspeção ao projeto inteiro.</p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata instruções <code>break</code> usadas em locais que não sejam o final das ramificações de uma instrução <code>switch</code>.
+<p>As instruções <code>break</code> tornam a refatoração complexa e podem ser confusas.</p>
+<p>Exemplo:</p>
+<pre><code>
+void foo(List&lt;String&gt; strs) {
+  for (String str : strs) {
+    if (str.contains("stop")) break;
+    handleStr(str);
+  }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

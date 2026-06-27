@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata asserções de tipo impossíveis de interface para interface.
+<p>Verifica asserções de tipo <code>v.(T)</code> e os casos de switch de tipo correspondentes em que o tipo estático <code>V</code> de <code>v</code> é uma interface que não pode implementar a interface de destino <code>T</code>. Isso ocorre quando <code>V</code> e <code>T</code> contêm métodos com o mesmo nome, mas assinaturas diferentes.</p>
+
+<p>Exemplo:</p>
+<pre><code>var v interface {
+  Read()
+}
+_ = v.(io.Reader)</code></pre>
+
+<p>O método <code>Read</code> em <code>v</code> possui uma assinatura diferente do método <code>Read</code> em <code>io.Reader</code>, portanto, essa asserção falhará.</p>
+<!-- tooltip end -->
+<p>Esta inspeção é relatada apenas se a versão da linguagem for 1.15 ou superior.</p>
+</body>
+</html>

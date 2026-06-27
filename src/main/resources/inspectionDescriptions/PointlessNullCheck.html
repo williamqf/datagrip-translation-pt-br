@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata verificações de <code>null</code> seguidas por chamadas de método que retornam obrigatoriamente <code>false</code> ao passar <code>null</code> (por exemplo, <code>Class.isInstance</code>).
+<p>Nesses casos, a chamada do método sempre retorna <code>false</code>, portanto essa verificação parece redundante.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (x != null && myClass.isInstance(x)) { ... }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (myClass.isInstance(x)) { ... }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

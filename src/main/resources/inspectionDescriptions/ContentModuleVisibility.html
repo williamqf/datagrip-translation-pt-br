@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata violações de visibilidade de módulos de conteúdo ao declarar dependências de módulos.
+<p>
+  Os módulos de conteúdo podem especificar sua visibilidade como <code>private</code> (padrão, quando omitido), <code>internal</code> ou <code>public</code>.
+</p>
+<p>
+  Ao declarar dependências de outros módulos, as seguintes regras devem ser seguidas:
+</p>
+<ul>
+  <li>Módulos private só podem ser acessados dentro do mesmo plugin.</li>
+  <li>Módulos internal só podem ser acessados se declarados dentro do mesmo namespace (<code>content@namespace</code>).</li>
+  <li>Módulos public podem ser acessados de qualquer lugar.</li>
+</ul>
+</body>
+</html>

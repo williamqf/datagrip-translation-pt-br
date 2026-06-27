@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata caminhos de execução que não chamam a função <code>cancel</code> retornada por <code>context.WithCancel</code> e funções semelhantes.
+<p>As funções <code>WithCancel</code>, <code>WithDeadline</code> e <code>WithTimeout</code> aceitam um <code>Context</code> (pai) e retornam um <code>Context</code> derivado (filho) e um <code>CancelFunc</code>.
+  A chamada de <code>CancelFunc</code> cancela o filho e seus descendentes, remove a referência do pai para o filho e interrompe quaisquer temporizadores associados.
+  A falha ao chamar o <code>CancelFunc</code> causa o vazamento do filho e de seus descendentes até que o pai seja cancelado ou o temporizador seja acionado.</p>
+<p>Para mais detalhes sobre o pacote <code>context</code>, consulte o <a href="https://pkg.go.dev/context">Package context no go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>func _(ctx context.Context, cancel func()) {
+ var ctx2 context.Context
+ ctx2, cancel = context.WithCancel(ctx)
+ _ = ctx2
+}
+</code></pre>
+</body>
+</html>

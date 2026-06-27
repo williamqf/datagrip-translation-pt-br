@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata cadeias de chamadas da Stream API que terminam com uma operação <code>count()</code> e podem ser otimizadas.
+<p>
+  As seguintes cadeias de chamadas podem ser substituídas por esta inspeção:
+</p>
+<ul>
+  <li><code>Collection.stream().count()</code> &rarr; <code>Collection.size()</code>. No Java 8, <code>Collection.stream().count()</code> na verdade itera sobre os elementos da coleção para realizar a contagem, enquanto <code>Collection.size()</code> é muito mais rápido para a maioria das coleções.</li>
+  <li><code>Stream.flatMap(Collection::stream).count()</code> &rarr; <code>Stream.mapToLong(Collection::size).sum()</code>. Da mesma forma, não há necessidade de iterar sobre todas as coleções aninhadas. Em vez disso, seus tamanhos podem ser somados.</li>
+  <li><code>Stream.filter(o -> ...).count() > 0</code> &rarr; <code>Stream.anyMatch(o -> ...)</code>. Diferente da chamada original, o <code>anyMatch()</code> pode interromper o processamento assim que um elemento correspondente for encontrado.</li>
+  <li><code>Stream.filter(o -> ...).count() == 0</code> &rarr; <code>Stream.noneMatch(o -> ...)</code>. Semelhante ao caso acima.</li>
+</ul>
+<p>
+  Observe que, se a substituição envolver uma operação de curto-circuito como <code>anyMatch()</code>, poderá haver uma mudança visível no comportamento caso as operações intermediárias da stream produzam efeitos colaterais. Geralmente, efeitos colaterais devem ser evitados em chamadas da Stream API.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

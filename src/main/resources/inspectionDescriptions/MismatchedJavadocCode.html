@@ -1,0 +1,25 @@
+<html>
+<body>
+Reporta partes da especificação do método escritas em inglês que entram em contradição com a declaração do método. Isso inclui:
+<ul>
+  <li>O método especificado para retornar <code>true</code> ou <code>false</code>, mas seu tipo de retorno não é booleano.</li>
+  <li>O método especificado para retornar <code>null</code>, mas é anotado como <code>@NotNull</code> ou seu tipo de retorno é primitivo.</li>
+  <li>O método especificado para retornar lista, mas seu tipo de retorno é definido ou uma matriz.</li>
+  <li>E assim por diante.</li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  /**
+   * @return true se o usuário for encontrado, false caso contrário
+   */
+  User findUser(String name);
+</code></pre>
+<p>
+  Observe que falsos positivos são possíveis, pois esta inspeção tenta interpretar uma linguagem humana. No entanto, se a inspeção relatar incorretamente, ainda é possível que a descrição seja confusa e deva ser reescrita.
+</p>
+<!-- tooltip end -->
+<p>
+  <small>Novo no 2022.3</small>
+</p>
+</body>
+</html>

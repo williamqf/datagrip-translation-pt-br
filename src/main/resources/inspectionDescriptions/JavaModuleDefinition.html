@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata diversos problemas no arquivo module-info.java. Por exemplo, relata serviços que são fornecidos, mas não exportados ou usados.
+<p><b>Exemplo:</b></p>
+<pre><code>
+module myModule {
+  // O serviço é fornecido, mas o pacote que o contém não é exportado
+  provides com.example.MyService with com.example.MyServiceImpl;
+}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

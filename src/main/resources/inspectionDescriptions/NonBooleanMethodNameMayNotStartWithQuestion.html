@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata métodos não booleanos cujos nomes começam com uma palavra interrogativa. Esses nomes de métodos podem ser confusos.
+<p>Métodos não booleanos que sobrescrevem métodos de biblioteca são ignorados por esta inspeção.</p>
+<p><b>Exemplo:</b>
+<pre><code>
+  public void hasName(String name) {
+    assert names.contains(name);
+  }
+</code></pre>
+<p>A correção rápida para renomear esses métodos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a lista de <b>Prefixos de nomes de métodos booleanos</b> para especificar as palavras interrogativas que devem ser usadas apenas para métodos booleanos.</li>
+  <li>Use a opção <b>Ignorar métodos com tipo de retorno 'java.lang.Boolean'</b> para ignorar métodos com o tipo de retorno <code>java.lang.Boolean</code>.</li>
+  <li>Use a opção <b>Ignorar métodos que sobrescrevem/implementam métodos super</b> para ignorar métodos que possuem um supermétodo. </li>
+</ul>
+</body>
+</html>

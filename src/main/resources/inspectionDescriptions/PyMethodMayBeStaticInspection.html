@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Relata qualquer método que não exija a criação de uma instância da classe e que possa ser definido como estático.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class MyClass(object):
+    def my_method(self, x):
+        print(x)
+</code></pre>
+<p>Se a correção rápida <b>Criar função a partir de método</b> for aplicada, o código mudará para:</p>
+<pre><code>
+def my_method(x):
+    print(x)
+
+
+class MyClass(object):
+    pass
+</code></pre>
+<p>Se a correção rápida <b>Tornar o método estático</b> for selecionada, o decorador <code>@staticmethod</code> será adicionado:</p>
+<pre><code>
+class MyClass(object):
+    @staticmethod
+    def my_method(x):
+        print(x)
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata qualquer expressão <code>List.indexOf()</code> que possa ser substituída pelo método <code>List.contains()</code>.
+<p>Exemplo:</p>
+<pre><code>
+  boolean hasEmptyString(List&lt;String&gt; list) {
+    // Alerta: pode ser simplificado
+    return list.indexOf("") &gt;= 0;
+  }
+</code></pre>
+<p>A correção rápida fornecida substitui a chamada <code>indexOf</code> por uma chamada <code>contains</code>:</p>
+<pre><code>
+  boolean hasEmptyString(List&lt;String&gt; list) {
+    // Correção rápida aplicada
+    return list.contains("");
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

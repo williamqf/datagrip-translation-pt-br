@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas <code>equals()</code> em instâncias de <code>StringBuilder</code>, <code>StringBuffer</code> e do pacote <code>java.util.concurrent.atomic</code>.
+<p>O método <code>equals()</code> não é sobrescrito nestas classes, portanto, pode retornar <code>false</code> mesmo que o conteúdo dos dois objetos seja o mesmo.
+  Se a intenção for comparar a igualdade de referência, recomendamos o uso de <code>==</code> para evitar confusão.</p>
+Correções rápidas para <code>StringBuilder</code>, <code>StringBuffer</code>, <code>AtomicBoolean</code>, <code>AtomicInteger</code>, <code>AtomicBoolean</code> e <code>AtomicLong</code> estão disponíveis para converter para uma comparação de conteúdo.
+A correção rápida pode alterar a semântica quando uma das instâncias for nula.
+<p>Exemplo:</p>
+<pre><code>
+  public void test(StringBuilder sb1, StringBuilder sb2) {
+    boolean result = sb1.equals(sb2); // Suspeito
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public void test(StringBuilder sb1, StringBuilder sb2) {
+      boolean result = sb1.toString().equals(sb2.toString());
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2017.2</small></p>
+</body>
+</html>

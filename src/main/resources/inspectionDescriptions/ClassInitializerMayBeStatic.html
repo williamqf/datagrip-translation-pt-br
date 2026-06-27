@@ -1,0 +1,29 @@
+<html>
+<body>
+Reporta inicializadores de instância que podem ser tornados <code>static</code> sem produzir erros.
+<p>
+  Um inicializador de instância pode ser <code>static</code> se não referenciar nenhum membro não <code>static</code> da sua classe.
+  Os inicializadores <code>static</code> são executados quando a classe é resolvida, enquanto os inicializadores de instância são executados sempre que a classe é instanciada.</p>
+<p>Esta inspeção não relata inicializadores vazios nem inicializadores em classes anônimas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class A {
+     public static String CONSTANT;
+     {
+        CONSTANT = "Hello";
+     }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class A {
+     public static String CONSTANT;
+     static {
+        CONSTANT = "Hello"; // Agora inicializado apenas uma vez por classe
+     }
+  }
+</code></pre>
+
+<!-- tooltip end -->
+</body>
+</html>

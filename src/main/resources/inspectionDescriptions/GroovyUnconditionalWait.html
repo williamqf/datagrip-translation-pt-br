@@ -1,0 +1,6 @@
+<html>
+<body>
+<p>Relata chamadas de <b>wait()</b> que são feitas incondicionalmente dentro de um contexto sincronizado.
+Geralmente, o <b>wait()</b> é usado para bloquear uma thread até que uma determinada condição seja verdadeira. Se o <b>wait()</b> for chamado incondicionalmente, isso geralmente indica que a condição foi verificada antes da aquisição do bloqueio (lock). Nesses casos, se a condição se tornar verdadeira entre o momento da verificação e o momento em que o bloqueio é adquirido, pode ocorrer uma corrida de dados (data race). Embora as construções detectadas por esta inspeção não sejam necessariamente incorretas, elas certamente merecem ser revisadas.</p>
+</body>
+</html>

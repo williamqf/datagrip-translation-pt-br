@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata expressões de cast desnecessárias.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  static Object toObject(String s) {
+    return (Object) s;
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+    static Object toObject(String s) {
+    return s;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a caixa de seleção abaixo para ignorar casts de esclarecimento, como casts em chamadas de coleção onde um <code>Object</code> é esperado:
+<pre><code>
+  static void removeFromList(List&lt;String&gt; l, Object o) {
+    l.remove((String)o);
+  } 
+</code></pre>
+
+</body>
+</html>

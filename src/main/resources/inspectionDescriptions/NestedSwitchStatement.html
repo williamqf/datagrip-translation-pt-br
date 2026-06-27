@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata instruções ou expressões <code>switch</code> aninhadas.
+<p>Instruções <code>switch</code> aninhadas podem tornar o código excepcionalmente confuso. Essas instruções podem ser extraídas para um método separado.</p>
+<p>Exemplo:</p>
+<pre><code>
+  int res = switch (i) {
+            case 0 -> 0;
+            default -> switch (i) {
+                case 100 -> 0;
+                default -> i;
+            };
+        };
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

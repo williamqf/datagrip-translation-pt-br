@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata expressões que podem ser substituídas por chamadas ao método <code>Integer.compare()</code> ou métodos semelhantes das classes <code>Long</code>, <code>Short</code>, <code>Byte</code>, <code>Double</code> ou <code>Float</code> (em vez de construções mais detalhadas ou menos eficientes).
+<p>Se <code>x</code> e <code>y</code> forem inteiros empacotados (boxed), <code>x.compareTo(y)</code> é sugerido; se forem primitivos, <code>Integer.compare(x, y)</code> é sugerido.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public int compare(int x, int y) {
+    return x > y ? 1 : x &lt; y ? -1 : 0;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public int compare(int x, int y) {
+    return Integer.compare(x, y);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Observe que <code>Double.compare</code> e <code>Float.compare</code> alteram ligeiramente a semântica do código. Em particular, eles tornam <code>-0.0</code> e <code>0.0</code> distinguíveis (<code>Double.compare(-0.0, 0.0)</code> produz -1).
+  Além disso, eles tratam valores <code>NaN</code> de forma consistente. Na maioria dos casos, essa mudança semântica realmente melhora o código. Se a mudança semântica for inaceitável em seu caso, use a caixa de seleção para desativar esta inspeção para números de ponto flutuante.
+</p>
+<p><small>Novidade na versão 2017.2</small></p>
+</body>
+</html>

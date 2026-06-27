@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata a concatenação de strings não constantes usada como um argumento de string de formato.
+<p>
+  Embora ocasionalmente intencional, isso geralmente é um uso incorreto de métodos de formatação e pode até levar a problemas de segurança se as variáveis usadas na string concatenada contiverem caracteres especiais como <code>%</code>.
+</p>
+<p>
+  Além disso, às vezes isso pode ser o resultado do erro ao concatenar argumentos de formato de string ao digitar <code>+</code> quando <code>,</code> deveria ter sido digitado.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  static String formatGreeting(String userName) {
+    return String.format("Hello, " + userName);
+  }
+</code></pre>
+<p>
+  Aqui, <code>userName</code> será interpretado como parte da string de formato, o que pode levar a uma <code>IllegalFormatException</code> (por exemplo, se <code>userName</code> for <code>"%"</code>) ou ao uso de uma quantidade enorme de memória (por exemplo, se <code>userName</code> for <code>"%2000000000%"</code>).
+  Essa chamada provavelmente deve ser substituída por <code>String.format("Hello, %s", userName);</code>.
+</p>
+<p>
+  Esta inspeção verifica chamadas aos métodos de formatação de <code>java.util.Formatter</code>, <code>java.lang.String</code>, <code>java.io.PrintWriter</code> ou <code>java.io.PrintStream</code>.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

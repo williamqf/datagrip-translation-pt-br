@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata expressões de cast de tipo que são precedidas por uma verificação <code>instanceof</code> para um tipo diferente.
+<p>
+  Embora isso possa ser intencional, tal construção é muito provavelmente um erro e resultará em uma <code>java.lang.ClassCastException</code> em tempo de execução.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    int whenCharSequenceCastToNumber(Object o){
+      if (o instanceof CharSequence) {
+        return ((Number) o).intValue();
+      }
+      return 0;
+    }
+
+    int earlyReturnWhenNotCharSequence(Object o){
+      if (!(o instanceof CharSequence)) return 0;
+      return ((Number)o).intValue();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

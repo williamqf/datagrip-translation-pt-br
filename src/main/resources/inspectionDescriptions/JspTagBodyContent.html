@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata conteúdos do corpo da tag JSP que não estão em conformidade com as especificações de conteúdo do corpo do TLD.
+<p>Se um conteúdo de corpo vazio (empty) for especificado, o corpo da tag deve estar vazio.</p>
+<p>Se um conteúdo de corpo sem scripts (scriptless) for especificado, o corpo da tag não deve conter scriptlets JSP.</p>
+<p>A correção rápida removerá o corpo da tag para o tipo de conteúdo vazio e removerá o scriptlet se o tipo de conteúdo scriptless for especificado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+&lt;s:empty&gt;body not allowed here&lt;/s:empty&gt;
+&lt;s:scriptless&gt;say: &lt;% System.out.println(&quot;hey&quot;); %&gt;&lt;/s:scriptless&gt;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+&lt;s:empty/&gt;
+&lt;s:scriptless&gt;say: &lt;/s:scriptless&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Reporta funções que sobrescrevem membros abstratos, mas que não têm um modificador de sobrescrita.</p>
+<p>Scala não exige que um desenvolvedor use <code>override</code> em métodos que implementam membros abstratos.
+    No entanto, é uma boa ideia marcar esses métodos com <code>override</code> para ser notificado
+    pelo compilador quando a relação de sobrescrita for quebrada (por exemplo, por meio de uma refatoração subsequente).</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Base {
+    def fun(): Int
+  }
+
+  class Impl extends Base {
+    def fun(): Int = 42
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  trait Base {
+    def fun(): Int
+  }
+
+  class Impl extends Base {
+    override def fun(): Int = 42
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

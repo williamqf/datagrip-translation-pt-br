@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>Sombreamento Suspeito de Atributos de Classe ou Traço</title>
+<head>
+<body>
+<p>O caso mais comum é quando um atributo é declarado em uma classe e então usa-se um valor ou variável locais de mesmo nome no método:</p>
+<pre><code>
+class Foo(foo: Int) {
+  def test(): Int = {
+    val foo: Int = 1 // Destacado
+    foo
+  }
+}
+</code></pre>
+<p>Isso é fácil de entender, mas fica mais incômodo se o atributo for declarado em uma superclasse ou traço em outro arquivo, pois então o atributo pode ficar menos óbvio e mais propenso a erros:</p>
+<pre><code>
+// TraitA.scala
+trait TraitA {
+  def n: Int = 1
+}
+
+// ObjectA.scala
+object ObjectA extends TraitA {
+  def foo(): Unit = {
+    val n: Int = 0 // Destacado
+  }
+}
+</code></pre>
+<p>O caso extremo é quando uma classe define uma variável e uma subclasse define um valor de mesmo nome. O valor da subclasse não pode substituir a variável da superclasse, somente sombreá-la. Isso por vezes leva a erros não triviais. O compilador Scala permite emitir um aviso nesses casos com a opção -Xlint:private-shadow.</p>
+<p>O menu suspenso na parte "Opções" permite controlar como destacar este caso extremo. Você pode escolher <b>sempre</b> destacar, junto com destacar campos locais que sombreiam atributos de classe ou traço ocultos, você pode escolher <b>nunca</b> destacar e manter outros destaques, você pode escolher <b>checar opções do compilador</b> e deixar que a inspeção aja de acordo, ou você pode escolher destacar <b>somente</b> o caso extremo (se houver uma opção do compilador) e não destacar nenhum outro caso de sombreamento.</p>
+<pre><code>
+class C(var c: Int)
+
+// `c` sombreia `var c` da classe `C`
+class D(c: Int) extends C(c) {
+  def f: Int = c
+}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

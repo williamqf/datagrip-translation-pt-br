@@ -1,0 +1,42 @@
+<html>
+<body>
+Reporta referências de classes aninhadas a membros <code>private</code> não constantes de classes externas.
+Para tais referências, o javac gerará métodos de acesso sintéticos package-private, o que pode comprometer a segurança, pois membros que parecem ser privados tornam-se, na verdade, acessíveis a partir de todo o pacote.
+<p>
+  Classes aninhadas e suas classes externas são compiladas em arquivos de classe separados. A Máquina Virtual Java normalmente proíbe o acesso de uma classe a campos e métodos privados de outra classe. Para permitir o acesso a membros privados da classe externa a partir de uma classe aninhada, o javac cria um método de acesso sintético package-private.
+</p>
+<p>
+  Ao tornar o membro <code>private</code> como package-private, a acessibilidade real torna-se explícita.
+  Isso também economiza uma pequena quantidade de memória, o que pode melhorar o desempenho em ambientes com recursos limitados.
+</p>
+<p>
+  Esta inspeção reporta apenas se o nível de linguagem do projeto ou módulo for 10 ou inferior.
+  No Java 11 e versões posteriores, os métodos de acesso não são mais gerados devido ao controle de acesso baseado em ninhos (<a href="https://openjdk.org/jeps/181">JEP 181</a>).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Outer {
+    private void x() {}
+
+    class Inner {
+      void y() {
+        x();
+      }
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Outer {
+    void x() {}
+
+    class Inner {
+      void y() {
+        x();
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

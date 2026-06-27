@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata tipos <code>java.util.Optional</code> ou <code>com.google.common.base.Optional</code> que possuem parâmetros de tipo de array ou coleção.
+<p>Nesses casos, é mais claro usar um array ou uma coleção vazia para representar a ausência de resultados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Optional&lt;List&lt;Integer&gt;&gt; foo() {
+    return Optional.empty();
+  }
+</code></pre>
+<p>Este código poderia ser assim:</p>
+<pre><code>
+  List&lt;Integer&gt; foo() {
+    return List.of();
+  }
+  </code></pre>
+<!-- tooltip end -->
+</body>
+</html>

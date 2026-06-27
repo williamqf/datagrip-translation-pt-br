@@ -1,0 +1,19 @@
+<html>
+<body>
+Reporta comparações de igualdade em cadeia.
+<p>Tais comparações podem ser confusas: <code>a == b == c</code> significa <code>(a == b) == c</code>, mas é possível que <code>a == b && a == c</code> fosse a intenção original.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean chainedEquality(boolean a, boolean b, boolean c) {
+    return a == b == c;
+  }
+</code></pre>
+<p>Você pode usar parênteses para tornar a comparação menos confusa:</p>
+<pre><code>
+  boolean chainedEquality(boolean a, boolean b, boolean c) {
+    return (a == b) == c;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

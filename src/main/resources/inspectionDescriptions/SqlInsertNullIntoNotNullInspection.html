@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata situações em que valores NULL são inseridos em colunas que aceitam apenas valores NOT NULL.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE br2 (
+id INT NOT NULL,
+col1 NVARCHAR (20) NOT NULL,
+col2 NVARCHAR (20) NOT NULL,
+);
+--
+INSERT INTO br2 (id, col1, col2)
+VALUES (1, NULL, NULL);</code></pre>
+<p>Você não pode inserir valores NULL em <code>col1</code> e <code>col2</code>, pois elas são definidas como NOT NULL. Se você executar o script como está, receberá uma mensagem de erro. Para corrigir este código, substitua o NULL na parte VALUES por valores (por exemplo, <code>42</code> e <code>'bird'</code>).</p>
+<pre>INSERT INTO br2 (id, col1, col2)
+VALUES (1, 42, 'bird');</pre>
+</body>
+</html>

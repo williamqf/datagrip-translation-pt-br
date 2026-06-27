@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata chamadas <code>System.out.println()</code> que utilizam uma exceção como argumento.
+<p>O uso de instruções de impressão para registrar exceções oculta o stack trace, o que pode complicar a investigação de problemas.
+  Recomenda-se o uso de um logger em vez disso.</p>
+<p>Chamadas a <code>System.out.print()</code>, <code>System.err.println()</code> e <code>System.err.print()</code> com uma exceção como argumento também são relatadas. É aconselhável usar um logger para registrar exceções.</p>
+<p>A correção rápida fornecida suporta <b>SLF4J</b> e <b>Log4j 2</b>.
+Ela substitui a chamada <code>System.out.println()</code> por uma chamada de log.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+      foo();
+  } catch (Exception e) {
+      System.out.println(e);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  try {
+      foo();
+  } catch (Exception e) {
+    log.error("e: ", e);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Método de log para correção</b> para especificar o método utilizado para registrar as mensagens.
+</p>
+</body>
+</html>

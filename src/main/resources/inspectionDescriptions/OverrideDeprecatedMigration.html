@@ -1,0 +1,42 @@
+<html>
+<body>
+Relata declarações propagadas pela anotação <code>@Deprecated</code> que causarão erros de compilação a partir da versão 1.9.
+<p>Tipos de motivação:</p>
+<ul>
+    <li>
+        Mudanças na implementação são necessárias por motivos de design/arquitetura de implementação
+    </li>
+    <li>
+        Inconsistência no design (tratado de forma diferente em diferentes contextos)
+    </li>
+</ul>
+
+<p><b>Mais detalhes</b>: <a href="https://youtrack.jetbrains.com/issue/KT-47902">KT-47902: Não propagar a depreciação de método por meio de sobrescritas (overrides)</a></p>
+<p>A correção rápida copia a anotação <code>@Deprecated</code> da declaração pai.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  open class <b>Base</b> {
+      @Deprecated("Don't use")
+      open fun foo() {}
+  }
+
+  class <b>Derived</b> : <b>Base</b>() {
+      override fun foo() {}
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  open class <b>Base</b> {
+      @Deprecated("Don't use")
+      open fun foo() {}
+  }
+
+  class <b>Derived</b> : <b>Base</b>() {
+      @Deprecated("Don't use")
+      override fun foo() {}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem Kotlin do projeto ou módulo for 1.6 ou superior.</p>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<html>
+<body>
+Reporta chamadas para <code>Thread.stop()</code>, <code>Thread.suspend()</code> e <code>Thread.resume()</code>.
+<p>
+  Essas chamadas são inerentemente propensas a causar corrupção de dados e deadlocks, e seu uso é fortemente desaconselhado.
+  É preferível usar cancelamento cooperativo em vez de <code>stop</code>, e usar interrupções em vez de chamadas diretas para <code>suspend</code> e <code>resume</code>.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

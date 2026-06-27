@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata loops <code>for</code> que podem ser substituídos por uma sequência de operações da biblioteca padrão (stdlib), como <code>map</code>, <code>filter</code>, etc.
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun foo(list: List&lt;String&gt;): List&lt;Int&gt; {
+  val result = ArrayList&lt;Int&gt;()
+  for (s in list) {
+     if (s.length &gt; 0)
+       result.add(s.hashCode())
+     }
+  return result
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+fun foo(list: List&lt;String&gt;): List&lt;Int&gt; {
+  val result = list
+    .filter { it.length &gt; 0 }
+    .map { it.hashCode() }
+  return result
+}</code></pre>
+</body>
+</html>

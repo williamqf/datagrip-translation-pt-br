@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata o uso incorreto de anotações de caminho.
+
+<p>
+  Esta inspeção detecta casos em que uma string com uma anotação de caminho é usada em um contexto que exige uma anotação de caminho diferente.
+  Isso ajuda a garantir o uso correto das anotações <code>@MultiRoutingFileSystemPath</code> e <code>@NativePath</code>.
+</p>
+
+<p>A inspeção destaca os seguintes problemas:</p>
+<ul>
+  <li>Quando uma string anotada com <code>@NativePath</code> é usada em um construtor de Path ou método factory</li>
+  <li>Quando uma string anotada com <code>@NativePath</code> é passada para um parâmetro de método anotado com <code>@MultiRoutingFileSystemPath</code></li>
+  <li>Quando uma string anotada com <code>@MultiRoutingFileSystemPath</code> é passada para um parâmetro de método anotado com <code>@NativePath</code></li>
+  <li>Quando um literal de string é usado em um contexto que exige qualquer uma das anotações</li>
+</ul>
+
+<p>
+  Correções rápidas (quick fixes) são fornecidas para adicionar a anotação apropriada onde necessário.
+</p>
+<!-- tooltip end -->
+<p>
+  Esta inspeção ajuda a evitar erros de tempo de execução que podem ocorrer quando caminhos de formatos diferentes são usados incorretamente.
+  A anotação <code>@MultiRoutingFileSystemPath</code> é usada para caminhos que devem funcionar em diferentes sistemas de arquivos, enquanto a anotação <code>@NativePath</code> é usada para caminhos específicos do sistema de arquivos nativo.
+</p>
+</body>
+</html>

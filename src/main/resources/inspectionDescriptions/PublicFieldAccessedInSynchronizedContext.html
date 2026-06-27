@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata campos não <code>final</code> e não <code>private</code> acessados em um contexto sincronizado.
+<p>
+  Não há garantia de que campos não <code>private</code> sejam sempre acessados de forma sincronizada e esse tipo de acesso "parcialmente sincronizado" pode resultar inesperadamente em estruturas de dados inconsistentes.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Bar {
+    public String field1;
+  }
+  public Bar myBar;
+
+  synchronized public void sample() {
+   myBar.field1 = "bar";
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

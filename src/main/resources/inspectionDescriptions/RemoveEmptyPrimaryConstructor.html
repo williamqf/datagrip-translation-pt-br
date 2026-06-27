@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata construtores primários vazios quando estão implicitamente disponíveis.
+<p>
+    O construtor primário é redundante e pode ser omitido com segurança quando não possui anotações ou modificadores de visibilidade.
+    Use a correção rápida "Remover construtor primário vazio" para limpar o código.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class MyClassA constructor() // Redundante, pode ser substituído por 'class MyClassA'
+
+  annotation class MyAnnotation
+  class MyClassB @MyAnnotation constructor() // Necessário devido à anotação
+
+  class MyClassC private constructor() // Necessário devido ao modificador de visibilidade
+</code></pre>
+</body>
+</html>

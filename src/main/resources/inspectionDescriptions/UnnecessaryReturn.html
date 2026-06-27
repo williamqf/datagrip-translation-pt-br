@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata instruções <code>return</code> no final de construtores e métodos que retornam <code>void</code>. Essas instruções são redundantes e podem ser removidas com segurança.
+<p>Esta inspeção não relata em arquivos JSP.
+<p>Exemplo:</p>
+<pre><code>
+  <b>void</b> message() {
+    System.out.println("Hello World");
+    <b>return</b>;
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:
+<pre><code>
+  <b>void</b> message() {
+    System.out.println("Hello World");
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar no branch 'then' de instruções 'if' com um branch 'else'</b> para ignorar instruções <code>return</code> no branch <code>then</code> de uma instrução <code>if</code> que também tenha um branch <code>else</code>.
+</body>
+</html>

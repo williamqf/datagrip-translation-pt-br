@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata operações de cast entre tipos numéricos primitivos que podem resultar em perda de precisão.
+<p>Tais casts não são necessariamente um problema, mas se ocorrer uma perda de precisão inesperada, pode ser difícil rastrear bugs.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int a = 420;
+  byte b = (byte) a;
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar casts de int para char</b> para ignorar casts de <code>int</code> para <code>char</code>.
+  Esse tipo de cast é frequentemente usado ao implementar operações de E/S, pois o método <code>read()</code> da classe <code>java.io.Reader</code> retorna um <code>int</code>.</p>
+<p>Use a opção <b>Ignorar casts de int 128-255 para byte</b> para ignorar casts de valores constantes (128-255) de <code>int</code> para <code>byte</code>.
+  Tais valores sofrerão overflow para números negativos que ainda cabem dentro de um byte.</p>
+</body>
+</html>

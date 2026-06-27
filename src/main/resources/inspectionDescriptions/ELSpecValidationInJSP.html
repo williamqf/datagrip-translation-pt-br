@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata problemas que podem ser causados por extensões EL não padrão: expressões JSF EL fora de atributos, expressões EL não padrão, etc.
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+&lt;f:view&gt;
+  &lt;h:form&gt;
+    &lt;f:loadBundle var="example"/&gt;
+    &lt;h:commandButton action="${example.size()}"/&gt; // Aviso: a chamada de método é uma extensão não padrão
+  &lt;/h:form&gt;
+&lt;/f:view&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas de função que podem ser substituídas por operadores binários (especialmente operadores relacionados à comparação).
+<p><b>Exemplo:</b></p>
+<pre><code>  fun test(): Boolean {
+      return 2.compareTo(1) > 0 // 'compareTo()' substituível
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  fun test(): Boolean {
+      return 2 > 1
+  }
+</code></pre>
+</body>
+</html>

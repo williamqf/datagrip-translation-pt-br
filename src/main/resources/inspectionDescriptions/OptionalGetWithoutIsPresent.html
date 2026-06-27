@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas a <code>get()</code> em um <code>Optional</code> sem verificar se há um valor presente.
+<p>Chamar <code>Optional.get()</code> em uma instância de <code>Optional</code> vazia lançará uma exceção.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>void</b> x(List&lt;Integer> list) {
+    <b>final</b> Optional&lt;Integer> optional =
+      list.stream().filter(x -> x > 10).findFirst();
+    <b>final</b> Integer result = optional.get(); // problema aqui
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

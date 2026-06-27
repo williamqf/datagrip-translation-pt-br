@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata o <code>return</code> redundante.</p>
+<p>A última declaração em um método é retornada automaticamente, o uso da palavra-chave <code>return</code> é redundante neste caso.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def test: Int = {
+    return 3
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  def test: Int = {
+    3
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Reporta cláusulas redundantes que limitam linhas em uma consulta, como FETCH e LIMIT.
+<p>Exemplo (PostgreSQL):</p>
+<pre><code>CREATE TABLE foo(a INT);
+
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo LIMIT 2);
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo FETCH FIRST 2 ROWS ONLY);</code></pre>
+<p>Para corrigir o aviso, você pode adicionar um OFFSET à cláusula de limite. Se o OFFSET estiver ausente, o LIMIT é redundante, pois o uso de LIMIT não afeta o resultado da operação EXISTS. No caso de um OFFSET, as primeiras <code>N</code> linhas são ignoradas, o que afetará a saída.</p>
+<pre><code>SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo OFFSET 1 ROW LIMIT 2);
+SELECT * FROM foo WHERE EXISTS(SELECT * FROM foo OFFSET 1 ROW FETCH FIRST 2 ROWS ONLY);</code></pre>
+</body>
+</html>

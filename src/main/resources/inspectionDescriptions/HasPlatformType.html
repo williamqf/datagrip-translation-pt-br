@@ -1,0 +1,14 @@
+<html>
+<body>
+Reporta funções e propriedades que possuem tipos de plataforma.
+<p>Para evitar erros inesperados, os tipos devem ser declarados explicitamente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo() = java.lang.String.valueOf(1)
+</code></pre>
+<p>A correção rápida permite especificar o tipo de retorno:</p>
+<pre><code>
+  fun foo(): String = java.lang.String.valueOf(1)
+</code></pre>
+</body>
+</html>

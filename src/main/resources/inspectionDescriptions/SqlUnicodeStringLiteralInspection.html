@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata literais de string que usam caracteres nacionais sem o prefixo <code>N</code>.
+<p>Sem o prefixo N, a string será convertida para a página de código padrão do banco de dados. Esta página de código padrão pode não reconhecer determinados caracteres. Para obter mais informações, consulte a página <a href="https://docs.microsoft.com/en-us/sql/t-sql/data-types/nchar-and-nvarchar-transact-sql" target="_blank">"nchar e nvarchar" (Transact-SQL) no docs.microsoft.com</a>.</p>
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>SELECT 'abcde' AS a;
+SELECT N'abcde' AS b;
+SELECT 'абвгд' AS c;
+SELECT N'абвгд' AS d;</code></pre>
+<p>Como <code>SELECT 'абвгд' AS c;</code> não possui o prefixo <code>N</code>, a parte <code>'абвгд'</code> será realçada.</p>
+</body>
+</html>

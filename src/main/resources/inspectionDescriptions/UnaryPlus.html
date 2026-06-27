@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata o uso do operador unário <code>+</code>. O sinal de adição unário é geralmente uma operação nula e sua presença pode representar um erro de codificação. Por exemplo, em combinação com um operador de incremento (como em <code>+++</code>) ou um operador de igualdade (como em <code>=+</code>).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void unaryPlus(int i) {
+    int x = + +i;
+  }
+</code></pre>
+<p>As seguintes correções rápidas são sugeridas:</p>
+<ul>
+  <li><p>Remover o operador <code>+</code> antes da variável <code>i</code>:</p>
+<pre><code>
+  void unaryPlus(int i) {
+    int x = i;
+  }
+</code></pre>
+  </li>
+  <li><p>Substituir o operador <code>+</code> pelo operador de incremento de prefixo:</p>
+<pre><code>
+  void unaryPlus(int i) {
+    int x = ++i;
+  }
+</code></pre>
+  </li>
+</ul>
+<!-- tooltip end -->
+<p>
+Use a caixa de seleção abaixo para relatar um sinal de adição unário usado com uma expressão binária ou outra expressão unária.
+Isso significa que a inspeção não relatará casos em que uma expressão de adição unária é usada em uma expressão de inicializador de array ou como um argumento de método.
+</p>
+</body>
+</html>

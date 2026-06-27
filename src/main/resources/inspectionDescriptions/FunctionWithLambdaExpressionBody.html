@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata funções com <code>= { ... }</code> e tipos de retorno inferidos.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun sum(a: Int, b: Int) = { a + b } // O tipo de retorno desta função é '() -> Int'.
+</code></pre>
+<p>Existem várias correções rápidas. Após aplicar uma correção rápida:</p>
+<pre><code>
+    fun sum(a: Int, b: Int) = a + b // Remover chaves
+    fun sum(a: Int, b: Int): () -> Int = { a + b } // Especificar o tipo de retorno explicitamente
+    fun sum(a: Int, b: Int) = run { a + b } // Converter para run { ... }
+    fun sum(a: Int, b: Int) = { -> a + b } // Especificar uma assinatura de lambda explícita
+</code></pre>
+</body>
+</html>

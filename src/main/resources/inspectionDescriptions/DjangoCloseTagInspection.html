@@ -1,0 +1,10 @@
+<html>
+<body>
+<p>Relata casos em que as tags de abertura e fechamento em templates Django não correspondem corretamente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="DjangoTemplate">
+{% if error_message %}&lt;p&gt;&lt;strong&gt;{{ error_message }}&lt;/p&gt;{% endif %}
+</code></pre>
+<p>O IDE relata um erro indicando que a tag <code>strong</code> não foi fechada.</p>
+</body>
+</html>

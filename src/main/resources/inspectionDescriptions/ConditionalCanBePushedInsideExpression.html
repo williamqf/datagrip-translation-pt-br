@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata expressões condicionais com ramos <code>then</code> e <c>else</c> que são suficientemente semelhantes para que a expressão possa ser movida para dentro. Esta ação encurta o código.
+<p>Exemplo:</p>
+<pre><code>
+  double g(int a, int b) {
+    return a == b ? Math.cos(0) : Math.cos(1);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  double g(int a, int b) {
+    return Math.cos(a == b ? 0 : 1);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.2</small></p>
+</body>
+</html>

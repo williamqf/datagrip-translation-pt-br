@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata expressões booleanas desnecessárias ou excessivamente complexas.
+<p>Tais expressões incluem: combinações de <code>&&</code> e <code>true</code>, combinações de <code>||</code> e <code>false</code>, comparações de igualdade com literais booleanos ou negação de literais booleanos. Essas expressões podem ser simplificadas.</p>
+<p>Exemplo:
+<pre><code>
+  <b>boolean</b> a = !(x && <b>false</b>);
+  <b>boolean</b> b = <b>false</b> || x;
+  <b>boolean</b> c = x != <b>true</b>;
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>boolean</b> a = <b>true</b>;
+  <b>boolean</b> b = x;
+  <b>boolean</b> c = !x;
+</code></pre>
+<!-- tooltip end -->
+<p>
+<p>Configuração da inspeção:</p>
+Use a opção <b>Ignorar constantes nomeadas ao determinar expressões inúteis</b> para ignorar constantes nomeadas ao determinar se uma expressão é inútil.
+<p>
+
+</body>
+</html>

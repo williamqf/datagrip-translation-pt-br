@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata variáveis locais que não seguem as convenções de nomenclatura.
+<p>Você pode especificar o padrão desejado nas opções de inspeção.</p>
+<p><a href="https://kotlinlang.org/docs/coding-conventions.html#function-names">Convenção de nomenclatura recomendada</a>: deve começar com uma letra minúscula, usar camelCase e não conter sublinhados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun fibonacciNumber(index: Int): Long = when(index) {
+      0 -> 0
+      else -> {
+          // Não segue a convenção de nomenclatura: contém um sublinhado (`_`)
+          var number_one: Long = 0
+          // Não segue a convenção de nomenclatura: começa com uma letra maiúscula
+          var NUMBER_TWO: Long = 1
+          // Segue a convenção de nomenclatura: começa com uma letra minúscula, usa camelCase e não contém sublinhados.
+          var numberThree: Long = number_one + NUMBER_TWO
+
+          for(currentIndex in 2..index) {
+              numberThree = number_one + NUMBER_TWO
+              number_one = NUMBER_TWO
+              NUMBER_TWO = numberThree
+          }
+          numberThree
+      }
+  }
+</code></pre>
+</body>
+</html>

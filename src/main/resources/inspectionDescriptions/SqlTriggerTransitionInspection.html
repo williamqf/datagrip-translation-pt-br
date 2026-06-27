@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata o uso incorreto de variáveis de tabela de transição em triggers.
+<p>Exemplo (HSQLDB):</p>
+<pre><code>CREATE TABLE foo(a INT);
+
+CREATE TRIGGER trg
+ AFTER DELETE ON foo
+BEGIN
+   SELECT * FROM NEW;
+END;
+
+CREATE TRIGGER trig AFTER INSERT ON foo
+   REFERENCING OLD ROW AS newrow
+   FOR EACH ROW WHEN (a > 1)
+   INSERT INTO foo VALUES (1)</code></pre>
+<p>No HSQLDB, triggers de DELETE só podem ser usados com o estado OLD, enquanto triggers de INSERT só podem ter o estado NEW. Portanto, no exemplo anterior, o NEW em <code>SELECT * FROM NEW;</code> e o OLD em <code>REFERENCING OLD ROW AS newrow</code> serão destacados.</p>
+</body>
+</html>

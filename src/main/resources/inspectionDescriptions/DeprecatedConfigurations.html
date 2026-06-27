@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Detecta o uso de métodos de configuração obsoletos.</p>
+
+  Métodos de configuração podem se tornar obsoletos por um destes dois motivos:
+  <ul>
+  <li>A API do Gradle evoluiu, portanto, a escolha de métodos antigos deve ser evitada;</li>
+  <li>Um plugin fornece uma versão melhor do método de configuração obsoleto.</li>
+  </ul>
+  Na maioria das vezes, haverá uma alternativa para substituir o método obsoleto.
+<p><b>Exemplo:</b></p>
+<pre><code lang="groovy">
+plugins {
+  id 'java'
+}
+
+dependencies {
+  archive 'org.gradle.api:gradle:1.0' // reporta 'archive'
+}
+</code></pre>
+
+</body>
+</html>

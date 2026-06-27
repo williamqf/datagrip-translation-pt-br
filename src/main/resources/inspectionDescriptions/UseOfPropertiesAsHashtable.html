@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata chamadas aos seguintes métodos em objetos <code>java.util.Properties</code>:
+<ul>
+  <li><code>put()</code></li>
+  <li><code>putIfAbsent()</code></li>
+  <li><code>putAll()</code></li>
+  <li><code>get()</code></li>
+</ul>
+<p>
+  Por razões históricas, <code>java.util.Properties</code> herda de <code>java.util.Hashtable</code>, mas o uso desses métodos não é recomendado para evitar a poluição de valores de propriedade com tipos diferentes de <code>String</code>.
+</p>
+<p>
+  Chamadas para <code>java.util.Properties.putAll()</code> não são relatadas quando os parâmetros de chave e valor no mapa são ambos do tipo <code>String</code>. Tais chamadas são seguras e não há alternativa melhor.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Object f(Properties props) {
+    props.put("hello", "world");
+    props.putIfAbsent("hello", "world");
+    props.putAll(new HashMap&lt;&gt;());
+    return props.get("Hello");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Object f(Properties props) {
+    props.setProperty("hello", "world");
+    props.putIfAbsent("hello", "world");
+    props.putAll(new HashMap&lt;&gt;());
+    return props.getProperty("hello");
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

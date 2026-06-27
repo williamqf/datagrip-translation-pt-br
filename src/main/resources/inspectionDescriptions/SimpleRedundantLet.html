@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas <code>let</code> redundantes baseadas no receptor.
+<p>A correção rápida remove chamadas <code>let</code> redundantes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(s: String?): Int? = s?.let { it.length }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test(s: String?): Int? = s?.length
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

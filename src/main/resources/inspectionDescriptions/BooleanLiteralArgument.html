@@ -1,0 +1,26 @@
+<html>
+<body>
+Reporta argumentos de chamada do tipo <code>Boolean</code> que não possuem nomes de parâmetros explícitos especificados.
+<p>
+    Ao passar vários literais booleanos em sequência, é fácil esquecer a ordem dos parâmetros, o que pode levar a erros.
+    Nomes de parâmetros explícitos tornam o código mais fácil de ler e entender.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun check(checkName: Boolean, checkAddress: Boolean, checkPhone: Boolean) {}
+
+  fun usage() {
+      check(true, false, true) // o que isso significa?
+  }
+</code></pre>
+<p>A correção rápida adiciona os nomes de parâmetros ausentes:</p>
+<pre><code>
+  fun check(checkName: Boolean, checkAddress: Boolean, checkPhone: Boolean) {}
+
+  fun usage() {
+      check(checkName = true, checkAddress = false, checkPhone = true)
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<body>
+Relata métodos que sobrescrevem um supermétodo sem chamá-lo.
+Isso também é conhecido como <i>Refused Bequest</i> (herança recusada).
+Tais métodos podem indicar uma falha de abstração, resultando em bugs difíceis de rastrear.
+<p>
+  A inspeção não relata métodos sobrescritos de <code>java.lang.Object</code> (com exceção de <code>clone()</code>).
+  Por convenção, o método <code>clone()</code> deve chamar seu supermétodo, que retornará um objeto do tipo correto.</p>
+<p><b>Exemplo 1:</b></p>
+<pre><code>
+  class A {
+    @Override
+    public Object clone() {
+      // Não chama 'super.clone()'
+      return new A();
+    }
+  }
+</code></pre>
+<p><b>Exemplo 2:</b></p>
+<pre><code>
+  interface I {
+    default void foo() {}
+  }
+
+  class A implements I {
+    // Avisa sobre o método quando
+    // "Ignorar supermétodos 'default'" está desativado
+    @Override
+    public void foo(){}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>
+    Use a opção <b>Relatar apenas se o supermétodo estiver anotado por</b> para ignorar supermétodos marcados com as anotações da lista fornecida. Você pode adicionar anotações manualmente a esta lista.
+  </li>
+  <li>
+    Use a opção <b>Ignorar supermétodos vazios</b> para ignorar supermétodos vazios ou que apenas lançam uma exceção.
+  </li>
+  <li>
+    Use a opção <b>Ignorar supermétodos 'default'</b> para ignorar supermétodos <code>default</code> em interfaces.
+  </li>
+</ul>
+</body>
+</html>

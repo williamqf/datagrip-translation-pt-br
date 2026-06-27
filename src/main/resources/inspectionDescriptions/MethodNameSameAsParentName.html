@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata métodos com o mesmo nome que uma superclasse da classe do método, pois tais nomes de métodos podem ser confusos.
+<p>Esta inspeção não verifica interfaces ou superclasses profundas na hierarquia.</p>
+<p><b>Exemplo:</b>
+<pre><code>
+  class Parent {}
+  class Child extends Parent {
+     public Parent Parent() {
+       return null;
+     }
+  }
+</code></pre>
+<p>A correção rápida para renomear tais métodos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

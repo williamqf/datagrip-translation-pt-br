@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata variáveis locais declaradas em uma ramificação de uma instrução <code>switch</code> e usadas em outra ramificação. Tais declarações podem ser especialmente confusas.
+<p>Exemplo:</p>
+<pre><code>
+    switch(i) {
+      case 2:
+          int x = 0;
+          break;
+      case 3:
+          x = 3;
+          System.out.println(x);
+          break;
+    }
+</code></pre>
+<!-- tooltip end -->
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas suspeitas a <code>System.arraycopy()</code>.
+<p>Tais chamadas são consideradas suspeitas nos seguintes casos:</p>
+<ul>
+<li>A origem ou o destino não são tipos de array
+<li>Os tipos da origem e do destino são diferentes
+<li>O comprimento do bloco copiado é maior que <code>src.length - srcPos</code>
+<li>O comprimento do bloco copiado é maior que <code>dest.length - destPos</code>
+<li>Quando a origem e o destino são o mesmo array, os intervalos sempre se sobrepõem
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo() {
+    int[] src = new int[] { 1, 2, 3, 4 };
+    System.arraycopy(src, 0, src, 1, 2); // Aviso: copiando para o mesmo array com intervalos que se sobrepõem
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

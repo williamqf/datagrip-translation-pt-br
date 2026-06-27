@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata instâncias em que uma variável pode ser <code>nil</code> ou ter um valor inesperado porque não foi verificado se o erro associado não é nil, como em <code>v, err := foo()</code>.
+<p>A correção rápida removerá a função do escopo desta inspeção.</p>
+<p>Exemplo:</p>
+<pre><code>
+func _() {
+    file, err := os.Open("file.txt")
+    // A verificação de erro foi omitida aqui
+    name := file.Name()
+    print(name, err)
+}
+</code></pre>
+<p>No exemplo fornecido, <code>file</code> pode ser <code>nil</code> ou ter um valor inesperado quando <code>err</code> não for <code>nil</code>.</p>
+</body>
+</html>

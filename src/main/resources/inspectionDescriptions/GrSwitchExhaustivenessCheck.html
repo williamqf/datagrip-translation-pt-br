@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata expressões <code>switch</code> que não abrangem todos os resultados possíveis da correspondência.
+<p>O Groovy não exige que as expressões <code>switch</code> sejam exaustivas. Ele funciona como se um ramo <code>default -> null</code> implícito tivesse sido inserido.
+Se o desenvolvedor esquecer de inserir os ramos <code>case</code> necessários, isso pode resultar em um <code>null</code> inesperado.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  enum A { X, Y }
+
+  def foo(A a) {
+    def x = switch (a) { // relata o switch
+      case A.X -> ...
+    }
+  }
+</code></pre>
+</body>
+</html>

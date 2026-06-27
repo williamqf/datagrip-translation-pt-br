@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata cláusulas de guarda que podem ser substituídas por uma chamada de função.
+<p><b>Exemplo:</b></p>
+<pre><code>  fun test(foo: Int?) {
+      if (foo == null) throw IllegalArgumentException("foo") // cláusula substituível
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  fun test(foo: Int?) {
+      checkNotNull(foo)
+  }
+</code></pre>
+</body>
+</html>

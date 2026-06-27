@@ -1,0 +1,12 @@
+<html>
+<body>
+Símbolos não resolvidos em relatórios de tabela ou colunas
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code lang="kotlin">
+  class User : Table("User") {
+    val name = varchar("missing_name", 50) // símbolo não resolvido
+  }
+</code></pre>
+</body>
+</html>

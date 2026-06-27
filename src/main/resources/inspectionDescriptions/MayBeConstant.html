@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata propriedades <code>val</code> de nível superior em objetos que poderiam ser declaradas como <code>const</code> para obter melhor desempenho e interoperabilidade com Java.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  object A {
+      val foo = 1
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  object A {
+      const val foo = 1
+  }
+</code></pre>
+<b>Para autores de bibliotecas</b>: O uso de const para símbolos de API pública é perigoso porque, se a versão da biblioteca em tempo de compilação for diferente da versão em tempo de execução, dois valores diferentes poderão ser utilizados. Use com cautela.
+</body>
+</html>

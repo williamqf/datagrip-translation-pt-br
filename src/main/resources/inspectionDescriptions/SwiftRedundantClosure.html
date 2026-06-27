@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+  Relata closures que são criadas e chamadas no mesmo local.
+</p>
+<p>
+  Substitui a chamada da closure pelo seu corpo.
+</p>
+<!-- tooltip end -->
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>
+  { (x: Int) -> () in
+      print(x)
+  }(42)
+</code></pre>
+<p>
+  Após a aplicação da correção rápida:
+</p>
+<pre><code>
+  print(42)
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata a instanciação de classes utilitárias usando a palavra-chave <code>new</code>.
+<p>
+  Em classes utilitárias, todos os campos e métodos são <code>static</code>.
+  A instanciação de tais classes é provavelmente desnecessária e indica um erro.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class MyUtils {
+    public static double cube(double x) {
+      return x * x * x;
+    }
+  }
+  class Main {
+    public static void main(String[] args) {
+      // Instanciação de classe utilitária
+      MyUtils utils = new MyUtils();
+    }
+  }
+</code></pre>
+<p>
+  Para evitar que uma classe utilitária seja instanciada, recomenda-se o uso de um construtor <code>private</code>.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata chamadas a <code>BigDecimal.divide()</code> ou <code>BigDecimal.setScale()</code> que utilizam constantes inteiras para especificar o modo de arredondamento.
+Desde o JDK 1.5, considere o uso de métodos que aceitam um parâmetro <code>enum</code> <code>RoundingMode</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>new BigDecimal("42").setScale(2, BigDecimal.ROUND_FLOOR);</code></pre>
+<p>Após a aplicação da correção rápida (quick fix):</p>
+<pre><code>new BigDecimal("42").setScale(2, RoundingMode.FLOOR);</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

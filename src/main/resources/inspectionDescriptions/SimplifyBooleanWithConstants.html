@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata expressões booleanas que podem ser reduzidas a constantes.
+<p>A correção rápida simplifica a condição.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun use(arg: Boolean) {
+      if (false == arg) {
+
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun use(arg: Boolean) {
+      if (!arg) {
+
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

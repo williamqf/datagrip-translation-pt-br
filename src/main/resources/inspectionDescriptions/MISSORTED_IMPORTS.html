@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata declarações <code>import</code> que não estão organizadas de acordo com o estilo de código atual (consulte "Configurações | Editor | Estilo de Código").
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.List;
+  import java.util.ArrayList;
+
+  public class Example {
+    List list = new ArrayList();
+  }
+</code></pre>
+<p>Após aplicar a correção rápida "Otimizar imports":
+<pre><code>
+  import java.util.ArrayList;
+  import java.util.List;
+
+  public class Example {
+    List list = new ArrayList();
+  }
+</code></pre>
+</body>
+</html>

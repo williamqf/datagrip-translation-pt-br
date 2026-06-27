@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata qualquer chamada a um método de aridade variável (varargs) em que a chamada possui um array de tipo primitivo na posição do parâmetro de aridade variável.
+Tal argumento de array primitivo pode ser confuso, pois será envolvido em um argumento de array de elemento único, em vez de cada elemento ser um argumento individual, como esperado.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String.format("%s", new int[]{1, 2, 3});
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String.format("%s", (Object) new int[]{1, 2, 3});
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

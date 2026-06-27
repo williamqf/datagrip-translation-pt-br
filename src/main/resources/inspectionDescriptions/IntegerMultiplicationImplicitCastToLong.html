@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata multiplicações de inteiros e deslocamentos à esquerda convertidos implicitamente para <code>long</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void f(int i) {
+    long val = 65536 * i;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o código muda para:</p>
+<pre><code>
+  void x(int i) {
+    long val = 65536<b>L</b> * i;
+  }
+</code></pre>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void f(int i) {
+    long value = i &lt;&lt; 24;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o código muda para:</p>
+<pre><code>
+  void f(int i) {
+    long value = (long) i &lt;&lt; 24;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Tais multiplicações geralmente indicam um erro, pois o truncamento por estouro (overflow) pode ocorrer inesperadamente.
+  Converter um literal <code>int</code> em um literal <code>long</code> (<code>65536<b>L</b></code>) corrige o problema.
+</p>
+
+</body>
+</html>

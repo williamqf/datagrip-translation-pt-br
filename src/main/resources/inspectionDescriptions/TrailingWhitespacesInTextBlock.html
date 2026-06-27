@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata blocos de texto com caracteres de espaço em branco à direita.
+Espaços em branco à direita são considerados incidentais e serão removidos pelo compilador Java.
+<p><b>Exemplo (onde os espaços são indicados por pontos):</b></p>
+<pre><code>
+..String.count.=."""
+....one
+....two....
+....three
+....""";
+</code></pre>
+<p>Duas correções rápidas são fornecidas.
+  Uma para remover os espaços em branco à direita e outra para escapar os espaços em branco à direita para que não sejam removidos pelo compilador:</p>
+<pre><code>
+..String.count.=."""
+....one
+....two...\s
+....three
+....""";
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2021.1</small></p>
+</body>
+</html>

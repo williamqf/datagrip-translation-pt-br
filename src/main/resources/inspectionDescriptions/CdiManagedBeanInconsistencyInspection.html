@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata regras de definição de Bean incorretas.</p>
+<p>Uma classe Java de nível superior pode ser um Bean simples se:</p>
+<ul>
+  <li>Não for um tipo parametrizado.</li>
+  <li>Não for uma classe interna não estática (non-static).</li>
+  <li>For uma classe concreta ou estiver anotada com <code>@Decorator</code>.</li>
+  <li>Possuir um construtor apropriado: a classe possui um construtor sem parâmetros ou declara um construtor anotado com <code>@Initializer</code>.
+  </li>
+  <li>Não implementar nenhuma das seguintes interfaces:
+    <code>javax.servlet.Servlet</code>,
+    <code>javax.servlet.Filter</code>,
+    <code>javax.servlet.ServletContextListener</code>,
+    <code>javax.servlet.http.HttpSessionListener</code>,
+    <code>javax.servlet.ServletRequestListener</code>,
+    <code>javax.ejb.EnterpriseBean</code>.
+  </li>
+  <li>Não estender <code>javax.faces.component.UIComponent</code>.</li>
+</ul>
+</body>
+</html>

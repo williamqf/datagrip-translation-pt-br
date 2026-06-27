@@ -1,0 +1,37 @@
+<html>
+<body>
+<p>Relata chamadas potencialmente inseguras para funções inline com receptores de extensão flexíveis anuláveis (tipos de plataforma com nulidade desconhecida).</p>
+<p>
+    Antes do Kotlin 1.2, chamadas para <code>inline fun</code> com receptores de extensão flexíveis anuláveis (tipos de plataforma com nulidade desconhecida) não incluíam verificações de nulidade no bytecode. Desde o Kotlin 1.2, as verificações de nulidade são incluídas no bytecode (consulte <a href="https://youtrack.jetbrains.com/issue/KT-12899">KT-12899</a>).
+</p>
+<p>
+    Recomenda-se adicionar um <code>!!</code> explícito para lançar uma exceção ou considerar a alteração do tipo do receptor da função para anulável (se ela puder ser executada sem exceções).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  inline fun String.removePrefix(prefix: String): String {
+      return this.substring(prefix.length)
+  }
+
+  fun main() {
+      // `System.getProperty` retorna o tipo não representável `String!`
+      val property = System.getProperty("user.dir")
+      println(property.removePrefix("/home"))
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  inline fun String.removePrefix(prefix: String): String {
+      return this.substring(prefix.length)
+  }
+
+  fun main() {
+      // `System.getProperty` retorna o tipo não representável `String!`
+      val property = System.getProperty("user.dir")
+      println(property!!.removePrefix("/home"))
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível da linguagem Kotlin do projeto ou módulo for inferior a 1.2.</p>
+</body>
+</html>

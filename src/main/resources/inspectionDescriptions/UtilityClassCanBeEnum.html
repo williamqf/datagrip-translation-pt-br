@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes utilitárias que podem ser convertidas em um <code>enum</code>.
+<p>Algumas diretrizes de estilo de código exigem que as classes utilitárias sejam implementadas como enums para evitar problemas de cobertura de código em construtores <code>private</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class StringUtils {
+    public static final String EMPTY = "";
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  enum StringUtils {
+    ;
+    public static final String EMPTY = "";
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata struct tags que não estão em conformidade com as <a href="https://pkg.go.dev/reflect#StructTag">convenções do Go para struct tags</a>.
+
+<p>De acordo com essas convenções, uma string de tag é uma concatenação de pares <code>key:"value"</code> opcionalmente separados por espaços. Cada chave é uma string não vazia composta por caracteres de não controle que não sejam <code>espaço (U+0020 ' ')</code>, <code>aspas (U+0022 '"')</code> e <code>dois-pontos (U+003A ':')</code>. Cada valor é delimitado por caracteres <code>U+0022 '"'</code> e utiliza a sintaxe de literal de string do Go.</p>
+
+<p>Além disso, esta inspeção verifica se os campos com tags são exportados.</p>
+
+<p>Exemplo de tags válidas:</p>
+<pre><code>type Example struct {
+  Field int `json:"field" xml:"demo"`
+}</code>
+</pre>
+</body>
+</html>

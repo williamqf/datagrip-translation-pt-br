@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata campos não <code>static</code> e não <code>final</code> cujos nomes estão inteiramente em letras maiúsculas.
+<p>Tais campos podem causar confusão por violarem as convenções de nomenclatura comuns e, frequentemente, são usados de forma incorreta.</p>
+<p><b>Exemplo:</b> <pre><code>
+  public static int THE_ANSWER = 42; // aviso aqui: modificador final ausente
+</code></pre>
+<p>A correção rápida para renomear esses campos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+
+</body>
+</html>

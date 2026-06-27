@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata classes de listener de entidade que não possuem nenhum método de listener de entidade.
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  @EntityListeners(value = JavaEntityListener.class)
+  public class JavaEntity { ... }
+
+  class JavaEntityListener { // Erro: nenhum método específico de listener de entidade encontrado
+
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata o uso de membros package-private declarados no mesmo pacote, mas em módulos diferentes, bem como o uso em testes de membros package-private declarados no código de produção.
+<p>Se a classe declarante for carregada por um carregador diferente, o código que acessa os membros package-private falhará em tempo de execução com <code>IllegalAccessError</code>.</p>
+<p>Se um método sobrescrever um método package-private em uma classe carregada por um carregador diferente, o supermétodo não será chamado quando invocado em uma instância da classe de implementação.</p>
+<p>Se um método implementar um método abstract package-private de uma classe carregada por um carregador diferente, a chamada do supermétodo em uma instância da classe de implementação falhará com <code>AbstractMethodError</code>.</p>
+</body>
+</html>

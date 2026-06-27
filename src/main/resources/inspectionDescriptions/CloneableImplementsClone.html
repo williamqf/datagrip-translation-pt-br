@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata classes que implementam a interface <code>Cloneable</code>, mas não sobrescrevem o método <code>clone()</code>.
+<p>Tais classes usam a implementação padrão de <code>clone()</code>, que não é <code>public</code>, mas sim <code>protected</code>, e não copia o estado mutável da classe.</p>
+<p>Uma correção rápida pode ser usada para gerar um método <code>clone()</code> básico, que pode servir como base para um método <code>clone()</code> que funcione corretamente, conforme esperado para uma classe <code>Cloneable</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public class</b> Data <b>implements</b> Cloneable {
+    <b>private</b> String[] names;
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>public class</b> Data <b>implements</b> Cloneable {
+    <b>private</b> String[] names;
+
+    @Override
+    <b>public</b> Data clone() {
+      <b>try</b> {
+        Data clone = (Data) <b>super</b>.clone();
+        // TODO: copie o estado mutável aqui, para que o clone não possa alterar as partes internas do original 
+         <b>return</b> clone;
+      } <b>catch</b> (CloneNotSupportedException e) {
+        <b>throw new</b> AssertionError();
+      }
+    }
+  }
+</code></pre>
+<!--
+Note for translators: the text of the TODO comment in the example code above comes from
+community/plugins/InspectionGadgets/InspectionGadgetsAnalysis/resources/messages/InspectionGadgetsBundle.properties
+property key: cloneable.class.without.clone.todo.message
+-->
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar classes clonáveis devido à herança</b> para ignorar classes que são <code>Cloneable</code> por herdarem de uma classe <code>Cloneable</code>.</p>
+<p>Use a opção <b>Ignorar casos em que Cloneable é necessário para chamar o método clone() da superclasse</b> para ignorar classes que exigem a implementação de <code>Cloneable</code> por chamarem o método <code>clone()</code> da superclasse.</p>
+</body>
+</html>

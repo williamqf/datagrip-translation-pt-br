@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata as chamadas para métodos com nomes de semelhante a mutadores sem cláusulas de argumento.</p>
+<p>Scala permite chamar métodos Java sem parâmetros sem cláusulas de argumento.
+    Isto é principalmente para permitir o código Scala utilizar métodos de acesso Java sem parâmetros da mesma forma dos métodos de acesso Scala.
+    Nomeadamente, sem qualquer cláusula de argumento e aderindo, por conseguinte, ao<a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que diz que o código cliente não deve ser afetado pela decisão de implementar um atributo como campo ou método.</p>
+
+<p>Porém, para métodos com <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>, por convenção é utilizado uma cláusula de argumento vazia.</p>
+
+<p>A correção rápida adiciona uma cláusula de argumento vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val stringBuilder = new java.util.ArrayList[String]
+  stringBuilder.clear
+</code></pre>
+<p>Após a correção rápida ter sido aplicada:</p>
+<pre><code>
+  val stringBuilder = new java.util.ArrayList[String]
+  stringBuilder.clear()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

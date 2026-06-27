@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata casos de teste que possuem lógica de inicialização em seus construtores.
+Se o construtor falhar, o método anotado com <code>@After</code> ou o método <code>tearDown()</code> não será chamado.
+Isso pode resultar em um ambiente de teste parcialmente inicializado, o que pode afetar negativamente outros testes.
+Em vez disso, a inicialização do caso de teste deve ser realizada no método <code>setUp()</code> ou em um método anotado com <code>@Before</code>.
+<p>Exemplo ruim:</p>
+<pre><code lang="java">
+  public class ImportantTest {
+    private File file;
+
+    public ImportantTest() throws IOException {
+      file = File.createTempFile("xyz", ".tmp");
+    }
+
+    // ... tests go here
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

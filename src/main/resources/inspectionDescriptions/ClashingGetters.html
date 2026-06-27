@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata métodos booleanos que podem ser acessados pelo mesmo nome de propriedade.
+<p>O acesso a tais propriedades pode produzir resultados inesperados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+      boolean isFoo() { true }
+      boolean getFoo() { false }
+  }
+
+  // getFoo() será chamado
+  new X().foo
+</code></pre>
+</body>
+</html>

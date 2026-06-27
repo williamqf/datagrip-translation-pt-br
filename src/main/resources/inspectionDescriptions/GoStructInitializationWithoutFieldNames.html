@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata structs inicializadas sem nomes de campos. Por padrão, esta inspeção está disponível apenas ao usar tipos definidos em pacotes diferentes.
+<p>Ao inicializar uma struct, recomenda-se indicar explicitamente os nomes dos campos para garantir que eles continuem a ser referenciados corretamente caso a ordem ou os nomes dos campos sejam alterados.</p>
+<p>Exemplo:</p>
+<pre><code>_ = io.LimitedReader{nil, 10}</code></pre>
+<p>A inicialização de <code>LimitedReader</code> será destacada porque faltam os nomes explícitos dos campos da struct.
+  Você pode aplicar o quick fix <b>Adicionar chaves e remover valores zero</b> a esta inicialização de struct. Após aplicar o quick fix, o código ficará assim:</p>
+<pre><code>_ = io.LimitedReader{N: 10}</code></pre>
+<p>Esta inspeção possui as seguintes opções:</p>
+<ul>
+  <li><p><b>Relatar tipos definidos no pacote atual</b>: relata casos em que uma struct é declarada e inicializada no mesmo pacote.
+    Considere o exemplo abaixo.</p>
+    <pre><code>d := struct {
+  c string
+ }{ "dsd "}</code></pre>
+  </li>
+  <li><p><b>Relatar literais de struct sem tipo</b>: relata campos sem nome quando o tipo (struct ou interface) é omitido.
+    O exemplo a seguir mostra o caso em que o tipo é omitido.</p>
+    <pre><code>_ = []io.LimitedReader{
+ {nil, 10},
+ {nil, 20},
+ }</code></pre>
+    <p>No exemplo abaixo, o tipo está presente, mas é redundante.</p>
+    <pre><code>_ = []io.LimitedReader{
+ io.LimitedReader{nil, 10},
+ io.LimitedReader{nil, 20},
+}</code></pre>
+  </li>
+</ul>
+</body>
+</html>

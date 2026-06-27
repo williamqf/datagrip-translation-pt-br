@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata modificadores <code>non-sealed</code> desnecessários usados em métodos, campos ou variáveis.</p>
+<p>Este modificador é válido apenas para classes, interfaces e traits.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>non-sealed</b> boolean foo() {} // o modificador é desnecessário
+  <b>non-sealed</b> Object bar // o modificador é desnecessário
+
+  // o modificador é obrigatório, portanto não está realçado
+  <b>non-sealed</b> class A {}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata métodos ou campos de serialização definidos em uma classe <code>record</code>.
+Os métodos de serialização incluem <code>writeObject()</code>, <code>readObject()</code>, <code>readObjectNoData()</code>, <code>writeExternal()</code> e <code>readExternal()</code>, bem como o campo <code>serialPersistentFields</code>.
+Esses membros não são usados para serialização ou desserialização de registros e, portanto, são desnecessários.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  record R1() implements Serializable {
+    // Este campo é ignorado durante a serialização do registro
+    @Serial
+    private static final ObjectStreamField[] serialPersistentFields = new ObjectStreamField[0];
+
+    // Este método é ignorado durante a serialização do registro
+    @Serial
+    private void writeObject(ObjectOutputStream out) throws IOException {
+    }
+  }
+</code></pre>
+<pre><code>
+  record R2() implements Externalizable {
+    // Este método é ignorado durante a serialização do registro
+    @Override
+    public void writeExternal(ObjectOutput out) throws IOException {
+    }
+
+    // Este método é ignorado durante a serialização do registro
+    @Override
+    public void readExternal(ObjectInput in) throws IOException, ClassNotFoundException {
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

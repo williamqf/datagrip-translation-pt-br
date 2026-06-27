@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata definições de atributos de instância fora do método <code>__init__</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+    class Book:
+    def __init__(self):
+        self.author = 'Mark Twain'
+
+    def release(self):
+        self.year = '1889'
+</code></pre>
+<p>
+  Após a aplicação do ajuste rápido, o exemplo de código torna-se:
+</p>
+<pre><code>
+    class Book:
+    def __init__(self):
+        self.year = '1889'
+        self.author = 'Mark Twain'
+
+    def release(self):
+        pass
+</code></pre>
+</body>
+</html>

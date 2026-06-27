@@ -1,0 +1,63 @@
+<html>
+<body>
+Relata parâmetros de métodos genéricos que podem usar <a href="https://en.wikipedia.org/wiki/Wildcard_(Java)">wildcards limitados (bounded wildcards)</a>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void process(Consumer&lt;Number&gt; consumer);
+</code></pre>
+<p>Deve ser substituído por:</p>
+<pre><code>
+  void process(Consumer&lt;? super Number&gt; consumer);
+</code></pre>
+<p>
+  Esta assinatura de método é mais flexível porque aceita mais tipos: não apenas <code>Consumer&lt;Number&gt;</code>, mas também <code>Consumer&lt;Object&gt;</code>.
+</p>
+<p>Da mesma forma, para parâmetros de tipo em uma posição covariante:</p>
+<pre><code>
+  T produce(Producer&lt;T&gt; p);
+</code></pre>
+<p>Deve ser substituído por:</p>
+<pre><code>
+  T produce(Producer&lt;? extends T&gt; p);
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Citando <a href="https://en.wikipedia.org/wiki/Joshua_Bloch#Effective_Java">Joshua Bloch</a> em <em>Effective Java</em>, 3ª Edição:
+</p>
+<blockquote>
+  <h4>Item 31: Use wildcards limitados para aumentar a flexibilidade da API</h4>
+  O uso de tipos wildcard em APIs, embora trabalhoso, torna as APIs muito mais flexíveis.
+  Se você estiver escrevendo uma biblioteca que será amplamente utilizada, o uso adequado de tipos wildcard deve ser considerado obrigatório.
+  Lembre-se da regra básica: producer-extends, consumer-super (PECS).
+  Lembre-se também de que todos os Comparables e Comparators são consumers.
+</blockquote>
+
+<p>
+  Utilize as opções da inspeção para alternar o relato do seguinte:
+</p>
+<ul>
+  <li>
+    <p>
+      Classes invariantes. Um exemplo de classe invariante é <code>java.util.List&lt;T&gt;</code>, porque ela tanto aceita valores (através do método <code>List.add(T)</code>) quanto produz valores (através do método <code>T List.get()</code>).
+    </p>
+    <p>
+      Por outro lado, uma classe <code>contravariante</code> apenas recebe valores, por exemplo, <code>java.util.function.Consumer&lt;T&gt;</code> com seu único método <code>accept(T)</code>. Da mesma forma, uma classe <code>covariante</code> apenas produz valores, por exemplo, <code>java.util.function.Supplier&lt;T&gt;</code> com seu único método <code>T get()</code>.
+    </p>
+    <p>
+      Frequentemente utiliza-se wildcards limitados em classes covariantes/contravariantes, mas evita-se o uso de wildcards em classes invariantes, como <code>void process(List&lt;? extends T&gt; l)</code>.
+      Desativar esta opção permite ignorar tais classes invariantes e manter sua tipagem estrita, como <code>void process(List&lt;T&gt; l)</code>.
+    </p>
+  </li>
+  <li>
+    <p>
+      Métodos <code>private</code> que podem ser considerados como não fazendo parte de uma API pública.
+    </p>
+  </li>
+  <li>
+    <p>
+      Métodos de instância.
+    </p>
+  </li>
+</ul>
+</body>
+</html>

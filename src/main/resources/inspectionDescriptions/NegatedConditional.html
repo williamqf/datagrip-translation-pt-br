@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata expressões condicionais onde a condição está negada.
+<p>Inverter a ordem dos ramos da expressão condicional geralmente aumenta a clareza de tais instruções.</p>
+<!-- tooltip end -->
+<p>
+  Use as opções <b>Ignorar comparações '!= null'</b> e <b>Ignorar comparações '!= 0'</b> para ignorar comparações na forma <code>obj != null</code> ou <code>num != 0</code>.
+  Como <code>obj != null</code> efetivamente significa "o objeto existe", o sentido da expressão completa não envolve nenhuma negação, sendo assim fácil de entender.
+<p>
+  O mesmo raciocínio se aplica a expressões <code>num != 0</code>, especialmente ao usar máscaras de bits.
+<p>
+  Essas formas também têm a vantagem adicional de mencionar os casos de interesse primeiro.
+  Na maioria dos casos, o valor do ramo <code>== null</code> é o próprio <code>null</code>, como mostrado no exemplo a seguir:
+
+<pre><code>
+    static String getName(Person p) {
+        return p != null ? p.getName() : null;
+    }
+
+    static String getExecutableString(int fileMode) {
+        return (fileMode & 0b001001001) != 0 ? "executable" : "non-executable";
+    }
+</code></pre>
+
+</body>
+</html>

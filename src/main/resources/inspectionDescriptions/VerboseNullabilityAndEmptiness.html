@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Relata combinações de verificações de <code>null</code> e de vazio que podem ser simplificadas em uma única verificação.</p>
+<p>A correção rápida substituirá as verificações destacadas por uma chamada de verificação combinada, como <code>isNullOrEmpty()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(list: List&lt;Int>?) {
+      if (list == null || list.isEmpty()) {
+          println("List is empty!")
+      } else {
+          println(list.joinToString())
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test(list: List&lt;Int>?) {
+      if (list.isNullOrEmpty()) {
+          println("List is empty!")
+      } else {
+          println(list.joinToString())
+      }
+  }
+</code></pre>
+</body>
+</html>

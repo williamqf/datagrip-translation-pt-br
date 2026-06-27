@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata construtores secundários que podem ser substituídos por um construtor primário mais conciso.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class User {
+      val name: String
+
+      constructor(name: String) {
+          this.name = name
+      }
+  }
+</code></pre>
+<p>A correção rápida converte automaticamente o código:</p>
+<pre><code>
+  class User(val name: String) {
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata instruções <code>import</code> redundantes.
+
+<p>Importações padrão e não utilizadas podem ser removidas com segurança.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import kotlin.*
+  import kotlin.collections.*
+  import kotlin.comparisons.*
+  import kotlin.io.*
+  import kotlin.ranges.*
+  import kotlin.sequences.*
+  import kotlin.text.*
+
+  // específico para jvm
+  import java.lang.*
+  import kotlin.jvm.*
+
+  // específico para js
+  import kotlin.js.*
+
+  import java.io.* // esta importação não é utilizada e pode ser removida
+  import java.util.*
+
+  fun foo(list: ArrayList&lt;String&gt;) {
+      list.add("")
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata propriedades que são explicitamente atribuídas a parâmetros do construtor primário.
+<p>As propriedades podem ser declaradas diretamente no construtor primário, reduzindo a quantidade de código e melhorando a legibilidade do código.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class User(name: String) {
+      val name = name
+  }
+</code></pre>
+<p>A correção rápida unirá o parâmetro e a declaração da propriedade no parâmetro do construtor primário:</p>
+<pre><code>
+  class User(val name: String) {
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata rótulos que não apontam para uma função.
+<p>É proibido declarar rótulos de destino que não representem uma função.</p>
+<p>A correção rápida remove o rótulo.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun testValLabelInReturn() {
+      L@ val fn = { return@L }
+      fn()
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun testValLabelInReturn() {
+      L@ val fn = { return }
+      fn()
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 1.4 ou superior.</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata chamadas a <code>java.util.Set.removeAll()</code> com um argumento <code>java.util.List</code>.
+<p>
+  Tais chamadas podem ser lentas quando o tamanho do argumento é maior ou igual ao tamanho do conjunto e o conjunto é uma subclasse de <code>java.util.AbstractSet</code>.
+  Nesse caso, <code>List.contains()</code> é chamado para cada elemento no conjunto, executando uma busca linear.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public void check(String... ss) {
+    // possível complexidade O(n^2)
+    mySet.removeAll(List.of(ss));
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public void check(String... ss) {
+    // complexidade O(n)
+    List.of(ss).forEach(mySet::remove);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

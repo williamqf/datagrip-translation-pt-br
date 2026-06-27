@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata classes <code>Serializable</code> cujo campo <code>serialVersionUID</code> não está declarado como <code>private static final long</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class SampleClass implements Serializable {
+    private long serialVersionUID = 1; // O campo da classe Serializable não está declarado como 'private static final long'
+
+    public SampleClass() {
+        System.out.println(serialVersionUID);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

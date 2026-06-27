@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata campos, métodos ou classes cujos modificadores de acesso podem ser restringidos.
+<p>Exemplo:</p>
+<pre><code>
+  class Sample {
+    void foo() {
+        bar("foo", "foo");
+    }
+    void bar(String x, String y) { } // pode ser private
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Sample {
+    void foo() {
+        bar("foo", "foo");
+    }
+    private void bar(String x, String y) { }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use as opções de inspeção para definir as regras das sugestões de alteração de modificadores.</p>
+</body>
+</html>

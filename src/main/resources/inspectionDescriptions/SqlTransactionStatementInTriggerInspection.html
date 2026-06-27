@@ -1,0 +1,40 @@
+<html>
+<body>
+Relata o uso de instruções de gerenciamento de transação (como COMMIT ou ROLLBACK) no corpo de um gatilho (trigger).
+<p>Quando uma instrução COMMIT ou ROLLBACK é usada no corpo de um gatilho, o gatilho não será compilado.
+  O erro ocorre porque o gatilho é disparado no meio de uma transação. Quando o gatilho inicia, a transação atual ainda não foi concluída. Como o COMMIT encerra a transação, ambas as instruções (COMMIT e ROLLBACK) causam uma exceção.
+  As alterações executadas dentro de um gatilho devem ser confirmadas (ou revertidas) pela transação proprietária que disparou o gatilho.</p>
+<p>Exemplo (Oracle):</p>
+<pre><code>CREATE TABLE employee_audit
+(
+    id          INT  NOT NULL,
+    update_date DATE NOT NULL,
+    old_name    VARCHAR2(100),
+    new_name    VARCHAR2(100)
+);
+
+CREATE TABLE employees
+(
+    id   INT           NOT NULL,
+    name VARCHAR2(100) NOT NULL
+);
+
+CREATE OR REPLACE TRIGGER trig_commit
+    AFTER UPDATE OF name
+    ON employees
+    FOR EACH ROW
+BEGIN
+    INSERT INTO employee_audit VALUES (:old.id, SYSDATE, :old.name, :new.name);
+    COMMIT;
+END;
+
+CREATE OR REPLACE TRIGGER trig_rollback
+    AFTER UPDATE OF name
+    ON employees
+    FOR EACH ROW
+BEGIN
+    INSERT INTO employee_audit VALUES (:old.id, SYSDATE, :old.name, :new.name);
+    ROLLBACK;
+END;</code></pre>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata a instanciação de <code>java.util.SimpleDateFormat</code> ou <code>java.time.format.DateTimeFormatter</code> sem especificar um <code>java.util.Locale</code>.
+Essas chamadas usarão a localidade padrão da plataforma, que depende das configurações do sistema operacional.
+Isso pode causar comportamentos inesperados quando o código é executado em diferentes plataformas ou quando as configurações do sistema operacional são alteradas.
+<p><code>Exemplo:</code></p>
+<pre><code>
+  new SimpleDateFormat("yyyy");
+  DateTimeFormatter.ofPattern("d/M/y");
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

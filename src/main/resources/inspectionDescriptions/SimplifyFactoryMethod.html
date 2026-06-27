@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Relata casos em que a invocação dinâmica pode ser substituída por uma invocação do construtor.</p>
+<p><b>Exemplo:</b></p>    
+<pre><code>
+  import akka.actor._
+  
+  class Foo(foo: String, bar: Int) extends AbstractActor
+  
+  object Foo {
+    def props(foo: String, bar: Int): Props = Props(classOf[Foo], foo, bar)
+  }
+  
+  Foo.props("foo", 42)
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>    
+<pre><code>
+  import akka.actor._
+  
+  class Foo(foo: String, bar: Int) extends AbstractActor
+  
+  object Foo {
+    def props(foo: String, bar: Int): Props = Props(new Foo(foo, bar))
+  }
+  
+  Foo.props("foo", 42)
+</code></pre>  
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata componentes Swing que não fornecem contexto de acessibilidade.
+<p>
+  Esta informação é utilizada por leitores de tela. Se não for fornecida, usuários com deficiência visual não conseguirão acessar o componente.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  ListCellRenderer&lt;String&gt; renderer = (list, val, index, sel, cell) -> {
+    JPanel panel = new JPanel();
+    return panel;
+  };
+</code></pre>
+<p>
+  Para corrigir este problema, você deve chamar <code>setAccessibleName()</code> no <code>JPanel</code> retornado ou sobrescrever o seu método <code>getAccessibleContext()</code>.
+</p>
+<p>
+  O texto retornado deve refletir o propósito do componente. Por exemplo, no caso de um <code>ListCellRenderer</code>, este seria o texto do item de menu.
+</p>
+</body>
+</html>

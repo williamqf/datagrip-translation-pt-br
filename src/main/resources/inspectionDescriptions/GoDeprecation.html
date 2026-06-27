@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata o uso de elementos depreciados.
+<p>Exemplo:</p>
+<pre><code>// Depreciado: use io.SeekStart, io.SeekCurrent e io.SeekEnd.
+const (
+ SEEK_SET int = 0 // busca em relação ao início do arquivo
+ SEEK_CUR int = 1 // busca em relação ao deslocamento atual
+ SEEK_END int = 2 // busca em relação ao final
+)</code></pre>
+<p>De acordo com as <a href="https://pkg.go.dev/os#pkg-constants">Constants no go.dev</a>, <code>SEEK_SET</code>, <code>SEEK_CUR</code> e <code>SEEK_END</code> estão depreciados.</p>
+</body>
+</html>

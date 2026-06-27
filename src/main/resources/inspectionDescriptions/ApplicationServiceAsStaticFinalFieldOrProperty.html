@@ -1,0 +1,67 @@
+<html>
+<body>
+Relata a atribuição de serviços de aplicação a campos static final ou propriedades imutáveis.
+<h4>Campos static final (Java) ou propriedades imutáveis static com backing field (Kotlin)</h4>
+<p>
+  <b>Nota</b>: No texto a seguir, static em Kotlin refere-se a membros de objetos não anônimos ou declarações de nível superior.
+</p>
+<p>
+  Tais atribuições de serviço levam a um estado global, impossibilitando a remoção de uma aplicação e a configuração de outra em testes; portanto, testes repetidos no mesmo processo podem falhar.
+  A única exceção são chamadas de construtor explícitas usadas para armazenar instâncias dummy/padrão.
+</p>
+<p>
+  A forma recomendada de evitar o armazenamento de serviços é recuperá-los localmente.
+  Como alternativa, eles podem ser encapsulados em um <code>java.util.function.Supplier</code> (Java, Kotlin) ou a propriedade pode ser convertida em uma função (Kotlin).
+</p>
+<p>Exemplo (Java):</p>
+<pre><code lang="java">
+// Incorreto:
+private static final ManagingFS ourInstance = ApplicationManager.getApplication().getService(ManagingFS.class);
+</code></pre>
+<pre><code lang="java">
+// Correto:
+private static final Supplier&lt;ManagingFS&gt; ourInstance = CachedSingletonsRegistry.lazy(() -> {
+  return ApplicationManager.getApplication().getService(ManagingFS.class);
+});
+</code></pre>
+<pre><code lang="java">
+// Exceção:
+private static final UniqueVFilePathBuilder DUMMY_BUILDER = new UniqueVFilePathBuilder()
+</code></pre>
+<h4>Recuperação de instâncias de serviço através de propriedades imutáveis static (Kotlin)</h4>
+<p>
+  Embora a atribuição de um serviço a uma propriedade sem um backing field não cause os problemas mencionados acima, é preferível recuperar serviços usando um método <code>getInstance()</code> explícito em vez de uma propriedade:
+</p>
+<ul>
+  <li>Isso torna mais claro no call site que a operação pode envolver o carregamento de um serviço, cujo custo pode não ser desprezível.</li>
+  <li>O carregamento de serviços pode lançar exceções, e exceções lançadas por chamadas de método são menos inesperadas do que aquelas causadas pelo acesso a propriedades.</li>
+  <li>O uso (excessivo) de propriedades pode ser propenso a erros, pois uma propriedade pode ser alterada acidentalmente para uma com um inicializador em vez da propriedade correta (porém mais verbosa) com um getter, e tal alteração pode ser facilmente ignorada.</li>
+  <li>O uso de um método em vez de uma propriedade mantém a consistência nas chamadas <code>MyApplicationService.getInstance()</code> ao serem utilizadas tanto em Kotlin quanto em Java.</li>
+  <li>O uso do método torna o <code>MyApplicationService.getInstance()</code> consistente com <code>MyProjectService.getInstance(project)</code>, tanto na declaração quanto no call site.</li>
+</ul>
+<p>Para um melhor desempenho das ferramentas, recomenda-se sempre manter o tipo de retorno do método explícito.</p>
+<p>Exemplo:</p>
+<pre><code lang="kotlin">
+@Service
+class MyApplicationService {
+  companion object {
+    @JvmStatic
+    val instance: MyApplicationService // Incorreto
+       get() = service()
+  }
+}
+</code></pre>
+<pre><code lang="kotlin">
+@Service
+class MyApplicationService {
+  companion object {
+    @JvmStatic
+    fun getInstance(): MyApplicationService = service() // Correto
+  }
+}
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novo na versão 2023.3</small>
+</body>
+</html>

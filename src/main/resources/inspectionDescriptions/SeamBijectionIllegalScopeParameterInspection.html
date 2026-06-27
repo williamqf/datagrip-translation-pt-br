@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Quando o Seam sempre utiliza o escopo definido pelo próprio componente, reporta o parâmetro de escopo nas anotações <code>@In</code> e <code>@Out</code>.</p>
+
+<ul>
+  <li>
+    Ao especificar <code>@In(create=true)</code>, a variável de contexto deve pertencer a um componente Seam declarado.
+    Caso contrário, o Seam não saberá qual classe instanciar.
+    Em outras palavras, para <code>create=true</code>, você não pode injetar valores que não são componentes Seam.
+    O Seam sempre utiliza o escopo definido na declaração do componente (escopo padrão do tipo do componente ou escopo definido em <code>@Scope</code> ou <code>@Role</code>).
+  </li>
+  <li>
+    Quando você usa <code>@Out</code> para extrair o valor de um componente Seam declarado, o escopo sempre é obtido desse componente.
+    Somente é possível usar <code>@Out(scope=...)</code> quando não está extraindo um componente Seam.
+  </li>
+</ul>
+</body>
+</html>

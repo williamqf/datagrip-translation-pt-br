@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata classes de objetos de persistência definidas incorretamente nos seguintes casos:
+
+<ul>
+  <li>A classe não é uma classe de nível superior</li>
+  <li>A classe é <code>final</code></li>
+  <li>A classe foi anotada várias vezes</li>
+  <li>A classe está definida como uma entidade de persistência e um ouvinte de entidade ao mesmo tempo</li>
+</ul>
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code lang="java">
+  @Entity
+  @EntityListeners(value = JavaEntity.class) // Erro: as anotações @Entity e @EntityListener apontam para a mesma classe
+  public final class JavaEntity { // Erro: entidades de persistência não devem ser final
+    ...
+  }
+</code></pre>
+</body>
+</html>

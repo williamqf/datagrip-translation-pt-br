@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas encadeadas que podem ser simplificadas usando o operador de navegação segura (<code>&amp;.</code>). Um grupo de chamadas encadeadas é um padrão comum usado para verificar a existência de <code>nil</code> em cada componente da chamada.
+<p>Exemplo:</p>
+<pre>
+<code># Prática ruim
+if user &amp;&amp; user.profile &amp;&amp; user.profile.thumbnails
+end</code>
+</pre>
+
+Uma correção rápida pode ser usada para simplificar a expressão com <code>&amp;.</code>. Após a aplicação da correção rápida, o resultado será o seguinte:
+
+<pre>
+<code># Boa prática
+if user&amp;.profile&amp;.thumbnails
+end</code>
+</pre>
+</body>
+</html>

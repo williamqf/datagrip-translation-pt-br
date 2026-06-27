@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata anotações que devem ser usadas pelo JUnit 5 que possuem a política de retenção <code>SOURCE</code> ou <code>CLASS</code>.
+Essas anotações não estão disponíveis em tempo de execução e, provavelmente, devem ter sua política de retenção corrigida para que possam ser acessadas via reflexão.
+<p>Observe que se nenhuma política de retenção for especificada, a política de retenção padrão <code>CLASS</code> será usada.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @Testable
+  public @interface UnitTest {}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  @Retention(RetentionPolicy.RUNTIME)
+  @Testable
+  public @interface UnitTest {}
+</code></pre>
+<!-- tooltip end -->
+<!--<p><small>New in 2017.2</small></p>-->
+</body>
+</html>

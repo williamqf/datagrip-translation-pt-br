@@ -1,0 +1,20 @@
+<html>
+<body>
+Reporta chamadas <code>equals()</code> que comparam dois arrays.
+<p>Chamar <code>equals()</code> em arrays compara a identidade, o que é equivalente a usar <code>==</code>.
+  Use <code>Arrays.equals()</code> para comparar o conteúdo de dois arrays ou <code>Arrays.deepEquals()</code> para comparar o conteúdo de arrays multidimensionais.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void sample(int[] first, int[] second){
+    if (first.equals(second)) return;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void sample(int[] first, int[] second){
+    if (Arrays.equals(first, second)) return;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata variáveis de tipo cuja variância (<code>in</code>, <code>out</code> ou <code>unchecked</code>) está em conflito com outra declaração.
+A variância das variáveis de tipo deve coincidir entre as declarações parciais da mesma classe ou módulo, mesmo que as variáveis de tipo tenham nomes diferentes.
+<p>Exemplo:</p>
+<pre><code># A variável de tipo 'B' da classe 'Example' possui uma variância que conflita com outras declarações, ...
+class Example[A, in B, out C]
+end
+
+# A variável de tipo 'Y' da classe 'Example' possui uma variância que conflita com outras declarações, ...
+class Example[X, Y, Z]
+end
+</code></pre>
+</body>
+</html>

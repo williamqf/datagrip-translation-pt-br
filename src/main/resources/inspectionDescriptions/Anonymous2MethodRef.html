@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata classes anônimas que podem ser substituídas por referências de método.
+<p>
+  Observe que, se uma classe anônima for convertida em uma referência de método não vinculada, o Java runtime poderá reutilizar o mesmo objeto de referência de método em chamadas subsequentes. Por outro lado, ao usar uma classe anônima, objetos distintos são criados a cada vez. Portanto, em casos raros, a aplicação da correção rápida pode resultar em uma mudança de semântica, por exemplo, quando uma instância de classe anônima é usada como uma chave de <code>HashMap</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Runnable r = new Runnable() {
+    @Override
+    public void run() {
+      System.out.println();
+    }
+  };
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Runnable r = System.out::println;
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Relatar quando a interface não estiver anotada com @FunctionalInterface</b> para habilitar esta inspeção para interfaces que não usam a anotação <code>@FunctionalInterface</code>.</p>
+</body>
+</html>

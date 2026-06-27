@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata incompatibilidades entre o nível de um serviço leve e seu construtor.
+<p>Os seguintes problemas serão relatados:</p>
+<ul>
+  <li>Uma classe de serviço leve que possui um construtor com dois parâmetros dos tipos <code>com.intellij.openapi.project.Project</code> e <code>kotlinx.coroutines.CoroutineScope</code>, ou um parâmetro do tipo <code>Project</code>, mas não está anotada como um serviço em nível de projeto.
+  </li>
+  <li>Uma classe de serviço leve anotada como um serviço em nível de aplicativo que não possui um construtor sem argumentos nem um construtor com um único parâmetro do tipo <code>CoroutineScope</code>.
+  </li>
+</ul>
+<p></p>
+<p>Exemplo (Kotlin):</p>
+<pre><code lang="kotlin">
+@Service                              // Sugere especificar o parâmetro 'Service.Level.PROJECT' na anotação '@Service'
+class MyService(val project: Project) // Sugere remover o parâmetro do construtor 'MyService'
+</code></pre>
+<p></p>
+<p>Após aplicar a correção rápida para especificar o parâmetro 'Service.Level.PROJECT' na anotação '@Service':</p>
+<pre><code lang="kotlin">
+@Service(Service.Level.PROJECT)
+class MyService(val project: Project)
+</code></pre>
+<p>Após aplicar a correção rápida para remover o parâmetro do construtor 'MyService':</p>
+<pre><code lang="kotlin">
+@Service
+class MyService()
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small>
+</body>
+</html>

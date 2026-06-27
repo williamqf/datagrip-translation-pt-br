@@ -1,0 +1,41 @@
+<html>
+<body>
+Relata métodos e hierarquias de métodos que sempre retornam a mesma constante.
+<p>
+Esta inspeção funciona de maneira diferente no modo em lote (acessível por <b>Código | Inspecionar código</b> ou <b>Código | Analisar código | Executar inspeção por nome</b>) e quando executada dinamicamente no editor:
+<ul>
+  <li>No modo em lote, esta inspeção relata métodos e hierarquias de métodos que sempre retornam a mesma constante.</li>
+  <li>No editor, esta inspeção relata apenas métodos que possuem mais de uma instrução <code>return</code>, nenhum supermétodo e que não podem ser sobrescritos. Se um método sobrescreve ou implementa um método, o contrato pode exigir que ele retorne uma constante específica, mas, ao mesmo tempo, pode ser desejável ter vários pontos de saída. Se um método pode ser sobrescrito, um valor diferente pode ser retornado em uma subclasse.
+  </li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+                // Avisa apenas no modo em lote:
+    int xxx() { // O método 'xxx()' e todos os seus métodos sobrescritos sempre retornam '0'
+      return 0;
+    }
+  }
+
+  class Y extends X {
+    @Override
+    int xxx() {
+        return 0;
+    }
+
+                // Avisa apenas no modo em lote:
+    int yyy() { // O método 'yyy()' sempre retorna '0'
+        return 0;
+    }
+
+                                  // Avisa tanto no modo em lote quanto dinamicamente:
+    final int zzz(boolean flag) { // O método 'zzz()' sempre retorna '0'
+        if (Math.random() > 0.5) {
+            return 0;
+        }
+        return 0;
+    }
+  }
+</code></pre>
+</body>
+</html>

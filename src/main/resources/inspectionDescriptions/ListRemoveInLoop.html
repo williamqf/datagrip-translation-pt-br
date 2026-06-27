@@ -1,0 +1,27 @@
+<html>
+<body>
+Reporta chamadas de <code>List.remove(index)</code> dentro de loops que podem ser substituídas por <code>List.subList().clear()</code>.
+<p>Esta substituição é mais eficiente para a maioria das implementações de <code>List</code> ao remover múltiplos elementos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void removeRange(List&lt;String&gt; list, int from, int to) {
+    for (int i = from; i &lt; to; i++) {
+        list.remove(from);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void removeRange(List&lt;String&gt; list, int from, int to) {
+    if (to &gt; from) {
+      list.subList(from, to).clear();
+    }
+  }
+</code></pre>
+<p>
+  A correção rápida adiciona automaticamente uma verificação de intervalo para evitar uma possível <code>IndexOutOfBoundsException</code> caso o valor mínimo seja maior que o máximo. Se essa situação for impossível no seu código, a verificação pode ser removida.
+</p>
+<!-- tooltip end -->
+<p><small>Novo em 2018.2</small></p>
+</body>
+</html>

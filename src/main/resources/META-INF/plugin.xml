@@ -1,0 +1,36 @@
+<idea-plugin>
+  <idea-version since-build="261.24374" until-build="261.*" />
+  <id>org.community.portuguese.pack</id>
+  <name>Portuguese (Brazil) Language Pack</name>
+  <version>1.0.1</version>
+  <vendor email="williamqfernandes@gmail.com">William Q. Fernandes</vendor>
+  <description><![CDATA[Pacote de tradução para Português do Brasil (pt-br), desenvolvido para o DataGrip.
+
+<h3>Diferenciais e Funcionalidades Traduzidas:</h3>
+<ul>
+    <li><b>Interface e Menus:</b> Tradução completa dos menus de navegação (File, Edit, View, Navigate, Tools, etc.), barra de status, atalhos de teclado e janelas de diálogo de sistema.</li>
+    <li><b>Console SQL e Editores:</b> Localização completa do console de consultas, mensagens do analisador SQL, destaque de sintaxe, autocompletar e plano de execução (Explain Plan).</li>
+    <li><b>Gerenciamento de Dados:</b> Tradução do visualizador de tabelas (Data Grid), importação e exportação de formatos (CSV, JSON, XML), filtros e ordenações.</li>
+    <li><b>Segurança de Código:</b> Passou por validação automatizada rígida para garantir que tags de sistema, placeholders ({0}, %s) e palavras-chave de banco de dados permaneçam funcionais e seguros.</li>
+</ul>
+
+<h3>Como Ativar:</h3>
+<ol>
+    <li>Acesse <b>Settings</b> | <b>Appearance &amp; Behavior</b> | <b>System Settings</b> | <b>Language and Region</b>.</li>
+    <li>Selecione <b>Português (Brasil)</b> nas opções de idioma.</li>
+    <li>Clique em <b>Apply/OK</b> e reinicie o DataGrip.</li>
+</ol>]]></description>
+  <change-notes><![CDATA[Lançamento oficial (Versão 1.0.1) do pacote de tradução para o DataGrip.
+<ul>
+    <li>Ajuste e simplificação da descrição do plugin e remoção de termos de marca comunitária.</li>
+    <li>Tradução integrada de menus, painéis, console SQL e grade de dados (Data Grid).</li>
+    <li>Restrição de compatibilidade exclusiva para o DataGrip, garantindo estabilidade e prevenindo erros em outras IDEs.</li>
+    <li>Revisão ortográfica e sintática de todos os termos técnicos de banco de dados.</li>
+</ul>]]></change-notes>
+  <!-- Requer o DataGrip especificamente -->
+  <depends>com.intellij.modules.datagrip</depends>
+  <!-- Ponto de extensão oficial para Language Packs -->
+  <extensions defaultExtensionNs="com.intellij">
+    <languageBundle locale="pt" />
+  </extensions>
+</idea-plugin>

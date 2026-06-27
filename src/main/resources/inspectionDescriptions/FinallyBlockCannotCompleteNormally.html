@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata as instruções <code>return</code>, <code>throw</code>, <code>break</code>, <code>continue</code> e <code>yield</code> usadas dentro de um bloco <code>finally</code>.
+Essas instruções fazem com que o bloco <code>finally</code> seja concluído de forma abrupta em vez de ser concluído normalmente.
+Quaisquer exceções lançadas nos blocos <code>try</code> e <code>catch</code> da mesma instrução <code>try</code>-<code>catch</code> serão suprimidas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void x() {
+    <b>try</b> {
+      throw new RuntimeException();
+    } <b>finally</b> {
+      // Se bar() retornar true, a RuntimeException será suprimida
+      <b>if</b> (bar()) <b>return</b>;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

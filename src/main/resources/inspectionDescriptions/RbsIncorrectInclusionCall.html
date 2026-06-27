@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas de inclusão (<code>include</code>, <code>prepend</code> e <code>extend</code>) que referenciam classes. Chamadas de inclusão são permitidas apenas para referenciar módulos ou interfaces.
+<p>Uma correção rápida pode ser usada para remover chamadas de inclusão incorretas.</p>
+<p>Exemplo:</p>
+<pre><code>class Example
+  # Classe 'Object' usada na chamada 'include'
+  include Object
+end</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>class Example
+end</code></pre>
+</body>
+</html>

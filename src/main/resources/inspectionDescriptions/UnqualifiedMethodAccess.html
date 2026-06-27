@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas a métodos não <code>static</code> na mesma instância que não são qualificados com <code>this</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    void bar() {}
+
+    void foo() {
+      bar();
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    void bar() {}
+
+    void foo() {
+      this.bar();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

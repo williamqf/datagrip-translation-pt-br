@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata conflitos de declaração parcial de contêiner devido a uma incompatibilidade no número de variáveis de tipo. Declarar contêineres parciais com números diferentes de variáveis de tipo é um erro.
+<p>Uma correção rápida pode ser usada para corrigir o número de variáveis de tipo declaradas ou navegar para a declaração conflitante.</p>
+<p>Exemplo:</p>
+<pre><code># A classe 'Example' tem 1 variável de tipo, o que conflita com outras declarações
+class Example[A]
+end
+
+# A classe 'Example' tem 2 variáveis de tipo, o que conflita com outras declarações
+class Example[Y, Z]
+end</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>class Example[A, B]
+end
+
+class Example[Y, Z]
+end</code></pre>
+</body>
+</html>

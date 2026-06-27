@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata instruções <code>continue</code> que são as últimas instruções alcançáveis em um loop.
+Essas instruções <code>continue</code> são desnecessárias e podem ser removidas com segurança.
+<p>Exemplo:</p>
+<pre><code>
+  for (String element: elements) {
+    System.out.println();
+    continue;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  for (String element: elements) {
+    System.out.println();
+  }
+</code></pre>
+<p>Esta inspeção não analisa arquivos JSP.</p>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Ignorar no ramo 'then' de instruções 'if' com um ramo 'else'</b> para ignorar instruções <code>continue</code> localizadas no ramo <code>then</code> de uma instrução <code>if</code>-<code>else</code> completa.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  for (String element: elements) {
+    if(element.isEmpty()) {
+      continue;
+    } else {
+      //...
+    }
+  }
+</code></pre>
+</body>
+</html>

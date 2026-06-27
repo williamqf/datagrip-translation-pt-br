@@ -1,0 +1,18 @@
+<html>
+<body>
+Reporta sobrescritas do método <code>Object.finalize()</code>.
+<p>De acordo com a documentação de <code>Object.finalize()</code>:</p>
+<blockquote>
+  <p>
+    O mecanismo de finalização é intrinsecamente problemático. A finalização pode levar a problemas de desempenho, deadlocks e travamentos. Erros em finalizadores podem levar a vazamentos de recursos; não há como cancelar a finalização se ela não for mais necessária; e não há uma ordem especificada entre as chamadas dos métodos <code>finalize</code> de diferentes objetos. Além disso, não há garantias quanto ao tempo de execução da finalização. O método <code>finalize</code> pode ser chamado em um objeto finalizável apenas após um atraso indefinido, se for chamado.
+  </p>
+</blockquote>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>
+    Use a opção <b>Ignorar implementações triviais de 'finalize()'</b> para ignorar implementações de <code>finalize()</code> com um corpo de método vazio ou corpos que contenham apenas instruções <code>if</code> com uma condição que avalia como <code>false</code> e é uma constante em tempo de compilação. Por razões de desempenho, pode ser vantajoso sobrescrever um <code>finalize()</code> não trivial com uma implementação vazia em subclasses. Uma implementação <code>finalize()</code> final vazia também pode ser usada para impedir a sobrescrita por subclasses.
+  </li>
+</ul>
+</body>
+</html>

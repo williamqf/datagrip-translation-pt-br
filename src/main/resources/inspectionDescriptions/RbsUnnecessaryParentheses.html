@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata parênteses desnecessários em tipos de função. Funções sem parâmetros não precisam de parênteses.
+<p>Uma correção rápida pode ser usada para remover os parênteses desnecessários.</p>
+<p>Exemplo:</p>
+<pre><code>class Example
+  # parênteses desnecessários no tipo de função
+  def call: () -> untyped
+end</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>class Example
+  def call: -> untyped
+end</code></pre>
+</body>
+</html>

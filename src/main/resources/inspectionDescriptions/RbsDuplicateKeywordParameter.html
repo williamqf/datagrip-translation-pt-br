@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata parâmetros de palavra-chave duplicados em métodos, blocos e tipos proc. Apenas a primeira declaração de cada parâmetro de palavra-chave é reconhecida; todas as outras declarações são ignoradas.
+<p>Exemplo:</p>
+<pre><code>class Example
+  # Parâmetro de palavra-chave duplicado
+  def call: (keyword: untyped, keyword: untyped) -> untyped
+end</code></pre>
+</body>
+</html>

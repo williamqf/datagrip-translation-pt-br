@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata recursos <code>java.util.concurrent.locks.Lock</code> que não são adquiridos antes de um bloco <code>try</code> ou não são desbloqueados em um bloco <code>finally</code> correspondente. Se uma exceção for lançada antes que o recurso seja liberado, tais recursos podem sofrer vazamento acidentalmente.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  lock.lock(); // Relatado devido à ausência do bloco 'finally'
+  try {
+    doSmthWithLock();
+  } catch (IOException e) {
+    throw new UncheckedIOException(e);
+  }
+  lock.unlock();
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

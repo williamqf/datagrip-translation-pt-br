@@ -1,0 +1,15 @@
+<html>
+<body>
+Reporta expressões de máscara bit a bit que avaliam obrigatoriamente como <code>true</code> ou <code>false</code>.
+A expressão possui o formato <code>(var & constant1) == constant2</code> ou
+<code>(var | constant1) == constant2</code>, onde <code>constant1</code> 
+e <code>constant2</code> são constantes de máscara de bits incompatíveis.
+<p>Exemplo:</p>
+<pre><code>
+// Máscara incompatível: como o último byte na máscara é zero,
+// 0x1200 é possível, mas 0x1234 é impossível
+if ((mask & 0xFF00) == 0x1234) {...}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

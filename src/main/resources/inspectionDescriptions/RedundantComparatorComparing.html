@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata construções de combinadores <code>Comparator</code> que podem ser simplificadas.
+<p>Exemplo:</p>
+<pre><code>
+  c.thenComparing(Comparator.comparing(function));
+
+  Comparator.comparing(Map.Entry::getKey);
+
+  Collections.max(list, Comparator.reverseOrder());
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  c.thenComparing(function)
+
+  Map.Entry.comparingByKey()
+
+  Collections.min(list, Comparator.naturalOrder());
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.1</small></p>
+</body>
+</html>

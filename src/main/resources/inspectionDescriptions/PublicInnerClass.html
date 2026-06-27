@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes aninhadas <code>public</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Outer {
+    public static class Nested {} // Aviso
+    public class Inner {}         // Aviso
+    public enum Mode {}           // O aviso depende das configurações
+    public interface I {}         // O aviso depende das configurações
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar enums internos 'public'</b> para ignorar enums internos <code>public</code>.</li>
+  <li>Use a opção <b>Ignorar interfaces internas 'public'</b> para ignorar interfaces internas <code>public</code>.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata roles não definidas em arquivos reStructuredText.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+.. role:: custom
+.. role:: newcustom(emphasis)
+
+:custom:`interpreted text` Exemplo de uso
+:newcustom:`interpreted text` Exemplo de uso
+:emphasis:`interpreted text` Exemplo de uso
+
+
+Algum texto usa a role não definida :undef:`interpreted text`
+</code></pre>
+</body>
+</html>

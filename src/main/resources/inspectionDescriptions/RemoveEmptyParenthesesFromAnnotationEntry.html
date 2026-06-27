@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata parênteses vazios redundantes em entradas de anotação.
+<p>Use a correção rápida 'Remover parênteses desnecessários' para limpar o código.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  annotation class MyAnnotationA
+  annotation class MyAnnotationB(val x: Int)
+  annotation class MyAnnotationC(val x: Int = 10) // valor padrão presente
+
+  @MyAnnotationA() // &lt;== parênteses redundantes
+  fun testA() {
+  }
+
+  @MyAnnotationB() // &lt;== argumento ausente, parênteses são obrigatórios
+  fun testB() {
+  }
+
+  @MyAnnotationC() // &lt;== parênteses redundantes
+  fun testC() {
+  }
+</code></pre>
+</body>
+</html>

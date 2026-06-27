@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata quaisquer instruções <code>break</code> desnecessárias.
+<p>Uma instrução <code>break</code> é desnecessária se nenhuma outra instrução for executada caso ela seja removida.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  switch (e) {
+    case A -&gt; {
+        System.out.println("A");
+        break; // Relata 'break' como desnecessário
+    }
+    default -&gt; {
+        System.out.println("Default");
+        break; // Relata 'break' como desnecessário
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

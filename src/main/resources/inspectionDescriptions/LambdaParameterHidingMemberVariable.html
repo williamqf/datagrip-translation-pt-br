@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata parâmetros lambda que têm o mesmo nome que campos da classe envolvente.
+Devido a essa nomenclatura, você pode usar erroneamente o parâmetro lambda em casos onde a intenção era usar o campo de mesmo nome.
+<p>A correção rápida sugere renomear o parâmetro lambda.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class MyClass {
+    public Object foo;
+
+    void sort(List&lt;Integer&gt; list) {
+      list.sort((foo, bar) -> foo - bar);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use esta opção para escolher se deseja ignorar campos que não são visíveis para a expressão lambda.
+  Por exemplo, campos private de uma superclasse.
+<p>
+</body>
+</html>

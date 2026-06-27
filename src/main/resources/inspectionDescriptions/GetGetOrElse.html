@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Reporta <code>get(key).getOrElse(value)</code> no <code>map</code>.</p>
+
+<p>Usar o quick-fix, que usa <code>getOrElse(key, value)</code>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val map = Map(1 -> 42)
+  map.get(key).getOrElse(defValue)
+</code></pre>
+<p>Depois de aplicar o quick-fix:
+<pre><code>
+  al map = Map(1 -> 42)
+  ap.getOrElse(key, defValue)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

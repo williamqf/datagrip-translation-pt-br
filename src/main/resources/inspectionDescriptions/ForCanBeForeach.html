@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata loops <code>for</code> que iteram sobre coleções ou arrays e podem ser substituídos automaticamente por um loop <code>for</code> aprimorado (sintaxe de iteração foreach).
+<!--  'foreach' still used in this description so that the inspection continues to be found using this keyword -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (Iterator&lt;String&gt; iterator = list.iterator(); iterator.hasNext(); ) {
+    String item = iterator.next();
+    System.out.println(item);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  for (String item : list) {
+    System.out.println(item);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Relatar loops 'java.util.List' indexados</b> para encontrar loops que envolvem chamadas <code>list.get(index)</code>.
+  Esses loops geralmente podem ser substituídos por um loop <code>for</code> aprimorado, a menos que modifiquem a lista subjacente durante o processo, por exemplo, chamando <code>list.remove(index)</code>.
+  Nesse caso, o loop <code>for</code> aprimorado pode lançar uma <code>ConcurrentModificationException</code>.
+  Em certas situações, o loop <code>list.get(index)</code> também pode ser ligeiramente mais rápido.</p>
+<p>
+  Use a opção <b>Não relatar iteração em coleções sem tipo definido</b> para ignorar coleções que não possuem parâmetros de tipo.
+  Isso evita a criação de variáveis de loop <code>for</code> aprimorado do tipo <code>java.lang.Object</code> e a inserção de casts onde a variável de loop é utilizada.</p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata elementos incorretos no arquivo <code>&lt;validation-config&gt;</code> do Bean Validation:</p>
+
+<ul>
+  <li>Referências a classes que não podem ser instanciadas</li>
+  <li>Referências a classes que não estendem as classes necessárias</li>
+  <li>Referências a classes com escopo inadequado</li>
+  <li>Tags e valores de atributos vazios</li>
+  <li>Valores de tags e atributos que não correspondem aos padrões exigidos (por exemplo, identificadores Java)</li>
+  <li>Tags que não contêm as subtags ou atributos obrigatórios</li>
+  <li>Tags que definem objetos com nomes duplicados</li>
+</ul>
+
+<p><strong>Exemplo:</strong></p>
+<pre><code>
+&lt;validation-config&gt;
+  &lt;default-provider&gt;<strong>foo.UnknownProvider</strong>&lt;/default-provider&gt;  &lt;!-- Não é possível resolver a classe ou o pacote 'UnknownProvider' --&gt;
+  &lt;message-interpolator&gt;my.Interpolator&lt;/message-interpolator&gt;
+  &lt;constraint-mapping&gt;META-INF/ConstraintMappings.xml&lt;/constraint-mapping&gt;
+  &lt;constraint-mapping&gt;META-INF/<strong>unknown.xml</strong>&lt;/constraint-mapping&gt;
+&lt;/validation-config&gt;
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata o código para o qual o compilador javac emite avisos não verificados.
+Cada aviso não verificado pode potencialmente lançar uma <code>ClassCastException</code> em tempo de execução.
+<p>Exemplo:</p>
+<pre><code>
+  List items = Arrays.asList("string", "string");
+  List&lt;Integer&gt; numbers = Collections.unmodifiableList(items); // atribuição não verificada
+</code></pre>
+</body>
+</html>

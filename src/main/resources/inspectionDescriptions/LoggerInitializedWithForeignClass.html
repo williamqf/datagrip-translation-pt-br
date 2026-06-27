@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata instâncias de <code>Logger</code> inicializadas com um literal de <code>class</code> pertencente a uma classe diferente da classe que contém o <code>Logger</code>. Isso acontece frequentemente ao copiar e colar código de outra classe e pode resultar no registro de eventos em categorias inesperadas e na aplicação incorreta de filtros.
+<p>Uma correção rápida é fornecida para substituir o literal da classe externa pelo literal da classe envolvente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public class</b> Paramount {
+    <b>protected static final</b> Logger LOG = Logger.getLogger(Critical.class);
+
+    // ... outros campos e métodos
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>public class</b> Paramount {
+    <b>protected static final</b> Logger LOG = Logger.getLogger(Paramount.class);
+
+    // ... outros campos e métodos
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configuração da inspeção:
+</p>
+<ul>
+  <li>Use esta tabela para especificar as classes factory de logger e os métodos factory de logger reconhecidos por esta inspeção.</li>
+  <li>Use a opção <b>Ignorar loggers inicializados com a superclasse</b> para ignorar loggers inicializados com uma superclasse da classe que contém o logger.</li>
+  <li>Use <b>Ignorar loggers em classes não public</b> para emitir avisos apenas para loggers em classes <code>public</code>.</li>
+  <li>Use <b>Ignorar loggers não inicializados em campos final</b> para relatar apenas loggers inicializados em campos final, ignorando outros casos.</li>
+</ul>
+</body>
+</html>

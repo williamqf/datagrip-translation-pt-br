@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata funções anônimas que podem ser expandidas pela eta e também relata espaços reservados que podem ser removidos de expansões pela eta.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def f(x: Any, y: Int): Unit = ()
+  val x = f(_, _)
+  val y: (Int, Int) => Unit = f _
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  def f(x: Any, y: Int): Unit = ()
+  val x = f _
+  val y: (Int, Int) => Unit = f
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

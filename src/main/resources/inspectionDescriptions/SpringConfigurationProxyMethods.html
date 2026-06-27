@@ -1,0 +1,60 @@
+<html>
+<body>
+Relata avisos sobre métodos proxy usados incorretamente.
+
+O Spring Framework 5.2 introduziu uma otimização para o processamento de classes @Configuration, que pode ser habilitada por meio do atributo @Configuration(proxyBeanMethods = false).
+<p>
+Se o <code>proxyBeanMethods</code> for desativado, as instâncias proxy não serão mais criadas e a chamada ao método poderá ser executada novamente (retornando uma nova instância a cada vez).
+Como resultado, você não tem garantia de que está realmente injetando o Bean correspondente no contexto.
+</p>
+<!-- tooltip end -->
+<p>Exemplo de chamada de método Bean incorreta:</p>
+<pre><code lang="java">
+@Configuration(proxyBeanMethods = false)
+class TestConfiguration {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+
+  @Bean
+  public SecondBean secondBean() {
+    return new SecondBean(firstBean()); // -> Chamada incorreta
+  }
+}
+</code></pre>
+
+<p>Você pode definir <code>proxyBeanMethods</code> como true ou reescrever o código conforme mostrado abaixo:</p>
+<pre><code lang="java">
+@Configuration(proxyBeanMethods = false)
+class TestConfiguration {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+
+  @Bean
+  public SecondBean secondBean(FirstBean someBean) { // -> Instância injetada corretamente
+    return new SecondBean(someBean);
+  }
+}
+</code></pre>
+
+<p>Além disso, esta inspeção verifica chamadas de métodos <code>@Bean</code> em classes sem o estereótipo <code>@Configuration</code> (no "modo Bean lite"):</p>
+<pre><code lang="java">
+@Component
+class TestComponent {
+  @Bean
+  public FirstBean firstBean() {
+    return new FirstBean();
+  }
+
+  @Bean
+  public SecondBean secondBean() {
+    return new SecondBean(firstBean()); // -> Chamada incorreta
+  }
+}
+</code></pre>
+
+</body>
+</html>

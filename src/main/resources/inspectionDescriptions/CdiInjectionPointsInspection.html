@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata pontos de injeção em classes Bean com dependências ambíguas.</p>
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  interface Engine {}
+
+  @Singleton
+  class GasEngine implements Engine {}
+
+  @Singleton
+  class ElectricEngine implements Engine {}
+
+  @Singleton
+  class Car {
+    @Inject Engine <b>engine</b>; // Dependência ambígua: múltiplos Beans correspondem ao ponto de injeção
+  }
+</code></pre>
+</body>
+</html>

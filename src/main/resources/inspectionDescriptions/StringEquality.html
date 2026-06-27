@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata o código que usa <b>==</b> ou <b>!=</b> para comparar strings.
+<p>
+  Esses operadores determinam a igualdade de referência em vez de comparar o conteúdo.
+  Na maioria dos casos, as strings devem ser comparadas usando <code>equals()</code>, que realiza uma comparação caractere por caractere quando as strings são objetos diferentes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(String s, String t) {
+    final boolean b = t == s;
+  }
+</code></pre>
+<p>Se for conhecido que <code>t</code> não é nulo, é seguro aplicar a correção rápida "insegura" e obter um resultado semelhante ao seguinte:</p>
+<pre><code>
+  void foo(String s, String t) {
+    final boolean b = t.equals(s);
+  }
+</code></pre>
+
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

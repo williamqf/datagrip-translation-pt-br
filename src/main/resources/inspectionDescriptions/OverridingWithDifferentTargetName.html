@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Reporta as definições com uma anotação <code>@targetName</code> que sobrescrevem definições com anotação <code>@targetName</code>, mas possuem nomes externos diferentes.</p>
+
+<p>Veja <a href="https://docs.scala-lang.org/scala3/reference/other-new-features/targetName.html">The @targetName annotation</a>.</p>
+
+<p>A correção rápida substitui o nome externo da anotação <code>@targetName</code> pelo nome externo da definição sobrescrita.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait A:
+    @targetName("multiply")
+    def *(i: Int): A
+
+  class B extends A:
+    @targetName("times")
+    override def *(i: Int): A = ???
+</code></pre>
+<p>Depois que a correção rápida é aplicada:</p>
+<pre><code>
+  trait A:
+    @targetName("multiply")
+    def *(i: Int): A
+
+  class B extends A:
+    @targetName("multiply")
+    override def *(i: Int): A = ???
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata chamadas a <code>System.exit()</code>, <code>Runtime.exit()</code> e <code>Runtime.halt()</code>.
+<p>
+  Chamar <code>System.exit()</code> ou <code>Runtime.exit()</code> invoca <i>shutdown hooks</i> e encerra a Java Virtual Machine em execução. Chamar <code>Runtime.halt()</code> encerra forçadamente a JVM sem iniciar os <i>shutdown hooks</i>.
+  Cada um desses métodos deve ser usado com cautela extrema. Chamadas a esses métodos tornam o código de chamada não portável para a maioria dos servidores de aplicação.
+</p>
+<!-- tooltip end -->
+<p>
+  Use a opção para ignorar chamadas no método <code>main</code>.
+<p>
+</body>
+</html>

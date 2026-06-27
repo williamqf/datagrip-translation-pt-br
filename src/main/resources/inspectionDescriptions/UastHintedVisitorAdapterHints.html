@@ -1,0 +1,55 @@
+<html>
+<body>
+Relata dicas ausentes ou redundantes na criação do <code>UastHintedVisitorAdapter</code>.
+<p>
+  O <code>UastHintedVisitorAdapter</code> recebe dicas que permitem otimizar a execução do visitor UAST ao acessar apenas elementos das classes especificadas na lista de dicas.
+</p>
+<p>
+  Por exemplo, se o visitor implementar o método <code>visitCallExpression</code>, mas não incluir <code>UCallExpression</code> nas dicas, o método não será executado.
+</p>
+<p>
+  Por exemplo, se o visitor não implementar o método <code>visitCallExpression</code>, mas incluir <code>UCallExpression</code> nas dicas, o método herdado será executado desnecessariamente.
+</p>
+
+<h3>Exemplos</h3>
+
+<pre><code lang="kotlin">
+return UastHintedVisitorAdapter.create(
+  language,
+  object : AbstractUastNonRecursiveVisitor() {
+    override fun visitForExpression(node: UForExpression): Boolean {
+      inspectLoopExpression()
+      return true
+    }
+
+    override fun visitDoWhileExpression(node: UDoWhileExpression): Boolean { // não usado em tempo de execução
+      inspectLoopExpression()
+      return true
+    }
+    //...
+  },
+  arrayOf(UForExpression::class.java) // Erro: faltando UDoWhileExpression::class.java
+)
+</code></pre>
+
+<pre><code lang="kotlin">
+UastHintedVisitorAdapter.create(
+  language,
+  object : AbstractUastNonRecursiveVisitor() {
+    override fun visitForExpression(node: UForExpression): Boolean {
+      inspectLoopExpression()
+      return true
+    }
+    //...
+  },
+  arrayOf(
+    UForExpression::class.java,
+    UDoWhileExpression::class.java // Erro: visita a UDoWhileExpression não implementada
+  )
+)
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2024.2</small>
+</body>
+</html>

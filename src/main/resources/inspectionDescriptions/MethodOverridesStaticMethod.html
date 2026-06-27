@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata métodos <code>static</code> com a mesma assinatura de um método <code>static</code> da superclasse.
+Tais métodos podem parecer uma sobrescrita, mas na verdade eles ocultam o método da superclasse, já que métodos <code>static</code> não podem ser sobrescritos em Java.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Parent {
+    static void method(){}
+  }
+
+  class Example extends Parent {
+    static void method(){} //aviso
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

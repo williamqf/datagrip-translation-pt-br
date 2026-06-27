@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata a instanciação de <code>Throwable</code> ou de suas subclasses quando o <code>Throwable</code> criado nunca é realmente lançado.
+<p>O código relatado indica erros que são difíceis de capturar em testes.</p>
+<p>
+    Além disso, esta inspeção relata chamadas de métodos que retornam uma instância de <code>Throwable</code> ou de suas subclasses quando a instância de <code>Throwable</code> resultante não é lançada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun check(condition: Boolean) {
+      if (!condition) /* o 'throw' está ausente aqui */ IllegalArgumentException("condition is not met");
+  }
+
+  fun createError() = RuntimeException()
+
+  fun foo() {
+      /* o 'throw' está ausente aqui */ createError()
+  }
+</code></pre>
+</body>
+</html>

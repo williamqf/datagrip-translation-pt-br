@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata campos cujos nomes são muito curtos, muito longos ou não seguem o padrão de expressão regular especificado.
+<p><b>Exemplo</b>: se a inspeção estiver ativada para constantes e o comprimento mínimo especificado para o nome do campo for 5 (padrão), o seguinte campo gerará um aviso, pois o comprimento do nome é 3, que é menor que 5: <code>public static final int MAX = 42;</code>.</p>
+<p>A correção rápida para renomear esses campos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a lista na seção <b>Opções</b> para especificar quais campos devem ser verificados. Desmarque a caixa de seleção dos campos para os quais deseja ignorar a verificação.</p>
+<p>Para cada tipo de campo, use os campos de entrada fornecidos para especificar o comprimento mínimo, o comprimento máximo e a expressão regular para o nome do campo.
+  Especifique <b>0</b> nos campos de comprimento para ignorar a verificação correspondente.</p>
+<p>As expressões regulares devem ser especificadas no formato padrão <code>java.util.regex</code>.</p>
+</body>
+</html>

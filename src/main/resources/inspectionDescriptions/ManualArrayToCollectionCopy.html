@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata códigos que utilizam loops para copiar o conteúdo de um array para uma coleção.
+<p>
+  Uma abordagem mais curta e possivelmente mais rápida (dependendo da implementação da coleção) é usar <code>Collection.addAll(Arrays.asList())</code> ou <code>Collections.addAll()</code>.
+</p>
+<p>
+<p>Apenas loops sem instruções adicionais internas são relatados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void addAll(List&lt;String&gt; list, String[] arr) {
+    for (int i = 0; i &lt; arr.length; i++) {
+      String s = arr[i];
+      list.add(s);
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida (quick fix):</p>
+<pre><code>
+  void addAll(List&lt;String&gt; list, String[] arr) {
+    Collections.addAll(list, arr);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

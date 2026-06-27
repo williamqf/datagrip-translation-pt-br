@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata parâmetros <b>catch</b> que não são usados nos blocos correspondentes. Esta inspeção não relata nenhum parâmetro <b>catch</b> chamado "ignore" ou "ignored".</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+      def arr = new int[3]
+      arr[5] = 5
+  } catch(Exception <b>ex</b>) {
+      println('Catching the exception')
+  }
+</code></pre>
+<p>O parâmetro <b>ex</b> aqui nunca é usado no bloco <b>catch</b>.
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  try {
+      def arr = new int[3]
+      arr[5] = 5
+  } catch(Exception <b>ignored</b>) {
+      println('Catching the exception')
+  }
+</code></pre>
+</body>
+</html>

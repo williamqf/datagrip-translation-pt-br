@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata chamadas a <code>Object.wait()</code> para as quais não foram encontradas chamadas <code>Object.notify()</code> ou <code>Object.notifyAll()</code> correspondentes.
+<p>Esta inspeção relata apenas chamadas que contêm qualificadores que referenciam campos da classe atual.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo {
+    public Object foo = new Object();
+
+    void bar() throws InterruptedException {
+      this.foo.wait();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

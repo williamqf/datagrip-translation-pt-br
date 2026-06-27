@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata o uso de uma classe em uma assinatura de campo ou método quando a visibilidade da classe é menor que a visibilidade do membro que a utiliza.
+Embora tais membros sejam Java válido, eles não podem ser usados fora do escopo de visibilidade do tipo de classe que referenciam.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Parent {
+    public Child getChild() {
+      return new Child();
+    }
+
+    private class Child {}
+  }
+</code></pre>
+<p>
+Além disso, no Java 9 e versões posteriores, os módulos podem ocultar algumas de suas classes de outros módulos ao não exportar seus pacotes.
+No entanto, se um membro que faz parte da API exportada referenciar uma classe não exportada em sua assinatura, tal membro não poderá ser usado fora do módulo.
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Relatar classes não exportadas expostas na API do módulo (Java 9+)</b> para relatar membros da API do módulo que expõem classes não exportadas.<br>Observe que para esta opção, o nível de linguagem do projeto ou módulo deve ser 9 ou superior.</li>
+  <li>Use a opção <b>Relatar classes inacessíveis expostas na API pública</b> para relatar membros públicos que expõem classes com um escopo de visibilidade menor.</li>
+  <li>Use a opção <b>Relatar classes privadas expostas na API local do pacote</b> para relatar membros locais do pacote que expõem classes <code>private</code>.</li>
+</ul>
+</body>
+</html>

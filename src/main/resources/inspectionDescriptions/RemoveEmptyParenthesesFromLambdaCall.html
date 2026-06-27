@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata parênteses vazios redundantes em chamadas de função em que o único parâmetro é um lambda fora dos parênteses.
+<p>Use a correção rápida 'Remover parênteses desnecessários de chamada de função com lambda' para limpar o código.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo() {
+      listOf(1).forEach() {  }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo() {
+      listOf(1).forEach {  }
+  }
+</code></pre>
+</body>
+</html>

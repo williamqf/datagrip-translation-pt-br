@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata concatenações de <code>String</code> que podem ser simplificadas ao serem substituídas por templates de string.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String name = "Bob";
+  String greeting = "Hello, " + name + ". You are " + 29 + " years old.";
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  String name = "Bob";
+  String greeting = STR."Hello, \{name}. You are 29 years old.";
+</code></pre>
+
+<!-- tooltip end -->
+
+<p><small>Novidade na versão 2023.3</small></p>
+</body>
+</html>

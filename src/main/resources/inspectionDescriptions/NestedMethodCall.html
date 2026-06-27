@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata chamadas de método que são usadas como argumentos para outra chamada de método.
+<p>Essa correção rápida introduz uma variável, tornando o código mais simples e fácil de depurar.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public int y() { return 1; }
+  public int f(int x) { return 2 * x; }
+
+  public void foo() {
+      int x = f(y());
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public int y() { return 1; }
+  public int f(int x) { return 2 * x; }
+
+  public void foo() {
+      int y = y();
+      int x = f(y);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as opções de inspeção para alternar os relatos para:
+</p>
+<ul>
+  <li>Chamadas de método em inicializadores de campo</li>
+  <li>Chamadas para métodos estáticos (static)</li>
+  <li>Chamadas para getters simples</li>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<p>Relata definições e usos inválidos de classes abstratas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from abc import abstractmethod, ABC
+
+
+class Figure(ABC):
+
+    @abstractmethod
+    def do_figure(self):
+        pass
+
+
+class Triangle(Figure):  # nem todos os métodos abstratos foram definidos na classe 'Triangle'
+    def do_triangle(self):
+        pass
+
+
+Triangle()  # não é possível instanciar a classe abstrata 'Triangle'
+</code></pre>
+<p>Após a aplicação do ajuste rápido, o IDE implementa os métodos abstratos para a classe <code>Triangle</code>:</p>
+<pre><code>
+from abc import abstractmethod, ABC
+
+
+class Figure(ABC):
+
+    @abstractmethod
+    def do_figure(self):
+        pass
+
+
+class Triangle(Figure):
+    def do_figure(self):
+        pass
+
+    def do_triangle(self):
+        pass
+
+
+Triangle()
+</code></pre>
+
+Também emite um aviso se <code>abc.abstractmethod</code> for usado em uma classe cuja metaclasse não seja <code>abc.ABCMeta</code>:
+<code><pre>
+from abc import abstractmethod
+
+
+class MyClass:
+    @abstractmethod  # 'MyClass' não é uma classe abstrata
+    def foo(self):
+        ...
+</code></pre>
+</body>
+</html>

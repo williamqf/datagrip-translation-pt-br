@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas de função <code>async</code> sem o prefixo <code>await</code> esperado dentro de funções <code>async</code>.
+Essas chamadas retornam uma <code>Promise</code> e o fluxo de controle continua imediatamente.
+<p>Exemplo:</p>
+<pre><code>
+async function bar() { /* ... */ }
+async function foo() {
+    bar(); // ruim
+}
+</code></pre>
+<p>
+Após aplicar a correção rápida, o prefixo <code>await</code> será adicionado:</p>
+<pre><code>
+async function bar() { /* ... */ }
+async function foo() {
+    await bar(); // bom
+}
+</code></pre>
+<br/>
+Com a caixa de seleção "Relatar promises em instruções return" marcada, a adição de <code>await</code> em instruções return também será sugerida.<br/>
+Embora isso geralmente não seja necessário, traz dois benefícios principais:<br/><ul><li>
+Ao envolver o código com <code>try-catch</code>, você não esquecerá de adicionar o <code>await</code>.</li>
+<li>O <code>await</code> explícito ajuda o runtime V8 a fornecer <a href="https://bit.ly/v8-zero-cost-async-stack-traces">stack traces assíncronos</a>.</li></ul>
+</body>
+</html>

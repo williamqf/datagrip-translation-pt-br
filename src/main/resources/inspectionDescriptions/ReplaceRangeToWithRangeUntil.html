@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata chamadas ao operador <code>rangeTo</code> ou <code>..</code> em vez de <code>..&lt;</code>.
+<p>O uso da função correspondente pode tornar o código mais simples.</p>
+<p>A correção rápida substituirá chamadas <code>rangeTo</code> ou <code>..</code> por <code>..&lt;</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(a: Int) {
+      for (i in 0..a - 1) {
+
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(a: Int) {
+      for (i in 0..&lt;a) {
+
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

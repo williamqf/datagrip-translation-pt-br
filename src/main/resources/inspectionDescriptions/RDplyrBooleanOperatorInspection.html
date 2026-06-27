@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata o uso dos operadores <code>&&</code> e <code>||</code> em expressões dplyr.</p>
+<p><b>Exemplo:</b></p>
+<p>
+  <code>
+    filter(diamonds, carat > 0.7 && depth > 62.0)
+  </code>
+</p>
+<p>Ao aplicar a correção rápida, o código será alterado para:</p>
+<p>
+  <code>
+    filter(diamonds, carat > 0.7 & depth > 62.0)
+  </code>
+</p>
+</body>
+</html>

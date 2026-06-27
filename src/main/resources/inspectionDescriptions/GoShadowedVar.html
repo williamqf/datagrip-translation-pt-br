@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata declarações de variáveis que se sobrepõem a declarações em escopos externos.
+<p>Como o significado da variável depende do escopo nesses casos, isso pode causar confusão e levar a consequências inesperadas.</p>
+<p>Exemplo:</p>
+<pre><code>for i := 0; i &lt; len(nums); i++ {
+    for i := 0; i &lt; len(nums); i++ {
+    }
+  }</code></pre>
+<p>A variável <code>i</code> no loop aninhado está sendo sombreada (shadowed). Para remover o sombreamento, considere renomear a variável no loop aninhado.</p>
+<pre><code>for i := 0; i &lt; len(nums); i++ {
+    for j := 0; j &lt; len(nums); j++ {
+    }
+  }</code></pre>
+</body>
+</html>

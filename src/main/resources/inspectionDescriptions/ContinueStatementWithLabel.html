@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata instruções <code>continue</code> rotuladas.
+<p>Instruções <code>continue</code> com rótulos tornam a refatoração mais complexa e podem ser confusas.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void handle(List&lt;String&gt; strs) {
+    outer:
+    for (String s: strs) {
+      for (char ch : s.toCharArray()) {
+        if ('s' == ch) continue outer;
+        handleChar(ch);
+      }
+    }
+  }
+</code></pre>
+</body>
+</html>

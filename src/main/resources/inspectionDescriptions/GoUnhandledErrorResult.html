@@ -1,0 +1,15 @@
+<html>
+<body>
+Reporta chamadas de funções e métodos que não tratam o resultado do tipo <code>error</code>.
+<p>A API de tais funções implica que a execução pode falhar e retornar um erro.
+  Chamadas que não tratam o resultado de erro podem indicar que a API está sendo usada incorretamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+os.Remove("non-existing") // O erro é ignorado</code></pre>
+<p>Após aplicar a correção rápida <b>Tratar erro</b>:</p>
+<pre><code>err := os.Remove("non-existing") // O erro é tratado
+if err != nil {
+  return err
+}</code></pre>
+</body>
+</html>

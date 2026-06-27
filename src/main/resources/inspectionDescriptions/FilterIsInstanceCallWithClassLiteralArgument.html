@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata chamadas para a função da biblioteca padrão do Kotlin <code>filterIsInstance</code> com argumentos de literal de classe. É mais idiomático usar a versão desta função com um parâmetro de tipo reificado para evitar o uso da sintaxe <code>::class.java</code>.</p>
+
+<p>Nota: literais de classe genérica não são relatados, pois a sintaxe <code>Class&lt;*, *&gt;</code> na lista de argumentos de tipo pode ser indesejável.</p>
+
+<p>Exemplo:</p>
+<pre><code>
+  fun foo(list: List&lt;*>) {
+      list.filterIsInstance(Int::class.java)
+  }
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(list: List&lt;*>) {
+      list.filterIsInstance&lt;Int>()
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata tentativas de instanciar um novo objeto <code>Collection</code> sem especificar uma capacidade inicial.
+<p>
+  Se uma capacidade inicial não for especificada, a capacidade padrão será usada, o que raramente é a escolha ideal. Deixar de especificar uma capacidade inicial para uma coleção pode causar problemas de desempenho se for necessário realocar espaço e copiar a memória quando a capacidade inicial for excedida.
+  Esta inspeção verifica as alocações das classes listadas nas configurações da inspeção.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  new HashMap&lt;String, String&gt;();
+</code></pre>
+<!-- tooltip end -->
+<p>Configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>Listar as classes de coleção que devem ser verificadas.</li>
+  <li>Se os inicializadores de campo devem ser ignorados.</li>
+</ul>
+</body>
+</html>

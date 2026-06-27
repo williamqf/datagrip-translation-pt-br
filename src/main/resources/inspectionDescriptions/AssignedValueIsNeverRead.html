@@ -1,0 +1,41 @@
+<html>
+<body>
+<p>Relata atribuições em que o valor atribuído nunca é usado no código subsequente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(): Int = 42
+
+  fun example() {
+      var local = 0
+      print(local)
+      local = 42  // O valor atribuído nunca é lido
+  }
+</code></pre>
+<ul>
+    <li>Após a correção rápida, a atribuição é excluída:</li>
+</ul>
+<pre><code>
+  fun foo(): Int = 42
+
+  fun example() {
+      var local = 0
+      print(local)
+  }
+</code></pre>
+
+<ul>
+    <li>Se a expressão do lado direito (RHS) puder ter efeitos colaterais, a correção rápida também sugerirá manter a expressão RHS para preservar esses efeitos colaterais:
+    </li>
+</ul>
+<pre><code>
+  fun foo(): Int = 42
+
+  fun example() {
+      var local = 0
+      print(local)
+      foo()  // Esta chamada de função é mantida devido aos seus efeitos colaterais
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

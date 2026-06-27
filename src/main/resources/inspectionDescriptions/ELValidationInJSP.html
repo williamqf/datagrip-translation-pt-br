@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata possíveis problemas de EL, como referências não resolvidas e localizações de EL inválidas.
+
+<p><b>Exemplo:</b></p><br/>
+Considere a função `exampleFun(String)` definida no namespace atual.
+<pre><code>
+&lt;jsp:root xmlns:example="urn:jsptld:exampleNamespace.tld"&gt;
+  ${ example:exampleFun("1") + example:unknownFun("2") } // Erro: Não é possível resolver a função 'unknownFun'
+  ${ example:exampleFun("1", "2") } // Erro: O número de parâmetros formais e reais é diferente
+&lt;/jsp:root&gt;
+</code></pre>
+</body>
+</html>

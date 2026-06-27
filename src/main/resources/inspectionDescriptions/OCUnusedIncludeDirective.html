@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata diretivas include que não são utilizadas ou são desnecessárias e podem ser removidas com segurança.
+<dl>
+  <dt><b>Detectar as que não são utilizadas de forma alguma</b></dt>
+  <dd>Uma diretiva include é considerada não utilizada se as declarações provenientes dela nunca forem usadas na unidade de tradução.</dd>
+  <dt><b>Detectar as que não são utilizadas diretamente</b></dt>
+  <dd>Uma diretiva include é considerada não utilizada se as declarações provenientes dela não forem usadas diretamente no arquivo. Isso funciona melhor com a política "Include What You Use".</dd>
+  <dt><b>Detectar as que são desnecessárias</b></dt>
+  <dd>Detecta o conjunto mínimo de diretivas include necessário para compilar o arquivo. Todas as outras diretivas #include são consideradas não utilizadas.</dd>
+</dl>
+<p>Use a caixa de seleção abaixo para executar a inspeção em arquivos de cabeçalho (headers).</p>
+<!-- tooltip end -->
+</body>
+</html>

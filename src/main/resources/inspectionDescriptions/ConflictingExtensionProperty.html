@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata propriedades de extensão que conflitam com propriedades sintéticas geradas automaticamente a partir de métodos <code>get</code> ou <code>set</code> do Java.
+<p>Essas propriedades devem ser removidas ou renomeadas para evitar que o código seja quebrado por alterações futuras no compilador.</p>
+<p>A correção rápida exclui a propriedade de extensão.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val File.name: String
+      get() = getName()
+</code></pre>
+<p>A correção rápida adiciona a anotação <code>@Deprecated</code>:</p>
+<pre><code>
+  @Deprecated("Is replaced with automatic synthetic extension", ReplaceWith("name"), level = DeprecationLevel.HIDDEN)
+  val File.name: String
+      get() = getName()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

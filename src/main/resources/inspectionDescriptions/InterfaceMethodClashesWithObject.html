@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata métodos de interface que conflitam com os métodos <b>protected</b> <code>clone()</code> e <code>finalize()</code> na classe <code>java.lang.Object</code>.
+<p>Em uma interface, é possível declarar esses métodos com tipos de retorno que são incompatíveis com os métodos de <code>java.lang.Object</code>.
+  Classes que implementam tal interface não podem ser compiladas.
+  Embora ainda seja possível criar lambdas a partir dela quando a interface for funcional, isso não é recomendado.</p>
+<p>Exemplo:</p>
+<pre><code>
+  // Aviso: esta interface não pode ser implementada por nenhuma classe,
+  // apenas por um lambda ou referência de método
+  interface MyInterface {
+    double clone();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

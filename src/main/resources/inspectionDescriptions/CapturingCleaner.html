@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata um <code>Runnable</code> passado para <code>Cleaner.register()</code> que captura a referência sendo registrada.
+Se a referência for capturada, ela nunca será alcançável por phantom e a ação de limpeza nunca será chamada.
+<p>Possíveis fontes deste problema:</p>
+<ul>
+  <li>Lambdas que usam métodos, campos não estáticos ou o próprio <code>this</code></li>
+  <li>Classes internas não estáticas (anônimas ou não) sempre capturam esta referência no Java 18 e versões anteriores</li>
+  <li>Referências de método de instância</li>
+  <li>Acesso a membros não estáticos da classe externa a partir de uma classe interna não estática</li>
+</ul>
+<!-- tooltip end -->
+<p>Exemplo de código que será relatado: </p>
+<pre><code>
+  int fileDescriptor;
+  Cleaner.Cleanable cleanable = Cleaner.create().register(this, () -> {
+    System.out.println("adsad");
+    //<i>this</i> é capturado por meio de <i>fileDescriptor</i>
+    fileDescriptor = 0;
+  });
+</code></pre>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 9 ou superior.</p>
+<p><small>Novo na versão 2018.1</small></p>
+</body>
+</html>

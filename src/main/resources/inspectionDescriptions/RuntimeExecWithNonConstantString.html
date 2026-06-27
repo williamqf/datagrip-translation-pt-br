@@ -1,0 +1,23 @@
+<html>
+<body>
+Reporta chamadas a <code>java.lang.Runtime.exec()</code> que recebem uma string construída dinamicamente como o comando a ser executado.
+<p>
+  Strings de execução construídas são uma fonte comum de vulnerabilidades de segurança.
+  Por padrão, esta inspeção ignora constantes de tempo de compilação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String i = getUserInput();
+  Runtime runtime = Runtime.getRuntime();
+  runtime.exec("foo" + i); // reporta um aviso
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as configurações da inspeção para considerar qualquer campo <code>static</code> <code>final</code> como uma constante.
+Tenha cuidado, pois strings como a seguinte serão ignoradas quando esta opção estiver ativada:
+<pre><code>
+  static final String COMMAND = "ping " + getDomainFromUserInput() + "'";
+</code></pre>
+<p>
+</body>
+</html>

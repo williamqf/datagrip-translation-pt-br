@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas a <code>Object.wait()</code> ou <code>Condition.await()</code> sem um tempo limite (timeout) especificado.
+<p>
+  Em programas de alta disponibilidade, tais chamadas podem ser perigosas porque, se <code>notify()</code>/<code>notifyAll()</code> ou <code>signal()</code>/<code>signalAll()</code> nunca forem chamados, uma falha em um componente pode fazer com que o componente em espera seja bloqueado.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(Object bar) throws InterruptedException {
+    bar.wait();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

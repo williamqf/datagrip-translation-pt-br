@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata chamadas a <code>isEmpty</code>, <code>isBlank</code>, <code>isNotEmpty</code> ou <code>isNotBlank</code> em instruções <code>if</code> para atribuir valores padrão.
+<p>A correção rápida substituirá a condição <code>if</code> por uma chamada a <code>ifEmpty</code> ou <code>ifBlank</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;): List&lt;Int&gt; {
+      return if (list.isEmpty()) {
+          println()
+          foo()
+      } else {
+          list
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;): List&lt;Int&gt; {
+      return list.ifEmpty {
+          println()
+          foo()
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se a versão da linguagem Kotlin do projeto ou módulo for 1.3 ou superior.</p>
+</body>
+</html>

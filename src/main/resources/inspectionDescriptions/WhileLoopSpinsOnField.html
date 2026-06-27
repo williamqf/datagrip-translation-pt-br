@@ -1,0 +1,49 @@
+<html>
+<body>
+Relata loops <code>while</code> que realizam espera ativa (spin) sobre o valor de um campo não <code>volatile</code>, aguardando que ele seja alterado por outra thread.
+<p>
+Além de serem potencialmente muito intensivos em termos de CPU quando pouco trabalho é feito dentro do loop, tais loops provavelmente possuem uma semântica diferente da pretendida.
+O Modelo de Memória do Java permite que esses loops nunca terminem, mesmo que o valor do campo seja alterado por outra thread.
+</p>
+<p>
+Além disso, a partir do Java 9, recomenda-se chamar <code>Thread.onSpinWait()</code> em loops de spin em campos <code>volatile</code>, o que pode melhorar significativamente o desempenho em alguns hardwares.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class SpinsOnField {
+    boolean ready = false;
+
+    void run() {
+      while (!ready) {
+      }
+      // realiza algum trabalho
+    }
+
+    void markAsReady() {
+      ready = true;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class SpinsOnField {
+    volatile boolean ready = false;
+
+    void run() {
+      while (!ready) {
+        Thread.onSpinWait();
+      }
+      // realiza algum trabalho
+    }
+
+    void markAsReady() {
+      ready = true;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as opções de inspeção para relatar apenas loops <code>while</code> vazios.
+<p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas <code>wait()</code> em objetos <code>java.util.concurrent.locks.Condition</code>. Isso provavelmente é um erro de programação, onde se pretendia usar alguma variante do método <code>await()</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    while (acquired) {
+      released.wait();
+    }
+  }
+</code></pre>
+<p>O código correto deve ser semelhante a:</p>
+<pre><code>
+  void acquire(Condition released) throws InterruptedException {
+    while (acquired) {
+      released.await();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

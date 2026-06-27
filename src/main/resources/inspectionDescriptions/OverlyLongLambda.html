@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões lambda cujo número de instruções excede o máximo especificado.
+<p>Expressões lambda muito longas podem ser confusas; geralmente é melhor extrair as instruções para um método separado.<p>
+<p>As seguintes instruções não são contabilizadas:</p>
+<ul>
+  <li>Instruções vazias (ponto e vírgula)</li>
+  <li>Instruções de bloco</li>
+  <li>Instruções de inicialização de loop <code>for</code>, ou seja, <code>int i = ...</code> dentro de uma instrução <code>for(int i = ...;...)</code></li>
+  <li>Instruções de atualização de loop <code>for</code>, ou seja, <code>i += 2</code> dentro de uma instrução <code>for(int i = ...;...; i += 2)</code></li>
+</ul>
+<!-- tooltip end -->
+<p>Use o campo <b>Limite de instruções de código não comentadas</b> para especificar o número máximo de instruções permitidas em uma expressão lambda.<p>
+</body>
+</html>

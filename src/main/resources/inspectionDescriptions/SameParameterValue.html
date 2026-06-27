@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata parâmetros de método que possuem sempre o mesmo valor constante.
+
+<p>Exemplo:</p>
+<pre><code>
+  static void printPoint(int x, int y) { // x é sempre 0
+    System.out.println(x + ", " + y);
+  }
+
+  public static void main(String[] args) {
+    printPoint(0, 1);
+    printPoint(0, 2);
+  }
+</code></pre>
+<p>A correção rápida faz o inline do valor constante. Isso pode simplificar a implementação do método.</p>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Ignorar quando nenhuma correção rápida estiver disponível</b> para suprimir a inspeção nos seguintes casos:
+</p>
+<ul>
+  <li>O parâmetro é modificado dentro do método</li>
+  <li>O valor do parâmetro passado é uma referência a um campo inacessível (apenas Java)</li>
+  <li>O parâmetro é um vararg (apenas Java)</li>
+</ul>
+<p>
+  Use a opção <b>Visibilidade máxima do método</b> para controlar a visibilidade máxima dos métodos a serem relatados.
+</p>
+<p>
+  Use o campo <b>Contagem mínima de usos do método para relatar o parâmetro</b> para especificar o número mínimo de usos do método com o mesmo valor de parâmetro.
+</p>
+</body>
+</html>

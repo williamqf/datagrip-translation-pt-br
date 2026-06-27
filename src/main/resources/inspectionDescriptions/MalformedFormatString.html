@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata strings de formatação que não estão em conformidade com a sintaxe Java padrão.
+<p>Por padrão, esta inspeção considera constantes de tempo de compilação como strings de formatação se forem usadas como argumentos para os métodos correspondentes em <code>java.util.Formatter</code>, <code>java.lang.String</code>, <code>java.io.PrintWriter</code> ou <code>java.io.PrintStream</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String.format("x = %d, y = %d", 42);
+</code></pre>
+<!-- tooltip end -->
+<p>Use as configurações da inspeção para marcar classes e métodos adicionais como relacionados à formatação de strings.</p>
+<p>Como alternativa, você pode usar a anotação <code>org.intellij.lang.annotations.PrintFormat</code> para marcar parâmetros de método de string de formatação. Nesse caso, o parâmetro de argumentos de formatação deve seguir imediatamente a string de formatação e deve ser o último parâmetro do método. Exemplo:</p>
+<pre><code>
+  void myFormatMethod(int mode, @PrintFormat String formatString, Object... args) {...}
+</code></pre>
+<p>
+  Métodos anotados desta forma também serão reconhecidos por esta inspeção.
+</p>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas aos construtores de <code>StringBuffer</code> e <code>StringBuilder</code> que utilizam um <code>char</code> como argumento.
+Nesse caso, o <code>char</code> é convertido silenciosamente em um inteiro e interpretado como a capacidade inicial do buffer.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  new StringBuilder('(').append("1").append(')');
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  new StringBuilder("(").append("1").append(')');
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

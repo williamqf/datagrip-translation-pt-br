@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata chamadas <code>equals()</code> que comparam dois números <code>java.math.BigDecimal</code>.
+Isso geralmente é um erro, pois dois números <code>java.math.BigDecimal</code> são considerados iguais apenas se o valor e a escala forem iguais.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (new BigDecimal("2.0").equals(
+    new BigDecimal("2.00"))) {} // false
+</code></pre>
+<p>Após a aplicação do quick fix:</p>
+<pre><code>
+  if (new BigDecimal("2.0").compareTo(
+    new BigDecimal("2.00")) == 0) {} // true
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

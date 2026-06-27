@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata construtores desnecessários.
+<p>
+  Um construtor é desnecessário se for o único construtor da classe, não possuir parâmetros, tiver o mesmo modificador de acesso que a classe que o contém e não realizar nenhuma inicialização, exceto chamar (explícita ou implicitamente) o construtor da superclasse sem argumentos.
+  Tal construtor pode ser removido com segurança, pois é gerado pelo compilador mesmo que não seja especificado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo {
+    public Foo() {}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public class Foo {}
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use as configurações de inspeção para ignorar construtores desnecessários que possuam anotações.
+<p>
+
+</body>
+</html>

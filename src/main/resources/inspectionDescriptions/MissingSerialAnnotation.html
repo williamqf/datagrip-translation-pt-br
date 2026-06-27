@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata métodos e campos em classes <code>Serializable</code> e <code>Externalizable</code> que são adequados para serem anotados com a anotação <code>java.io.Serial</code>. A correção rápida adiciona a anotação.
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Main implements Serializable {
+  private static final long serialVersionUID = 7874493593505141603L;
+
+  private void writeObject(ObjectOutputStream out) throws IOException {
+  }
+}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class Main implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 7874493593505141603L;
+
+    @Serial
+    private void writeObject(ObjectOutputStream out) throws IOException {
+    }
+}
+</code></pre>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main implements Externalizable {
+    protected Object readResolve() throws ObjectStreamException {
+      return "SomeObject";
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class Main implements Externalizable {
+    @Serial
+    protected Object readResolve() throws ObjectStreamException {
+        return "SomeObject";
+    }
+  }
+</code></pre>
+<p>Para obter mais informações sobre todos os casos possíveis, consulte o Javadoc da classe <code>java.io.Serial</code>.</p>
+<!-- tooltip end -->
+<p><small>Novo na versão 2020.3</small></p>
+</body>
+</html>

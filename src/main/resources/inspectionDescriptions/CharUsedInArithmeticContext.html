@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões do tipo <code>char</code> usadas em expressões de adição ou subtração.
+<p>Esse tipo de código não é necessariamente um problema, mas pode causar bugs (por exemplo, se uma string for esperada).</p>
+<p><b>Exemplo:</b> <code>int a = 'a' + 42;</code></p>
+<p>Após a aplicação da correção rápida: <code>int a = (int) 'a' + 42;</code></p>
+<p>Para o contexto de <code>String</code>:
+<pre><code>int i1 = 1;
+int i2 = 2;
+System.out.println(i2 + '-' + i1 + &quot; = &quot; + (i2 - i1));</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<code>System.out.println(i2 + &quot;-&quot; + i1 + &quot; = &quot; + (i2 - i1));</code>
+<!-- tooltip end -->
+</body>
+</html>

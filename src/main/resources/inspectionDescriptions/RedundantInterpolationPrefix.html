@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata prefixos de cifrão redundantes em expressões de template de string.
+<p>
+Tais prefixos podem ser removidos com segurança.
+</p>
+<p>
+Exemplo:
+</p>
+<pre><code>
+fun example() {
+    $"Exemplo: um prefixo de comprimento um é sempre redundante"
+    $$"Exemplo: a string não contém valores interpolados"
+    $$"Exemplo: os sinais de cifrão $$ aqui são caracteres comuns $$"
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+fun example() {
+    "Exemplo: um prefixo de comprimento um é sempre redundante"
+    "Exemplo: a string não contém valores interpolados"
+    "Exemplo: os sinais de cifrão $$ aqui são caracteres comuns $$"
+}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

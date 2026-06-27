@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>
+  Relata uma string com aspas simples no formato de array JSON.
+</p>
+<p>
+  No formato de array JSON, aspas duplas (") devem ser usadas ao redor das palavras, não aspas simples ('). Caso contrário, o build do Docker falhará.
+</p>
+<!-- tooltip end -->
+<p><b>Exemplos:</b></p>
+<pre><code>
+  # todos os comandos abaixo falharão
+  RUN ['/bin/bash', '-c', 'echo hello']
+  ADD ['binaryA.jar', 'binary2.jar', 'destination/']
+  COPY ['binaryA.jar', 'binary2.jar', 'destination/']
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  RUN ["/bin/bash", "-c", "echo hello"]
+  ADD ["binaryA.jar", "binary2.jar", "destination/"]
+  COPY ["binaryA.jar", "binary2.jar", "destination/"]
+</code></pre>
+</body>
+</html>

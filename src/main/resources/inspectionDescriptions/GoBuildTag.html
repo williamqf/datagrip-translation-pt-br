@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata tags de compilação malformadas e tags de compilação colocadas em locais incorretos. A ferramenta <code>go</code> exige que as tags de compilação sejam colocadas em locais específicos e sigam uma sintaxe especial. Se esses requisitos não forem atendidos, as tags de compilação podem ser ignoradas ou os arquivos podem ser excluídos incorretamente da compilação.
+<p>Consulte <a href="https://pkg.go.dev/go/build#hdr-Build_Constraints">Build Constraints no go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>package main
+
+// +build ignore
+
+func main() {}</code></pre>
+<p>A parte <code>// +build ignore</code> deve estar localizada antes da declaração do pacote. Para corrigir isso, você pode aplicar a correção rápida <b>Colocar tag de compilação antes do pacote</b>. Após aplicar a correção rápida:</p>
+<pre><code>// +build ignore
+
+package main
+
+import "fmt"</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Reporta atribuições ou chamadas de função nas quais o nome da variável de destino ou do parâmetro da função não corresponde ao nome do valor atribuído a ele.
+<p>Exemplo:</p>
+<pre><code>
+  <b>var</b> x = 0;
+  <b>var</b> y = x;
+</code></pre>
+ou
+<pre><code>
+  <b>var</b> x = 0, y = 0;
+  <b>var</b> rc = <b>new</b> Rectangle(y, x, 20, 20);
+</code></pre>
+Aqui, a inspeção presume que <code>x</code> e <code>y</code> foram confundidos.
+<!-- tooltip end -->
+<p>Especifique os nomes que não devem ser usados juntos. Se o nome do parâmetro ou o nome do destino da atribuição contiver uma palavra de um grupo, enquanto o nome da variável atribuída ou passada contiver uma palavra de outro grupo, um erro será reportado.</p>
+</body>
+</html>

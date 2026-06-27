@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata erros comuns em código TypeScript onde um campo de classe é declarado como um parâmetro do construtor e, em seguida, uma atribuição é feita a esse parâmetro.<br/>
+Nesses casos, o campo correspondente <i>não</i> recebe a atribuição, apenas o valor do parâmetro local é alterado.
+<pre><code>
+class Foo {
+  constructor(private p: number) {
+    p = 1; // deve ser this.p = 1;
+  }
+}
+</code></pre>
+</body>
+</html>

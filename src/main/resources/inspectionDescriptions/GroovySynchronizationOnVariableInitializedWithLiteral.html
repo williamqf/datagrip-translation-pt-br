@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata blocos <code>synchronized</code> que realizam o bloqueio em objetos inicializados com literais.
+<p>
+  Literais de string são internados e literais <code>Number</code> podem ser alocados a partir de um cache. Por causa disso, é possível que outras partes do sistema (que utilizam objetos inicializados pelo mesmo literal) contenham referências ao exato mesmo objeto. Isso pode resultar em situações inesperadas de deadlock se a string for considerada privada.
+</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas ao método <code>getClass()</code> em instâncias de <code>java.lang.Class</code>.
+<p>Isso geralmente é um erro, pois o resultado é sempre equivalente a <code>Class.class</code>.
+Se for um erro, recomenda-se remover a chamada <code>getClass()</code> e usar o qualificador diretamente.
+Se o comportamento for intencional, é melhor escrever explicitamente <code>Class.class</code> para evitar confusão.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void test(Class&lt;?&gt; clazz) {
+    String name = clazz.getClass().getName();
+  }
+</code></pre>
+<p>Após a aplicação de uma das correções rápidas possíveis:</p>
+<pre><code>
+  void test(Class&lt;?&gt; clazz) {
+    String name = clazz.getName();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.2</small></p>
+</body>
+</html>

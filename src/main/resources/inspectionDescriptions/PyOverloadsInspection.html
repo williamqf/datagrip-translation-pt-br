@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Reporta casos em arquivos Python regulares onde sobrecargas (overloads) são posicionadas após a implementação ou suas assinaturas são incompatíveis com a implementação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import overload
+
+
+@overload
+def foo(p1, p2): # A assinatura da sobrecarga é incompatível com a implementação
+    pass
+
+
+@overload
+def foo(p1): # A assinatura da sobrecarga é incompatível com a implementação
+    pass
+
+
+def foo(p1, p2, p3):
+    print(p1, p2, p3)
+</code></pre>
+</body>
+</html>

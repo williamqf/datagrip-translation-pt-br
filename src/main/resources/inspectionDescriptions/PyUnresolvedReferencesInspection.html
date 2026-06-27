@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Relata referências não resolvidas no código.</p>
+<p>Em linguagens dinamicamente tipadas, isso é possível em um número limitado de casos.</p>
+<p>Se o tipo da referência for desconhecido, seus atributos não serão realçados como não resolvidos, mesmo que devessem ser:</p>
+<pre><code>
+def print_string(s):
+  print(s.abc())
+</code></pre>
+<p>Neste fragmento de código, <code>s</code> é sempre uma string e <code>abc</code> deveria ser realçado como não resolvido. No entanto, o tipo de <code>s</code> é inferido como <code>Any</code> e nenhum aviso é relatado.</p>
+<p>O IDE fornece ações de correção rápida para adicionar referências ausentes on-the-fly.</p>
+</body>
+</html>

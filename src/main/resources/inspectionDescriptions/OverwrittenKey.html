@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata código que sobrescreve chaves de <code>Map</code>, elementos de <code>Set</code> ou elementos de array em sequências de chamadas <code>add</code>/<code>put</code>, ou que utiliza métodos de fábrica do Java 9 como o <code>Set.of</code> (o que resultará em uma exceção de tempo de execução).
+<p>Isso geralmente é causado por erros de copiar e colar.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  map.put("A", 1);
+  map.put("B", 2);
+  map.put("C", 3);
+  map.put("D", 4);
+  map.put("A", 5); // A chave "A" é duplicada, sobrescrevendo a entrada gravada anteriormente
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.3</small></p>
+</body>
+</html>

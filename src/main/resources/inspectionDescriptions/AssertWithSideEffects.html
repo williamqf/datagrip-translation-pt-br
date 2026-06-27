@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata instruções <code>assert</code> que causam efeitos colaterais.
+<p>
+  Como as asserções podem ser desativadas, esses efeitos colaterais não são garantidos, o que pode levar a erros sutis. Os efeitos colaterais indesejados comuns detectados por esta inspeção são modificações de variáveis e campos. Quando chamadas de método estão envolvidas, elas são analisadas com um nível de profundidade.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  assert i++ &lt; 10;
+</code></pre>
+</body>
+</html>

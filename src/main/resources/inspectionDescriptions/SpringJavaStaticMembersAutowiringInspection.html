@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata métodos ou campos <code>static</code> autowired e injetados em componentes Spring.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Component
+public class MyComponent {
+	@Autowired
+	static FooInterface foo;  // Relata "membros static não devem ser autowired"
+}
+</code></pre>
+</body>
+</html>

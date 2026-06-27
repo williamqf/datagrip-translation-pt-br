@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata declarações de alias de classe ignoradas pela IDE devido à existência de uma declaração de classe real com o mesmo FQN.
+<!-- tooltip end -->
+<p>
+  A finalidade desta inspeção é esclarecer o comportamento da IDE em situações onde existem tanto declarações de classe quanto de alias de classe.
+  Quando existem várias declarações com o mesmo FQN, a IDE geralmente não consegue selecionar uma única declaração entre elas.
+  Isso leva a preenchimento de código incorreto, inferência de tipo errônea, etc. Como a declaração da classe tem precedência sobre a declaração do alias da classe, esta última torna-se redundante e é ignorada pela IDE.
+</p>
+<p>
+  Observe que ignorar a declaração do alias da classe não afeta o comportamento do interpretador PHP.
+</p>
+</body>
+</html>

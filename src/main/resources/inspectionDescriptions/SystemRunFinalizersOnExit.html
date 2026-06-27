@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata chamadas para <code>System.runFinalizersOnExit()</code>.
+<p>
+  Esta é uma das chamadas mais perigosas na linguagem Java. Ela é inerentemente insegura para threads (não é thread-safe), podendo causar corrupção de dados, deadlocks e afetar partes do programa distantes do ponto de chamada.
+  Ela foi descontinuada e removida no JDK 11, sendo fortemente recomendado não utilizá-la.
+</p>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 10 ou inferior.</p>
+<!-- tooltip end -->
+</body>
+</html>

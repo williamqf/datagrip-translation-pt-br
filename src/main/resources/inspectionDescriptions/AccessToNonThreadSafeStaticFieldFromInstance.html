@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata o acesso a campos <code>static</code> de tipos que não são thread-safe.
+<p>
+  Quando um campo <code>static</code> é acessado a partir de um método de instância ou de um bloco não sincronizado, múltiplos threads podem acessar esse campo.
+  Isso pode levar a efeitos colaterais imprevistos, como exceções e resultados incorretos.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Sample {
+    private static final SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+    String method() {
+      return df.format("");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Você pode especificar quais tipos devem ser considerados não thread-safe.
+  Apenas campos com esses tipos exatos ou inicializados com esses tipos exatos serão relatados, pois podem existir subclasses desses tipos que sejam thread-safe.
+</p>
+
+</body>
+</html>

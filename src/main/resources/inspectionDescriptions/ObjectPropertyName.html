@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata propriedades que não seguem as convenções de nomenclatura.
+<p>As seguintes propriedades são relatadas:</p>
+<ul>
+    <li>Propriedades de nível superior</li>
+    <li>Propriedades em objetos e companion objects</li>
+</ul>
+<p>Você pode especificar o padrão desejado nas opções de inspeção.</p>
+<p><a href="https://kotlinlang.org/docs/coding-conventions.html#naming-rules">Convenções de nomenclatura sugeridas</a>: devem começar com uma letra maiúscula, usar CamelCase e não conter sublinhados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Propriedade de nível superior
+  val USER_NAME_FIELD = "UserName"
+  // Propriedade de nível superior que mantém uma referência a um objeto singleton
+  val PersonComparator: Comparator&lt;Person&gt; = /*...*/
+
+  class Person {
+    companion object {
+      // Propriedade em um companion object
+      val NO_NAME = Person()
+    }
+  }
+</code></pre>
+
+</body>
+</html>

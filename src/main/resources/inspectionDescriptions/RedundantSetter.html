@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata setters de propriedade redundantes.
+<p>
+Um setter é considerado redundante em um dos seguintes casos:
+</p>
+<ol>
+    <li>
+        O setter não possui corpo. A visibilidade do acessor não é alterada, a declaração não é <code>external</code> e não possui anotações.
+        <pre><code>
+  var myPropWithRedundantSetter: Int = 0
+      set // redundante
+
+  var myPropA: Int = 0
+      private set // OK - a visibilidade da propriedade foi alterada para private
+
+  var myPropB: Int = 0
+      external set // OK - não implementado no Kotlin (external)
+
+  var myPropC: Int = 0
+      @Inject set // OK - o acessor possui anotação
+        </code></pre>
+    </li>
+    <li>
+        O corpo do setter é um bloco com uma única instrução que atribui o parâmetro ao backing field.
+        <pre><code>
+  var prop: Int = 0
+      set(value) { // redundante
+          field = value
+      }
+       </code></pre>
+    </li>
+</ol>
+
+</body>
+</html>

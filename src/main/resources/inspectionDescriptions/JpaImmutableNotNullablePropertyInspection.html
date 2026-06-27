@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata o uso de propriedades imutáveis em entidades JPA validadas.
+<p>
+  Detecta propriedades imutáveis anotadas com <code>@NotNull</code>.
+  Sugere torná-las mutáveis para garantir a compatibilidade com o Hibernate.
+</p>
+<p>
+  Trecho de código incorporado:
+</p>
+<pre><code>
+@Entity
+open class User(
+  @Id
+  val id: Long = 0L,
+  @NotNull
+  val name: String = "",
+)
+</code></pre>
+Após a aplicação da correção rápida:
+<pre><code>
+@Entity
+open class User(
+  @Id
+  val id: Long = 0L,
+  @NotNull
+  var name: String = "",
+)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

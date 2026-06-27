@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata instruções <code>import</code> redundantes.
+<p>Se as classes e pacotes importados no arquivo de origem não forem utilizados, as instruções <code>import</code> regulares não são necessárias.
+O mesmo se aplica a campos e métodos <code>static</code> importados que não são usados no arquivo de origem.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.ArrayList;
+  public class Example {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:
+<pre><code>
+  public class Example {
+    public static void main(String[] args) {
+      System.out.println("Hello World!");
+    }
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Reporta loops <code>while</code> que realizam spinning sobre o valor de um campo não <code>volatile</code>, aguardando que ele seja alterado por outra thread.</p>
+<p>
+Além de possivelmente consumirem muita CPU quando pouco trabalho é realizado dentro do loop, tais loops provavelmente têm semânticas diferentes das pretendidas. O Modelo de Memória do Java permite que o loop nunca termine, mesmo que outra thread altere o valor do campo.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class SpinsOnField {
+      boolean ready = false;
+
+      void run() {
+          // Mesmo após markAsReady ser chamado de outra thread,
+          // este loop pode nunca terminar
+          while (!ready) {
+          }
+          // executa algum trabalho
+      }
+
+      void markAsReady() {
+          ready = true;
+      }
+  }
+</code></pre>
+<p>
+Além disso, a partir do Java 9, recomenda-se chamar <code>Thread.onSpinWait()</code> dentro de loops de spinning em campos <code>volatile</code>, o que pode melhorar significativamente o desempenho em determinados hardwares.
+</p>
+<!-- tooltip end -->
+<p>
+Use a caixa de seleção abaixo para fazer com que esta inspeção reporte apenas loops <code>while</code> vazios.
+<p>
+</body>
+</html>

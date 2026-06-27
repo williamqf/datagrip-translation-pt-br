@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata argumentos separados por vírgulas que poderiam ser convertidos em tuplas.</p>
+<p>O compilador Scala tenta converter argumentos separados por vírgulas em tuplas se não houver métodos de vários argumentos apropriados, mas houver um único método de argumento apropriado. Essa conversão pode interromper a adequação tipológica e levar a resultados inesperados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def foo(a: Any) = {}
+  foo(1, 2)
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  def foo(a: Any) = {}
+  foo((1, 2))
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

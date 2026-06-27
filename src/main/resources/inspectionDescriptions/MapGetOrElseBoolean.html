@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata <code>map</code> e <code>getOrElse(false)</code> / <code>getOrElse(true)</code> e sugere substituí-los por 
+  <code>exists</code> / <code>forall</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def p(x: Int): Boolean = ???
+  Option(0).map(p).getOrElse(false)
+  Option(0).map(p).getOrElse(true)
+</code></pre>
+<p>Após aplicação da correção rápida:</p>
+<pre><code>
+  def p(x: Int): Boolean = ???
+  Option(0).exists(p)
+  Option(0).forall(p)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

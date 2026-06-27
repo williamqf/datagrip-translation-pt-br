@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata métodos getter ou setter que acessam um campo cujo nome não é o esperado para o nome do método.
+Por exemplo, quando <code>getY()</code> retorna o campo <code>x</code>. Isso geralmente pode indicar um erro de copiar e colar.
+<p><b>Exemplo:</b></p>
+<pre><code>class Point {
+    private int x;
+    private int y;
+
+    public void setX(int x) { // Aviso: o setter 'setX()' atribui ao campo 'y'
+      this.y = x;
+    }
+
+    public int getY() { // Aviso: o getter 'getY()' retorna o campo 'x'
+      return x;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a caixa de seleção abaixo para relatar situações em que o nome de um campo na classe corresponde ao nome de um getter ou setter.
+<p>
+</body>
+</html>

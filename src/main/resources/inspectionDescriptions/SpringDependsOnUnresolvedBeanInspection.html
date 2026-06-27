@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>Relata referências de bean incorretas no parâmetro <code>value</code> da anotação <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/DependsOn.html">@DependsOn</a>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Component
+  @DependsOn("unknown")  // relata "Não é possível resolver o bean 'unknown'"
+  public class MyComponent {
+  }
+</code></pre>
+</body>
+</html>

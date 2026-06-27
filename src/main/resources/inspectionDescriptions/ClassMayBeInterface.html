@@ -1,0 +1,44 @@
+<html>
+<body>
+Relata classes <code>abstract</code> que podem ser convertidas em interfaces.
+<p>É preferível usar interfaces em vez de classes, pois o Java não suporta herança múltipla de classes, enquanto uma classe pode implementar várias interfaces.</p>
+<p>Uma classe pode ser convertida em uma interface se não possuir uma superclasse (além de <code>Object</code>) e contiver apenas campos <code>public static final</code>, métodos <code>public abstract</code> e classes internas <code>public</code>.
+<!-- tooltip end -->
+
+<p>Exemplo:</p>
+<pre><code>
+abstract class Example {
+    public static final int MY_CONST = 42;
+    public abstract void foo();
+}
+
+class Inheritor extends Example {
+    @Override
+    public void foo() {
+        System.out.println(MY_CONST);
+    }
+}
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+
+<pre><code>
+interface Example {
+    int MY_CONST = 42;
+    void foo();
+}
+
+class Inheritor implements Example {
+    @Override
+    public void foo() {
+        System.out.println(MY_CONST);
+    }
+}
+</code></pre>
+<p>Configuração da inspeção:</p>
+<p>
+  A opção <b>Relatar classes com métodos não abstratos ao usar o Java 8</b> pode ser usada para relatar apenas classes cujos métodos <code>static</code> e não abstratos possam ser convertidos em métodos <code>default</code> (aplicável apenas quando o nível de linguagem for 8 ou superior).
+<p>
+
+</body>
+</html>

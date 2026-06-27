@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata coletores que podem ser simplificados.
+<p>Em particular, alguns coletores <code>groupingBy()</code> em cascata podem ser representados usando coletores <code>toMap()</code> mais simples, o que também pode melhorar o desempenho.</p>
+<p>Exemplo:</p>
+<pre><code>
+  Collectors.groupingByConcurrent(String::length, Collectors.collectingAndThen(Collectors.maxBy(String::compareTo), Optional::get));
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Collectors.toConcurrentMap(String::length, Function.identity(), BinaryOperator.maxBy(String::compareTo));
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade no 2017.1</small></p>
+</body>
+</html>

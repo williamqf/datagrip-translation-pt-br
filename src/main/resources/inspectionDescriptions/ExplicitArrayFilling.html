@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata loops que podem ser substituídos por chamadas a <code>Arrays.setAll()</code> ou <code>Arrays.fill()</code>.
+<p>Esta inspeção sugere substituir o loop por <code>Arrays.setAll()</code> se o nível de linguagem do projeto ou módulo for 8 ou superior.
+  Você pode substituir o loop por <code>Arrays.fill()</code> em qualquer nível de linguagem.</p>
+<p>Exemplo:</p>
+<pre><code>
+  for (int i=0; i&lt;array.length; i++) {
+     array[i] = calc(i);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  Arrays.setAll(array, this::calc);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.1</small></p>
+</body>
+</html>

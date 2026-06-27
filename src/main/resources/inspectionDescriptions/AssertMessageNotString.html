@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata mensagens de <code>assert</code> que não são do tipo <code>java.lang.String</code>.
+<p>O uso de strings fornece mais informações para ajudar a diagnosticar o motivo da falha ou da asserção.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(List&lt;Integer&gt; myList) {
+    assert myList.isEmpty() : false;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Avisar apenas se o tipo da mensagem de <code>assert</code> for 'boolean' ou 'java.lang.Boolean'</b> para emitir avisos somente quando o tipo da mensagem de <code>assert</code> for <code>boolean</code> ou <code>java.lang.Boolean</code>.
+Mensagens de detalhes <code>boolean</code> dificilmente fornecem informações adicionais sobre a falha da asserção e podem ser causadas pela digitação acidental de <code>:</code> em vez de <code>&</code>.
+</body>
+</html>

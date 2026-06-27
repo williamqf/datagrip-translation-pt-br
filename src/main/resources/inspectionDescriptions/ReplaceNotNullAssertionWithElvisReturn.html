@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas de asserção non-null (<code>!!</code>) que podem ser substituídas pelo operador Elvis e <code>return</code> (<code>?: return</code>).
+<p>As asserções non-null podem levar a exceções NPE (NullPointerException) inesperadas. É uma boa prática evitar o uso de <code>!!</code>.</p>
+<p>A correção rápida substituirá a asserção non-null por <code>return</code> ou <code>return null</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(number: Int?) {
+      val x = number!!
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun test(number: Int?) {
+      val x = number ?: return
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata casos em que argumentos de tipo anulável são fornecidos a coleções Java que não aceitam null.
+<p>
+    Algumas coleções Java fornecidas na biblioteca padrão do Java não suportam elementos, chaves ou valores null.
+    Os argumentos de tipo para tais coleções não devem ser instanciados com tipos anuláveis.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+val map = ConcurrentHashMap&lt;String, String?&gt;()
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+val map = ConcurrentHashMap&lt;String, String&gt;()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

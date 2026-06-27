@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata a instanciação de objetos <code>java.util.Set</code> cujo tipo de conteúdo é uma classe enum. Tais objetos <code>Set</code> podem ser substituídos por objetos <code>java.util.EnumSet</code>.
+<p>
+  As implementações de <code>EnumSet</code> são significativamente mais eficientes do que outros conjuntos, pois a estrutura de dados subjacente é um vetor de bits. Use a correção rápida para substituir o inicializador por uma chamada a <code>EnumSet.noneOf()</code>. Esta correção rápida não está disponível quando o tipo da variável é uma subclasse de <code>Set</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  enum MyEnum { FOO, BAR; }
+
+  Set&lt;MyEnum&gt; enums = new HashSet&lt;MyEnum&gt;();
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  enum MyEnum { FOO, BAR; }
+
+  Set&lt;MyEnum&gt; enums = EnumSet.noneOf(MyEnum.class);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

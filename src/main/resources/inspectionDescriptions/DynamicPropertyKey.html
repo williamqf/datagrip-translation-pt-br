@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata literais não string que são usados como chave de propriedade do bundle.</p>
+<p>Isso é difícil de manter. É melhor passar strings de linguagem natural já resolvidas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val key =
+    if (???) "property.key.1"
+    else "property.key.2"
+
+  Bundle.message(key)
+</code></pre>
+<p>Use em vez disso:</p>
+<pre><code>
+  val string =
+    if (???) Bundle.message("property.key.1")
+    else Bundle.message("property.key.2")
+
+  string
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

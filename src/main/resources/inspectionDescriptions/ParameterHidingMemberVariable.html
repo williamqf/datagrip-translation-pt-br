@@ -1,0 +1,39 @@
+<html>
+<body>
+Relata parâmetros de método que possuem o mesmo nome de um campo na classe envolvente.
+Devido a essa nomenclatura, o parâmetro pode ser usado erroneamente quando a intenção era usar o campo de mesmo nome.
+<p>Recomenda-se renomear o parâmetro por meio de uma correção rápida (Quick Fix).</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    private String value;
+
+    public Main(String value) {
+      value = value.toUpperCase();
+    }
+  }
+  </code></pre>
+<!-- tooltip end -->
+<p>
+  Você pode configurar esta inspeção com as seguintes opções:
+</p>
+<ol>
+  <li>
+    <strong>Ignorar setters de propriedade</strong> - Ignora parâmetros de setters simples.
+  </li>
+  <li>
+    <strong>Ignorar campos da superclasse invisíveis para a subclasse</strong> - Ignora campos <code>private</code> na superclasse que são invisíveis para este método.
+  </li>
+  <li>
+    <strong>Ignorar para construtores</strong> - Ignora parâmetros de construtores.
+  </li>
+  <li>
+    <strong>Ignorar para métodos abstratos</strong> - Ignora parâmetros de métodos abstratos.
+  </li>
+  <li>
+    <strong>Ignorar parâmetros de métodos static que ocultam campos de instância</strong> - Ignora parâmetros de métodos <code>static</code> que ocultam campos de instância e ignora parâmetros de métodos de instância em classes internas estáticas que ocultam campos de instância da classe externa. Embora não seja estritamente uma ocultação, tais parâmetros ainda podem ser confusos.
+  </li>
+</ol>
+
+</body>
+</html>

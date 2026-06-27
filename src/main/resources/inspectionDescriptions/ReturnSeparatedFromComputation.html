@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata instruções <code>return</code> que retornam variáveis locais cujo valor é calculado em outro local no mesmo método.
+<p>A correção rápida incorpora a variável retornada movendo a instrução return para o local onde o valor da variável é calculado.
+  Quando o valor de retorno não puder ser incorporado diretamente na instrução <code>return</code>, a correção rápida tenta mover a instrução return o mais próximo possível de onde o valor de retorno é calculado.</p>
+<p>Exemplo:</p>
+<pre><code>
+  int n = -1;
+  for (int i = 0; i &lt; a.length; i++) {
+    if (a[i] == b) {
+      n = i;
+      break;
+    }
+  }
+  return n;
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  int n = -1;
+  for (int i = 0; i &lt; a.length; i++) {
+    if (a[i] == b) {
+      return i;
+    }
+  }
+  return n;
+</code></pre>
+</body>
+</html>

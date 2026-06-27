@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata usos de limites de visualização e sugere substituí-los por parâmetros implícitos.</p>
+<p>Os limites de visualização foram obsoletos: <a href="https://issues.scala-lang.org/browse/SI-7629">SI-7629</a>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  classe Sample[A &lt;% Int]
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  classe Sample[A]()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

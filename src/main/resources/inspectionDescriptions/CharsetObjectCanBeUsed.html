@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata métodos e construtores onde literais <code>String</code> de conjuntos de caracteres constantes (por exemplo, <code>"UTF-8"</code>) podem ser substituídos pelo código <code>StandardCharsets</code> predefinido.
+<p>A correção pode tornar o código mais rápido, pois a busca pelo conjunto de caracteres torna-se desnecessária.
+  Além disso, você pode não precisar mais capturar <code>UnsupportedEncodingException</code>. Nesse caso, o bloco catch será removido automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  try {
+    byte[] bytes = "str".getBytes("UTF-8");
+  } catch (UnsupportedEncodingException e) {
+  }
+</code></pre>
+<p>Após a aplicação do quick fix:</p>
+<pre><code>
+  byte[] bytes = "str".getBytes(StandardCharsets.UTF_8);
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção está disponível no Java 7 e versões superiores.</p>
+<p><small>Novidade na versão 2018.2</small></p>
+</body>
+</html>

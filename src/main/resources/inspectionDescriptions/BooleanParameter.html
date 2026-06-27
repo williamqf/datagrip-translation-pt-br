@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata métodos públicos que aceitam parâmetros <code>boolean</code>.
+<p>Se um método público (parte de uma API) não for um setter, adicionar um parâmetro <code>boolean</code> a esse método é quase sempre uma má prática.
+Ao ler código que utiliza tais métodos, pode ser difícil entender o significado do <code>boolean</code> sem consultar o código-fonte ou a documentação.</p>
+<p>Este problema também é conhecido como a <a href="https://ariya.io/2011/08/hall-of-api-shame-boolean-trap">armadilha do booleano (boolean trap)</a>.
+  Parâmetros <code>boolean</code> geralmente podem ser substituídos por um <code>enum</code>.</p>
+<p>Exemplo:</p>
+<pre><code>
+  // Aviso: ao olhar para chamadas a este método,
+  // é difícil entender o significado dos
+  // parâmetros booleanos
+  public boolean setPermission(File f,
+                               int access,
+                               boolean enable,
+                               boolean ownerOnly) {
+    // ...
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Relatar apenas métodos com vários parâmetros booleanos</b> para emitir um aviso apenas quando um método contiver vários parâmetros booleanos.
+<p>
+</body>
+</html>

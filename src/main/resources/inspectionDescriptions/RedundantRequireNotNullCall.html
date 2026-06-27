@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata chamadas redundantes a <code>requireNotNull</code> ou <code>checkNotNull</code> em expressões que não podem ser nulas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(i: Int) {
+      requireNotNull(i) // este 'i' nunca é nulo, portanto esta chamada 'requireNotNull' é redundante.
+      ...
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  fun foo(i: Int) {
+      ...
+  }
+</code></pre>
+</body>
+</html>

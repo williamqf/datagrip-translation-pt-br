@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata quando uma coleção é explicitamente invertida antes de chamar <code>map</code>.</p>
+
+<p> A correção rápida usará <code>xs.reverseMap(f)</code>, o que pode ser mais eficiente em alguns casos.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var seq: Seq[Int]
+  seq.reverse.map(f)
+</code></pre>
+<p>Após a correção rápida:</p>
+<pre><code>
+  var seq: Seq[Int]
+  seq.reverseMap(f)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

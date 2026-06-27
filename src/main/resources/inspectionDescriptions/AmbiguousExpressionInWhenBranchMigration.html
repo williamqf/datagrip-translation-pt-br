@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata expressões lógicas ambíguas em ramificações <code>when</code> que causarão erros de compilação no Kotlin 1.8 e superior.</p>
+<pre><code>
+  fun Int.matches(strict: Boolean): Boolean = when (strict) {
+      true -> this == 6
+      this in (4..7) -> true // ambígua
+      else -> false
+  }
+</code></pre>
+
+<p>Após aplicar o ajuste rápido:</p>
+<pre><code>
+  fun Int.matches(strict: Boolean): Boolean = when (strict) {
+      true -> this == 6
+      (this in (4..7)) -> true // envolvida em parênteses
+      else -> false
+  }
+</code></pre>
+<p>A inspeção está disponível a partir do nível de linguagem Kotlin 1.7.</p>
+</body>
+</html>

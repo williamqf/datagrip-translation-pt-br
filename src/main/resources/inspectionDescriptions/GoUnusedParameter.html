@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata parâmetros de função não utilizados.
+<pre><code>func main() {
+ printAll(
+  42,
+  "bird",
+ )
+}
+
+func printAll(
+ i int,
+ s string,
+) {
+ fmt.Println(i)
+}</code></pre>
+<p>Chamamos a função <b>printAll</b>, passando <code>42</code> e <code>bird</code> como argumentos. A função <b>printAll</b> aceita dois parâmetros, <code>int</code> e <code>string</code>, mas utiliza apenas o primeiro. Portanto, <code>s string</code> ficará esmaecido.
+</p>
+</body>
+</html>

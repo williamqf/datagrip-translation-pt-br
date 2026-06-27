@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata sobrecargas de método inválidas (<code>...</code>). Uma sobrecarga de método só é válida quando há exatamente uma outra definição não sobrecarregada para o método.
+<p>Uma correção rápida pode ser usada para remover a sobrecarga de método inválida.</p>
+<p>Exemplo:</p>
+<pre><code>class Example
+  # Não foi possível encontrar a declaração não sobrecarregada para o método 'call' da classe 'Example'
+  def call: -> untyped | ...
+end</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>class Example
+  def call: -> untyped
+end</code></pre>
+</body>
+</html>

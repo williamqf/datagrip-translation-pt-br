@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata chamadas redundantes de <code>asSequence()</code> que nunca produzirão um impacto positivo no desempenho.</p>
+<p>
+    O <code>asSequence()</code> acelera o processamento de coleções que envolvem múltiplas operações, pois executa as operações de forma adiada (lazy) e não cria coleções intermediárias.
+</p>
+<p>
+    No entanto, se uma operação terminal (por exemplo, <code>toList()</code>) for usada imediatamente após <code>asSequence()</code>, nenhum efeito positivo de desempenho será obtido.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(list: List&lt;String&gt;) {
+      list.<b>asSequence()</b>.last()
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test(list: List&lt;String&gt;) {
+      list.last()
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata métodos booleanos cujos nomes não começam com uma palavra interrogativa.
+<p>Esta inspeção ignora métodos booleanos que sobrescrevem métodos de biblioteca.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>boolean empty(List&lt;String&gt; list) {
+  return list.isEmpty();
+}</code></pre>
+<p>A correção rápida para renomear tais métodos está disponível apenas no editor.</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a lista <b>Prefixos de nome de método booleano</b> para especificar as palavras interrogativas aceitáveis para iniciar nomes de métodos booleanos.</li>
+  <li>Use a opção <b>Ignorar métodos com tipo de retorno 'java.lang.Boolean'</b> para ignorar métodos com o tipo de retorno <code>java.lang.Boolean</code>. </li>
+  <li>Use a opção <b>Ignorar métodos booleanos em @interface</b> para ignorar métodos booleanos de tipos de anotação (<code>@interface</code>).</li>
+  <li>Use a opção <b>Ignorar métodos que sobrescrevem/implementam um super método</b> para ignorar métodos que possuem um super método.</li>
+</ul>
+</body>
+</html>

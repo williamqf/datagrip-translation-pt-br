@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata propriedades do tipo <code>Array</code> em classes <code>data</code> que não possuem <code>equals()</code> ou <code>hashCode()</code> sobrescritos.
+<p>
+    Parâmetros de array são comparados por igualdade de referência, o que pode ser um comportamento inesperado.
+    Nesses casos, recomenda-se fortemente sobrescrever <code>equals()</code> e <code>hashCode()</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  data class Text(val lines: Array&lt;String&gt;)
+</code></pre>
+<p>A correção rápida gera as implementações ausentes de <code>equals()</code> e <code>hashCode()</code>:</p>
+<pre><code>
+  data class Text(val lines: Array&lt;String&gt;) {
+      override fun equals(other: Any?): Boolean {
+          if (this === other) return true
+          if (javaClass != other?.javaClass) return false
+
+          other as Text
+
+          if (!lines.contentEquals(other.lines)) return false
+
+          return true
+      }
+
+      override fun hashCode(): Int {
+          return lines.contentHashCode()
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

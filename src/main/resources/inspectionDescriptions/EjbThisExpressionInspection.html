@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata classes EJB que possuem métodos que retornam <code>this</code> ou o recebem como um parâmetro.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Stateless
+public class ExampleBean {
+  private AnotherBean anotherBean;
+
+  public ExampleBean setAnotherBean(AnotherBean anotherBean) {
+    this.anotherBean = anotherBean;
+    return this; // Erro: não deve retornar `this` aqui
+  }
+}
+</code></pre>
+</body>
+</html>

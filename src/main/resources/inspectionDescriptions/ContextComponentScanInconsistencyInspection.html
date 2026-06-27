@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata definições de <strong>&lt;filter&gt;</strong> inconsistentes no <strong>&lt;component-scan&gt;</strong> do contexto da aplicação XML.</p>
+
+<p><b>Exemplo:</b></p>
+
+<pre><code lang="java">
+  public class NonAnnotationTypeClass {}
+</code></pre>
+<pre><code lang="xml">
+  &lt;beans&gt;
+    &lt;ctx:component-scan base-package="com.my.company"&gt;
+      &lt;ctx:exclude-filter expression="com.my.company.anno.NonAnnotationTypeClass" type="annotation"/&gt;
+    &lt;/ctx:component-scan&gt;
+  &lt;/beans&gt;
+</code></pre>
+
+<p>Neste exemplo, <code>NonAnnotationTypeClass</code> deve ser um tipo de anotação.</p>
+</body>
+</html>

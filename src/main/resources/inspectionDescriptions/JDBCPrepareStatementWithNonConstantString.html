@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas a <code>java.sql.Connection.prepareStatement()</code>, <code>java.sql.Connection.prepareCall()</code> ou qualquer uma de suas variantes que aceitem uma string construída dinamicamente como a instrução a ser preparada.
+<p>
+  Instruções SQL construídas são uma fonte comum de vulnerabilidades de segurança. Por padrão, esta inspeção ignora constantes de tempo de compilação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String bar() { return "bar"; }
+
+  Connection connection = DriverManager.getConnection("", "", "");
+  connection.("SELECT * FROM user WHERE name='" + bar() + "'");
+</code></pre>
+<!-- tooltip end -->
+Use as configurações de inspeção para tratar qualquer campo <code>static</code> <code>final</code> como uma constante. Tenha cuidado, pois quando esta opção estiver ativada, strings como a seguinte serão ignoradas:
+<pre><code>
+  static final String SQL = "SELECT * FROM user WHERE name='" + getUserInput() + "'";
+</code></pre>
+</body>
+</html>

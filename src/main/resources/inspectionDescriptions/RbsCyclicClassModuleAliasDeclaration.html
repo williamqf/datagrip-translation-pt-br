@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata declarações cíclicas de aliases de classe ou módulo.
+
+<p>
+  Declarações cíclicas geram um <code>CyclicClassAliasDefinitionError</code>.
+</p>
+<p>
+  Exemplo:
+</p>
+<pre><code>
+# Declaração cíclica de alias de classe
+class User = Customer
+class Customer = User
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata o uso de <code>@JvmOverloads</code> no construtor de uma classe de anotação, pois ele não possui efeito.</p>
+<p>
+    Não há presença do <code>@JvmOverloads</code> no bytecode gerado nem nos metadados do Kotlin; portanto, o <code>@JvmOverloads</code> não afeta o bytecode gerado nem o comportamento do código.
+</p>
+<p>A partir do Kotlin 1.4, o uso de <code>@JvmOverloads</code> em construtores de classes de anotação resulta em um erro de compilação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  annotation class A <b>@JvmOverloads</b> constructor(val x: Int = 1)
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  annotation class A constructor(val x: Int = 1)
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata classes anônimas que podem ser convertidas em uma chamada de construtor ou de um factory method com argumentos de expressão lambda.
+<p>Esta inspeção relata as seguintes categorias:
+<ul>
+  <li>Classes anônimas que estendem <code>ThreadLocal</code> e possuem o método <code>initialValue()</code> (podem ser substituídas por <code>ThreadLocal.withInitial</code>)</li>
+  <li>Classes anônimas que estendem <code>Thread</code> e possuem o método <code>run()</code> (podem ser substituídas por <code>new Thread(Runnable)</code>)</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  <b>new</b> Thread() {
+    @Override
+    <b>public void</b> run() {
+      System.out.println("Hello from thread!");
+    }
+  }.start();
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>new</b> Thread(() -> {
+    System.out.println("Hello from thread!");
+  }).start();
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

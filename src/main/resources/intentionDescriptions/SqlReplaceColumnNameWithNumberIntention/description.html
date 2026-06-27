@@ -1,0 +1,11 @@
+<html>
+<body>
+Substitui nomes de colunas por referências posicionais.
+<p>Alguns DBMS podem referenciar colunas em ORDER BY e GROUP BY por meio de números sequenciais. Exceto por Cassandra, ClickHouse, Hive, Spark e HSQLDB, todos os dialetos suportam ORDER BY. MySQL, Maria, PostgreSQL (e seus subdialetos), Exasol, SQLite e Snowflake suportam GROUP BY.</p>
+<p>Exemplo (PostgreSQL):</p>
+<pre><code>CREATE TABLE tab(a INT, b INT);
+SELECT * FROM tab ORDER BY 1;</code></pre>
+<p>Você pode usar esta ação de intenção para substituir o <code>1</code> na consulta SELECT pelo nome da coluna. Portanto, após aplicar a ação de intenção, a consulta ficará da seguinte forma:</p>
+<pre><code>SELECT * FROM tab ORDER BY a;</code></pre>
+</body>
+</html>

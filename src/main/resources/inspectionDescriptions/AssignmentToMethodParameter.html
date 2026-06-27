@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata atribuições ou modificações em parâmetros de método.
+<p>Embora às vezes intencional, essa construção pode ser confusa e, por isso, é proibida em alguns projetos Java.</p>
+<p>A correção rápida adiciona a declaração de uma nova variável.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void printTrimmed(String s) {
+    s = s.trim();
+    System.out.println(s);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void printTrimmed(String s) {
+    String trimmed = s.trim();
+    System.out.println(trimmed);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Ignorar se a atribuição for uma transformação do parâmetro original</b> para ignorar atribuições que modificam o valor do parâmetro com base no valor anterior.
+</p>
+</body>
+</html>

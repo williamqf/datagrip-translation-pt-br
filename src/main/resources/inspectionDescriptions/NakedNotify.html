@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas a <code>Object.notify()</code> ou <code>Object.notifyAll()</code> que ocorrem sem que nenhuma mudança de estado detectável tenha sido realizada.
+<p>
+  <code>Object.notify()</code> e <code>Object.notifyAll()</code> são geralmente usados para notificar outras threads de que uma mudança de estado ocorreu. Essa mudança de estado deve ocorrer dentro do contexto sincronizado que contém a chamada a <code>Object.notify()</code> ou <code>Object.notifyAll()</code> e deve ocorrer antes da chamada. Embora a ausência de tal mudança de estado não seja necessariamente incorreta, certamente vale a pena verificar.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  synchronized (this) {
+    notify();
+  }
+  // sem mudança de estado
+  synchronized (this) {
+    notify(); // a notificação pode ser redundante
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas a métodos como <code>format()</code> e <code>printf()</code> que podem ser removidas ou simplificadas com segurança.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  System.out.println(String.format("Total count: %d", 42));
+</code></pre>
+<p>Após a correção rápida:</p>
+<pre><code>
+  System.out.printf("Total count: %d%n", 42);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

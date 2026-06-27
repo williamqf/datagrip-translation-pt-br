@@ -1,0 +1,26 @@
+<html>
+<body>
+Reporta chamadas a <code>Condition.signal()</code> ou <code>Condition.signalAll()</code> para as quais nenhuma chamada correspondente a <code>Condition.await()</code> pode ser encontrada.
+<p>Esta inspeção reporta apenas chamadas que visam campos da classe atual.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Queue {
+    private final Condition isEmpty = ...;
+
+    void add(Object elem) {
+      // ...
+      isEmpty.signal(); // Alerta: chamada a 'signal()' sem um 'await()' correspondente
+      // ...
+    }
+
+    void remove(Object elem) throws InterruptedException {
+      // ...
+      //      isEmpty.await();
+      // ...
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

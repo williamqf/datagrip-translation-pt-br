@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relatório de correspondências de padrões triviais em expressões booleanas que podem ser substituídas por declarações condicionais.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val bool: Boolean
+  bool match {
+    case true => ???
+    case false => ???
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  val bool: Boolean
+  if (bool) {
+    ???
+  } else {
+    ???
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata campos anotados como não nulos que não foram inicializados no construtor.
+<p>Exemplo:</p>
+<pre><code>public class MyClass {
+  private @NotNull String value;
+
+  public void setValue(@NotNull String value) {
+    this.value = value;
+  }
+
+  public @NotNull String getValue() {
+    return value;
+  }
+}</code></pre>
+<p>
+  Tais campos podem violar as restrições de não nulidade. No exemplo acima, o parâmetro de <code>setValue</code> está anotado como não nulo, mas <code>getValue</code> pode retornar null se o setter não for chamado.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

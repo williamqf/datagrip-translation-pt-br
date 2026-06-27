@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata declarações <code>object</code> que podem ser convertidas em <code>data object</code>.</p>
+<p>O <code>data object</code> gera automaticamente <code>toString</code>, <code>equals</code> e <code>hashCode</code>.</p>
+<p>Esta inspeção sugere converter um <code>object</code> em um <code>data object</code> nos dois casos a seguir:</p>
+<ul>
+    <li>Quando um <code>toString</code> personalizado retorna o nome da classe</li>
+    <li>Quando o <code>object</code> herda de uma <code>class</code> ou <code>interface</code> selada (<code>sealed</code>)</li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    object Foo {
+        override fun toString(): String = "Foo"
+    }
+</code></pre>
+<p>Após a aplicação da correção rápida (quick fix):</p>
+<pre><code>
+    data object Foo
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção é relatada apenas se o nível da linguagem Kotlin do projeto ou módulo for 1.9 ou superior.</p>
+</body>
+</html>

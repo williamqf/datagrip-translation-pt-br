@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Detecta notações de dependência incorretas.</p>
+  O Gradle suporta os seguintes tipos/formatos:
+  <ul>
+  <li> Instâncias de <code>Dependency</code>; </li>
+  <li> Valores <code>String</code> ou <code>CharSequence</code>, por exemplo, <code>'org.gradle:gradle-core:1.0'</code>; </li>
+  <li> Mapas, por exemplo, <code>[group: 'org.gradle', name: 'gradle-core', version: '1.0']</code>; </li>
+  <li> FileCollection, por exemplo, <code>files('some.jar', 'someOther.jar')</code>; </li>
+  <li> Projetos, por exemplo, <code>project(':some:project:path')</code>; </li>
+  <li> <code>ClassPathNotation</code>, por exemplo, <code>gradleApi()</code>; </li>
+  <li> Listas de notações de dependência, por exemplo, <code>['org.gradle:gradle-core:1.0']</code>; </li>
+  <li> (Gradle 7.0+) <a href="https://docs.gradle.org/current/userguide/platforms.html">Acessores de catálogo de versões</a>, por exemplo, <code>libs.groovy.core</code>. </li>
+</ul>
+  <a href="https://docs.gradle.org/current/userguide/declaring_dependencies.html#sec:dependency-types">Consulte a documentação do Gradle</a>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+dependencies {
+  implementation(1) // reporta '1'
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata instruções <code>try</code>-<code>finally</code> que podem usar o Gerenciamento Automático de Recursos (Automatic Resource Management) do Java 7 (que é menos propenso a erros).
+<p>Uma correção rápida pode converter a instrução <code>try</code>-<code>finally</code> em uma instrução <code>try</code>-with-resources.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  PrintStream printStream = new PrintStream(fileName);
+  try {
+    printStream.print(true);
+  } finally {
+    printStream.close();
+  }
+</code></pre>
+<p>Após a correção rápida:</p>
+<pre><code>
+  try (PrintStream printStream = new PrintStream(fileName)) {
+    printStream.print(true);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

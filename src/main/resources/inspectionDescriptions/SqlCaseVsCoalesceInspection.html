@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata casos em que as chamadas CASE e COALESCE podem ser intercambiadas. Esta inspeção possui as seguintes ações de intenção: <b>Substituir pela chamada 'COALESCE'</b> e a oposta, <b>Substituir pela expressão CASE</b>.
+<p>Exemplo (MySQL):</p>
+<pre><code>SELECT
+  -- este CASE pode ser substituído por COALESCE
+	CASE
+		WHEN C1 IS NOT NULL THEN C1
+		ELSE 0
+		END
+FROM dual;</code></pre>
+<p>Neste exemplo, a instrução CASE pode ser substituída por <code>SELECT COALESCE(C1, 0)</code>, que produz o mesmo resultado.</p>
+<p>Se você preferir usar expressões CASE, selecione a opção <b>Preferir expressão CASE em vez da função COALESCE</b> na página de inspeção.</p>
+</body>
+</html>

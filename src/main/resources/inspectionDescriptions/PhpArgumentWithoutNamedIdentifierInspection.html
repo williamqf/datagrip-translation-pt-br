@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata argumentos sem um identificador de nome.</p>
+<p>Exemplo:</p>
+<pre><code>
+function foo(int $param1, int $param2){}
+
+foo(1, 2); // Argumentos sem um identificador de nome
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+function foo(int $param1,int $param2){}
+
+foo(param1: 1, param2: 2);
+</code></pre>
+</body>
+</html>

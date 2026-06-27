@@ -1,0 +1,28 @@
+# Gradle
+.gradle/
+build/
+.gradle_dist/
+
+# Local configuration / secrets
+.env
+translation_cache.json
+secrets/
+
+# Temp translation assets
+temp_english_properties/
+
+# IDE files
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Permanent releases folder binaries
+releases/*.zip
+
+# IntelliJ Platform Gradle Plugin caches
+.intellijPlatform/
+.jdk_dist/
+
+

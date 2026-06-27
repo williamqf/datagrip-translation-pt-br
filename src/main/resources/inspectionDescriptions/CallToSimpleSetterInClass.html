@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata chamadas a setters de propriedades simples de dentro da classe da propriedade.
+<p>
+  Um setter de propriedade simples é definido como aquele que apenas atribui o valor de seu parâmetro a um campo, sem realizar outros cálculos. Tais chamadas de setter simples podem ser incorporadas (inlined) com segurança. Para manter a clareza do código, alguns padrões de codificação também recomendam não usar setters simples.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+  private int index;
+    public Foo(int idx) {
+       setIndex(idx);
+    }
+    public void setIndex(int idx) {
+       index = idx;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    private int index;
+    public Foo(int idx) {
+      index = idx;
+    }
+    public void setIndex(int idx) {
+      index = idx;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>Se deve relatar apenas chamadas de setter em <code>this</code>, e não em objetos do mesmo tipo passados como parâmetros.</li>
+  <li>Se deve ignorar setters que não sejam <code>private</code>.</li>
+</ul>
+</body>
+</html>

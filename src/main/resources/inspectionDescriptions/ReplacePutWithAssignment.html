@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas de função <code>map.put</code> que podem ser substituídas pelo operador de indexação (<code>[]</code>).
+<p>O uso de açúcar sintático pode tornar o código mais simples.</p>
+<p>A correção rápida substitui a chamada <code>put</code> por uma atribuição.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(map: MutableMap&lt;Int, String&gt;) {
+      map.put(42, &quot;foo&quot;)
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(map: MutableMap&lt;Int, String&gt;) {
+      map[42] = &quot;foo&quot;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

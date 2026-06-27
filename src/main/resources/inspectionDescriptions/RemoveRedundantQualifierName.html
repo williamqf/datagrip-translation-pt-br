@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata qualificadores redundantes (ou partes deles) para nomes de classes, funções e propriedades.
+<p>
+    Um nome totalmente qualificado é um identificador inequívoco que especifica o objeto, função ou propriedade a que uma chamada se refere.
+    Em contextos onde os nomes podem ser encurtados, a inspeção informa sobre essa oportunidade, e a correção rápida "Remover nome de qualificador redundante" associada pode modificar o código.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  package my.simple.name
+  import kotlin.Int.Companion.MAX_VALUE
+
+  class Foo
+
+  fun main() {
+      val a = my.simple.name.Foo()    // 'Foo' está no pacote 'my.simple.name' declarado, o qualificador é redundante
+      val b = kotlin.Int.MAX_VALUE    // pode ser substituído por 'MAX_VALUE' porque foi importado
+      val c = kotlin.Double.MAX_VALUE // pode ser substituído por 'Double.MAX_VALUE' porque os tipos integrados são importados automaticamente
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  package my.simple.name
+  import kotlin.Int.Companion.MAX_VALUE
+
+  class Foo
+
+  fun main() {
+      val a = Foo()
+      val b = MAX_VALUE
+      val c = Double.MAX_VALUE
+  }
+</code></pre>
+</body>
+</html>

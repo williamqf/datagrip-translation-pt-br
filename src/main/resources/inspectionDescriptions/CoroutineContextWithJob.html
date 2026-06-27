@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas de construtor de corrotina que violam a concorrência estruturada ao aceitar um <code>CoroutineContext</code> que contém um <code>Job</code>.
+<p>
+  Passar um contexto com um <code>Job</code> para construtores de corrotinas (como <code>launch</code>, <code>async</code>, <code>produce</code>, <code>promise</code>) ou para <code>withContext</code> quebra a relação pai-filho entre as corrotinas, anulando assim o propósito da concorrência estruturada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+coroutineScope.launch(Job()) {
+  // Esta corrotina não possui uma relação de pai com o receptor `coroutineScope`
+}
+</code></pre>
+</body>
+</html>

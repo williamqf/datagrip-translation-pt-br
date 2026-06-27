@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata o uso redundante e removível de <code>\d</code> ou <code>[:digit:]</code> (assim como <code>\D</code> com <code>\W</code>) quando utilizados na mesma classe que <code>\w</code> ou <code>[:word:]</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  [\w\d]
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  [\w]
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.2</small>
+</body>
+</html>

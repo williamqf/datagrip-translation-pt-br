@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata argumentos usados sem nomes em chamadas de rotina. Por padrão, esta inspeção está desabilitada.
+<p>Para obter mais detalhes sobre a diferença entre parâmetros nomeados e não nomeados, consulte <a
+    href="https://docs.microsoft.com/en-us/sql/odbc/reference/develop-app/binding-parameters-by-name-named-parameters">Binding Parameters by Name (Named Parameters) no docs.microsoft.com</a>.</p>
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE FUNCTION foo(n INT, m INT) RETURNS INT AS
+BEGIN
+    RETURN n + m;
+END;
+
+CREATE PROCEDURE test AS
+BEGIN
+    foo n = 1, m = 2;
+
+--- A chamada a seguir não possui nomes de parâmetros e será destacada
+    foo 1, 2;
+END;</code></pre>
+<p>Os parâmetros <code>1, 2</code> na chamada <code>foo 1, 2;</code> são destacados porque não possuem nomes.</p>
+</body>
+</html>

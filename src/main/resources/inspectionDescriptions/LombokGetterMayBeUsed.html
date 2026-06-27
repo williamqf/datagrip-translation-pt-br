@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata métodos getter padrão que podem ser substituídos pela anotação <code>@Getter</code> do lombok.
+<p>Exemplo:</p>
+<pre><code>
+  import java.util.Date;
+
+  public class MyClass {
+    /**
+     * Data de processamento.
+     */
+    private Date processDate;
+
+    /**
+     * Retorna a data.
+     *
+     * @return A data
+     */
+    public Date getProcessDate() {
+      return processDate;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida/limpeza:</p>
+<pre><code>
+  import lombok.Getter;
+  import java.util.Date;
+
+  @Getter
+  public class MyClass {
+    /**
+     * Data de processamento.
+     * -- GETTER --
+     * Retorna a data.
+     *
+     * @return A data
+     */
+    private Date processDate;
+  }
+</code></pre>
+<p>Relata apenas se a biblioteca lombok estiver configurada. Para remover o lombok, consulte o site do lombok.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small></p>
+</body>
+</html>

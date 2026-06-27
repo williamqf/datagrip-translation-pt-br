@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata conversões de tipo que podem ser omitidas.
+<p>Exemplo:</p>
+<pre><code>var s = string("hello")</code></pre>
+<p>O valor <code>"hello"</code> já é do tipo <code>string</code>, portanto a conversão adicional para <code>string</code> é redundante.
+  Para remover a conversão, considere usar a correção rápida <b>Remover conversão</b>.</p>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>var s = "hello"</code></pre>
+<!-- tooltip end -->
+<p>Às vezes, converter expressões de ponto flutuante para tipos de ponto flutuante pode ser intencional (consulte <a href="https://github.com/mdempsky/unconvert/issues/40">este problema</a>). Nesses casos, o IDE alertará sobre uma <i>possível</i> conversão redundante.
+</p>
+</body>
+</html>

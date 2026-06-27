@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata variáveis locais ou parâmetros que poderiam ter o modificador <code>final</code> adicionado às suas declarações.
+<p>Exemplo:</p>
+<pre><code>
+  ArrayList&lt;Integer&gt; list = new ArrayList();
+  fill(list);
+  return list;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  final ArrayList&lt;Integer&gt; list = new ArrayList();
+  fill(list);
+  return list;
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as opções desta inspeção para definir quais tipos de parâmetros ou variáveis locais devem ser relatados.
+</p>
+</body>
+</html>

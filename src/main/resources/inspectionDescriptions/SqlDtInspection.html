@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata erros em literais de data e hora. Esta inspeção está disponível no MySQL, Oracle, Db2 e H2.
+<p>Exemplo (MySQL):</p>
+<pre><code lang="sql">SELECT TIME '10 -12:13:14' FROM dual;
+SELECT TIME ' 12 : 13 : 14 ' FROM dual;
+SELECT TIME '12 13 14' FROM dual;
+SELECT TIME '12-13-14' FROM dual;
+SELECT TIME '12.13.14' FROM dual;
+SELECT TIME '12:13:' FROM dual;
+SELECT TIME '12:13' FROM dual;
+SELECT TIME '12:' FROM dual;</code></pre>
+<p>Neste exemplo, as datas ignoram os padrões de literais de data e hora do MySQL. Portanto, elas serão destacadas.
+  Para obter detalhes sobre literais de data e hora no MySQL, consulte <a
+    href="https://dev.mysql.com/doc/refman/8.0/en/date-and-time-literals.html">Date and Time Literals em dev.mysql.com</a>.</p>
+<p>Os seguintes literais de data e hora são válidos para o MySQL.</p>
+<pre><code lang="sql">SELECT TIME '12:13:14' FROM dual;
+SELECT TIME '12:13:14.555' FROM dual;
+SELECT TIME '12:13:14.' FROM dual;
+SELECT TIME '-12:13:14' FROM dual;
+SELECT TIME '10 12:13:14' FROM dual;
+SELECT TIME '-10 12:13:14' FROM dual;</code></pre>
+</body>
+</html>

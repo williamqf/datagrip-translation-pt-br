@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata métodos anotados com <code>@DataProvider</code> que não retornam <code>Object[][]</code> ou <code>Iterator&lt;Object&gt;</code>.
+Se outro tipo for retornado, o TestNG lançará uma exceção.
+<p>Exemplo:</p>
+<pre><code>
+public class TestNgTest {
+  @DataProvider(name = "Languages")
+  List&lt;String&gt; getData() {
+    return List.of("Java", "Kotlin");
+  }
+
+  @Test(dataProvider = "Languages")
+  public void testData(String language) {
+    System.out.println(language);
+  }
+}
+</code></pre>
+</body>
+</html>

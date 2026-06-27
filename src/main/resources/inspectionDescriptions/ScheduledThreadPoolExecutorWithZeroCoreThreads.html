@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata quaisquer instâncias de <code>java.util.concurrent.ScheduledThreadPoolExecutor</code> que tenham o <code>corePoolSize</code> definido como zero por meio do método <code>setCorePoolSize</code> ou do construtor do objeto.
+<p>
+  Um <code>ScheduledThreadPoolExecutor</code> com zero threads core não executa nada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(int corePoolSize) {
+      if (corePoolSize != 0) return;
+      ThreadPoolExecutor executor = new ScheduledThreadPoolExecutor(corePoolSize); // aviso
+      executor.setCorePoolSize(corePoolSize); // aviso
+  }
+</code></pre>
+</body>
+</html>

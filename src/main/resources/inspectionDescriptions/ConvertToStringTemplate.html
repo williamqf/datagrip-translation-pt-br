@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata concatenações de string que podem ser convertidas em templates de string.
+<p>O uso de templates de string é recomendado, pois torna o código mais fácil de ler.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun example() {
+      val capitals = mapOf("France" to "Paris", "Spain" to "Madrid")
+      for ((country, capital) in capitals) {
+          print(capital + " is a capital of " + country)
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun example() {
+      val capitals = mapOf("France" to "Paris", "Spain" to "Madrid")
+      for ((country, capital) in capitals) {
+          print("$capital is a capital of $country")
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

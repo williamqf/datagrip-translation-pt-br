@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata uma invocação de construtor <code>Pair</code> que pode ser substituída por uma chamada de função infixa <code>to()</code>.
+<p>
+    Invocações explícitas de construtores podem adicionar verbosidade, especialmente se forem usadas várias vezes.
+    Substituir chamadas de construtor por <code>to()</code> torna o código mais fácil de ler e manter.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val countries = mapOf(
+      Pair("França", "Paris"),
+      Pair("Espanha", "Madri"),
+      Pair("Alemanha", "Berlim")
+  )
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  val countries = mapOf(
+      "França" to "Paris",
+      "Espanha" to "Madri",
+      "Alemanha" to "Berlim"
+  )
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

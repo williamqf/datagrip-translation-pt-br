@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata instruções <code>try</code> que capturam <code>java.lang.Error</code> ou qualquer uma de suas subclasses e não lançam o erro novamente.
+<p>Instruções que capturam <code>java.lang.ThreadDeath</code> não serão relatadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    executeTests(request);
+  }
+  catch (OutOfMemoryError ex) { // Aviso: o erro 'ex' não é lançado novamente
+    return false;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+<body>
+Relata 'fallthrough' em instruções <code>switch</code>.
+<p>O fallthrough ocorre quando uma série de instruções executáveis após um rótulo <code>case</code> não garante a transferência de controle antes do próximo rótulo <code>case</code>. Por exemplo, isso pode acontecer se uma instrução <code>break</code> estiver ausente em um bloco.
+Nesses casos, o controle passará para as instruções após o rótulo <code>switch</code> seguinte, mesmo que a expressão <code>switch</code> não seja igual ao valor do rótulo onde ocorreu o fallthrough. Embora essa construção seja ocasionalmente intencional, ela é confusa e geralmente é causada por um erro de digitação.</p>
+<p>
+Esta inspeção ignorará qualquer fallthrough comentado com um texto que corresponda ao padrão de expressão regular <code>(?i)falls?\s*thro?u</code>.
+</p>
+<p>É possível corrigir o problema adicionando um <code>break</code> ao bloco que pode passar para o próximo.</p>
+<p>Exemplo:</p>
+<pre><code>
+    switch(x) {
+      case (4):
+          if (condition) {
+              System.out.println("3");
+              // nenhum break aqui
+          } else {
+              break;
+          }
+      case (6):
+          System.out.println("4");
+    }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+    switch(x) {
+        case (4):
+            if (condition) {
+                System.out.println("3");
+            } else {
+                break;
+            }
+            break;
+        case (6):
+            System.out.println("4");
+    }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

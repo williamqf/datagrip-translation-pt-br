@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata as ocorrências dos seguintes elementos que podem ser removidos com segurança, pois as inspeções que eles afetam não são mais aplicáveis neste contexto:
+<ul>
+  <li>anotação <code>@SuppressWarnings</code>, ou</li>
+  <li>comentário de linha <code>// noinspection</code>, ou</li>
+  <li>comentário JavaDoc <code>/** noinspection */</code></li>
+</ul>
+<p>Exemplo:</p>
+<pre><code lang="java">
+public class C {
+ // O símbolo já é private,
+ // mas a anotação ainda permanece
+  @SuppressWarnings({"WeakerAccess"})
+ private boolean CONST = true;
+ void f() {
+    CONST = false;
+  }
+}
+</code></pre>
+
+
+</body>
+</html>

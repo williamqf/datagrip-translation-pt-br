@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata métodos de teste que não contêm nenhuma asserção. Tais métodos podem indicar casos de teste incompletos ou frágeis.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  <b>public class</b> ExtensiveTest {
+
+    @Test
+    <b>public void</b> testAlive() {
+      System.out.println("nothing");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configuração da inspeção:
+</p>
+<ul>
+  <li>
+      Use a tabela para especificar combinações de nomes de classes totalmente qualificados e expressões regulares de nomes de métodos que devem ser considerados como asserções. O nome da classe também corresponde a subclasses.
+  </li>
+  <li>
+      Use a opção <b>Considerar a palavra-chave 'assert' como uma asserção</b> para especificar se as instruções Java <code>assert</code> que usam a palavra-chave <code>assert</code> devem ser tratadas como asserções.
+  </li>
+  <li>
+      Use a opção <b>Ignorar métodos de teste que declaram exceções</b> para ignorar métodos de teste que declaram exceções.
+      Isso pode ser útil quando seus testes lançam uma exceção em caso de falha e, portanto, não exigem nenhuma asserção.
+  </li>
+</ul>
+
+</body>
+</html>

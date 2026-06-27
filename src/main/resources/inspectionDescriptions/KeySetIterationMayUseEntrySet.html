@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata iterações sobre o <code>keySet()</code> de uma instância de <code>java.util.Map</code>, onde a chave iterada é usada para recuperar um valor do mapa.
+<p>
+  Tais iterações podem ser mais eficientes quando substituídas pela iteração de <code>entrySet()</code> ou <code>values()</code> (se as chaves não forem realmente usadas).
+</p>
+<p>
+  Da mesma forma, se o valor for recuperado em um lambda, <code>keySet().forEach(key -&gt; ...)</code> pode ser substituído por <code>forEach((key, value) -&gt; ...)</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (Object key : map.keySet()) {
+   Object val = map.get(key);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  for (Object val : map.values()) {}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

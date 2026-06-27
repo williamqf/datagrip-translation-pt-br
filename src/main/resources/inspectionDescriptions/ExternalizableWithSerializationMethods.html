@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata classes <code>Externalizable</code> que definem os métodos <code>readObject()</code> ou <code>writeObject()</code>. Esses métodos não são chamados para a serialização de objetos <code>Externalizable</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  abstract class Crucial implements Externalizable {
+    int value;
+    private void readObject(ObjectInputStream in) {
+      value = in.readInt();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

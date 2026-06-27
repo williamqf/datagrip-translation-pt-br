@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata modificadores <code>public</code> desnecessários, pois as classes e métodos Groovy são <code>public</code> por padrão.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo{
+      public void bar(){
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo{
+      void bar(){
+      }
+  }
+</code></pre>
+</body>
+</html>

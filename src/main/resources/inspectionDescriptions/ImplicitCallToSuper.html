@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata construtores que não começam com uma chamada ao construtor "super" ou a outro construtor da mesma classe.
+<p>Pode-se considerar que tais construtores começam implicitamente com uma chamada a <code>super()</code>. Alguns padrões de codificação preferem chamadas explícitas a <code>super()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    Foo() {}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    Foo() {
+      super();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as configurações de inspeção para ignorar classes que estendem diretamente de <code>Object</code>.
+  Exemplo:
+</p>
+<pre><code>
+  class Foo {
+    Foo() {} // Não relatado
+  }
+
+  class Bar extends Foo {
+    Bar() {} // Chamada implícita a 'super()'
+  }
+</code></pre>
+</body>
+</html>

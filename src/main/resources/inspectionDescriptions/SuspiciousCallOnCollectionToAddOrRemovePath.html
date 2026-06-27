@@ -1,0 +1,36 @@
+<html>
+<body>
+<p>Reporta chamadas que usam <code>plus</code>/<code>minus</code> na forma de operador (<code>a + b</code>, <code>a - b</code>) ou na forma de chamada regular (<code>a.plus(b)</code>, <code>a.minus(b)</code>) para adicionar ou remover um <code>java.nio.file.Path</code> de coleções ou sequências Kotlin.</p>
+<p>Como o <code>java.nio.file.Path</code> implementa <code>Iterable&lt;Path&gt;</code>, essas chamadas são resolvidas como uma sobrecarga inesperada das funções <code>plus</code> ou <code>minus</code> que aceitam uma coleção de elementos (neste caso, os elementos individuais do <code>Path</code>). No entanto, a intenção do código provavelmente é adicionar ou remover o próprio <code>Path</code>, e não os elementos individuais.</p>
+<p><b>Exemplos:</b></p>
+<pre><code>
+// Forma de operador
+val paths = listOf(path) + somePath
+val paths2 = setOf(path) - somePath
+
+// Forma de chamada regular
+val paths = listOf(path).plus(somePath)
+val paths2 = setOf(path).minus(somePath)
+</code></pre>
+
+<p><b>Correções rápidas:</b></p>
+<ul>
+    <li>Converter para <code>plusElement</code>/<code>minusElement</code> (muda a semântica para a intenção original):
+        <pre><code>
+val paths = listOf(path).plusElement(somePath)
+val paths2 = setOf(path).minusElement(somePath)
+    </code></pre>
+    </li>
+    <li>Converter o argumento <code>Path</code> em uma coleção para esclarecer a intenção sem alterar a semântica:
+        <ul>
+            <li>Para <code>plus</code>: envolva o argumento com <code>toList()</code> para preservar a ordem.</li>
+            <li>Para <code>minus</code>: envolva o argumento com <code>toSet()</code> para remoção eficiente.</li>
+        </ul>
+        <pre><code>
+val paths = listOf(path).plus(somePath.toList())
+val paths2 = setOf(path).minus(somePath.toSet())
+    </code></pre>
+    </li>
+</ul>
+</body>
+</html>

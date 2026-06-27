@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata variáveis de tipo não utilizadas em contêineres, métodos e aliases de tipo no projeto.
+<p>As variáveis de tipo de contêiner são verificadas apenas se o contêiner tiver exatamente uma declaração.</p>
+<p>Uma correção rápida pode ser usada para remover variáveis de tipo não utilizadas.</p>
+<p>Exemplo:</p>
+<pre><code># A variável de tipo 'A' da classe 'Example' não é utilizada
+class Example[A]
+end</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>class Example
+end</code></pre>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata expressões booleanas sem sentido ou desnecessariamente complexas.
+<p>
+  Tais expressões incluem conjunções com true, disjunções com false, comparações de igualdade com literais booleanos ou negações de literais booleanos. Essas expressões podem ser o resultado de uma refatoração automática incompleta e, em qualquer caso, dificilmente seriam intencionais por parte do desenvolvedor.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (someBool && true) {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (someBool) {}
+</code></pre>
+</body>
+</html>

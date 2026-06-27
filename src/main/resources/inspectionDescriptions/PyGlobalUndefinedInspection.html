@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata problemas em que variáveis definidas por meio da instrução <code>global</code> não estão definidas no escopo do módulo.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+def foo():
+    global bar
+    print(bar)
+
+foo()
+</code></pre>
+<p>Isso pode ser corrigido movendo a declaração da variável global:</p>
+<pre><code>
+global bar
+
+
+def foo():
+    print(bar)
+</code></pre>
+</body>
+</html>

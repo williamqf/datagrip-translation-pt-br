@@ -1,0 +1,19 @@
+<html>
+<body>
+Relatar o uso de tipos dinâmicos (<code>instance</code>, <code>class</code> e <code>self</code>) em contextos estáticos. O uso de tipos dinâmicos em contextos estáticos pode ser confuso, pois esse tipo nunca muda.
+<p>É possível usar uma correção rápida para substituir o uso de tipos dinâmicos pelo equivalente estático.</p>
+<p>Exemplo:</p>
+<pre><code>class Exemplo
+  # Uso de 'instance' em contexto estático
+  INSTANCE: instance
+  # Uso de 'class' em contexto estático
+  CLASSE: class
+end
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>class Exemplo
+  INSTANCE: Exemplo
+  CLASSE: singleton(Exemplo)
+end</code></pre>
+</body>
+</html>

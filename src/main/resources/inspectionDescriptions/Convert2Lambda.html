@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata classes anônimas que podem ser substituídas por expressões lambda.
+<p>Exemplo:</p>
+<pre><code>
+  new Thread(new Runnable() {
+    @Override
+    public void run() {
+      // executar thread
+    }
+  });
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  new Thread(() -> {
+    // executar thread
+  });
+</code></pre>
+<p>
+Observe que, se a classe anônima for convertida em um lambda sem estado (stateless), o Java runtime poderá reutilizar o mesmo objeto lambda em chamadas subsequentes. Por outro lado, ao usar classes anônimas, objetos separados são criados a cada vez. Portanto, em casos raros, a aplicação da correção rápida pode resultar em mudanças semânticas, por exemplo, quando uma instância de classe anônima é usada como chave de um <code>HashMap</code>.
+</p>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Relatar quando a interface não estiver anotada com @FunctionalInterface</b> para ignorar casos em que classes anônimas implementam interfaces que não possuem a anotação <code>@FunctionalInterface</code>.
+</p>
+</body>
+</html>

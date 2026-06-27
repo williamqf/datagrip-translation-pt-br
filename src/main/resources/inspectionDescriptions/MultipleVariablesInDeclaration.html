@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata múltiplas variáveis declaradas em uma única declaração e sugere a criação de uma declaração separada para cada variável.
+<p>Alguns padrões de codificação proíbem tais declarações.</p>
+<p>Exemplo:</p>
+<pre><code>
+  int x = 1, y = 2;
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  int x = 1;
+  int y = 2;
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+<li>Use a opção <b>Ignorar declarações de loop 'for'</b> para ignorar múltiplas variáveis declaradas na inicialização de instruções de loop 'for', por exemplo:
+<pre><code>
+  <b>for</b> (int i = 0, max = list.size(); i &gt; max; i++) {}
+</code></pre>
+</li>
+<li>Use a opção <b>Avisar apenas para dimensões de array diferentes em uma única declaração</b> para avisar somente quando variáveis com diferentes dimensões de array forem declaradas em uma única declaração, por exemplo:
+<pre><code>
+  String s = "", array[];
+</code></pre>
+</li>
+</ul>
+<p><small>Novidade na versão 2019.2</small></p>
+</body>
+</html>

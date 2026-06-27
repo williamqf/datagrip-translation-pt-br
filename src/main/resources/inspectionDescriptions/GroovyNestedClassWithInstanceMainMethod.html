@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata métodos <code>main</code> de instância declarados dentro de classes aninhadas.</p>
+
+<p>
+  A chamada de um método <code>main</code> em uma classe aninhada não é tratada diretamente pelo Groovy; no entanto, isso pode ser feito delegando a execução ao Java.
+  Nesse caso, o código só será executado com sucesso se a versão do Java for recente o suficiente. Considere o seguinte exemplo:
+</p>
+<pre><code>
+class Outer {
+  static class Nested {
+    void main() {
+      println 'Hello from nested'
+    }
+  }
+}
+</code></pre>
+
+O código é executado com sucesso no Java 25, mas falha no Java 17.
+</body>
+</html>

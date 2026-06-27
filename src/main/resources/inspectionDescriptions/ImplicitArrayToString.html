@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata arrays usados em concatenações de <code>String</code> ou passados como parâmetros para métodos de <code>java.io.PrintStream</code>, como <code>System.out.println()</code>.
+<p>
+  Geralmente, espera-se que o conteúdo do array seja utilizado, em vez do próprio objeto array.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void print(Object[] objects) {
+    System.out.println(objects);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void print(Object[] objects) {
+    System.out.println(Arrays.toString(objects));
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

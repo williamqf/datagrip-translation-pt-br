@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata chamadas a <code>Throwable.initCause()</code> em que o construtor da exceção também aceita um argumento <code>Throwable cause</code>.
+<p>Nesse caso, a chamada a <code>initCause()</code> pode ser removida e seu argumento adicionado à chamada do construtor da exceção.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+      process();
+  }
+  catch (RuntimeException ex) {
+    RuntimeException wrapper = new RuntimeException("Error while processing");
+    wrapper.initCause(ex); // Chamada desnecessária a 'Throwable.initCause()'
+    throw wrapper;
+  }
+</code></pre>
+<p>Uma correção rápida pode ser usada para passar o argumento da causa para o construtor. Após aplicar a correção rápida:</p>
+<pre><code>
+  try {
+      process();
+  }
+  catch (RuntimeException ex) {
+    RuntimeException wrapper = new RuntimeException("Error while processing", ex);
+    throw wrapper;
+  }
+  </code></pre>
+<!-- tooltip end -->
+</body>
+</html>

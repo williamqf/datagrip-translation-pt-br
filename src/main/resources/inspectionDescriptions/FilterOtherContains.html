@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata <code>filter</code> ou <code>filterNot</code> sobre <code>Set</code> e sugere usar <code>intersect</code> ou <code>diff</code> em seu lugar.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val set = Set(1, 2)
+  val others = Set(2, 3)
+  set.filter(others.contains(_))
+  set.filterNot(others.contains)
+  set.filter(x => !others.contains(x))
+  set.filterNot(x => !others.contains(x))
+</code></pre>
+<p>Após aplicação de correção rápida:</p>
+<pre><code>
+  val set = Set(1, 2)
+  val others = Set(2, 3)
+  set.intersect(others)
+  set.diff(others)
+  set.diff(others)
+  set.intersect(others)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

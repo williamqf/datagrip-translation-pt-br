@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata as formas sem curto-circuito dos operadores booleanos 'and' e 'or' (<code>&</code> e <code>|</code>).
+<p>
+  As versões sem curto-circuito são ocasionalmente úteis, mas geralmente resultam de erros de digitação das formas de curto-circuito (<code>&&</code> e <code>||</code>) e podem produzir bugs difíceis de detectar.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+if (a & b) {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+if (a && b) {}
+</code></pre>
+
+</body>
+</html>

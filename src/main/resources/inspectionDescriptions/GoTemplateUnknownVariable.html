@@ -1,0 +1,9 @@
+<html>
+<body>
+<p>Relata o uso de variáveis desconhecidas em templates Go.</p>
+<p>A análise de tais templates resultará em um panic, pois as variáveis devem ser declaradas antes de serem usadas.</p>
+<p>Exemplo:</p>
+<pre><code>{{$v}} é zero. {{/* Ruim, $v é desconhecida */}}
+{{$v := 0}}{{$v}} é zero. {{/* Bom */}}</code></pre>
+</body>
+</html>

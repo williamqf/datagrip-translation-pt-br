@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas ao método <code>java.util.List.get()</code>. Tais chamadas podem ser substituídas por uma forma de acesso por chave mais curta e clara.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+def list = ["foo"]
+def str = list.get(0) // list.get(0) pode ser substituído por list[0]
+</code>
+</pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre>
+<code>
+def list = ["foo"]
+def str = list[0]
+</code>
+</pre>
+</body>
+</html>

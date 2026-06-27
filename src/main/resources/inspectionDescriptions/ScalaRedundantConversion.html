@@ -1,0 +1,17 @@
+<html>
+<body><p>Relata chamadas de métodos de conversão redundantes (<code>toInt</code>, <code>toString</code>, etc.).</p>
+
+<p>Uma conversão é redundante se ela não alterar o tipo da coleção.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  "Test".toString
+  Seq(1, 2).toSeq
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  "Test"
+  Seq(1, 2)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

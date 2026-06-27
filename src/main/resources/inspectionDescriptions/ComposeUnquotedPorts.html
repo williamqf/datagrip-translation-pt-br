@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Relata mapeamentos de porta sem aspas em arquivos Docker Compose.</p>
+<p>
+  De acordo com a <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#short-syntax-1">especificação do arquivo Compose</a>,
+  o mapeamento de portas no formato <code>HOST:CONTAINER</code> pode levar a resultados incorretos ao usar uma porta de contêiner inferior a 60,
+  porque o YAML analisa números no formato <code>xx:yy</code> como um valor na base 60.
+  Por esse motivo, recomendamos sempre especificar explicitamente os mapeamentos de porta como strings.
+</p>
+<p><b>Exemplos:</b></p>
+<pre><code>
+  ports:
+    - 3000
+    - 3000-3005
+    - 22:22
+    - 8080:8080
+</code></pre>
+<p>Após a aplicação da correção rápida (quick-fix):</p>
+<pre><code>
+  ports:
+    - "3000"
+    - "3000-3005"
+    - "22:22"
+    - "8080:8080"
+</code></pre>
+</body>
+</html>

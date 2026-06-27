@@ -1,0 +1,46 @@
+<html>
+<body>
+Relata atribuições a receptores de método.
+<p>Quando você atribui um valor a um receptor de método, esse valor não será refletido fora do próprio método.
+  O valor será refletido em chamadas subsequentes dentro do mesmo método.</p>
+<p>Exemplo:</p>
+<pre><code>package main
+
+import "fmt"
+
+type demo struct {
+ Val int
+}
+
+func (d *demo) change() {
+ d = nil // a atribuição ao receptor do método é propagada apenas para o chamado, não para o chamador
+ d.myVal()
+}
+
+func (d *demo) myVal() {
+ fmt.Printf("my val: %#v\n", d)
+}
+
+func (d demo) change2() {
+ d = demo{} // a atribuição ao receptor do método não se propaga para outras chamadas
+ d.myVal()
+}
+
+func (d *demo) change3() {
+ d.Val = 3
+ d.myVal()
+}
+
+func main() {
+ d := &demo{}
+ d.myVal()
+ d.change()
+ d.myVal()
+ d.Val = 2
+ d.change2()
+ d.myVal()
+ d.change3()
+ d.myVal()
+}</code></pre>
+</body>
+</html>

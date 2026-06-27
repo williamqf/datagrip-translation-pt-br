@@ -1,0 +1,13 @@
+thoughtful
+<html>
+<body>
+Relata instruções inacessíveis em rotinas SQL.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE FUNCTION foo() RETURNS INT AS
+BEGIN
+    THROW;
+    RETURN 1;
+END;</code></pre>
+<p>No Microsoft SQL Server, a instrução <code>THROW</code> lança uma exceção e transfere a execução para o bloco CATCH de uma estrutura TRY...CATCH. Portanto, a parte <code>RETURN 1;</code> nunca será executada.</p>
+</body>
+</html>

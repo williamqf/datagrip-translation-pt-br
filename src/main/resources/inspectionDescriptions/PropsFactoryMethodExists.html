@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Relata casos em que a chamada dinâmica do construtor poderia ser substituída por uma chamada de método de fábrica.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import akka.actor._
+  
+  class Foo extends AbstractActor
+  
+  object Foo {
+    def props(): Props = Props(new Foo())
+  }
+  
+  Props(classOf[Foo])
+</code></pre>
+<p>Depois que o quick-fix é aplicado:</p>    
+<pre><code>
+  import akka.actor._
+  
+  class Foo extends AbstractActor
+  
+  object Foo {
+    def props(): Props = Props(new Foo())
+  }
+  
+  Foo.props()
+</code></pre>  
+<!-- tooltip end -->
+</body>
+</html>

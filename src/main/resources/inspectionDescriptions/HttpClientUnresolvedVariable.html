@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata variáveis do cliente HTTP que não foram declaradas no ambiente atual.</p>
+<p>
+  A execução de solicitações com variáveis não declaradas provavelmente falhará.
+  Considere adicionar uma variável ao ambiente ou selecionar um ambiente que contenha esta variável.
+</p>
+<!-- tooltip end -->
+<p>A inspeção não relata variáveis no corpo da solicitação, pois elas podem ser uma sintaxe válida para o corpo.</p>
+<p>
+  Algumas variáveis podem não ser relatadas como não resolvidas porque são declaradas em scripts de resposta ou de manipulador de pré-solicitação por meio de chamadas de função <code>client.global.set</code> ou <code>request.variables.set</code>.
+</p>
+</body>
+</html>

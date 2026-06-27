@@ -1,0 +1,9 @@
+<html>
+<body>
+<p>Relata variáveis de template Go duplicadas declaradas no mesmo escopo.</p>
+<p>A duplicação de variáveis reatribui uma variável existente com o mesmo nome. Esta operação pode levar a diversos problemas imprevisíveis.</p>
+<p>Exemplo:</p>
+<pre><code>{{$v := 0}}{{$v := 1}}{{$v}} é 0. {{/* avaliado como '1 é 0' */}}
+{{$v := 0}}{{$w := 1}}{{$v}} é 0. {{/* funciona conforme o esperado */}}</code></pre>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata beans abstratos que são referenciados.</p>
+
+<p>Beans abstratos só podem ser usados como definições de bean de modelo, ou seja, como pais para definições filhas.
+  Tentar usar tal bean pai abstrato individualmente, referenciando-o por meio de um atributo <code>ref</code> de outro bean ou chamando <code>getBean()</code> com o ID do bean pai, resultará em um erro.</p>
+
+<p><b>Exemplo:</b></p>
+
+<pre><code>
+  &lt;bean abstract="true" id="parentBeanWithoutClass"/&gt;
+  &lt;bean class="com.my.company.FooBean" id="childBean" parent="parentBeanWithoutClass"&gt;
+  &lt;!--  properties --&gt;
+  &lt;/bean&gt;
+</code></pre>
+
+<p>Neste exemplo, o bean pai não pode ser instanciado por si só porque está incompleto e foi explicitamente declarado como abstrato.</p>
+</body>
+</html>

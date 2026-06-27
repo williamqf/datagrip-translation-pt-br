@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata tipos não serializáveis em interfaces RPC (anotadas com <code>@kotlinx.rpc.annotations.Rpc</code>).
+<p>
+  Esta inspeção verifica se os tipos de retorno e os tipos de parâmetro das interfaces Kotlin anotadas com <code>@kotlinx.rpc.annotations.Rpc</code> são serializáveis.
+</p>
+<p>
+  Ela realiza uma verificação profunda e relata problemas no nível de uso do tipo dentro da interface, incluindo detalhes sobre qual propriedade não é serializável.
+</p>
+<p>
+  Tipos serializáveis:
+</p>
+<ul>
+  <li>Anotados com <code>@kotlinx.serialization.Serializable</code></li>
+  <li>Primitivos, String, Flow e Deferred são considerados serializáveis por padrão</li>
+</ul>
+</body>
+</html>

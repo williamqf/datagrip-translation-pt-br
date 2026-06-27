@@ -1,0 +1,50 @@
+<html>
+<body>
+Relata o retorno de campos de arrays ou tipos mutáveis (como <code>Collection</code>, <code>Date</code>, <code>Map</code>, <code>Calendar</code>, etc.) ou atribuições de parâmetros de método a campos desses tipos.
+<p>Como esse tipo é mutável, essa construção pode levar a modificações inesperadas no estado do objeto originadas de fora da classe proprietária. Embora essa construção possa ser útil por motivos de desempenho, ela é inerentemente propensa a erros.</p>
+<p>Os seguintes tipos mutáveis são relatados:</p>
+<ul>
+  <li><code>java.util.Date</code></li>
+  <li><code>java.util.Calendar</code></li>
+  <li><code>java.util.Collection</code></li>
+  <li><code>java.util.Map</code></li>
+  <li><code>com.google.common.collect.Multimap</code></li>
+  <li><code>com.google.common.collect.Table</code></li>
+</ul>
+<p>A correção rápida adiciona uma chamada ao método <code>.clone()</code> para campos de array ou utiliza um wrapper de coleção não modificável.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.*;
+  class Log {
+    private String[] messages = {"one", "two", "three"};
+    private Map&lt;String, String&gt; map = new HashMap<>();
+
+    String[] getMessages() {
+      return messages; // Aviso: retornando o campo String[] 'messages'
+    }
+
+    Map&lt;String, String&gt; mapping() {
+      return map; // Aviso: retornando o campo Map&lt;String, String&gt; 'map'
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  import java.util.*;
+  class Log {
+    String[] messages = {"one", "two", "three"};
+    private Map&lt;String, String&gt; map = new HashMap<>();
+
+    String[] getMessages() {
+      return messages.clone();
+    }
+
+    Map&lt;String, String&gt; mapping() {
+      return Collections.unmodifiableMap(map);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar atribuições e retornos em métodos privados</b> para ignorar atribuições e retornos dentro de métodos <code>private</code>.
+</body>
+</html>

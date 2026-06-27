@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata métodos <code>clone()</code> que não possuem o modificador <code>final</code>.
+<p>
+  O método <code>clone()</code> pode ser usado para instanciar objetos sem o uso de um construtor. Portanto, permitir a sobrescrita do método <code>clone()</code> pode levar à corrupção do objeto ou até mesmo a vulnerabilidades de segurança. Isso pode ser evitado tornando o método <code>clone()</code> ou a própria classe envolvente como <code>final</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main implements Cloneable {
+      @Override
+      protected Object clone() throws CloneNotSupportedException {
+        return super.clone();
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

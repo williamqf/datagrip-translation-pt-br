@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata expressões de alias que podem se sobrepor aos nomes das colunas na tabela e podem ser redundantes.
+<p>Exemplo (PostgreSQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT);
+
+SELECT * FROM foo foo(a, b);
+SELECT * FROM foo foo(a);
+SELECT * FROM foo foo(x);
+SELECT * FROM foo foo(x, y);</code></pre>
+<p>Os dois primeiros aliases usam os mesmos nomes das colunas na tabela <code>foo</code>. Estes são considerados redundantes porque as colunas possuem o mesmo nome.</p>
+</body>
+</html>

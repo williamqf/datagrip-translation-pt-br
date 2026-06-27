@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata quaisquer chamadas a métodos na classe <code>junit.framework.Assert</code>. Esta classe está obsoleta e essas chamadas podem ser substituídas por chamadas a métodos na classe <code>org.junit.Assert</code>.
+<p>Exemplo:</p>
+<pre><code lang="java">
+  <b>import</b> org.junit.*;
+  <b>public class</b> NecessaryTest {
+    @Test
+    <b>public void</b> testIt() {
+      junit.framework.Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o resultado será assim:</p>
+<pre><code lang="java">
+  <b>import</b> org.junit;
+  <b>public class</b> NecessaryTest {
+
+    <b>public void</b> testIt() {
+      Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

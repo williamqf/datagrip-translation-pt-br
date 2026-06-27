@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata cabeçalhos de sintaxe wiki desbalanceados e o texto ignorado após tais cabeçalhos em documentos do Scaladoc.</p>
+<p>No exemplo a seguir, <code>====</code> é marcado:</p>
+<pre><code>
+  /**
+   * == I'm a wiki style header ====
+   */
+  def teste(i: Int): Unit = {
+
+  }
+</code></pre>
+<p>No exemplo a seguir, <code>Texto ignorado</code> é marcado:</p>
+<pre><code>
+  /**
+   * == I'm a wiki style header == Texto ignorado
+   */
+  def teste(i: Int): Unit = {
+
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

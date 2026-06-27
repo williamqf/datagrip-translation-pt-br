@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata interfaces na lista <code>implements</code> de uma classe ou na lista <code>extends</code> de uma interface que já foram implementadas por uma superclasse ou estendidas por uma superinterface.
+Tais declarações são desnecessárias e podem ser removidas com segurança.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X implements One, Two {
+  }
+  interface One {}
+  interface Two extends One {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class X implements Two {
+  }
+  interface One {}
+  interface Two extends One {}
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use esta opção para não relatar <code>Serializable</code> ou <code>Externalizable</code> na lista <code>extends</code> ou <code>implements</code>.
+</body>
+</html>

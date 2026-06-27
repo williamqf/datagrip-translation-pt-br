@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata variáveis locais que possuem o mesmo nome de um campo na classe circundante.
+Devido a essa nomenclatura, você pode acabar usando a variável erroneamente quando a intenção era usar o campo de mesmo nome.
+<p>Uma correção rápida para renomear a variável é sugerida.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo {
+    public Object foo;
+
+    void bar() {
+      Object o = new Object() {
+        void baz() {
+          Object foo; // a variável local 'foo' oculta o campo na classe 'Foo'
+        }
+      };
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Você pode configurar as seguintes opções para esta inspeção:
+</p>
+<ol>
+  <li><strong>Ignorar campos inacessíveis</strong> - Ignora variáveis locais com o mesmo nome de campos de superclasse que não são visíveis (por exemplo, porque os campos são private).</li>
+  <li><strong>Ignorar variáveis locais em contexto estático que ocultam campos não estáticos</strong> - 
+Por exemplo, quando a variável local está dentro de um método estático ou dentro de um método em uma classe interna estática.
+  </li>
+</ol>
+</body>
+</html>

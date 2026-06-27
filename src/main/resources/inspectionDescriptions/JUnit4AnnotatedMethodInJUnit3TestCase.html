@@ -1,0 +1,22 @@
+<html>
+<body>
+Reportando os métodos anotados com JUnit 4 <code>@Test</code> em herdeiros de <code>junit.framework.TestCase</code>. A mistura de APIs do JUnit pode causar problemas ao executar o teste.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class MyTest extends TestCase {
+      @Test // O nome não inicia com "test", então será ignorado
+      public void wouldBeIgnored() {}
+  
+      @Test   // O nome inicia com "test"
+      @Ignore // Então será executado mesmo com a anotação @Ignore
+      public void testWouldBeExecuted() {}
+  }
+</code></pre>
+<p><b>Correção fornecida:</b></p>
+<ul>
+  <li>Remover a anotação <code>@Ignore</code> e renomear o método de teste para que o nome não inicie com "test".</li>
+  <li>Converter a classe de teste JUnit 3 para JUnit 4.</li>
+</ul>
+<!-- tooltip end -->
+</body>
+</html>

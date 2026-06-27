@@ -1,0 +1,50 @@
+<html>
+<body>
+Relata quaisquer declarações de variáveis que podem ser movidas para um escopo menor.
+<p>Esta inspeção é especialmente útil para declarações de <i>estilo Pascal</i> no início de métodos. Além disso, variáveis com um escopo muito amplo são frequentemente deixadas para trás após a refatoração.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  StringBuilder sb = new StringBuilder();
+  System.out.println();
+  sb.append(1);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.out.println();
+  StringBuilder sb = new StringBuilder();
+  sb.append(1);
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Relatar apenas variáveis que podem ser movidas para dentro de blocos internos</b> para relatar apenas as variáveis que podem ser movidas para blocos de código mais profundos.
+    Por exemplo, quando esta opção estiver ativada, a movimentação da variável <code>sb</code> acima não será sugerida.
+    No entanto, ela será sugerida para o seguinte código:
+<pre><code>
+  StringBuilder sb = new StringBuilder(a);
+  if (flag) {
+    sb.append(1);
+  }
+</code></pre></li>
+  <li>Use a opção <b>Relatar variáveis com novas expressões como inicializadores (potencialmente inseguro)</b> para relatar variáveis inicializadas com novas expressões. Isso torna a inspeção potencialmente insegura quando o construtor possui efeitos colaterais não locais. Por exemplo, quando esta opção estiver ativada, a movimentação da variável <code>foo</code> será sugerida:
+<pre><code>
+  class Foo {
+    static List&lt;Foo&gt; fooList = new ArrayList&lt;&gt;();
+    String bar;
+
+    Foo(String bar) {
+        this.bar = bar;
+        fooList.add(this);
+    }
+
+    public static void main(String[] args) {
+      // Embora inseguro, também pode ser movido
+      Foo foo = new Foo("bar");
+      System.out.println(fooList.size());
+      System.out.println(foo.bar);
+    }
+  }
+</code></pre></li>
+</ul>
+</body>
+</html>

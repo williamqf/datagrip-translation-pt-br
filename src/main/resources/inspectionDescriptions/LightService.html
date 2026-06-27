@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata os seguintes problemas com serviços leves:
+<ul>
+  <li>A classe anotada com <code>@com.intellij.openapi.components.Service</code> não é final.</li>
+  <li>Serviços com construtores que aceitam o parâmetro <code>com.intellij.openapi.project.Project</code> não são anotados como serviços em nível de projeto.</li>
+  <li>Serviços anotados como serviços em nível de aplicativo não possuem construtores sem parâmetro ou que aceitem <code>kotlinx.coroutines.CoroutineScope</code>.</li>
+  <li>Há inconsistências na recuperação de serviços: serviços em nível de projeto sendo obtidos como serviços em nível de aplicativo e vice-versa.</li>
+</ul>
+<p>
+  Para obter mais informações, consulte <a href="https://plugins.jetbrains.com/docs/intellij/plugin-services.html#light-services">Serviços leves</a>.
+</p>
+<p><small>Novo no 2023.1</small>
+</body>
+</html>

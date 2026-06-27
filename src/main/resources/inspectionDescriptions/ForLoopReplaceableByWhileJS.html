@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata loops <code>for</code> que não contêm componentes de inicialização nem de atualização. Sugere-se substituir o loop por uma instrução <code>while</code> mais simples.
+<p>Exemplo:</p>
+<pre><code>
+  for(; exitCondition(); ) {
+    process();
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o resultado será o seguinte:</p>
+<pre><code>
+  while(exitCondition()) {
+    process();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Utilize a caixa de seleção abaixo se desejar que esta inspeção ignore loops <b>for</b> com condições triviais ou inexistentes.</p>
+</body>
+</html>

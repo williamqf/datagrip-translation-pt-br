@@ -1,0 +1,23 @@
+<html>
+<body>
+Reporta strings entre aspas duplas que podem ser convertidas em strings entre aspas simples. Qualquer string que não contenha interpolação de expressões ou símbolos especiais pode ser convertida.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+&quot;Hello world&quot;
+&quot;Hello \&quot;John Doe\&quot;&quot;</code>
+</pre>
+
+Strings entre aspas duplas podem ser convertidas por meio de uma correção rápida. Após a aplicação da correção rápida, o resultado será o seguinte:
+
+<pre>
+<code># Boa prática
+'Hello world'
+'Hello &quot;John Doe&quot;'
+&quot;Hello 'John Doe'&quot;</code>
+</pre>
+<p>Use a caixa de seleção <i>Ignorar strings que contenham aspas simples</i> para ignorar strings que exigiriam escape.</p>
+<p><span style="font-size: smaller;">Inspirado pelo <a href="https://github.com/rubocop-hq/ruby-style-guide#consistent-string-literals">'RuboCop'</a></span>
+</p>
+</body>
+</html>

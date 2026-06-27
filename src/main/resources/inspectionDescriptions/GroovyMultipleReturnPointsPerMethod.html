@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata métodos com muitos pontos de retorno. Métodos com pontos de retorno excessivos podem ser confusos e difíceis de refatorar.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+  int foo(int a) {
+    if (a > 0) {
+      return a
+    }
+    if (a &lt; 0) return -a
+    return 0
+  }
+</code>
+</pre>
+<!-- tooltip end -->
+<p>
+  Utilize o campo fornecido abaixo para especificar o número máximo aceitável de pontos de retorno em um método.
+</p>
+</body>
+</html>

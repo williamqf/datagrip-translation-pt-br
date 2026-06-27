@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata o acesso a variáveis mutáveis externas dentro de funções.
+<p>Exemplo:</p>
+<pre><code>
+  for (var i = 1; i &lt;= 3; i++) {
+    setTimeout(function() {
+        console.log(i); // ruim
+    }, 0);
+  }
+</code></pre>
+</body>
+</html>

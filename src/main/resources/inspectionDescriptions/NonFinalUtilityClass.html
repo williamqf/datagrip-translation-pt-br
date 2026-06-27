@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes utilitárias que não são <code>final</code> nem <code>abstract</code>.
+<p>Uma classe utilitária declara todos os campos e métodos como <code>static</code>.
+Torná-la <code>final</code> evita que ela seja estendida acidentalmente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class UtilityClass {
+    public static void foo() {}
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  public final class UtilityClass {
+    public static void foo() {}
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

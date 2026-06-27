@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata membros <code>protected</code> em classes <code>final</code> sem o modificador <code>protected</code>.
+<p>Como as classes <code>final</code> não podem ser herdadas, marcar um método como <code>protected</code> pode ser confuso. É recomendável declarar tais membros como <code>private</code> ou com visibilidade de pacote.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>record Bar(int a, int b) {
+  protected int sum() { 
+     return a + b;
+  }
+}
+</code>
+</pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>record Bar(int a, int b) {
+  int sum() { 
+     return a + b;
+  }
+}
+</code></pre>
+
+<p>Como mostrado neste exemplo, uma classe pode ser marcada como <code>final</code> de forma explícita ou implícita.</p>
+
+<!-- tooltip end -->
+<p>
+</body>
+</html>

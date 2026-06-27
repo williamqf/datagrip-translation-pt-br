@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata usos de <code>sameElements</code> ou <code>corresponds</code> ao comparar coleções do mesmo tipo (Seq, Set ou Map).</p>
+
+<p>O quick-fix usa uma igualdade.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  seq sameElements list
+  hashSet sameElements treeSet
+</code></pre>
+<p>Depois que o quick-fix é aplicado:</p>
+<pre><code>
+  seq == list
+  hashSet == treeSet
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

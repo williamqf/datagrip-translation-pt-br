@@ -1,0 +1,29 @@
+<html>
+<body>
+Reporta métodos com três ou mais negações.
+Tais métodos podem ser confusos.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void doSmth(int a, int b, boolean flag1, boolean flag2) {
+    if (!flag && !flag2) {
+      if (a != b) {
+        doOther();
+      }
+    }
+  }
+</code></pre>
+<p>Sem as negações, o método torna-se mais fácil de entender:</p>
+<pre><code>
+  void doSmth(int a, int b, boolean flag1, boolean flag2) {
+    if (flag1 || flag2 || a == b) return;
+    doOther();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar negações em métodos 'equals()'</b> para desativar a inspeção em métodos <code>equals()</code>.</li>
+  <li>Use a opção <b>Ignorar negações em instruções 'assert'</b> para desativar a inspeção em instruções <code>assert</code>.</li>
+</ul>
+</body>
+</html>

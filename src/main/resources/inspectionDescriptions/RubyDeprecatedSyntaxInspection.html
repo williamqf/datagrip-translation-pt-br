@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata o uso de sintaxe obsoleta desde o Ruby 1.9. Por exemplo, o uso de <code>:</code> em vez de <code>then</code> para <code>if</code>, <code>when</code> e <code>unless</code> de linha única.
+<p>Exemplo:</p>
+<pre>
+<code>condition = true
+if condition: 1 else 0 # -> if condition then 1 else 0
+unless condition: 0 else 1 # -> unless condition then 0 else 1
+
+value = 1
+case value
+when 1: true # -> when 1 then true
+end</code>
+</pre>
+</body>
+</html>

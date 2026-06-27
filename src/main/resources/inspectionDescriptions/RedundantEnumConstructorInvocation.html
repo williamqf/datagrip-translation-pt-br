@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata chamadas de construtor redundantes em entradas de enumeração.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  enum class Baz(i: Int = 0) {
+      A(1),
+      B<b>()</b>,
+      C<b>()</b>,
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  enum class Baz(i: Int = 0) {
+      A(1),
+      B,
+      C,
+  }
+</code></pre>
+</body>
+</html>

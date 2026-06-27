@@ -1,0 +1,59 @@
+<html>
+<body>
+<p>Relata acessos potencialmente problemáticos ao receptor <code>CoroutineScope</code> implícito dentro de um contexto de suspensão.</p>
+
+<p>
+    Quando uma função de suspensão ou lambda captura um receptor <code>CoroutineScope</code> implícito de um contexto externo, isso pode levar a comportamentos inesperados.
+</p>
+<p>
+    Esse código pode violar facilmente as regras de concorrência estruturada, mesmo que pareça estar bem estruturado.
+</p>
+<p>
+    Isso pode resultar em comportamentos incorretos ao lidar com erros, cancelar computações ou gerenciar o tempo de vida.
+</p>
+
+<p><b>Um exemplo típico:</b></p>
+
+<pre><code>
+fun processFlow(flow: Flow&lt;String&gt;) {
+  runBlocking {
+    flow.collectLatest {
+      
+      // Iniciado no CoroutineScope this@runBlocking
+      launch { 
+        longProcessing(value)
+      }
+  
+    }
+  }
+}
+  
+suspend fun longProcessing(value: String) { ... }
+</code></pre>
+
+<p>
+    No exemplo acima, a chamada <code>launch { ... }</code> inicia uma corrotina no <code>CoroutineScope</code> implícito da chamada <code>runBlocking</code> externa.
+</p>
+<p>
+    Como resultado, o <code>collectLatest</code> não consegue cancelar essas corrotinas quando necessário.
+</p>
+<p>
+    Esta inspeção detectará casos em que <code>launch</code> é chamado em um <code>CoroutineScope</code> capturado de fora do lambda de suspensão atual (ou seja, o corpo do <code>collectLatest</code>).
+</p>
+<p>
+    Para mais informações sobre este problema específico, consulte <a href="https://github.com/Kotlin/kotlinx.coroutines/issues/3533">este issue do GitHub</a>.
+</p>
+
+<p><b>Soluções possíveis:</b></p>
+
+<p>Para resolver esse problema, você pode:</p>
+<ul>
+    <li>Usar o builder <code>coroutineScope { ... }</code> para criar um escopo filho vinculado ao tempo de vida da função de suspensão</li>
+    <li>Reorganizar o código para que o <code>CoroutineScope</code> implícito venha do contexto sintático atual</li>
+</ul>
+<p>
+    Se você tiver certeza de que o código está correto, poderá tornar sua intenção explícita especificando o receptor. No exemplo acima, seria <code>this@runBlocking.launch { ... }</code>.
+    Observe que, neste caso, a semântica do código <b>não mudará</b>.
+</p>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Reporta chamadas <code>arrayOf</code> que podem ser substituídas por literais de array <code>[...]</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>  annotation class MyAnnotation(val strings: Array&lt;String&gt;)
+
+  @MyAnnotation(arrayOf("alpha", "beta", "omega")) // 'arrayOf()' substituível
+  class MyClass
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  annotation class MyAnnotation(val strings: Array&lt;String&gt;)
+
+  @MyAnnotation(["alpha", "beta", "omega"])
+  class MyClass
+</code></pre>
+</body>
+</html>

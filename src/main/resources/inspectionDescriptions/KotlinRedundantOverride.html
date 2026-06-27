@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata declarações de sobrescrita redundantes.
+<p>
+    Se a sobrescrita não modificar a semântica da assinatura herdada, por exemplo, ao alterar a visibilidade, a sobrescrita poderá ser omitida.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>open class</b> Foo {
+      open fun singleExpression() {
+      }
+  }
+
+  class Bar : Foo() {
+      <b>override</b> fun singleExpression() = super.singleExpression()
+  }
+</code></pre>
+
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  class Bar : Foo() {
+  }
+</code></pre>
+</body>
+</html>

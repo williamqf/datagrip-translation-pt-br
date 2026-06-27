@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata quaisquer métodos <code>public</code> que não contenham uma instrução de log. Esta inspeção não relata getters e setters simples.
+<p>Exemplo:</p>
+<pre><code>
+  <b>public class</b> Crucial {
+    <b>private static final </b>Logger LOG = LoggerFactory.getLogger(Crucial.class);
+    <b>public void</b> doImportantStuff() {
+      // aviso para este método
+    }
+
+    <b>public void</b> doOtherStuff() {
+      LOG.info("do other stuff");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a tabela abaixo para especificar os nomes das classes do logger.
+Esta inspeção relatará métodos <code>public</code> que não utilizam métodos de instância das classes especificadas.
+</body>
+</html>

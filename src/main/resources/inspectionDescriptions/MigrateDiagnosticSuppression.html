@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata supressões com nomes de diagnóstico antigos, como <code>@Suppress("HEADER_WITHOUT_IMPLEMENTATION")</code>.
+<p>
+    Alguns diagnósticos do Kotlin 1.2 e versões anteriores estão agora obsoletos, tornando essas supressões redundantes.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+@Suppress("HEADER_DECLARATION_WITH_BODY")
+expect fun connection() {
+  // ...
+}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+@Suppress("EXPECTED_DECLARATION_WITH_BODY")
+expect fun connection() {
+  // ...
+}
+</code></pre>
+</body>
+</html>

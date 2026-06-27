@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata conversões implícitas entre os tipos XPath predefinidos <code>STRING</code>, <code>NUMBER</code>, <code>BOOLEAN</code> e <code>NODESET</code>. Ajuda a escrever scripts XSLT com representação de tipos mais explícita e a evitar erros difíceis de detectar.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;xsl:if test="<b>foo</b>" />
+</code></pre>
+não é o mesmo que
+<pre><code>
+  &lt;xsl:if test="<b>string(foo)</b>" />
+</code></pre>
+
+<p>
+O primeiro teste verifica se o elemento "foo" existe (<code>count(foo) > 0)</code>, enquanto o segundo teste será "true" apenas se o elemento contiver algum texto (<code>string-length(foo) > 0</code>). Recomenda-se tornar a conversão de tipo mais explícita.
+</p>
+
+<p>
+  Configure a inspeção usando as seguintes opções:
+</p>
+<ul><li>Ativar ou desativar conversões implícitas entre certos tipos</li>
+<li>Sempre relatar conversões explícitas que não resultam no tipo esperado real, por exemplo, 
+ <code>&lt;xsl:if test="number(foo)" /></code></li> 
+<li>Ignorar a conversão de <code>NODESET</code> para <code>BOOLEAN</code> causada pelo uso da função <code>string()</code> como um atalho para escrever <code>string-length() > 0</code>.</li></ul>
+</body>
+</html>

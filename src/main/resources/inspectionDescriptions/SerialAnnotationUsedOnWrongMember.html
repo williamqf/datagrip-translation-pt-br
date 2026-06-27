@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata métodos e campos em classes <code>Serializable</code> e <code>Externalizable</code> que não são adequados para serem anotados com <code>java.io.Serial</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Test implements Serializable {
+  @Serial // O campo anotado não faz parte do mecanismo de serialização porque não é final
+  private static long serialVersionUID = 7874493593505141603L;
+
+  @Serial // O método anotado não faz parte do mecanismo de serialização porque não é private
+  void writeObject(ObjectOutputStream out) throws IOException {
+  }
+}
+</code></pre>
+<pre><code>
+class Test implements Externalizable {
+  @Serial // O método anotado não faz parte do mecanismo de serialização porque está em uma classe Externalizable
+  private void writeObject(ObjectOutputStream out) throws IOException {
+  }
+}
+</code></pre>
+<p>Para informações sobre todos os casos válidos, consulte o Javadoc da classe <code>java.io.Serial</code>.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

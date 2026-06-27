@@ -1,0 +1,39 @@
+<html>
+<body>
+<p>Relatórios de definições de variáveis que são explicitamente inicializadas com <code>null</code>.</p>
+<p>Há 3 casos diferentes de <code>var v: T = null</code>:</p>
+<ol>
+    <li><code>v</code> é um valor <em>opcional</em><br>
+        &rarr; usa o tipo <code>Option[T]</code>, que é idiomático e seguro para tipos</li>
+    <li><code>v</code> é um valor <em>não inicializado</em> (um valor deve ser atribuído)<br>
+        &rarr; use <code>_</code> (Scala 2) ou <code>scala.compiletime.uninitialized</code> (Scala 3) como inicializador,
+          que é claro, conciso e independente de plataforma</li>
+    <li>É uma <em>otimização</em> de desempenho (você realmente usa o valor <code>null</code>)<br>
+        &rarr; reprimiu explicitamente a inspeção para o código não seguro</li>
+</ol>
+<p>Duas correções rápidas serão oferecidas:</p>
+<ul>
+    <li><em>Usar inicializador _ </em> substituirá <code>null</code> com <code>_</code></li>
+    <li><em>Usar tipo Option </em> substituirá o tipo da variável com <code>Option</code> e irá inicializá-la com <code>None</code></li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Test {
+    var optional: String = null
+    var uninit: String = null
+
+    uninit = "initialized later"
+  }
+</code></pre>
+<p>Após as correções rápidas serem aplicadas:</p>
+<pre><code>
+  class Test {
+    var optional: Option[String] = None
+    var uninit: String = _
+
+    uninit = "initialized later"
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

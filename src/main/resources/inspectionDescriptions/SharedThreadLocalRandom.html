@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata instâncias de <code>java.util.concurrent.ThreadLocalRandom</code> que podem ser compartilhadas entre threads.
+<p>
+  <code>ThreadLocalRandom</code> não deve ser compartilhado entre threads, pois não é thread-safe.
+  Esta inspeção relata instâncias atribuídas a campos, instâncias usadas como argumentos de método ou instâncias atribuídas a variáveis locais e usadas em classes anônimas ou aninhadas, pois podem ser compartilhadas entre threads.
+</p>
+<p>
+  O uso de <code>ThreadLocalRandom</code> normalmente deve ser semelhante a <code>ThreadLocalRandom.current().nextInt(...)</code> (ou <code>nextDouble(...)</code>, etc.).
+  Quando todo o uso assume essa forma, a instância de <code>ThreadLocalRandom</code> não será usada incorretamente por várias threads.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    class Main {
+      void printRandomNumbersAsync() {
+        ThreadLocalRandom random = ThreadLocalRandom.current();
+        CompletableFuture.supplyAsync(() -&gt; generateNumbers(random))
+          .thenAccept(numbers -&gt; System.out.println(Arrays.toString(numbers)));
+      }
+
+      private int[] generateNumbers(Random random) {
+        return random.ints(1000, 0, 100).toArray();
+      }
+    }
+  </code></pre>
+<!-- tooltip end -->
+<p>
+  Use estas opções para listar os métodos nos quais é seguro passar instâncias de <code>ThreadLocalRandom</code> como argumentos.
+  Expressões regulares podem ser usadas para nomes de métodos.
+</p>
+</body>
+</html>

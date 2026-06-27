@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata quando múltiplos <code>java.nio.file.Path</code> consecutivos podem ter sua construção (<code>java.nio.file.Paths.get</code> ou <code>java.nio.file.Path.of</code>) substituída por uma única variável <code>java.nio.file.Path</code>.
+<p>Exemplo:</p>
+<pre><code>
+if (Files.isRegularFile(Path.of(fileName))) {
+  try(InputStream is = Files.newInputStream(Path.of(fileName))) {
+    // algum código
+  }
+  catch (IOException e) {
+    throw new UncheckedIOException(e);
+  }
+}
+</code></pre>
+<p>Após aplicação da correção rápida:</p>
+<pre><code>
+Path path = Path.of(fileName);
+if (Files.isRegularFile(path)) {
+  try(InputStream is = Files.newInputStream(path)) {
+    // algum código
+  }
+  catch (IOException e) {
+    throw new UncheckedIOException(e);
+  }
+}
+</code></pre>
+<!-- tooltip end -->
+<p>Essa inspeção só é relatada quando o nível da linguagem do projeto ou módulo é 7 ou superior.</p>
+<p><small>Novo no 2022.1</small></p>
+</body>
+</html>

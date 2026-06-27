@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata casos em que uma variável de loop é sobrescrita por um loop interno.
+<p><b>Exemplo:</b></p>
+<pre><code>
+    for i in range(5):
+      for i in range(20, 25):
+          print("Inner", i)
+      print("Outer", i)
+  </code></pre>
+
+Também avisa se uma variável declarada em uma instrução <code>with</code> for redeclarada dentro do corpo da instrução:
+<pre><code>
+    with open("file") as f:
+      f.read()
+      with open("file") as f:
+  </code></pre>
+</body>
+</html>

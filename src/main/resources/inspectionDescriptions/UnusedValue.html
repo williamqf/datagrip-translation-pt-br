@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata valores de variáveis que nunca são usados após serem atribuídos. Isso pode ocorrer quando:
+<ul>
+  <li>A variável nunca é lida após ser atribuída.</li>
+  <li>O valor é sobrescrito por outra atribuição antes de ser acessado para leitura.</li>
+  <li>O inicializador da variável é redundante (devido a um dos dois motivos acima).</li>
+  <li>A variável em si nunca é usada.</li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class C {
+    int field;
+
+    void foo() {
+      field = unused_value;
+    }
+
+    void bar() {
+      use(field);
+      foo();
+    }
+  };
+</code></pre>
+<!-- tooltip end -->
+<p>Use a caixa de seleção abaixo para que esta inspeção ignore inicializadores de variáveis.</p>
+</body>
+</html>

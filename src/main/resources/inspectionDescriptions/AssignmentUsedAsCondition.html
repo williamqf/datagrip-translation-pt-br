@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata atribuições usadas como condições em instruções <code>if</code>, <code>while</code>, <code>for</code> ou
+<code>do</code>, ou em expressões condicionais.
+<p>Embora às vezes seja intencional, esse uso é confuso e pode indicar um erro de digitação (por exemplo, o uso de <code>=</code> em vez de <code>==</code>).</p>
+<p>A correção rápida substitui <code>=</code> por <code>==</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void update(String str, boolean empty) {
+    // Aviso: 'empty' é reatribuído,
+    // não comparado com str.isEmpty()
+    if (empty = str.isEmpty()) {
+      ...
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  void update(String str, boolean empty) {
+    if (empty == str.isEmpty()) {
+      ...
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

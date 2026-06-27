@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata designadores de pointcut do AspectJ que não são suportados pelo Spring.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="xml">
+&lt;beans&gt;
+  &lt;aop:config &gt;
+      &lt;aop:pointcut expression="<strong>@this</strong>(Anno)  &lt;!-- o designador de pointcut '@this' não é suportado pelo Spring --&gt;
+                  and <strong>adviceexecution</strong>()"/&gt; &lt;!-- o designador de pointcut 'adviceexecution' não é suportado pelo Spring --&gt;
+      &lt;aop:pointcut expression="!@annotation(Anno)"/&gt;
+    &lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre>
+</body>
+</html>

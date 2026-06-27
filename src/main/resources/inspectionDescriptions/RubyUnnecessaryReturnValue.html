@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata variáveis usadas como valores de retorno.
+<p>Exemplo:</p>
+
+<pre>
+<code># Prática ruim
+def foo(bar)
+  result = bar + 1
+  result
+end</code>
+</pre>
+
+Uma correção rápida pode ser usada para remover essas variáveis. Após aplicar a correção rápida, o resultado será o seguinte:
+
+<pre>
+<code># Boa prática
+def foo(bar)
+  bar + 1
+end</code>
+</pre>
+</body>
+</html>

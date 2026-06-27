@@ -1,0 +1,124 @@
+<html>
+  <body>
+    <table
+      width="100%"
+      border="0"
+      cellpadding="5"
+      cellspacing="0"
+      style="border-collapse: collapse; bordercolor: #111111"
+    >
+      <tr>
+        <td colspan="3">
+          <font face="verdana" size="-1"
+            >Modelo embutido para métodos setter da classe PHP. Por exemplo, quando
+            a correção rápida "adicionar getter e setter" é chamada.</font
+          ><br />
+        </td>
+      </tr>
+    </table>
+    <table
+      width="100%"
+      border="0"
+      cellpadding="5"
+      cellspacing="0"
+      style="border-collapse: collapse; bordercolor: #111111"
+    >
+      <tr>
+        <td colspan="3">
+          <font face="verdana" size="-1"
+            >Variáveis predefinidas recebem os seguintes valores:</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${NAME}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1"
+            >Nome do método no estilo CamelCase, sem o prefixo "set" e com a
+            primeira letra maiúscula. Por exemplo, o nome da propriedade
+            '_my_property' é convertido em 'MyProperty'.</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${CLASS_NAME}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1">Nome da classe que inclui.</font>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${SCALAR_TYPE_HINT}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1"
+            >Inclui dicas de tipo escalar se o nível da linguagem for PHP 7.0 ou
+            superior.</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1"
+            >Indica se o nível da linguagem é PHP 7.0 ou superior e, portanto, o
+            tipo de retorno pode ser especificado para a função/método.</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${FIELD_NAME}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1">Nome da propriedade original mantido como está.</font>
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${PARAM_NAME}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1"
+            >Nome do parâmetro do setter. Quase igual ao ${FIELD_NAME}, mas
+            remove o sublinhado inicial (se houver). Por exemplo, o nome da
+            propriedade '_myProperty' é convertido em 'myProperty'.</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${TYPE_HINT}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1"
+            >Dicas de tipo da propriedade. Se não for especificado, será uma
+            string vazia.</font
+          >
+        </td>
+      </tr>
+      <tr>
+        <td valign="top">
+          <nobr><font face="verdana" size="-2"><b>${DS}</b></font></nobr>
+        </td>
+        <td width="10"></td>
+        <td width="100%" valign="top">
+          <font face="verdana" size="-1">O cifrão do dólar é avaliado como o caractere '$' comum.</font>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

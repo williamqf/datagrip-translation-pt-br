@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata situações em que a linguagem de uma referência não coincide com a linguagem esperada para o contexto de uso.
+
+<p>Exemplo:</p>
+<pre><code>
+  @Language("JavaScript")
+  String JS_CODE = "var x;";
+
+  @Language("XPath")
+  String XPATH_CODE = JS_CODE; // alerta aqui
+</code></pre>
+</body>
+</html>

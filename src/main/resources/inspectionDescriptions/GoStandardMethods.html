@@ -1,0 +1,77 @@
+thought
+*   Input: IDE inspection description in Chinese, Japanese, and Korean.
+    *   Target Language: Portuguese (Brazil).
+    *   Target Audience: Software developers.
+    *   Requirements: Preserve HTML tags/formatting, use appropriate software terminology, no explanations or additional output.
+
+    *   Report methods with specific names when:
+        *   Method name matches well-known interface methods in the standard library.
+        *   Signature does not match the corresponding interface method signature.
+    *   This suggests an intention to satisfy an interface, but a failure due to an incorrect signature.
+    *   Example: `ReadByte(data []byte)` vs the correct `ReadByte()`.
+
+    *   Method name -> Nome do método.
+    *   Standard library -> Biblioteca padrão.
+    *   Interface method -> Método de interface.
+    *   Signature -> Assinatura.
+    *   Receiver type -> Tipo do receiver (or tipo receptor, but "receiver" is very common in Go contexts).
+    *   Satisfy/Implement an interface -> Satisfazer/implementar uma interface.
+    *   Suspicious -> Suspeito.
+
+    *   *Sentence 1:* Reporta métodos com nomes específicos nos seguintes casos:
+    *   *List item 1:* O nome do método coincide com o nome de vários métodos de interface conhecidos na biblioteca padrão.
+    *   *List item 2:* A assinatura não coincide com a assinatura do método de interface correspondente.
+    *   *Paragraph 1:* Tal método pode indicar que o tipo do receiver pretendia satisfazer uma interface na biblioteca padrão, mas falhou devido a um erro na assinatura do método.
+    *   *Paragraph 2:* Exemplo:
+    *   *Code blocks:* Keep as is.
+    *   *Paragraph 3:* Este uso é suspeito porque parece uma tentativa de implementar `io.ByteReader`, mas a assinatura está incorreta. Uma versão melhor seria:
+
+    *   Check for flow and technical accuracy.
+    *   "Receiver" is the standard term in Go (the context of the code examples).
+    *   "Assinatura" is standard for "signature".
+
+    <html>
+    <body>
+    Reporta métodos com nomes específicos nos seguintes casos:
+    <ul>
+      <li>O nome do método coincide com o nome de vários métodos de interface conhecidos da biblioteca padrão</li>
+      <li>A assinatura não coincide com a assinatura do método de interface correspondente</li>
+    </ul>
+    <p>Tal método pode indicar que o tipo do receiver pretendia satisfazer uma interface na biblioteca padrão, mas falhou devido a um erro na assinatura do método.</p>
+    <p>Exemplo:</p>
+    <pre><code>type MyReader []byte
+
+    func (r MyReader) ReadByte(data []byte) (byte, error) {
+    }</code></pre>
+    <p>Este uso é suspeito porque parece uma tentativa de implementar <code>io.ByteReader</code>, mas a assinatura está incorreta. O seguinte seria mais apropriado:</p>
+    <pre><code>type MyReader []byte
+
+    func (r MyReader) ReadByte() (byte, error) {
+    }</code></pre>
+    </body>
+    </html>
+
+    - No explanations? Yes.
+    - No comments? Yes.
+    - Preserved HTML? Yes.
+    - Professional dev terminology? Yes.<html>
+<body>
+Reporta métodos com nomes específicos nos seguintes casos:
+<ul>
+  <li>O nome do método coincide com o nome de vários métodos de interface conhecidos da biblioteca padrão</li>
+  <li>A assinatura não coincide com a assinatura do método de interface correspondente</li>
+</ul>
+<p>Tal método pode indicar que o tipo do receiver pretendia satisfazer uma interface na biblioteca padrão, mas falhou devido a um erro na assinatura do método.</p>
+<p>Exemplo:</p>
+<pre><code>type MyReader []byte
+
+func (r MyReader) ReadByte(data []byte) (byte, error) {
+}</code></pre>
+<p>Este uso é suspeito porque parece uma tentativa de implementar <code>io.ByteReader</code>, mas a assinatura está incorreta.
+  O seguinte seria mais apropriado:</p>
+<pre><code>type MyReader []byte
+
+func (r MyReader) ReadByte() (byte, error) {
+}</code></pre>
+</body>
+</html>

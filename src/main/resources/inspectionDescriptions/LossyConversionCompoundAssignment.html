@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata atribuições compostas se o tipo do operando do lado direito for incompatível com o tipo da variável.
+<p>
+Durante essas atribuições compostas, ocorre uma coerção implícita, o que pode resultar em uma conversão com perda de dados.
+
+<p>Exemplo:</p>
+<pre><code>
+  long c = 1;
+  c += 1.2;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  long c = 1;
+  c += (long) 1.2;
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small></p>
+</body>
+</html>

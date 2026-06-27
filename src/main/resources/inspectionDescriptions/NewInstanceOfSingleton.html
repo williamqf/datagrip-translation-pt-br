@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata a criação de novas instâncias de classes anotadas com <code>@groovy.lang.Singleton</code>.
+  Essa construção pode causar a exceção de tempo de execução <b>Can't instantiate singleton</b>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @Singleton
+  class Foo{
+  }
+  
+  Foo foo = <b>new Foo()</b>
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  @Singleton
+  class Foo{
+  }
+  
+  Foo foo = <b>Foo.instance</b>
+</code></pre>
+</body>
+</html>

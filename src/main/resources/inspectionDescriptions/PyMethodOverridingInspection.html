@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata inconsistências em assinaturas de métodos sobrescritos.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Book:
+    def add_title(self):
+        pass
+
+
+class Novel(Book):
+    def add_title(self, text):
+        pass
+</code></pre>
+
+<p>O parâmetro do método <code>add_title</code> na classe <code>Novel</code> não corresponde à assinatura do método especificada na classe <code>Book</code>. O IDE propõe aplicar a refatoração "Alterar Assinatura" como uma correção.</p>
+</body>
+</html>

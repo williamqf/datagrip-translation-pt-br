@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata instruções ou expressões <code>switch</code> que contêm o mesmo código em diferentes ramos e sugere a mesclagem de ramos duplicados.
+<p>Exemplo:</p>
+<pre><code>
+  <b>switch</b> (n) {
+    <b>case</b> 1:
+      System.out.println(n);
+      <b>break</b>;
+    <b>case</b> 2:
+      System.out.println(n);
+      <b>break</b>;
+    <b>default</b>:
+      System.out.println("default");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  <b>switch</b> (n) {
+    <b>case</b> 1:
+    <b>case</b> 2:
+      System.out.println(n);
+      <b>break</b>;
+    <b>default</b>:
+      System.out.println("default");
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

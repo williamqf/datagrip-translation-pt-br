@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata rótulos que não são o alvo de nenhuma instrução <code>break</code> ou <code>continue</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  label: <b>for</b> (int i = 0; i &lt; 10; i++) {
+    <b>if</b> (i == 3) {
+      <b>break</b>;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o rótulo será removido:</p>
+<pre><code>
+  <b>for</b> (int i = 0; i &lt; 10; i++) {
+    <b>if</b> (i == 3) {
+      <b>break</b>;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

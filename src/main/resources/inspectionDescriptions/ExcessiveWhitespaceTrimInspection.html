@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>
+  Relata a remoção excessiva de espaços em branco (trimming) em expressões de template Go.
+  A inspeção segue a seguinte lógica aplicada a cada instrução:<br>
+  1. Nenhuma remoção → ignorar<br>
+  2. Remoção em ambos os lados e cercada por elementos que não são espaços em branco → problema<br>
+  3. Remoção em ambos os lados e elementos precedentes ou subsequentes que não são espaços em branco → problema se produzir um valor (por exemplo, o próprio elemento não vazio)<br>
+  4. Remoção à esquerda e elemento precedente que não seja espaço em branco → o mesmo que o anterior<br>
+  5. Remoção à direita e elemento subsequente que não seja espaço em branco → o mesmo que o anterior<br>
+</p>
+</body>
+</html>

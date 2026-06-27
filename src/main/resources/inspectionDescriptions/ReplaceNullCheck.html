@@ -1,0 +1,23 @@
+<html>
+<body>
+Reporta verificações <code>null</code> que podem ser substituídas por chamadas de métodos estáticos de <code>Objects</code> ou <code>Stream</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (message == null) {
+    application.messageStorage().save(new EmptyMessage());
+  } else {
+    application.messageStorage().save(message);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  application.messageStorage()
+    .save(Objects.requireNonNullElseGet(message, () -> new EmptyMessage()));
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Não avisar quando a substituição for mais longa que o original</b> para ignorar casos em que o comprimento da substituição exceder o do código original.
+</p>
+<p><small>Novidade na versão 2017.3</small></p>
+</body>
+</html>

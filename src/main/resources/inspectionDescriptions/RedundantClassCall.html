@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata chamadas redundantes de métodos <code>java.lang.Class</code>.
+<p>Por exemplo, <code>Xyz.class.isInstance(object)</code> pode ser substituído por <code>object instanceof Xyz</code>.
+As verificações <code>instanceof</code> são preferidas: embora o desempenho possa não ser essencialmente diferente desses métodos, elas representam melhor uma verificação estática.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.2</small></p>
+</body>
+</html>

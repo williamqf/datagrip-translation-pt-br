@@ -1,0 +1,46 @@
+<html>
+<body>
+Relata métodos cujos valores de retorno nunca são utilizados quando chamados.
+O tipo de retorno de tais métodos pode ser definido como <code>void</code>.
+<p>Métodos anotados com a anotação <code>@CanIgnoreReturnValue</code> do Error Prone ou AssertJ não serão relatados.
+  O ajuste rápido atualiza a assinatura do método e remove as instruções <code>return</code> do método.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Relatado quando a visibilidade está definida como Protected ou Public
+  protected String myToUpperCase(String s) {
+    return s.toUpperCase();
+  }
+
+  // Setter simples, relatado dependendo das configurações
+  public String setStr(String str) {
+    myStr = str;
+    return myStr;
+  }
+
+  void test() {
+    setStr("value");          // valor de retorno não utilizado
+    myToUpperCase("result");  // valor de retorno não utilizado
+  }
+</code></pre>
+<p>Após aplicar o ajuste rápido a ambos os métodos:</p>
+<pre><code>
+    protected void myToUpperCase(String s) {
+      // 'return' removido completamente
+      // pois 's.toUpperCase()' não tem efeitos colaterais
+    }
+
+    public void setStr(String str) {
+      myStr = str;
+      // 'return' removido
+    }
+  ...
+</code></pre>
+<p>
+  <b>Nota</b>: Por motivos de desempenho, alguns métodos podem não ser relatados durante o realce no editor.
+  Para ver todos os resultados, execute a inspeção por meio de <b>Código | Inspecionar código</b> ou <b>Código | Analisar código | Executar inspeção por nome</b>.
+</p>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar métodos encadeáveis</b> para ignorar valores de retorno não utilizados de chamadas encadeáveis.</p>
+<p>Use a opção <b>Visibilidade máxima do método relatado</b> para controlar a visibilidade máxima dos métodos a serem relatados.</p>
+</body>
+</html>

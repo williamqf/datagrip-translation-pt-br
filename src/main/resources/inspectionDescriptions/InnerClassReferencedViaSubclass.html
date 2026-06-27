@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata acessos a classes internas e aninhadas cuja chamada é qualificada por uma subclasse da classe declarante em vez da própria classe declarante.
+<p>
+  O Java permite essa qualificação, mas esse tipo de acesso pode indicar uma confusão sutil entre herança e sobrescrita (overriding).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Super {
+    static class Inner {}
+  }
+
+  class Sub extends Super {
+    void test() {
+      Sub.Inner s = new Sub.Inner(); // A classe 'Inner' é declarada na classe 'Super', mas referenciada por meio da classe 'Sub'
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Super {
+    static class Inner {}
+  }
+
+  class Sub extends Super {
+    void test() {
+      Super.Inner s = new Super.Inner();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

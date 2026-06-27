@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>
+  Reporta códigos que usam <code>==</code> ou <code>!=</code> em vez de <code>equals()</code> para testar a igualdade de objetos.
+</p>
+<p>
+  Comparar objetos usando <code>==</code> ou <code>!=</code> geralmente é um bug, pois compara objetos por identidade em vez de igualdade.
+  Comparações com <code>null</code> não são reportadas.
+</p>
+<p>
+  Comparações de arrays, <code>String</code> e <code>Number</code> são reportadas por inspeções separadas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  <b>if</b> (list1 == list2) {
+    <b>return</b>;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  <b>if</b> (Objects.equals(list1, list2)) {
+    <b>return</b>;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use as configurações de inspeção para configurar exceções para esta inspeção.</p>
+</body>
+</html>

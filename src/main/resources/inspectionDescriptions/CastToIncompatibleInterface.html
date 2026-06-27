@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata expressões de conversão de tipo (cast) nas quais a expressão convertida possui um tipo de classe ou interface que não estende nem implementa o tipo da classe ou interface de destino, e não possui subclasses que o façam.
+<p>
+  Tais construções provavelmente estão incorretas e lançarão uma <code>java.lang.ClassCastException</code> em tempo de execução.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  interface A {}
+  interface Z {}
+  static class C {}
+
+  void x(C c) {
+    if (c instanceof Z) {
+      A a = ((A)c); // cast para interface incompatível 'A'
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

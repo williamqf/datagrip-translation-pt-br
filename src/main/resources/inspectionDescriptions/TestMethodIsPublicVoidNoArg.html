@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata quaisquer métodos de teste JUnit que são declarados como <code>static</code>, não são declarados como <code>public</code>, não retornam <code>void</code> ou possuem parâmetros de função.
+Tais métodos de teste são facilmente criados sem querer, e não serão executados pelo executor de teste JUnit.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @Test
+  void test() {
+    assertEquals(1, 1);
+  }
+</code></pre>
+<p>Após aplicação do reparo rápido:</p>
+<pre><code>
+  @Test
+  public void test() {
+    assertEquals(1, 1);
+  }
+</code></pre>
+<!-- tooltip end -->
+
+É possível especificar anotações usando a opção de inspeção.
+Quaisquer parâmetros de função anotados com uma dessas anotações não serão relatados.
+<p>
+</body>
+</html>

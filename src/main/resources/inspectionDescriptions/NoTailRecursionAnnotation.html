@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata métodos recursivos finais sem anotação <code>@tailrec</code> que verifica se o método será
+  compilado com
+  otimização de chamada de cauda.</p>
+
+<p>Observe que um método deve ser efetivamente <code>final</code> para que esta inspeção seja exibida.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def factorial(n: Long, acc: Long = 1): Long =
+    se (n <= 1) acc senão factorial(n - 1, acc * n)
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  @tailrec
+  def factorial(n: Long, acc: Long = 1): Long =
+    se (n <= 1) acc senão factorial(n - 1, acc * n)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

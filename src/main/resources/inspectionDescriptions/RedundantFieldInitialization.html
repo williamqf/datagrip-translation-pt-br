@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata campos que são inicializados explicitamente com seus valores padrão.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    int foo = 0;
+    List bar = null;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    int foo;
+    List bar;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as configurações da inspeção para relatar apenas inicializações <code>null</code> explícitas, por exemplo:
+</p>
+<pre><code>
+  class Foo {
+    int foo = 0;     // sem aviso
+    List bar = null; // aviso de inicialização de campo redundante
+  }
+</code></pre>
+</body>
+</html>

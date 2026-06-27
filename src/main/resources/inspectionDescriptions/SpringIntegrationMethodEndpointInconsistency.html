@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata declarações de métodos de endpoint do <a href="https://spring.io/projects/spring-integration">Spring Integration</a> incorretas.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+class MyEndpoints {
+  @InboundChannelAdapter("channel")
+  public void <strong>cannotBeVoid</strong>() {...} // O método anotado com @InboundChannelAdapter deve ter um tipo de retorno
+
+  @InboundChannelAdapter("channel")
+  public String <strong>cannotHaveParams</strong>(String s) {..} // O método anotado com @InboundChannelAdapter não pode ter argumentos
+
+  @<strong>Filter</strong>(inputChannel = "channel", // O endpoint pode ter apenas um poller
+    outputChannel = "channel2",
+    poller = {@Poller(fixedDelay = "100"), @Poller(fixedRate = "100")})
+  public void testMultiplePollers() {
+  }
+
+  @Filter(inputChannel = "channel",
+  outputChannel = "channel2",
+  poller = @<strong>Poller</strong>(value = "poller", maxMessagesPerPoll = "100"))
+  public void testValue() {
+  }
+
+  @Filter(inputChannel = "channel",
+    outputChannel = "channel2",
+    poller = @<strong>Poller</strong>(trigger = "trigger", cron = "0 */10 * * * *")) // O atributo 'trigger' é mutuamente exclusivo com outros atributos
+  public void testTrigger() {
+  }
+}
+</code></pre>
+</body>
+</html>

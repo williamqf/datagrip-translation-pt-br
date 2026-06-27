@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata testes JUnit 4 que podem ser migrados automaticamente para JUnit 5.
+Embora os runners padrão possam ser convertidos automaticamente, runners personalizados, regras de método e regras de campo não são convertidos automaticamente e exigem alterações manuais.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  import org.junit.Assert;
+  import org.junit.Test;
+
+  public class RelevantTest {
+    @Test
+    public void testIt() {
+      Assert.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  import org.junit.jupiter.api.Assertions;
+  import org.junit.jupiter.api.Test;
+
+  public class RelevantTest {
+    @Test
+    public void testIt() {
+      Assertions.assertEquals("expected", "actual");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção exige que a biblioteca JUnit 5 esteja disponível no classpath e que o JDK 1.8 ou superior esteja configurado para o projeto.</p>
+</body>
+</html>

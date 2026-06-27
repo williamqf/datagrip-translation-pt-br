@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata chamadas para <code>java.lang.Class.newInstance()</code>.
+<p>
+  Este método propaga exceções lançadas por construtores sem argumentos, incluindo exceções verificadas. O uso deste método ignora efetivamente as verificações de exceção em tempo de compilação que, de outra forma, seriam realizadas pelo compilador.
+</p>
+<p>
+  Uma correção rápida é sugerida para substituir a chamada por uma chamada ao método <code>java.lang.reflect.Constructor.newInstance()</code>, que evita esse problema ao encapsular qualquer exceção lançada pelo construtor em uma <code>java.lang.reflect.InvocationTargetException</code> (verificada).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  clazz.newInstance()
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  clazz.getConstructor().newInstance();
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

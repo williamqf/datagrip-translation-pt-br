@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata operações inseguras usando <code>this</code> durante a construção do objeto, incluindo:
+
+<ul>
+  <li>Acesso a propriedades não final durante a inicialização da classe: a partir de um construtor ou da inicialização de propriedades</li>
+  <li>Chamada de funções não final durante a inicialização da classe</li>
+  <li>Uso de <code>this</code> como um argumento de função em construtores de classes não final</li>
+</ul>
+
+<p>
+    Se outras classes herdarem da classe fornecida, elas podem não estar totalmente inicializadas no momento em que a operação insegura for executada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>abstract class</b> Base {
+      <b>val</b> code = calculate()
+      <b>abstract fun</b> calculate(): Int
+  }
+
+  <b>class</b> Derived(<b>private val</b> x: Int) : Base() {
+      <b>override fun</b> calculate() = x
+  }
+
+  <b>fun</b> testIt() {
+      println(Derived(42).code) <i>// Esperado: 42, Atual: 0</i>
+  }
+</code></pre>
+</body>
+</html>

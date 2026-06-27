@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata problemas com decoradores aninhados. Esta inspeção destaca casos em que <code>classmethod</code> ou <code>staticmethod</code> são aplicados antes de outro decorador.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+def innocent(f):
+    return f
+
+
+class A:
+    @innocent  # O decorador não receberá o objeto chamável esperado
+    @classmethod
+    def f2(cls):
+        pass
+
+    @innocent  # O decorador não receberá o objeto chamável esperado
+    @staticmethod
+    def f1():
+        pass
+</code></pre>
+<p>A correção rápida sugerida pela IDE é remover este decorador.</p>
+</body>
+</html>

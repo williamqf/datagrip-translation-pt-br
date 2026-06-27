@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata o uso de <code>VirtualFile.getChildren()</code> em métodos recursivos.
+<p>
+  Isso pode causar um loop infinito ao iterar sobre links simbólicos cíclicos.
+  Em vez disso, use <code>VfsUtilCore.visitChildrenRecursively()</code>.
+</p>
+<pre><code lang="java">
+void processDirectory(VirtualFile dir) {
+  for (VirtualFile file : dir.getChildren()) { // Incorreto
+    if (!file.isDirectory()) {
+      processFile(file);
+    } else {
+      processDirectory(file); // Chamada recursiva
+    }
+  }
+}
+</code>
+</pre>
+<pre><code lang="java">
+void processDirectory(VirtualFile dir) {
+  VfsUtilCore.visitChildrenRecursively(dir, new VirtualFileVisitor&lt;Void>() { // Correto
+    @Override
+    public boolean visitFile(@NotNull VirtualFile file) {
+      if (!file.isDirectory()) {
+        processFile(file);
+      }
+      return true;
+    }
+  });
+}
+</code></pre>
+</body>
+</html>

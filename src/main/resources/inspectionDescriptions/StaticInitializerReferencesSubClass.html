@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata classes que referenciam suas subclasses em inicializadores <code>static</code> ou campos <code>static</code>.
+<p>Tais referências podem causar um deadlock no nível da JVM em ambientes multithread (ou seja, quando uma thread tenta carregar a superclasse e outra tenta carregar a subclasse simultaneamente).</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Parent {
+    static final Child field = new Child();
+  }
+  class Child extends Parent { }
+</code></pre>
+</body>
+</html>

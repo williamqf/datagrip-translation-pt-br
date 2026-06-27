@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata chamadas a <code>assertXXX()</code> ou <code>fail()</code> que não possuem um argumento de string de mensagem de erro.
+Mensagens de erro sobre falhas de asserção podem ajudar a esclarecer a intenção do caso de teste.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  assertTrue(checkValid());
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>assertTrue(checkValid(), "|");</code></pre>
+<p>
+  O argumento da mensagem é adicionado antes ou depois dos argumentos existentes, dependendo do framework de asserção utilizado.
+</p>
+<!-- tooltip end -->
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata expressões lambda que contêm uma única referência chamável (callable reference).
+<p>Substituir uma lambda por uma referência chamável sem alterar as chaves para parênteses é um erro comum.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val numbers = listOf(1, 2, 3)
+  val result = numbers.map { it::toString }
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  val numbers = listOf(1, 2, 3)
+  val result = numbers.map(Int::toString) // o tipo real entra aqui
+</code></pre>
+</body>
+</html>

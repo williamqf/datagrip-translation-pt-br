@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata cadeias de chamadas <code>Optional</code> que podem ser substituídas por uma sequência de instruções <code>if</code>.
+<p>Exemplo:</p>
+<pre><code>
+  return Optional.ofNullable(name)
+    .map(this::extractInitials)
+    .map(initials -> initials.toUpperCase(Locale.ENGLISH))
+    .orElseGet(this::getDefault);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if (name != null) {
+    String initials = extractInitials(name);
+    if (initials != null) return initials.toUpperCase(Locale.ENGLISH);
+  }
+  return getDefault();
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Esta inspeção é útil para realizar o downgrade visando a retrocompatibilidade com versões anteriores do Java.
+</p>
+<p><small>Novidade em 2020.2</small></p>
+</body>
+</html>

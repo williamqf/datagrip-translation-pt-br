@@ -1,0 +1,18 @@
+<html>
+<body>
+Reporta imports não ordenados.
+<p>Todos os programas Go devem ser formatados da mesma maneira, com regras de formatação estabelecidas pela ferramenta <a href="https://pkg.go.dev/cmd/gofmt">gofmt</a>. Essas regras exigem que os imports sejam ordenados.</p>
+<p>Exemplo de ordenação incorreta:</p>
+<pre><code>import (
+ "net"
+ "errors"
+ "fmt"
+)</code></pre>
+<p>Você pode aplicar a correção rápida <b>Ordenar imports</b> para corrigir o problema de ordenação. Após aplicar a correção rápida, a ordenação será a seguinte:</p>
+<pre><code>import (
+ "errors"
+ "fmt"
+ "net"
+)</code></pre>
+</body>
+</html>

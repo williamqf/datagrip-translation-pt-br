@@ -1,0 +1,26 @@
+<html>
+<body>
+<p>Relata as declarações que não são utilizadas.</p>
+
+<p>O quick-fix remove a declaração não utilizada.</p>
+
+<p>Nas <b>Opções</b> abaixo, você pode controlar se a inspeção deve funcionar para declarações públicas e/ou locais.
+  No caso de declarações locais, além de habilitar e desabilitar a inspeção, você também pode torná-la dependente
+  da existência de uma das três opções do compilador: <code>-Wunused:locals</code>, <code>-Wunused:linted</code>, or <code>-Xlint:unused</code>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def test(): Int = {
+    val unused = 3
+    3
+  }
+</code></pre>
+<p>Após o quick-fix ser aplicado:</p>
+<pre><code>
+  def test(): Int = {
+    3
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

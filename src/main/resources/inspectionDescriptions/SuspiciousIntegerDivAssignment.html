@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata atribuições onde o lado direito é uma divisão que não deveria ser truncada para um inteiro.
+<p>Embora ocasionalmente intencional, essa construção geralmente indica um erro.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int x = 18;
+  x *= 3/2; // x não será alterado devido ao resultado da divisão inteira
+</code></pre>
+<p>
+Este código deve ser substituído por:
+<pre><code>
+  int x = 18;
+  x *= 3.0/2;
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Nas opções de inspeção, é possível desativar avisos para divisões suspeitas, mas possivelmente corretas, como quando o dividendo não pode ser calculado estaticamente.
+<pre><code>
+  void calc(int d) {
+     int x = 18;
+     x *= d/2;
+  }
+</code></pre>
+
+<p>
+  <small>Novo na versão 2019.2</small>
+</p>
+</body>
+</html>

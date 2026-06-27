@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas como <code>"abc".substring(0, 1)</code> que podem ser substituídas por <code>"abc"[0]</code>.
+<p>Obter elementos por índice torna o código mais simples.</p>
+<p>A correção rápida substitui a chamada <code>substring</code> pelo operador de indexação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo() {
+      &quot;abc&quot;.substring(0, 1)
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo() {
+      &quot;abc&quot;[0]
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

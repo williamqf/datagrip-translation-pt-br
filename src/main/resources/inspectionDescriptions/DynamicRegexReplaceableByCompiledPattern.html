@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata chamadas a métodos de expressão regular da classe <code>java.lang.String</code> (como <code>matches()</code> ou <code>split()</code>) que utilizam argumentos constantes.
+<p>
+  Tais chamadas podem ser vantajosamente substituídas por um campo <code>private static final Pattern</code>, eliminando a necessidade de compilar a expressão regular toda vez que ela for utilizada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  text.replaceAll("abc", replacement);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  private static final Pattern ABC = Pattern.compile("abc", Pattern.LITERAL);
+  ABC.matcher(text).replaceAll(Matcher.quoteReplacement(replacement));
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

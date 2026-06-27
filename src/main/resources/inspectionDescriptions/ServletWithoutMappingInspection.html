@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata servlets que não possuem um mapeamento associado.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;web-app&gt;
+    &lt;servlet&gt;
+      &lt;servlet-name&gt;foo&lt;/servlet-name&gt; // Erro: o servlet deve ter um mapeamento
+      &lt;servlet-class&gt;javax.servlet.Servlet&lt;/servlet-class&gt;
+    &lt;/servlet&gt;
+  
+    &lt;filter&gt;
+      &lt;filter-name&gt;bar&lt;/filter-name&gt; // Erro: o filtro deve ter um mapeamento
+      &lt;filter-class&gt;java.lang.String&lt;/filter-class&gt;
+    &lt;/filter&gt;
+  &lt;/web-app&gt;
+</code></pre>
+</body>
+</html>

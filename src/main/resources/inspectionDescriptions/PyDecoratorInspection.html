@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Relata o uso dos decoradores <code>@classmethod</code> ou <code>@staticmethod</code> em métodos fora de uma classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class State(object):
+
+    @classmethod
+    def my_state(cls, name):
+        cls.name = name
+
+
+@classmethod
+def change_state(self):
+    pass
+</code></pre>
+<p>O método <code>change_state</code> não deve usar o decorador <code>@classmethod</code> ou deve ser movido para a declaração da classe <code>State</code>.</p>
+<p>Se a ação <code>Remover decorador</code> for aplicada, o código se tornará:</p>
+<pre><code>
+class State(object):
+
+    @classmethod
+    def my_state(cls, name):
+        cls.name = name
+
+
+def change_state(self):
+    pass
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata métodos de teste JUnit com múltiplas exceções na cláusula <code>throws</code>.
+Tais cláusulas são desnecessariamente verbosas.
+Como os métodos de teste não serão chamados por outros códigos do projeto, não há necessidade de tratar essas exceções individualmente.
+<p>Exemplo:</p>
+<pre><code lang="java">
+  @Test
+  public void testReflection() throws NoSuchMethodException,
+      InvocationTargetException, IllegalAccessException {
+    String result = (String) String.class.getMethod("trim")
+        .invoke(" hello ");
+    assertEquals("hello", result);
+  }
+</code></pre>
+<p>A correção rápida substitui as declarações de exceção por uma única exceção:</p>
+<pre><code lang="java">
+  @Test
+  public void testReflection() throws Exception {
+    String result = (String) String.class.getMethod("trim")
+        .invoke(" hello ");
+    assertEquals("hello", result);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

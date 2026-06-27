@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata expressões binárias que contêm diferentes operadores e não possuem parênteses.
+<p>Tais expressões podem ter baixa legibilidade devido às diferentes <a href="https://kotlinlang.org/docs/reference/grammar.html#expressions">regras de precedência</a> de operadores.</p>
+<p>Exemplo:</p>
+<pre>
+  fun foo(b: Boolean?, i: Int?) {
+      val x = b ?: i == null // avaliado como `(b ?: i) == null`
+      val y = i ?: 0 + 1 // avaliado como `i ?: (0 + 1)`
+  }
+</pre>
+</body>
+</html>

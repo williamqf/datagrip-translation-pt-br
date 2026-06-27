@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas de função <code>toString</code> que podem ser substituídas por um template de string.
+<p>O uso de templates de string torna o código mais simples.</p>
+<p>A correção rápida substitui o <code>toString</code> por um template de string.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(): String {
+      val x = 1
+      return x.toString()
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test(): String {
+      val x = 1
+      return &quot;$x&quot;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

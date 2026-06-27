@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata campos que não são utilizados no método <code>toString()</code> de uma classe.
+<p>Ajuda a descobrir campos adicionados após a última atualização do método <code>toString()</code>.
+  A correção rápida gera novamente o método <code>toString()</code>.</p>
+<p>
+No diálogo <b>Gerar | toString()</b>, é possível excluir campos desta inspeção.
+Se a opção <em>Habilitar getters na geração de código</em> estiver ativada, esta inspeção também verificará problemas nos métodos getter.
+<p>Exemplo:</p>
+<pre><code>
+  <b>public class</b> Relevant {
+    <b>private</b> String name; // não usado no toString()
+    <b>private int</b> index;
+    <b>private int</b> length;
+
+    @Override
+    <b>public</b> String toString() {
+        <b>return</b> "Relevant{" + "index=" + index +
+          ", length=" + length + '}';
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>public class</b> Relevant {
+    <b>private</b> String name;
+    <b>private int</b> index;
+    <b>private int</b> length;
+
+    @Override
+    <b>public</b> String toString() {
+        <b>return</b> "Relevant{" + "name='" + name + '\'' +
+          ", index=" + index + ", length=" + length + '}';
+    }
+  }
+</code></pre>
+</body>
+</html>

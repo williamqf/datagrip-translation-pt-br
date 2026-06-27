@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata padrões que podem ser substituídos por padrões de record.
+<p>Exemplo:</p>
+<pre><code>
+  record Point(int x, int y) {
+    static void printSum(Object obj) {
+      if (obj instanceof Point p) {
+        int x = p.x();
+        int y = p.y();
+        System.out.println(x + y);
+      }
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  record Point(int x, int y) {
+    static void printSum(Object obj) {
+      if (obj instanceof Point(int x, int y)) {
+        System.out.println(x + y);
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.1</small></p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+<p>Denuncia métodos sem cláusulas de parâmetro que sobrescrevem métodos com cláusulas de parâmetro vazias.</p>
+
+<p>A convenção é que um método deve ter parênteses se tiver <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>.
+    De acordo com o <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">princípio da substituição de Liskov</a>,
+    quando um método sobrescrito tem uma cláusula de parâmetro, indicando um efeito colateral,
+    o método de sobrescrita também deve ser declarado como um método com efeitos colaterais.</p>
+
+<p>A correção rápida adiciona uma cláusula de parâmetro vazia.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Base {
+    def x() = 1
+  }
+  class Impl extends Base {
+    override def x = 2
+  }
+</code></pre>
+<p>Depois que as correções rápidas são aplicadas:</p>
+<pre><code>
+  class Base {
+    def x() = 1
+  }
+  class Impl extends Base {
+    override def x() = 2
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

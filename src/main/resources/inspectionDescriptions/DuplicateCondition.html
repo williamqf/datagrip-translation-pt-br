@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata condições duplicadas em expressões <code>&amp;&amp;</code> e <code>||</code>, bem como em ramos de instruções <code>if</code>.
+Essas condições duplicadas às vezes são intencionais, mas geralmente são resultado de um descuido.
+<p>Exemplo:</p>
+<pre><code>
+  boolean result = digit1 != digit2 || digit1 != digit2;
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Para ignorar condições que possam produzir efeitos colaterais, use a opção <b>Ignorar condições com efeitos colaterais</b>.
+Desativar esta opção pode levar a falsos positivos, por exemplo, quando o mesmo método retorna valores diferentes em chamadas subsequentes.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  native boolean unknownMethod();
+  
+  ...
+  
+  if (unknownMethod() || unknownMethod()) {
+    System.out.println("Got it");
+  }
+</code></pre>
+<p>Devido aos possíveis efeitos colaterais do <code>unknownMethod()</code> (no exemplo), o alerta só será disparado se a opção <b>Ignorar condições com efeitos colaterais</b> estiver desativada.</p>
+
+</body>
+</html>

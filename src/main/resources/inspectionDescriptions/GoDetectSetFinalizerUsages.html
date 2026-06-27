@@ -1,0 +1,13 @@
+<html>
+<body>
+Detecta o uso de <code>runtime.SetFinalizer</code>.
+<p>
+    Com o <code>runtime.SetFinalizer</code>, você pode registrar uma função que será executada quando o garbage collector descobrir que um objeto não está mais em uso.
+    A partir do Go 1.24, você deve usar <code>runtime.AddCleanup</code> em seu lugar, pois ele é mais seguro e menos propenso a erros.
+</p>
+<p>
+  Para mais detalhes, consulte a documentação de <a href="https://pkg.go.dev/runtime#SetFinalizer">runtime.SetFinalizer</a> e
+  <a href="https://pkg.go.dev/runtime#AddCleanup">runtime.AddCleanup</a>.
+</p>
+</body>
+</html>

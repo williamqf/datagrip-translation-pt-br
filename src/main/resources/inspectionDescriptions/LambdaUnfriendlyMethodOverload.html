@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata métodos sobrecarregados que utilizam interfaces funcionais com assinaturas de métodos abstratos conflitantes.
+<p>Tal sobrecarga introduz ambiguidade e exige que o chamador realize o cast do lambda para um tipo específico ou especifique explicitamente os tipos dos parâmetros do lambda.
+  É recomendável atribuir nomes diferentes aos métodos sobrecarregados para eliminar a ambiguidade.</p>
+<p>Exemplo:</p>
+<pre><code>
+  interface MyExecutor {
+    void execute(Supplier&lt;?&gt; supplier);
+    void execute(Callable&lt;?&gt; callable);
+  }
+</code></pre>
+<p>
+Aqui, <code>Supplier</code> e <code>Callable</code> são interfaces funcionais com um único método abstrato que não aceita parâmetros e retorna um valor não void.
+Como resultado, o tipo do lambda não pode ser inferido no local da chamada, a menos que um cast explícito seja utilizado.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

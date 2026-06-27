@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata classes de teste JUnit que não podem ser construídas pelo runner de teste padrão JUnit.
+<p>
+  Classes de teste JUnit 4 precisam ser <code>public</code> e incluir um construtor <code>public</code> sem parâmetros ou não incluir construtor algum (construtor padrão implícito), e não ter nenhum outro construtor <code>public</code>.
+  Classes de teste JUnit 3 precisam ser <code>public</code> e precisar de um construtor <code>public</code> sem parâmetros ou de um construtor <code>public</code> com um único parâmetro do tipo <code>String</code> (que chama o superconstrutor correspondente).
+  Caso contrário, as classes de teste não podem ser executadas pelo runner de teste padrão JUnit.
+<p><b>Exemplo:</b></p>
+<pre><code>
+public class MeuTeste {
+
+  private MeuTeste() {} // construtor sem argumentos é private
+
+  @Test
+  public void testaAlgo() {
+    assertEquals(1, 1);
+  }
+}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>
+  Relata loops <code>while</code> que podem ser escritos de forma mais eficiente como loops <code>do-while</code>.
+  Existem loops <code>while</code> em que o código imediatamente antes do loop é idêntico ao código dentro do corpo do loop.
+  A substituição por um loop <code>do-while</code> remove o código duplicado.
+  Uma correção rápida também é oferecida no editor para loops <code>while</code> sem esse código duplicado, mas sem realce.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  foo();
+  while (x) {
+      foo();
+  }
+</code></pre>
+<p>Pode ser substituído por:</p>
+<pre><code>
+  do {
+    foo();
+  } while (x);
+</code></pre>
+<!-- tooltip end -->
+<p>
+  <small>Novidade na versão 2024.1</small>
+</p>
+</body>
+</html>

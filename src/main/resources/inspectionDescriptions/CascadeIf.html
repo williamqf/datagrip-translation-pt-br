@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata instruções <code>if</code> com três ou mais ramificações que podem ser substituídas por uma expressão <code>when</code> com um sujeito.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun translateNumber(n: Int): String {
+    return if (n == 1) {
+      "one"
+    } else if (n == 2) {
+      "two"
+    } else {
+      "???"
+    }
+  }
+</code></pre>
+<p>A correção rápida converte a expressão <code>if</code> em <code>when</code>:</p>
+<pre><code>
+  fun translateNumber(n: Int): String {
+    return when (n) {
+      1 -> {
+        "one"
+      }
+      2 -> {
+        "two"
+      }
+      else -> {
+        "???"
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

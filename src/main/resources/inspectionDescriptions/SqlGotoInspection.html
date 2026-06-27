@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata o uso de instruções GOTO para trás e instruções GOTO usadas para sair de loops.
+<p>O uso extensivo de instruções GOTO geralmente não é recomendado. Para mais detalhes, consulte <a href="https://www.ibm.com/docs/no/db2/11.5?topic=procedures-goto-statement-in-sql">GOTO statement in SQL procedures no ibm.com</a>.</p>
+
+<p>Considere o uso de loops em vez de usar GOTO para retornar a uma instrução anterior.</p>
+<p>Considere o uso de outra instrução de controle de fluxo, como RETURN ou BREAK, em vez de usar GOTO para sair de um loop WHILE.</p>
+<p>Exemplo (Oracle):</p>
+<pre><code>CREATE PROCEDURE test(n INT) AS
+DECLARE
+    x INT;
+BEGIN
+    x := 0;
+    GOTO a;
+    &lt;&lt;a&gt;&gt; x := 1;
+    IF (n = 0) THEN
+        GOTO a;
+    END IF;
+    WHILE TRUE
+        LOOP
+            GOTO b;
+        END LOOP;
+    &lt;&lt;b&gt;&gt; x := 3;
+END;</code></pre>
+</body>
+</html>

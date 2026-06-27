@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata consultas com um número excessivo de JOINs.
+<p>Por motivos de desempenho, geralmente não é recomendado o uso excessivo de JOINs.</p>
+
+<pre><code>SELECT * FROM a inner join b using(id) inner join c using (id) inner join d using (id) inner join e using (id)</code></pre>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata "números mágicos": literais numéricos que não são nomeados por meio de uma declaração de constante.
+<p>O uso de números mágicos torna o código pouco claro e pode causar erros se um número mágico for alterado em um local, mas permanecer o mesmo em outro. Esta inspeção não relata os números 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 100, 1000, 0L, 1L, 2L, 0.0, 1.0, 0.0F e 1.0F.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void checkFileSize(long bytes) {
+    if (bytes > 1_048_576) {
+      throw new IllegalArgumentException("too big");
+    }
+  }
+</code></pre>
+<p>A correção rápida introduz uma nova constante:</p>
+<pre><code>
+  static final int MAX_SUPPORTED_FILE_SIZE = 1_048_576;
+
+  void checkFileSize(long bytes) {
+    if (bytes > MAX_SUPPORTED_FILE_SIZE) {
+      throw new IllegalArgumentException("too big");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar constantes no método 'hashCode()'</b> para desativar esta inspeção dentro do método <code>hashCode()</code>.</li>
+  <li>Use a opção <b>Ignorar em anotações</b> para ignorar números mágicos em anotações.</li>
+  <li>Use a opção <b>Ignorar capacidade inicial para StringBuilders e Collections</b> para ignorar números mágicos usados como capacidade inicial ao construir objetos <code>Collection</code>, <code>Map</code>, <code>StringBuilder</code> ou <code>StringBuffer</code>.</li>
+</ul>
+
+</body>
+</html>

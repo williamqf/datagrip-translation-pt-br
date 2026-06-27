@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata verificações de condição ausentes em instruções que podem alterar todo o banco de dados.
+<p>Por exemplo, uma cláusula JOIN usada dentro de uma instrução DELETE sem ON ou WHERE. Se não houver uma verificação de condição para o JOIN, o DELETE excluirá todo o conteúdo da tabela.</p>
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT,b INT,c INT);
+CREATE TABLE bar (a INT,b INT,c INT);
+
+DELETE table1 FROM foo table1  INNER JOIN bar table2;</code></pre>
+</body>
+</html>

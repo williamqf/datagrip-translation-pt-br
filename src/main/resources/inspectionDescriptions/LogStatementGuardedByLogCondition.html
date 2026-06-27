@@ -1,0 +1,40 @@
+<html>
+<body>
+Relata chamadas de registro com argumentos não constantes que não são envolvidos por uma condição de proteção.
+A avaliação dos argumentos de uma chamada de registro pode ser dispendiosa.
+Envolver uma chamada de registro com uma cláusula de proteção impede esse custo quando o registro é desabilitado para o nível usado pela declaração de registro. Isto é especialmente útil para o nível menos sério (trace, debug, finest) de chamadas de registro, porque estes são mais frequentemente desabilitados em um ambiente de produção.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public class</b> Principal {
+    <b>void</b> ruim(Object object) {
+      <b>if</b> (true) {
+        LOG.debug("log log log " + expensiveCalculation(object));
+      }
+      LOG.debug("algum outro log " + expensiveCalculation(1));
+    }
+
+    <b>void</b> boa(Object) {
+      <b>if</b> (LOG.isDebug()) {
+        LOG.debug("value: " + expensiveCalculation(object));
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção:
+</p>
+<ul>
+  <li>
+      Use o campo <b>Nome da classe Logger</b> para especificar o nome da classe do logger usado.
+  </li>
+  <li>
+    <p>
+      Use a tabela para especificar os métodos de registro para os quais esta inspeção deve gerar um aviso, com o texto da condição de log correspondente.
+  </li>
+  <li>
+      Use a opção <b>Marcar todas as chamadas de registro desprotegidas</b> para que a inspeção sinalize todas as chamadas de log desprotegidas, não apenas aquelas com argumentos não constantes.
+  </li>
+</ul>
+</body>
+</html>

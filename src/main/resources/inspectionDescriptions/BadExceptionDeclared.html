@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata métodos que declaram exceções inadequadas em sua cláusula <code>throws</code>.
+Por exemplo, uma exceção pode ser inadequada por ser genérica demais, como <code>java.lang.Exception</code> ou <code>java.lang.Throwable</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void describeModule(String module) throws Exception {} // Aviso: a exceção proibida 'Exception' foi declarada
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a lista <b>Exceções proibidas</b> para especificar quais exceções devem ser relatadas.</li>
+  <li>Use a opção <b>Ignorar exceções declaradas em métodos que sobrescrevem métodos de biblioteca</b> para ignorar exceções declaradas em métodos que sobrescrevem métodos de biblioteca.</li>
+</ul>
+</body>
+</html>

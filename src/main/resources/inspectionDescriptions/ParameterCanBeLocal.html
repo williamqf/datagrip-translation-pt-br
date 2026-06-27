@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata parâmetros de método redundantes que podem ser substituídos por uma variável local.
+<p>Se todos os usos locais de um parâmetro forem precedidos por uma atribuição a esse parâmetro, o parâmetro poderá ser removido e seus usos substituídos por uma variável local.
+Não faz sentido ter esse parâmetro, pois o valor passado para ele é sobrescrito.
+Este problema é geralmente o resultado de uma refatoração.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void test(int p) {
+    p = 1;
+    System.out.print(p);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void test() {
+    int p = 1;
+    System.out.print(p);
+  }
+</code></pre>
+</body>
+</html>

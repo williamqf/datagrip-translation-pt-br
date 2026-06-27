@@ -1,0 +1,33 @@
+<html><body>
+Esta intenção altera o contrato de um método de biblioteca.
+
+A sintaxe do contrato do método é a seguinte:
+<pre><code>
+ contract ::= (clause ';')* clause
+ clause ::= args '->' effect
+ args ::= ((arg ',')* arg )?
+ arg ::= value-constraint
+ value-constraint ::= '_' | 'null' | '!null' | 'false' | 'true'
+ effect ::= value-constraint | 'fail' | 'new' | 'this' | 'param' number
+ number ::= [1-9] [0-9]*
+</code></pre>
+
+As restrições significam:<br/>
+<ul>
+  <li> <code>_</code>: qualquer valor
+  <li> <code>null</code>: valor nulo
+  <li> <code>!null</code>: um valor estaticamente comprovado como não nulo
+  <li> <code>true</code>: valor booleano true
+  <li> <code>false</code>: valor booleano false
+  <li> <code>fail</code>: o método lançará uma exceção se os argumentos satisfizerem as restrições de argumento
+  <li> <code>new</code>: toda vez que o método é executado, ele retorna um novo objeto não nulo, diferente de outros objetos que existiam no heap antes da execução do método. Se o método for puro, o novo objeto não será armazenado em campos ou arrays e será perdido se o valor de retorno do método não for utilizado.
+  <li> <code>this</code>: o método retorna uma referência 'this' não nula
+  <li> <code>param1 (param2, param3, etc.)</code>: o método retorna o seu primeiro (segundo, terceiro, etc.) argumento
+</ul>
+Exemplos:<br/>
+<ul>
+  <li> <code>@Contract("_, null -> null")</code>: se o segundo argumento do método for nulo, ele retornará nulo.
+  <li> <code>@Contract("_, null -> null; _, !null -> !null")</code> - se o segundo argumento do método for nulo, ele retornará nulo; caso contrário, retornará um valor não nulo.
+  <li> <code>@Contract("true -> fail")</code> - um método <code>assertFalse</code> típico que lançará uma exceção se <code>true</code> for passado a ele.
+</ul>
+</body></html>

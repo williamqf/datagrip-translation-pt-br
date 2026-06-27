@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas JUnit <code>assertEquals()</code> com argumentos do tipo array.
+Esse método compara a identidade do array, em vez do seu conteúdo.
+O conteúdo do array deve ser verificado usando o método <code>assertArrayEquals()</code>.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Test
+  public void testSort() {
+    int[] actual = {248, 496, 0, 56};
+    Arrays.sort(actual);
+    Assert.assertEquals(new int[] {0, 56, 248, 496}, actual);
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code lang="java">
+  @Test
+  public void testSort() {
+    int[] actual = {248, 496, 0, 56};
+    Arrays.sort(actual);
+    Assert.assertArrayEquals(new int[] {0, 56, 248, 496}, actual);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

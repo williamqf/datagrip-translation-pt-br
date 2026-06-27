@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata declarações <code>expect</code> que possuem declarações <code>actual</code> ambíguas em implementações de módulos multiplataforma.
+<p>
+    Exemplo:
+</p>
+<pre><code>
+// common.kt
+expect class Foo
+// middle.kt
+actual class Foo
+// bottom.kt
+actual class Foo
+</code></pre>
+</body>
+</html>

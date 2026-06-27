@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata o uso de classes concretas em vez de interfaces.
+Tais declarações podem representar uma falha de abstração e podem tornar os testes mais difíceis.
+<p>
+Esta inspeção não relata declarações cujas classes provenham do sistema ou de bibliotecas de terceiros.
+Casts, <code>instanceof</code> e variáveis locais não são relatados em implementações do método <code>equals()</code>.
+Além disso, casts não são relatados em implementações do método <code>clone()</code>.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  interface Entity {}
+  class EntityImpl implements Entity {}
+
+  void processObject(Object obj) {
+    // Aviso: instanceof de classe concreta
+    if (obj instanceof EntityImpl) {
+      // Aviso: cast para classe concreta,
+      // em vez de interface
+      processEntity((EntityImpl)obj);
+    }
+  }
+  // Aviso: parâmetro de classe concreta
+  void processEntity(EntityImpl obj) {
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Ignorar tipos de classe abstrata</b> para ignorar casts para classes abstratas.</p>
+<p>Use as opções subsequentes para controlar o contexto no qual os problemas são relatados.</p>
+</body>
+</html>

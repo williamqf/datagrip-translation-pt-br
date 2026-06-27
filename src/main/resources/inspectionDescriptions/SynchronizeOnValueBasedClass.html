@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata tentativas de sincronização em instâncias de classes baseadas em valor que, a partir do Java 16, geram avisos em tempo de compilação e lançam exceções em tempo de execução.
+<p>
+  Por exemplo, <code>java.lang.Double</code> é anotada com <code>jdk.internal.ValueBased</code>, portanto, o código a seguir gera um aviso em tempo de compilação:
+</p>
+<pre><code>
+Double d = 20.0;
+synchronized (d) { ... } // aviso do javac
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2021.1</small></p>
+</body>
+</html>

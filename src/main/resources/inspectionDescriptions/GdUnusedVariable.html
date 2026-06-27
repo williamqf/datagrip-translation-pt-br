@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata variáveis e constantes GDScript que foram declaradas, mas nunca utilizadas.</p>
+
+<p>
+Esta inspeção ajuda a manter os scripts limpos ao detectar declarações de variáveis locais e constantes que não possuem uso dentro do escopo do projeto. Se uma dica de tipo (type hint) estiver presente, mas referenciar um tipo não resolvido, a declaração será ignorada para evitar falsos positivos.
+</p>
+
+<p>Exemplo:</p>
+<pre><code>
+var tmp = 42 # Não utilizado, será relatado
+const PI2 = PI * 2 # Não utilizado, será relatado
+
+var enemy: UnknownType # Ignorado se UnknownType não puder ser resolvido
+</code></pre>
+
+<p>Ações de correção rápida:</p>
+<ul>
+  <li>Remover variável/constante não utilizada.</li>
+</ul>
+
+<!-- tooltip end -->
+<p>Esta inspeção não relata declarações que sejam referenciadas em qualquer lugar do projeto. Ela também ignora declarações com tipos não resolvidos para evitar avisos falsos.</p>
+</body>
+</html>

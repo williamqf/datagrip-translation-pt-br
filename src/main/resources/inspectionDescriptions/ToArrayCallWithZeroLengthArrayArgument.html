@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas de <code>Collection.toArray()</code> que não seguem o estilo preferido e sugere a aplicação do estilo preferido.
+<p>Existem dois estilos para converter uma coleção em um array:</p>
+<ul>
+  <li>Um array pré-dimensionado, por exemplo, <code>c.toArray(new String[c.size()])</code></li>
+  <li>Um array vazio, por exemplo, <code>c.toArray(new String[0])</code></li>
+</ul>
+<p>Em versões antigas do Java, recomendava-se o uso de um array pré-dimensionado porque a chamada de reflexão necessária para criar um array de tamanho apropriado era muito lenta.</p>
+<p>No entanto, desde as atualizações mais recentes do OpenJDK 6, esta chamada foi otimizada, tornando o desempenho da versão com array vazio igual ou, às vezes, superior ao da versão pré-dimensionada. Além disso, passar um array pré-dimensionado é perigoso para coleções concorrentes ou sincronizadas, pois pode ocorrer uma corrida de dados entre as chamadas de <code>size</code> e <code>toArray</code>. Isso pode resultar em um <code>null</code> extra ao final do array se a coleção for reduzida simultaneamente durante a operação.</p>
+<!-- tooltip end -->
+<p>Use as opções da inspeção para escolher o estilo preferido.</p>
+</body>
+</html>

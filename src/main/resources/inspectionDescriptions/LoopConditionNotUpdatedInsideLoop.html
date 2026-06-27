@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata quaisquer variáveis e parâmetros usados em condições de loop que não são atualizados dentro do loop.
+<p>Tais variáveis e parâmetros são geralmente usados incorretamente, pois, se executados, podem causar um loop infinito.</p>
+<p>Exemplo:</p>
+<pre><code>
+  void loopDoesNotLoop(boolean b) {
+    while (b) {
+      System.out.println();
+      break;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>
+  Se a condição puder ser atualizada indiretamente (por exemplo, por meio de um método chamado ou atualizada simultaneamente a partir de outra thread), use a opção <b>Ignorar possíveis alterações não locais</b> para desativar esta inspeção.
+</p>
+
+</body>
+</html>

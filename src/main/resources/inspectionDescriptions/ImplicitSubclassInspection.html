@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata situações em que o código impede que um framework (como Spring ou Hibernate) crie subclasses de uma classe em tempo de execução.
+<!-- tooltip end -->
+<p>Exemplos típicos onde a subclassificação é necessária, mas impossível:</p>
+<ul>
+  <li>Classes <code>final</code> marcadas com anotações específicas de framework (por exemplo, <code>@Configuration</code> do Spring)</li>
+  <li>Métodos <code>final</code>, <code>static</code> ou <code>private</code> marcados com anotações específicas de framework (por exemplo, <code>@Transactional</code> do Spring)</li>
+  <li>Métodos marcados com anotações específicas de framework dentro de uma classe <code>final</code></li>
+</ul>
+
+<p>A lista de situações relatadas depende do framework utilizado.</p>
+</body>
+</html>

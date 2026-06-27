@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata expressões <code>instanceof</code> nas quais o tipo de classe ou interface da expressão verificada não estende nem implementa o tipo de classe ou interface no lado direito da expressão <code>instanceof</code>, e não existem subclasses que o façam.
+<p>
+  Embora possa ser destinado a código de biblioteca, tal construção é muito provavelmente um erro, pois nenhuma instância de qualquer classe declarada no projeto poderá passar neste teste <code>instanceof</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo { }
+
+  interface Bar { }
+  
+  class Main {
+      void test(Foo f, Bar b) {
+          if (f instanceof Bar) { // Problema
+              System.out.println("fail");
+          }
+          if (b instanceof Foo) { // Problema
+              System.out.println("fail");
+          }
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

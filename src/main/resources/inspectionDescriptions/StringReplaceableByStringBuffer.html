@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata variáveis declaradas como <code>java.lang.String</code> que são concatenadas repetidamente. Tais variáveis podem ser declaradas de forma mais eficiente como <code>java.lang.StringBuffer</code> ou <code>java.lang.StringBuilder</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String s = "";
+  for (int i = 0; i &lt; names.length; i++) {
+    String name = names[i] + (i == names.length - 1 ? "" : " ");
+    s = s + name;
+  }
+</code></pre>
+<p>Tais loops podem ser substituídos por:</p>
+<pre><code>
+  StringBuilder s = new StringBuilder();
+  for (int i = 0; i &lt; names.length; i++) {
+    String name = names[i] + (i == names.length - 1 ? "" : " ");
+    s.append(name);
+  }
+</code></pre>
+<p>Ou até mesmo por:</p>
+<pre><code>
+  String s = String.join(" ", names);
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use esta opção para que esta inspeção relate apenas quando a variável for concatenada dentro de um loop.
+</p>
+</body>
+</html>

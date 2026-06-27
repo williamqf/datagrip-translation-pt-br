@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata negação dupla em chamadas <code>exists</code> ou <code>forall</code>.</p>
+
+<p>A correção rápida remove a dupla negação.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def condição(x: Int): Boolean = ???
+  !Seq(1, 2).exists(x => !condição(x))
+  !Seq(1, 2).forall(x => !condição(x))
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  def condição(x: Int): Boolean = ???
+  Seq(1, 2).forall(x => condição(x))
+  Seq(1, 2).exists(x => condição(x))
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

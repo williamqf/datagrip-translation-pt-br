@@ -1,0 +1,57 @@
+<html>
+<body>
+Relata o uso de membros static não qualificados pelo nome da classe.
+<p>
+Se o membro static estiver na mesma classe, o uso é válido, mas pode ser confuso.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+
+    void bar() {
+      foo();
+      System.out.println(x);
+    }
+
+    static void baz() { foo(); }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    static void foo() {}
+    static int x;
+
+    void bar() {
+      Foo.foo();
+      System.out.println(Foo.x);
+    }
+
+    static void baz() { Foo.foo(); }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use as configurações de inspeção para alternar o relato dos seguintes itens:</p>
+<ul>
+  <li>
+    <p>
+      Acesso a campos static<br>
+      <code>void bar() { System.out.println(x); }</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Chamadas a métodos static<br>
+      <code>void bar() { foo(); }</code><br>
+      <code>static void baz() { foo(); }</code>
+    </p>
+  </li>
+</ul>
+<p>
+  Você também pode configurar a inspeção para relatar o uso de membros static apenas em contextos não estáticos.
+  No exemplo acima, <code>static void baz() { foo(); }</code> não seria relatado.
+</p>
+</body>
+</html>

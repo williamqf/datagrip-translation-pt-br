@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata a aplicação da anotação <code>@groovy.transform.stc.POJO</code> sem <code>@groovy.transform.CompileStatic</code>.
+<p>A anotação <code>@POJO</code> altera o processo de compilação de classes Groovy para bytecode. Ela não tem efeito sem a compilação estática explicitamente habilitada (feita por meio da anotação <code>@CompileStatic</code>).</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @POJO // @POJO é relatado
+  class A {}
+</code></pre>
+</body>
+</html>

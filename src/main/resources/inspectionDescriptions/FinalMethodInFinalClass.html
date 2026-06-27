@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata métodos <code>final</code> em classes <code>final</code>.
+<p>Como classes <code>final</code> não podem ser herdadas, marcar um método como <code>final</code> é redundante e pode ser confuso.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>record Bar(int a, int b) {
+  public final int sum() { 
+     return a + b;
+  }
+}
+</code>
+</pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>record Bar(int a, int b) {
+  public int sum() { 
+     return a + b;
+  }
+}
+</code></pre>
+
+<p>Como mostrado neste exemplo, uma classe pode ser marcada como <code>final</code> de forma explícita ou implícita.</p>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

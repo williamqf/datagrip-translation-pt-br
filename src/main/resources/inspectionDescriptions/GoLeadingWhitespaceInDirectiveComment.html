@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata espaços à esquerda antes de diretivas Go em comentários.
+<p>Se houver um espaço entre <code>//</code> e a diretiva Go, a diretiva Go não será reconhecida.</p>
+<p>A correção rápida remove o espaço à esquerda antes da diretiva Go.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+//  go:embed file.txt
+var File string
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+//go:embed file.txt
+var File string
+</code></pre>
+</body>
+</html>

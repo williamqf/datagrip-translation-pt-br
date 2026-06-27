@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata chamadas de coleções não modificáveis de <code>java.util.Collections</code> que podem ser convertidas em métodos de fábrica de coleções mais recentes.
+Por exemplo, estas podem ser substituídas por <code>List.of()</code> ou <code>Set.of()</code> introduzidos no Java 9, ou <code>List.copyOf()</code> introduzido no Java 10.
+
+<p>Observe que, em comparação com os métodos de <code>java.util.Collections</code>, os métodos de fábrica de coleções do Java 9:
+<ul>
+  <li>Não aceitam valores <code>null</code>.
+  <li>Exigem elementos de coleção e chaves de mapa exclusivos.
+  <li>Não aceitam argumentos <code>null</code> para métodos de consulta, como <code>List.contains()</code> ou <code>Map.get()</code>, na coleção retornada.
+</ul>
+<p>Quando essas condições são violadas, uma exceção é lançada. Isso pode alterar a semântica do código após a migração.</p>
+<p>Exemplo:
+<pre><code>
+  List&lt;Integer> even = Collections.unmodifiableList(
+    Arrays.asList(2, 4, 6, 8, 10, 2));
+  List&lt;Integer> evenCopy = Collections.unmodifiableList(
+    new ArrayList&lt;>(list1));
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;Integer> even = List.of(2, 4, 6, 8, 10, 2);
+  List&lt;Integer> evenCopy = List.copyOf(list);
+</code></pre>
+
+<!-- tooltip end -->
+<p>
+Use a opção <b>Não avisar quando o conteúdo não for uma constante</b> para relatar apenas se os argumentos fornecidos forem constantes de tempo de compilação.
+Isso reduz a chance de mudanças de comportamento, pois nem sempre é possível verificar estaticamente se os elementos originais são exclusivos e não <code>null</code>.
+<p>
+  Use a opção <b>Sugerir 'Map.ofEntries'</b> para sugerir a substituição de mapas não modificáveis com mais de 10 entradas por <code>Map.ofEntries()</code>.
+<p><small>Novo na versão 2017.2</small></p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata atribuições ou modificações em parâmetros de loops <code>for</code> dentro do corpo do loop.
+<p>Embora ocasionalmente intencional, essa construção pode ser confusa e geralmente é causada por erros de digitação ou pelo uso da variável errada.</p>
+<p>A correção rápida adiciona uma nova declaração de variável.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (String s : list) {
+    // Aviso: s é alterado dentro do loop
+    s = s.trim();
+    System.out.println("String: " + s);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  for (String s : list) {
+    String trimmed = s.trim();
+    System.out.println("String: " + trimmed);
+  }
+</code></pre>
+<p>Atribuições em loops <code>for</code> básicos sem uma instrução de atualização não são relatadas.
+  Nesses casos, a atribuição provavelmente é intencional e não pode ser movida facilmente para a parte de atualização do loop <code>for</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  for (int i = 0; i &lt; list.size(); ) {
+    if (element.equals(list.get(i))) {
+      list.remove(i);
+    } else {
+      // Como não há instrução de atualização, a modificação
+      // do parâmetro do loop for não é relatada
+      i++;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Verificar parâmetros de loop 'for' aprimorados</b> para especificar se as modificações dos parâmetros de loop <code>for</code> aprimorados também devem ser relatadas.</p>
+</body>
+</html>

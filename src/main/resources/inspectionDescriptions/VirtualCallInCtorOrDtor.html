@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas de funções membro virtuais a partir de um construtor ou destrutor.
+Como a construção começa na classe base e prossegue para a classe derivada, os recursos da classe derivada ainda não foram inicializados.
+A destruição é executada na ordem inversa, portanto, chamar uma função virtual pode resultar no acesso a recursos que já foram destruídos.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Test {
+  public:
+      void virtual setUp();
+
+      Test() {
+          setUp();
+      }
+  };
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

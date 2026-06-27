@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata parênteses redundantes em expressões e tipos.
+<p>Exemplo:</p>
+<pre><code>func _(x (int), y ((string))) {
+}
+func _() {
+ _ = (1 + 1)
+ _ = (((1 + 1)))
+ _ = (((1 + 1))) + (((2 + 2)))
+}</code></pre>
+<p>Após aplicar a correção rápida <b>Remover parênteses</b>:</p>
+<pre><code>func _(x int, y string) {
+}
+func _() {
+ _ = 1 + 1
+ _ = 1 + 1
+ _ = (1 + 1) + (2 + 2)
+}</code></pre>
+</body>
+</html>

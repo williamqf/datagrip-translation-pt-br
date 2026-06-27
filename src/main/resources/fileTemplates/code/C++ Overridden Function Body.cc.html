@@ -1,0 +1,37 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+      Cria o corpo de uma função sobrescrita quando ela é gerada (por exemplo, usando a ação <b>Código | Sobrescrever Métodos</b>).<br>
+      Ao editar o template, você pode usar expressões C++, comentários e as seguintes variáveis predefinidas:</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CALL_SUPER}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Chamada da função base: para funções <code>void</code> — <code><b>BaseClass</b>::<i>functionName</i>()</code>, com ou sem parâmetros;
+    para outras funções — <code><b>return</b> <b>BaseClass</b>::<i>functionName</i>()</code>, com ou sem parâmetros.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RETURN_TYPE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O tipo de retorno da função.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${DEFAULT_RETURN_VALUE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O valor de retorno padrão da função.</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Todas as variáveis predefinidas do template <b>Cabeçalho de Arquivo C</b> (aba <b>Includes</b>) também estão disponíveis (por exemplo, 
+      <font face="verdana" size="-2"><b>${USER}</b></font> e
+      <font face="verdana" size="-2"><b>${DATE}</b></font>).</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

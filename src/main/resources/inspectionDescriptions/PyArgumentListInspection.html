@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Relata discrepâncias entre os parâmetros declarados e os argumentos reais, bem como argumentos incorretos (como argumentos nomeados duplicados) e ordem incorreta de argumentos.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Foo:
+    def __call__(self, p1: int, *, p2: str = "%"):
+        return p2 * p1
+
+
+bar = Foo()
+bar.__call__() # parâmetro não preenchido
+bar(5, "#") # argumento inesperado
+</code></pre>
+<p>O fragmento de código correto é o seguinte:</p>
+<pre><code>
+class Foo:
+    def __call__(self, p1: int, *, p2: str = "%"):
+        return p2 * p1
+
+
+bar = Foo()
+bar.__call__(5)
+bar(5, p2="#")
+</code></pre>
+</body>
+</html>

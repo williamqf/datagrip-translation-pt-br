@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata expressões e instruções <code>switch</code> nas quais o switch pode ser movido para dentro, pois cada branch possui uma subexpressão comum.
+Esta ação encurta o código. Em muitos casos, é razoável extrair a expressão switch resultante para uma variável ou método separado.
+<p>Exemplo:</p>
+<pre><code>
+  switch (value) {
+    case 0 -> System.out.println("zero");
+    case 1 -> System.out.println("one");
+    case 2, 3, 4 -> System.out.println("few");
+    default -> System.out.println("many");
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.out.println(switch (value) {
+    case 0 -> "zero";
+    case 1 -> "one";
+    case 2, 3, 4 -> "few";
+    default -> "many";
+  });
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Esta inspeção aplica-se apenas a switches aprimorados com a sintaxe de seta.
+</p>
+<p><small>Novidade na versão 2022.3</small></p>
+</body>
+</html>

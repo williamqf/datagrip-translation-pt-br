@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata funções <code>forEach</code> dentro de funções de escopo, como <code>also</code> ou <code>apply</code>, que podem ser simplificadas.
+<p>A correção rápida <b>Converter chamada forEach para onEach</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      val x = list.also { it.forEach { it + 4 } }.toString()
+      val y = list.apply { forEach { println(it) } }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun test(list: List&lt;Int&gt;) {
+      val x = list.onEach { it + 4 }.toString()
+      val y = list.onEach { println(it) }
+  }
+</code></pre>
+</body>
+</html>

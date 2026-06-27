@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata instruções <code>if</code>, <code>when</code> e <code>try</code> que podem ser convertidas em uma expressão ao extrair a instrução <code>return</code> ou uma atribuição.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(arg: Int): String {
+      when (arg) {
+          0 -> return "Zero"
+          1 -> return "One"
+          else -> return "Multiple"
+      }
+  }
+</code></pre>
+Após a aplicação da correção rápida:
+<pre><code>
+  fun foo(arg: Int): String {
+      return when (arg) {
+          0 -> "Zero"
+          1 -> "One"
+          else -> "Multiple"
+      }
+  }
+</code></pre>
+<p>Se você deseja que esta inspeção realce códigos mais complexos com branches de múltiplas instruções, desmarque a opção "Relatar apenas se cada branch for uma única instrução".</p>
+</body>
+</html>

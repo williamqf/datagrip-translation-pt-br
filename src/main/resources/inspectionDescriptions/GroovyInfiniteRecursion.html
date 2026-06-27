@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata métodos que certamente entrarão em recursão infinita ou lançarão uma exceção.
+Os métodos relatados por esta inspeção não podem ser concluídos corretamente.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+// Esta função entrará cada vez mais fundo na recursão
+def fibonacci(int n) {
+  return fibonacci(n-1) + fibonacci(n-2)
+}
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata funções exportadas que possuem tipos de retorno não exportados.
+<p>Ao visualizar a documentação no <strong>go doc</strong>, tipos não exportados podem ser difíceis de usar.</p>
+<p>Exemplo:</p>
+<pre><code>type hidden struct{}
+
+func Exported() hidden { // Função exportada com o tipo de retorno não exportado 'hidden'
+ return hidden{}
+}</code></pre>
+<p>Você pode aplicar a correção rápida <b>Exportar</b> para exportar o tipo. Após aplicar a correção rápida, o nome do tipo começará com letra maiúscula:</p>
+<pre><code>type Hidden struct{}
+
+func Exported() Hidden { // Corrigido
+ return Hidden{}
+}</code></pre>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Informa qualquer <code>var</code> não pública que nunca é atualizada e poderia ser uma <code>val</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    private var s = 0
+    println(s)
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  class Foo {
+    private val s = 0
+    println(s)
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

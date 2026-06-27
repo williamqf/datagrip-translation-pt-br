@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata o desreferenciamento de um ponteiro que pode conter <code>nullptr</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  using namespace std;
+  void process(string *a, string b) {
+    if (a != nullptr || a->length()) {
+      a = &#38b;
+    }
+  }
+</code></pre>
+</body>
+</html>

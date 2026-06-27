@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata <code>collection.map(f).flatten(m)</code> e sugere substituir por <code>collection.flatMap</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Seq(1, 10).map(i => Seq(i, i + 10)).flatten
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Seq(1, 10).flatMap(i => Seq(i, i + 10))
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata classes, interfaces e métodos que estendem, implementam ou sobrescrevem elementos de API marcados com <code>@ApiStatus.NonExtendable</code>.
+<p>
+  A anotação <code>@ApiStatus.NonExtendable</code> indica que uma classe, interface ou método <strong>não deve ser estendido, implementado ou sobrescrito</strong>.
+  É comum realizar o cast de tais interfaces e classes para implementações internas da biblioteca; portanto, se o cliente fornecer uma implementação diferente, uma <code>ClassCastException</code> será lançada.
+  Adicionar novos métodos abstratos a essas classes e interfaces quebrará a compatibilidade com as implementações do cliente.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  // No código da biblioteca upstream
+  @ApiStatus.NonExtendable
+  public interface MyService {
+    public void perform();
+  }
+
+  // No código do cliente downstream
+  public class MyServiceImpl implements MyService {
+    @Override
+    public void perform() {
+      // ...
+    }
+  }
+</code></pre>
+
+Esta inspeção também detecta os seguintes problemas relacionados à aplicação incorreta da anotação:
+<ul>
+  <li>Anotar uma classe/método que não pode ser estendido/sobrescrito</li>
+  <li>Anotar redundantemente métodos em uma classe que já possui a anotação <code>@ApiStatus.NonExtendable</code></li>
+</ul>
+
+</body>
+</html>

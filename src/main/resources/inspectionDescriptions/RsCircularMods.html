@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata declarações de módulos cíclicas com o atributo <code>#path</code>.
+Tais declarações geram um grafo de módulos infinito e não podem ser compiladas.
+
+<!-- tooltip end -->
+Um exemplo comum deste erro é um módulo de arquivo que declara um <code>mod</code> filho referenciando o arquivo atual:<br>
+<code>
+    // Arquivo: recursive_mod.rs<br>
+    #[path = "recursive_mod.rs"]<br>
+    mod child_mod;<br>
+</code>
+</body>
+</html>

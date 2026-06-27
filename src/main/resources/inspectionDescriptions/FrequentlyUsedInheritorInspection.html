@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata classes ou interfaces que podem ser substituídas por implementações ou extensões de classes ou interfaces mais específicas e comumente usadas.
+<p>Para que esta inspeção funcione, a superclasse deve estar nos arquivos de origem do projeto e o projeto deve usar o sistema de compilação do IntelliJ IDEA.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class MyInheritor implements A {} // B sugerido para a referência a A
+
+  interface A {}
+
+  abstract class B implements A {}
+
+  abstract class C1 extends B {}
+  abstract class C2 extends B {}
+  abstract class C3 extends B {}
+  abstract class C4 extends B {}
+  abstract class C5 extends B {}
+</code></pre>
+<!-- tooltip end -->
+<p>Por padrão, esta inspeção não destaca problemas no editor; em vez disso, fornece apenas correções rápidas.</p>
+<p><small>Novo na versão 2017.2</small>
+</body>
+</html>

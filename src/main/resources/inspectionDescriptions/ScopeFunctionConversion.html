@@ -1,0 +1,20 @@
+<html>
+<body>
+Reporta funções de escopo (<code>let</code>, <code>run</code>, <code>apply</code>, <code>also</code>) que podem ser convertidas entre si.
+<p>O uso da função correspondente pode tornar o código mais simples.</p>
+<p>A correção rápida substitui uma função de escopo por outra.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val x = &quot;&quot;.let {
+      it.length
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  val x = &quot;&quot;.run {
+      length
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

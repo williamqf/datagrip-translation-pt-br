@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata referências às classes <code>NilClass</code>, <code>TrueClass</code> e <code>FalseClass</code> em assinaturas de tipo. O uso dessas classes é desnecessariamente verboso.
+<p>Uma correção rápida pode ser usada para substituir o uso de <code>NilClass</code>, <code>TrueClass</code> ou <code>FalseClass</code> por seus respectivos literais.</p>
+<p>Exemplo:</p>
+<pre><code># 'NilClass' é referenciado em vez de 'nil', ...
+type example = NilClass | TrueClass | FalseClass</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>type example = nil | true | false</code></pre>
+</body>
+</html>

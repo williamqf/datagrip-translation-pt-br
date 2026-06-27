@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>
+  Detecta referências a métodos de criptografia inexistentes em configurações de bloco encryption do OpenTofu. Para o seguinte código:
+  <pre>
+    <code>
+      terraform {
+        encryption {
+          key_provider "pbkdf2" "foo" {
+            # Configuration parameters
+          }
+          method "aes_gcm" "yourname2" {
+            keys = key_provider.pbkdf2.foo
+          }
+        }
+      }
+    </code>
+  </pre>
+  Devemos verificar se o nome do método está correto.
+</p>
+<p>
+  Para mais detalhes, consulte https://opentofu.org/docs/language/state/encryption/#methods.
+</p>
+</body>
+</html>

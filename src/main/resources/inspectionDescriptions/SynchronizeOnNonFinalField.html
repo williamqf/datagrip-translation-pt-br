@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões de bloqueio de instrução <code>synchronized</code> compostas por referências a campos não <code>final</code>.
+Tais instruções dificilmente possuem uma semântica útil, pois diferentes threads podem obter bloqueios diferentes, mesmo ao operar no mesmo objeto.
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+  private Object o;
+  public void foo() {
+    synchronized (o) // Sincronização em um campo não final
+    { }
+  }
+</code></pre>
+</body>
+</html>

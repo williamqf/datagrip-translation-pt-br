@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata uma chamada de método cujo alvo é outra chamada de método.
+A correção rápida sugere a introdução de uma variável local.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+    int foo(File f) {
+      return f.getName().length();
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class X {
+    int foo(File f) {
+      final String name = f.getName();
+      return name.length();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use as opções de inspeção para alternar os avisos para o seguinte:</p>
+<ul>
+  <li>
+    <p>
+      Chamadas de método encadeadas em inicializadores de campo, como <code>private final int i = new Random().nextInt();</code>
+    </p>
+  </li>
+  <li>
+    <p>
+      Chamadas de método encadeadas operando no mesmo tipo, por exemplo, <code>new StringBuilder().append("x: ").append(new X()).append("y: ").append(new Y()).toString();</code>.
+    </p>
+  </li>
+</ul>
+
+</body>
+</html>

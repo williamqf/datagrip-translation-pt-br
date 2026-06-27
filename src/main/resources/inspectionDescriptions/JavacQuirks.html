@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata problemas conhecidos do Javac, problemas de desempenho e incompatibilidades.
+Por exemplo, a inferência de tipo torna-se lenta quando muitas chamadas aninhadas precisam ser processadas.
+<p>O código a seguir acionará um aviso porque a chamada de método vararg contém mais de 50 argumentos polimórficos:</p>
+<pre><code>
+  Arrays.asList(
+      Arrays.asList("a1", "b1"),
+      Arrays.asList("a2", "b2"),
+      ...
+      Arrays.asList("a100", "b100"));
+</code></pre>
+<p>A correção rápida adiciona argumentos de tipo explícitos, o que pode acelerar a compilação e o IDE.</p>
+<pre><code>
+  //noinspection RedundantTypeArguments
+  Arrays.&lt;List&lt;String&gt;&gt;asList(
+      Arrays.asList("a1", "b1"),
+      Arrays.asList("a2", "b2"),
+      ...
+      Arrays.asList("a100", "b100"));
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata o uso incorreto de <code>fmt.Printf</code>, <code>fmt.Println</code> e funções de formatação e impressão semelhantes.
+<p>Em strings de formatação, as funções utilizam verbos de formatação como <code>%s</code>, <code>%d</code>, <code>%v</code>, etc.
+  Se o verbo de formatação for utilizado incorretamente, o resultado da função de formatação conterá erros.
+  Para obter detalhes sobre verbos de formatação, consulte o <a href="https://pkg.go.dev/fmt">Package fmt no go.dev</a>.
+</p>
+<p>Exemplo:</p>
+<pre><code>fmt.Printf("id: %s", 42)</code></pre>
+<p>A saída desta função é <code>id: %!s(int=42)</code>. Isso pode não ser o esperado.
+  A função a seguir utiliza o verbo de formatação <code>%d</code>.
+  A saída com o verbo de formatação <code>%d</code> será <code>id: 42</code>.</p>
+<pre><code>fmt.Printf("id: %d", 42)</code></pre>
+</body>
+</html>

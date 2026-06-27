@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata classes que implementam <code>java.lang.Comparator</code>, mas não implementam <code>java.io.Serializable</code>.
+<p>
+  Se um comparador não serializável for usado para construir coleções ordenadas como <code>java.util.TreeMap</code> ou <code>java.util.TreeSet</code>, a coleção também não será serializável. Isso pode resultar em erros inesperados e difíceis de diagnosticar.
+</p>
+<p>
+  As subclasses de <code>java.lang.Comparator</code> geralmente não possuem estado, portanto, esses problemas podem ser evitados simplesmente marcando-as como serializáveis.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo implements Comparator { // Aviso
+      @Override
+      public int compare(Object o1, Object o2) {
+          /* ... */
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo implements Comparator, Serializable { // Nenhum aviso aqui
+      @Override
+      public int compare(Object o1, Object o2) {
+          /* ... */
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata chamadas de método na parte condicional de instruções de loop. Em ambientes com recursos altamente limitados, tais chamadas podem afetar negativamente o desempenho.
+<p>
+  A aplicação indiscriminada dos resultados desta inspeção pode afetar negativamente a clareza e o design do código.
+  Esta inspeção destina-se ao Java ME e a outros ambientes com recursos altamente limitados.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String s = "example";
+  for (int i = 0; i &lt; s.length(); i++) {
+    System.out.println(s.charAt(i));
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String s = "example";
+  int length = s.length();
+  for (int i = 0; i &lt; length; i++) {
+    System.out.println(s.charAt(i));
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção para ignorar chamadas a métodos de iteração comuns do Java (como <code>Iterator.hasNext()</code>) e métodos conhecidos com efeitos colaterais (como <code>Atomic*.compareAndSet</code>).
+</p>
+
+</body>
+</html>

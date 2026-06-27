@@ -1,0 +1,39 @@
+<html>
+<body>
+<p>
+    Relata argumentos que exigem um cast explícito para serem resolvidos para uma declaração correta em uma chamada de função sobrecarregada.
+    O aviso atual do compilador (disponível a partir do Kotlin 1.6.20) se tornará um erro no Kotlin 1.8.
+</p>
+<p>
+    Tipos de progressão e intervalo (<code>kotlin.ranges</code>) passarão a implementar a interface <code>Collection</code> no Kotlin 1.9 e versões posteriores. Esta atualização causará mudanças na resolução de funções sobrecarregadas. Por exemplo, no exemplo abaixo, a chamada <code>test(1..5)</code> será resolvida como <code>test(t: Any)</code> no Kotlin 1.8 e versões anteriores, e como <code>test(t: Collection&lt;*&gt;)</code> no Kotlin 1.9 e versões posteriores.
+</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+  fun invoke() {
+    test(1..5) // No 1.9, IntRange se tornará Collection
+  }
+</code></pre>
+
+<p>O quick fix fornecido captura o comportamento específico do compilador para a versão 1.8 e anteriores:</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+
+  fun invoke() {
+    test(1..5) // Resolvido como 'test(t: T)' antes do Kotlin 1.9
+  }
+</code></pre>
+
+<p>Após aplicar o quick fix:</p>
+<pre><code>
+  fun test(t: Any) { }
+  fun test(t: Collection&lt;*&gt;) { }
+
+  fun invoke() {
+    test((1..5) as Iterable&lt;Int&gt;) // Resolvido como 'test(t: T)' no Kotlin 1.9
+  }
+</code></pre>
+<p>A inspeção está disponível a partir do nível de linguagem Kotlin 1.6.</p>
+</body>
+</html>

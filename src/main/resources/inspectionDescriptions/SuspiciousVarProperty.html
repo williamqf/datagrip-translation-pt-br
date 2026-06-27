@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata propriedades <code>var</code> com setters e getters padrão que não fazem referência ao backing field.
+<p>
+Tais propriedades não afetam a chamada de seu setter; portanto, seria mais claro alterar essas propriedades para <code>val</code> e remover o inicializador.
+</p>
+<p>A correção rápida <b>Alterar para val e remover o inicializador</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  // Esta propriedade sempre retorna '1', não importa se a propriedade é 'var'
+  var foo: Int = 0
+      get() = 1
+</code></pre>
+</body>
+</html>

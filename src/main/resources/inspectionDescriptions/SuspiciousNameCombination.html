@@ -1,0 +1,21 @@
+<html>
+<body>
+Reporta atribuições e chamadas de função em que o nome da variável de destino ou do parâmetro da função não corresponde ao nome do valor atribuído a ela.
+<p>Exemplo 1:</p>
+<pre><code>
+  <b>int</b> x = 0;
+  <b>int</b> y = x; // x é usado como coordenada y
+  </code></pre>
+<p>Exemplo 2:</p>
+<pre><code>
+  <b>int</b> x = 0, y = 0;
+  // x é usado como coordenada y, y é usado como coordenada x
+  Rectangle rc = <b>new</b> Rectangle(y, x, 20, 20);
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a área <b>Grupos de nomes</b> para especificar nomes que não devem ser usados juntos: se o nome do parâmetro ou o nome do destino da atribuição contiver uma palavra de um grupo e o nome da variável atribuída ou passada contiver uma palavra de outro grupo, um erro será relatado.
+<p>Use a área <b>Ignorar métodos</b> para especificar métodos que não devem ser verificados, mas que podem ter nomes suspeitos.
+Por exemplo, os parâmetros de <code>Integer.compare()</code> são nomeados como <code>x</code> e <code>y</code>, mas não têm relação com coordenadas.
+</body>
+</html>

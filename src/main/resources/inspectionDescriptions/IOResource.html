@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata recursos de E/S que não foram fechados com segurança. Os recursos de E/S verificados por esta inspeção incluem <code>java.io.InputStream</code>, <code>java.io.OutputStream</code>, <code>java.io.Reader</code>, <code>java.io.Writer</code>, <code>java.util.zip.ZipFile</code>, <code>java.io.Closeable</code> e <code>java.io.RandomAccessFile</code>.
+<p>
+  Recursos de E/S encapsulados por outros recursos de E/S não são relatados, pois o recurso que encapsula fechará o recurso encapsulado.
+</p>
+<p>
+  Por padrão, esta inspeção pressupõe que o recurso pode ser fechado por qualquer método que contenha 'close' ou 'cleanup' no nome.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void save() throws IOException {
+    FileWriter writer = new FileWriter("filename.txt"); //aviso
+    writer.write("sample");
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configure esta inspeção usando as seguintes opções:
+</p>
+<ul>
+  <li>Listar classes de recursos de E/S que não precisam ser fechadas e que devem ser ignoradas por esta inspeção.</li>
+  <li>
+    Se deve ser permitido abrir recursos de E/S dentro de um bloco <code>try</code>.
+    Este estilo é menos desejável porque é mais verboso do que abrir o recurso antes do bloco <code>try</code>.
+  </li>
+  <li>
+    Se o recurso pode ser fechado por qualquer chamada de método que passe o recurso como um argumento.
+  </li>
+</ul>
+</body>
+</html>

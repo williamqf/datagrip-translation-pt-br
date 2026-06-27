@@ -1,0 +1,36 @@
+<html>
+<body>
+<p>Informa que correspondências integradas em <b>specs2</b> podem ser utilizadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class TestSpec extends Specification { def is = s2"""
+    This is a spec
+    opt
+      should contain 1                                  $e1
+                                                        """
+    def e1 = {
+
+      val opt = Some(1)
+
+      opt must equalTo (Some(1))
+    }
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  class TestSpec extends Specification { def is = s2"""
+    This is a spec
+    opt
+      should contain 1                                  $e1
+                                                        """
+    def e1 = {
+
+      val opt = Some(1)
+
+      opt must beSome(1)
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

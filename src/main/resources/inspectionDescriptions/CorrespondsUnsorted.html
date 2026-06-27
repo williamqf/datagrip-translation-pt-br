@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata os usos de <code> sameElements </code> e <code>corresponds</code> com coleções não ordenadas.<p>
+
+<p>Os métodos <code> sameElements </code> e <code>corresponds</code> usam iteradores das coleções fornecidas para comparar elementos dependendo da ordem de suas posições na coleção.
+O resultado é, portanto, imprevisível se a ordem dos elementos não estiver bem definida, como é o caso para conjuntos ou mapas não ordenados.</p>
+<p>Para corrigir isso, considere usar <code> == </code>, <code>subsetOf</code> ou colocar os elementos em alguma ordem.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Set(3, 2, 1) sameElements Set(1, 2, 3) // é falso
+
+  // mas
+
+  Set(1, 2, 3, 4, 5) sameElements Set(5, 4, 3, 2, 1) // é verdadeiro
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

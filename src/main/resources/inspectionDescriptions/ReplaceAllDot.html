@@ -1,0 +1,25 @@
+<html>
+<body>
+Reporta chamadas a <code>String.replaceAll()</code> ou <code>String.split()</code> em que o primeiro argumento é um único metacaractere de expressão regular.
+<p>
+  Os metacaracteres de expressão regular são <code>.$|()[{^?*+\</code>. Eles possuem significados especiais em expressões regulares.
+  Por exemplo, chamar <code>"ab.cd".replaceAll(".", "-")</code> resultará em <code>"-----"</code>, pois o ponto corresponde a qualquer caractere.
+  Provavelmente, a intenção era utilizar a variante escapada <code>"\\."</code>.
+</p>
+<p>
+  Também reporta casos em que <code>File.separator</code> é usado como uma expressão regular. <code>File.separator</code> possui valores específicos da plataforma. Ele é igual a <code>/</code> no Linux e Mac, enquanto no Windows é igual a <code>\</code>, o que não é uma expressão regular válida e, portanto, torna o código não portável.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  s.replaceAll(".", "-");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  s.replaceAll("\\.", "-");
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata instruções <code>if</code> que podem ser substituídas por condições usando os operadores <code>&&</code>, <code>||</code>, <code>==</code>, <code>!=</code> ou <code>?:</code>.
+<p>O resultado é geralmente mais curto, mas nem sempre mais claro, portanto não é recomendado aplicar esta correção em todos os casos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  if (condition) return true; else return foo;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  return condition || foo;
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+<li>
+  Use a opção <b>Não sugerir o operador '?:'</b> para desativar avisos quando o operador <code>?:</code> for sugerido. Neste caso, apenas sugestões para <code>&&</code>, <code>||</code>, <code>==</code> e <code>!=</code> serão realçadas. A correção rápida ainda estará disponível no editor.
+</li>
+<li>
+  Use a opção <b>Ignorar instruções 'if' encadeadas</b> para desativar avisos para cadeias <code>if-else</code>. A correção rápida ainda estará disponível no editor.
+</li>
+</ul>
+<p><small>Novo na versão 2018.2</small></p>
+</body>
+</html>

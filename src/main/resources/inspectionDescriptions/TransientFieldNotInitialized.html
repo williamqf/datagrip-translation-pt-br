@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata campos <code>transient</code> que são inicializados durante a construção normal do objeto, mas cuja classe não possui o método <code>readObject</code>.
+<p>
+  Os campos <code>transient</code> não são serializados e, portanto, precisam ser inicializados separadamente no método <code>readObject()</code> durante a desserialização.
+</p>
+<p>
+  Qualquer campo <code>transient</code> que não seja inicializado durante a construção normal do objeto é considerado como utilizando a inicialização padrão e não será relatado por esta inspeção.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Person implements Serializable {
+    transient String name = "Default"; // Aviso: na verdade pode ser null após a desserialização
+    transient String surname; // null é considerado como o valor padrão e não é relatado
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

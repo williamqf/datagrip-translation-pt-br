@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata linhas em branco em comentários Javadoc.
+<p>
+  Linhas em branco no Javadoc podem indicar a intenção de dividir o texto em parágrafos diferentes. No entanto, a ferramenta Javadoc e o IntelliJ IDEA as ignoram ao renderizar os comentários de documentação.
+</p>
+<p>
+  A correção rápida sugere substituir a linha em branco por uma tag de parágrafo (&lt;p&gt;).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    /**
+     * Não faz nada.
+     *
+     * Realmente não faz nada
+     */
+    void foo() {}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Main {
+    /**
+     * Não faz nada.
+     * &lt;p&gt;
+     * Realmente não faz nada
+     */
+    void foo() {}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.1</small></p>
+</body>
+</html>

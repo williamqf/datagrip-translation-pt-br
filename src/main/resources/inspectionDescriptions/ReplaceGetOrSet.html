@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata chamadas explícitas às funções <code>get</code> ou <code>set</code> que podem ser substituídas pelo operador de indexação <code>[]</code>.
+<p>
+    O Kotlin permite implementações personalizadas para um conjunto predefinido de operadores para tipos.
+    Para sobrecarregar um operador, você pode marcar a função correspondente com o modificador <code>operator</code>:
+    <pre><code>
+  operator fun get(index: Int) {}
+  operator fun set(index: Int, value: Int) {}
+    </code></pre>
+
+As funções acima correspondem ao operador de indexação.
+
+<p><b>Exemplo:</b></p>
+<pre><code>  class Test {
+      operator fun get(i: Int): Int = 0
+  }
+
+  fun test() {
+      Test().get(0) // 'get()' substituível
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  class Test {
+      operator fun get(i: Int): Int = 0
+  }
+
+  fun test() {
+      Test()[0]
+  }
+</code></pre>
+</body>
+</html>

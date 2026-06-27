@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata modificadores que não seguem a ordem sugerida no <a href="https://kotlinlang.org/docs/coding-conventions.html#modifiers-order">guia de estilo</a>.
+<p>A correção rápida <b>Reordenar modificadores</b> pode ser usada para corrigir automaticamente o código.</p>
+<p>Exemplo:</p>
+<pre><code>
+  private inline fun correctOrder(f: () -> Unit) {} // &lt;== Ok
+
+  infix private fun Int.wrongOrder(expr: Int) {} // &lt;== Ordem incorreta, a correção rápida corrigirá os modificadores para "private infix"
+</code></pre>
+</body>
+</html>

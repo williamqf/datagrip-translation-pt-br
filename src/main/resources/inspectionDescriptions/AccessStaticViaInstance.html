@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata referências a métodos e campos <code>static</code> por meio de instâncias de classe, em vez da própria classe.
+<p>Embora a Especificação da Linguagem Java permita o uso de variáveis de instância para referenciar membros static, isso pode tornar o código confuso, pois os leitores podem interpretar erroneamente que o método depende da instância.</p>
+<p>A correção rápida substitui a variável de instância pelo nome da classe.</p>
+<p>Exemplo:</p>
+<pre><code>
+  String s1 = s.valueOf(0);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String s = String.valueOf(0);
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

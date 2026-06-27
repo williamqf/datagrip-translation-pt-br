@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Inspeciona tags personalizados inexistentes.</p>
+
+<p>
+  Você pode criar tags personalizadas para seu aplicativo usando arquivos de modelo simples armazenados no diretório <code>app/views/tags</code>.
+  O nome do arquivo do modelo é usado como nome da tag.
+  Por exemplo, para criar a tag <code>hello</code>, basta criar o arquivo <code>app/views/tags/hello.html</code>.
+  Faça referência direta à tag: <code>#{hello /}</code>.
+</p>
+
+<p>Esta inspeção reportará a referência <code>#{hello /}</code> se <code>app/views/tags/hello.html</code> não existir.</p>
+
+</body>
+</html>

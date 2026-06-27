@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata dependências do Maven descontinuadas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;dependencies>
+    &lt;dependency>
+        &lt;groupId>org.jetbrains.kotlin&lt;/groupId>
+        &lt;artifactId>kotlin-stdlib-jre7&lt;/artifactId>
+        &lt;version>${kotlin.version}&lt;/version>
+    &lt;/dependency>
+  &lt;/dependencies>
+</code></pre>
+<p>A correção rápida substituirá a dependência descontinuada por uma dependência mantida:</p>
+<pre><code>
+   &lt;dependencies>
+    &lt;dependency>
+        &lt;groupId>org.jetbrains.kotlin&lt;/groupId>
+        &lt;artifactId>kotlin-stdlib-jdk7&lt;/artifactId>
+        &lt;version>${kotlin.version}&lt;/version>
+    &lt;/dependency>
+  &lt;/dependencies>
+</code></pre>
+</body>
+</html>

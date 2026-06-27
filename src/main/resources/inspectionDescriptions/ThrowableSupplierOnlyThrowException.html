@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata lambdas <code>Supplier</code> em chamadas <code>Optional.orElseThrow()</code> que lançam uma exceção em vez de retorná-la.
+<p><b>Exemplo:</b></p>
+<pre><code>
+optional.orElseThrow(() -> {
+    throw new RuntimeException();
+});
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+optional.orElseThrow(() -> new RuntimeException());
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.1</small></p>
+</body>
+</html>

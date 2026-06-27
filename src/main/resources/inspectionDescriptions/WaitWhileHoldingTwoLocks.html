@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas ao método <code>wait()</code> que podem ocorrer enquanto a thread atual detém dois locks.
+<p>
+  Chamar <code>wait()</code> libera apenas um lock no alvo, portanto, aguardar enquanto se detém dois locks pode facilmente levar a um deadlock.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  synchronized (lockA) {
+    synchronized (lockB) {
+      lockB.wait(); // aviso
+      // a thread A fica travada aqui, mantendo o lockA
+    }
+  }
+
+  synchronized (lockA) { // a thread B não consegue entrar neste bloco e liberar a thread A
+    lockB.notify();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

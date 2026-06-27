@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata instruções que podem modificar o banco de dados durante uma conexão somente leitura. <p>Para habilitar o modo somente leitura para uma conexão, clique com o botão direito na fonte de dados na janela de ferramentas <b>Banco de Dados</b> (<b>Exibir | Janelas de Ferramentas | Banco de Dados</b>) e selecione <b>Propriedades</b>.
+  Na caixa de diálogo <b>Fontes de Dados e Drivers</b>, clique na guia <b>Opções</b> e marque a caixa de seleção <b>Somente leitura</b>.</p>
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo(a INT);
+INSERT INTO foo VALUES (1);</code></pre>
+<p>Como as instruções <code>CREATE TABLE</code> e <code>INSERT INTO</code> resultam em modificações no banco de dados, essas instruções serão realçadas no modo de conexão somente leitura.</p>
+</body>
+</html>

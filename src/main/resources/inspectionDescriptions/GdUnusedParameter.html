@@ -1,0 +1,32 @@
+<html>
+<body>
+<p>Relata parâmetros de funções/métodos GDScript que são declarados, mas nunca usados no corpo da função correspondente.</p>
+
+<p>
+Esta inspeção ajuda a identificar parâmetros redundantes ou inválidos. Ela verifica apenas o conteúdo dentro da função ou do método delimitador e ignora declarações de sinais. Parâmetros cujos nomes começam com um sublinhado são considerados intencionalmente não utilizados e não são relatados. Se houver um type hint que faça referência a um tipo não nativo não resolvido, o parâmetro será ignorado para evitar falsos positivos.
+</p>
+
+<p>Exemplo:</p>
+<pre><code>
+func damage(target, amount):
+    print("Damaged!")
+    # 'target' e 'amount' nunca são usados → relatados
+
+func _process(_delta):
+    # O sublinhado inicial marca o parâmetro como intencionalmente não utilizado → não relatado
+    pass
+
+func spawn(enemy: UnknownType):
+    # Se UnknownType não puder ser resolvido, o parâmetro é ignorado
+    pass
+</code></pre>
+
+<p>Ação de correção rápida:</p>
+<ul>
+  <li>Adicionar um prefixo de sublinhado ao parâmetro para marcá-lo como intencionalmente não utilizado.</li>
+</ul>
+
+<!-- tooltip end -->
+<p>Esta inspeção não relata parâmetros que são referenciados em qualquer lugar no corpo da função/método. Ela também ignora parâmetros de sinais e parâmetros com tipos não resolvidos para evitar falsos positivos.</p>
+</body>
+</html>

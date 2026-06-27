@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata anotações usadas em componentes de record que não têm efeito.
+<p>Isso pode acontecer nos dois casos a seguir:</p>
+<ul>
+  <li>A anotação relatada tem o alvo <code>METHOD</code>, mas o acessor correspondente está definido explicitamente.</li>
+  <li>A anotação relatada tem o alvo <code>PARAMETER</code>, mas o construtor canônico está definido explicitamente.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+@Target(ElementType.METHOD)
+@interface A { }
+  
+// A anotação não aparecerá no bytecode,
+// pois deveria ser propagada para o acessor, mas o acessor está definido explicitamente
+record R(@A int x) {
+  public int x() { return x; }
+}
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidades na versão 2021.1</small></p>
+</body>
+</html>

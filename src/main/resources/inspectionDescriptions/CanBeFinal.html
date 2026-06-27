@@ -1,0 +1,44 @@
+<html>
+<body>
+Relata campos, métodos ou classes que poderiam ter o modificador <code>final</code> adicionado às suas declarações.
+<p>Uma classe final não pode ser estendida, um método final não pode ser sobrescrito e um campo final não pode ser reatribuído.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Person {
+    private String name;
+
+    Person(String name) {
+      this.name = name;
+    }
+
+    public String getName() {
+      return name;
+    }
+
+    public String toString() {
+      return getName();
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public final class Person {
+    private final String name;
+
+    Person(String name) {
+      this.name = name;
+    }
+
+    public final String getName() {
+      return name;
+    }
+
+    public final String toString() {
+      return getName();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use as opções <b>Relatar classes</b> e <b>Relatar métodos</b> para definir quais declarações devem ser relatadas.</p>
+</body>
+</html>

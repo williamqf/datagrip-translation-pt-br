@@ -1,0 +1,22 @@
+<html>
+<body>
+Se métodos em um construtor de registro compactado acessarem campos, esses chamados de método serão informados.
+<p>Essas chamadas parecem suspeitas, pois o campo de registro pode não estar inicializado no momento dessas chamadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+public record MyRecord(String name, int id) {
+    public MyRecord {
+        validateMyFields(); // parece suspeito
+    }
+
+    private void validateMyFields() {
+        if (this.name.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+    }
+}
+</code></pre>
+<!-- tooltip end -->
+<p><small>Mudança recente em 2024.1</small></p>
+</body>
+</html>

@@ -1,0 +1,194 @@
+<html>
+<body>
+<h1>Inspeção Lombok flagUsage do IntelliJ</h1>
+
+<p>
+  Esta inspeção oferece suporte a todas as configurações de <code>flagUsage</code> especificadas no arquivo <code>lombok.config</code>. Ela emite avisos ou erros dentro do IntelliJ quando um recurso do Lombok configurado para ser sinalizado é utilizado. Esse feedback proativo ajuda a manter os padrões de código e garante que apenas recursos aprovados do Lombok sejam utilizados.
+</p>
+
+<h2>Configurações de flagUsage Suportadas</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Chave de Configuração</th>
+    <th>Descrição</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>lombok.anyConstructor.flagUsage</td>
+    <td>Emite um aviso ou erro se qualquer uma das anotações XxxArgsConstructor for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.allArgsConstructor.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@AllArgsConstructor</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.noArgsConstructor.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@NoArgsConstructor</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.requiredArgsConstructor.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@RequiredArgsConstructor</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.data.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Data</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.value.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Value</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.getter.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Getter</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.getter.lazy.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Getter(lazy=true)</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.setter.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Setter</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.equalsAndHashCode.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@EqualsAndHashCode</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.toString.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@ToString</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.builder.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Builder</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.cleanup.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Cleanup</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.delegate.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Delegate</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.nonNull.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@NonNull</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.sneakyThrows.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@SneakyThrows</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.synchronized.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Synchronized</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.val.flagUsage</td>
+    <td>Emite um aviso ou erro se a palavra-chave da linguagem <code>val</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.var.flagUsage</td>
+    <td>Emite um aviso ou erro se a palavra-chave da linguagem <code>var</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.with.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@With</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.flagUsage</td>
+    <td>Emite um aviso ou erro se qualquer anotação de log for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.apacheCommons.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@CommonsLog</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.javaUtilLogging.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Log</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.log4j.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Log4j</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.log4j2.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Log4j2</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.slf4j.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Slf4j</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.xslf4j.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@XSlf4j</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.jbosslog.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@JBossLog</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.flogger.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Flogger</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.log.custom.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@CustomLog</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.experimental.flagUsage</td>
+    <td>Emite um aviso ou erro se um recurso experimental for usado.</td>
+  </tr>
+  <tr>
+    <td>lombok.accessors.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Accessors</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.extensionMethod.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@ExtensionMethod</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.fieldDefaults.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@FieldDefaults</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.helper.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Helper</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.locked.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Locked</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.onX.flagUsage</td>
+    <td>Emite um aviso ou erro se a flag <code>onX</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.utilityClass.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@UtilityClass</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.fieldNameConstants.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@FieldNameConstants</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.superBuilder.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@SuperBuilder</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.withBy.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@WithBy</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.jacksonized.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@Jacksonized</code> for usada.</td>
+  </tr>
+  <tr>
+    <td>lombok.standardException.flagUsage</td>
+    <td>Emite um aviso ou erro se <code>@StandardException</code> for usada.</td>
+  </tr>
+  </tbody>
+</table>
+
+</body>
+</html>

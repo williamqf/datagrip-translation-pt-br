@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Relata tags <code>{% extends %}</code> que não são a primeira tag em um template Django.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="DjangoTemplate">
+{% load my_custom_tags %}
+{% extends "../DjangoApp/templatetags/my_custom_tags.py"%}
+</code></pre>
+<p>Neste exemplo, a tag <code>{% extends %}</code> é destacada porque deve ser colocada antes da tag <code>{% load %}</code>.</p>
+</body>
+</html>

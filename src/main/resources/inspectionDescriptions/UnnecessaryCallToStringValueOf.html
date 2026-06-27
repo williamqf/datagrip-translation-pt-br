@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata chamadas desnecessárias a métodos <code>static</code> que convertem seus parâmetros em strings (por exemplo, <code>String.valueOf()</code> ou <code>Integer.toString()</code>).
+Tais chamadas são desnecessárias quando usadas em concatenação de strings.
+<p>Exemplo:</p>
+<pre><code>
+  System.out.println("Number: " + Integer.toString(count));
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  System.out.println("Number: " + count);
+</code></pre>
+Além disso, tais chamadas são desnecessárias quando usadas como argumentos para métodos de biblioteca que realizam sua própria conversão de string.
+Alguns exemplos de métodos de biblioteca que realizam sua própria conversão de string são:
+<ul>
+  <li>
+    Classes <code>java.io.PrintWriter</code>, <code>java.io.PrintStream</code>
+    <ul><li><code>print()</code>, <code>println()</code></li></ul>
+  </li>
+  <li>
+    Classes <code>java.lang.StringBuilder</code>, <code>java.lang.StringBuffer</code>
+    <ul><li><code>append()</code></li></ul>
+  </li>
+
+  <li>
+    Classe <code>org.slf4j.Logger</code>
+    <ul>
+      <li><code>trace()</code>, <code>debug()</code>, <code>info()</code>, <code>warn()</code>, <code>error()</code></li>
+    </ul>
+  </li>
+</ul>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Relatar chamadas que podem ser substituídas por concatenação com uma string vazia</b> para também relatar situações onde a concatenação com uma string vazia pode ser usada em vez de uma chamada a <code>String.valueOf()</code>.
+</body>
+</html>

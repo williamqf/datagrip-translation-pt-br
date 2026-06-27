@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Denuncia parâmetros literais de função que não estão entre parênteses.</p>
+
+<p>No Scala 3, não é possível omitir os parênteses ao redor do parâmetro de um literal de função com apenas um parâmetro.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  call { a: Int => a }
+</code></pre>
+<p>Após a execução da correção rápida:</p>
+<pre><code>
+  call { (a: Int) => a }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

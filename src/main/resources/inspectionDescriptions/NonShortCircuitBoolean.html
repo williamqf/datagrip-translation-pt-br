@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata o uso das formas sem curto-circuito de 'and' e 'or' booleanos (<code>&amp;</code>, <code>|</code>, <code>&amp;=</code> e <code>|=</code>).
+Embora as versões sem curto-circuito sejam ocasionalmente úteis, na maioria dos casos a forma de curto-circuito (<code>&amp;&amp;</code> e <code>||</code>) é a pretendida, e esse uso não intencional pode levar a erros difíceis de detectar.
+<p>
+  Uma correção rápida é sugerida para usar a versão de curto-circuito.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(boolean x, boolean y, boolean z) {
+    if (x | y) { x |= z; }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void foo(boolean x, boolean y) {
+    if (x || y) { x = x || z; }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

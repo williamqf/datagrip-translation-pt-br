@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata constantes hexadecimais <code>int</code> negativas em um contexto <code>long</code>. Essas constantes são implicitamente estendidas para <code>long</code>, o que significa que seus bits de ordem superior serão 1 em vez de 0 (por exemplo, <code>0xFFFF_FFFF</code> se tornará <code>0xFFFF_FFFF_FFFF_FFFFL</code>).
+É improvável que isso seja intencional e, mesmo que seja, o uso de uma constante <code>long</code> explícita seria menos confuso.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Aviso: esta é uma constante int -1, que é estendida para long
+  // tornando-se 0xFFFF_FFFF_FFFF_FFFFL.
+  long mask = 0xFFFF_FFFF;
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidades na versão 2022.3</small></p>
+</body>
+</html>

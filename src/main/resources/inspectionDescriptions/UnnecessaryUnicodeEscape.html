@@ -1,0 +1,16 @@
+<html>
+<body>
+Reporta sequências de escape Unicode desnecessárias.
+As sequências de escape Unicode são desnecessárias quando a codificação do arquivo pode processar o caractere sem a necessidade de escape.
+Esta inspeção não reporta caracteres de controle Unicode, exceto quebras de linha e tabulações horizontais.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String s = "\u0078";
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  String s = "x";
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

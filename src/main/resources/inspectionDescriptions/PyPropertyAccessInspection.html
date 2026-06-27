@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata casos de acesso impróprio a propriedades:
+<ul>
+  <li>Definição de uma propriedade somente leitura</li>
+  <li>Leitura de uma propriedade somente escrita</li>
+  <li>Exclusão de uma propriedade que não pode ser excluída</li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class MyClass:
+    @property
+    def read_only(self): return None
+
+    def __write_only_setter(self, value): pass
+
+    write_only = property(None, __write_only_setter)
+
+
+a = MyClass()
+a.read_only = 10 # Não é possível definir a propriedade
+del a.read_only # Não é possível excluir a propriedade
+print(a.write_only) # Não é possível ler a propriedade
+</code></pre>
+</body>
+</html>

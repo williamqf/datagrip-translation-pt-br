@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Relata um Spring <code>&lt;bean&gt;</code> que utiliza injeção de dependência baseada em construtor.</p>
+
+<p>A inspeção é acionada quando não é possível encontrar um construtor ou método de fábrica adequado para o <code>&lt;bean&gt;</code> usando as tags <code>&lt;constructor-arg&gt;</code> configuradas e a estratégia <code>autowire</code> definida.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+    public class MyComponent {
+    // construtor
+    public MyComponent(MyBean bean) {}
+    // método de fábrica
+    public static MyComponent getInstance(String name, int port) {
+    }
+</code></pre>
+<pre><code lang="xml">
+    &lt;beans&gt;
+      &lt;bean class="beans.MyComponent" id="foo"&gt; &lt;!-- Relata "Não foi possível encontrar um construtor correspondente na classe 'MyComponent'" --&gt;
+          &lt;constructor-arg ref="myBean"/&gt;
+         &lt;constructor-arg value="123"/&gt;
+      &lt;/bean&gt;
+
+      &lt;bean class="beans.MyComponent" factory-method="getInstance"&gt; &lt;!-- Relata "Não foi possível encontrar um método de fábrica correspondente na classe" --&gt;
+         &lt;constructor-arg value="123"/&gt;
+      &lt;/bean&gt;
+    &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

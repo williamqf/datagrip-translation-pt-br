@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas de métodos estáticos de <code>Collections</code> do Java que podem ser substituídas por funções da Kotlin stdlib.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.Collections
+
+  fun test() {
+      val mutableList = mutableListOf(1, 2)
+      Collections.fill(mutableList, 3)
+  }
+</code></pre>
+<p>A correção rápida substituirá a chamada de método estático de <code>Collections</code> do Java pela chamada de método correspondente da Kotlin stdlib:</p>
+<pre><code>
+  import java.util.Collections
+
+  fun test() {
+      val mutableList = mutableListOf(1, 2)
+      mutableList.fill(3)
+  }
+</code></pre>
+</body>
+</html>

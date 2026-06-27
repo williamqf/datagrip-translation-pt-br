@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata instruções e expressões <code>switch</code> com poucos rótulos <code>case</code> e sugere reescrevê-las como instruções <code>if</code> e <code>else if</code>.
+<p>Exemplo (mínimo de ramificações == 3):</p>
+<pre><code>
+  switch (expression) {
+    case "foo" -&gt; foo();
+    case "bar" -&gt; bar();
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  if ("foo".equals(expression)) {
+    foo();
+  } else if ("bar".equals(expression)) {
+    bar();
+  }
+</code></pre>
+<p>Não relata expressões switch exaustivas (Java 14+) ou instruções switch com padrão (pattern switch) sem uma ramificação 'default' (Java 17 preview).
+  Isso ocorre porque a verificação de exaustividade em tempo de compilação seria perdida se o <code>switch</code> fosse convertido em <code>if</code> (o que pode ser um resultado indesejado).
+</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use o campo <b>Número mínimo de ramificações</b> para especificar a quantidade mínima esperada de rótulos <code>case</code>.</p>
+<p>Use a opção <b>Não relatar instruções switch com padrões</b> para evitar o relato de instruções e expressões switch que possuam ramificações de padrão. Por exemplo:</p>
+<pre><code>
+  String result = switch(obj) {
+    case String str -> str.trim();
+    default -> "none";
+  };
+</code></pre>
+<p>Pode ser preferível manter um switch com apenas uma ramificação de padrão em vez de usar uma instrução <code>instanceof</code>.</p>
+</body>
+</html>

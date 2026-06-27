@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata o code smell <em>Inveja de Recursos (Feature Envy)</em>. Um aviso é emitido quando um método chama métodos de outra classe três ou mais vezes. Chamadas para classes de biblioteca, superclasses e classes contidas ou que contêm não são consideradas nesta inspeção. A Inveja de Recursos geralmente indica que a funcionalidade está na classe errada.
+<p>Exemplo:</p>
+<pre><code>
+  class JobManager {
+    // Aviso: este método chama três
+    // métodos da classe Job.
+    // É recomendável mover esta cadeia
+    // de chamadas para a própria classe Job.
+    void performJob(Job job) {
+      job.beforeStart();
+      job.process();
+      job.afterProcessing();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

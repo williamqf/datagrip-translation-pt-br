@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata operações únicas dentro de loops que podem ser substituídas por métodos em lote.
+<p>
+  Métodos em lote não são apenas mais curtos, mas às vezes também oferecem melhor desempenho.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  void test(Collection&lt;Integer&gt; numbers) {
+    List&lt;Integer&gt; result = new ArrayList&lt;>();
+    for (Integer i : numbers) {
+      result.add(i);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção:</p>
+<pre><code>
+  void test(Collection&lt;Integer&gt; numbers) {
+    List&lt;Integer&gt; result = new ArrayList&lt;>();
+    result.addAll(numbers);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  A opção <b>Usar Arrays.asList() para envolver arrays</b> permite relatar arrays mesmo que o método em lote exija uma coleção.
+  Neste caso, a correção rápida envolverá automaticamente o array em uma chamada <code>Arrays.asList()</code>.
+</p>
+<p><small>Novo na versão 2017.1</small></p>
+</body>
+</html>

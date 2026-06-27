@@ -1,0 +1,9 @@
+<html>
+<body>
+Identifica objetos que são mantidos em variáveis locais ou parâmetros, que depois não são liberadas ou sobrescritas com outro valor antes de serem liberadas.<br>
+- Você assume a propriedade do objeto quando ele é criado com um nome começando com <code>alloc</code> or <code>new</code>, ou que contém <code>copy</code>, ou quando uma mensagem <code>retain</code> é enviada para ele.<br>
+- Você abre mão da propriedade do objeto com <code>release</code> ou <code>autorelease</code>.<br>
+As regras de gerenciamento de memória do Objective-C requerem que cada objeto retido seja liberado ou liberado automaticamente. Veja o <a href="https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/MemoryMgmt/Articles/MemoryMgmt.html">Guia de programação de gerenciamento de memória</a> para mais informações.<br>
+Esta inspeção está desativada se ARC (contagem automática de referências) estiver ativada.
+</body>
+</html>

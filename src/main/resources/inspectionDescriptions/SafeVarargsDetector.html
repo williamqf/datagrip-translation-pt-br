@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata todos os métodos que possuem aridade variável (varargs) e que podem ser anotados com <code>@SafeVarargs</code>.
+A anotação <code>@SafeVarargs</code> suprime avisos não verificados (unchecked) sobre a criação de arrays parametrizados no local de chamada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Foo&lt;T&gt; {
+    private List&lt;T&gt; list = new ArrayList&lt;&gt;();
+
+    public final void safeVarargs(T... elements) {
+      Collections.addAll(list, elements);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public class Foo&lt;T&gt; {
+    private List&lt;T&gt; list = new ArrayList&lt;&gt;();
+
+    @SafeVarargs
+    public final void safeVarargs(T... elements) {
+      Collections.addAll(list, elements);
+    }
+  }
+</code></pre>
+<p>
+  Esta anotação não é suportada em JVMs do Java 1.6 ou anterior.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

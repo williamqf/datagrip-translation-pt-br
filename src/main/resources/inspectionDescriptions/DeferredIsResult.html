@@ -1,0 +1,28 @@
+<html>
+<body>
+Inspeciona funções que retornam o tipo <code>kotlinx.coroutines.Deferred</code>.
+<p>
+    Funções que retornam <code>Deferred</code> devem ter o sufixo <code>Async</code> em seus nomes.
+    Caso contrário, é recomendado marcar a função como <code>suspend</code> e desempacotar o <code>Deferred</code> nela.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun calcEverything(): Deferred&lt;Int&gt; {
+      return CompletableDeferred(42)
+  }
+</code></pre>
+<p>Após aplicar a correção rápida que adiciona o sufixo <code>Async</code>:</p>
+<pre><code>
+  fun calcEverythingAsync(): Deferred&lt;Int&gt; {
+      return CompletableDeferred(42)
+  }
+</code></pre>
+<p>Após aplicar a correção rápida que converte a função para <code>suspend</code>:</p>
+<pre><code>
+  suspend fun calcEverything(): Int {
+      return CompletableDeferred(42).await()
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

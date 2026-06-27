@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Relata importações suspeitas dos pacotes Java/Kotlin IO nos módulos das camadas comum/workspace do Fleet.</p>
+<p>Os seguintes prefixos de importação são problemáticos:</p>
+<ul>
+  <li><code>java.io.File</code></li>
+  <li><code>java.nio</code></li>
+  <li><code>kotlin.io.path</code></li>
+</ul>
+<p>Essas APIs são específicas de plataforma. A menos que você realmente deseje executar algo junto ao processo JVM local (por exemplo, por motivos de desempenho), use abstrações independentes de plataforma por meio da API do Fleet.</p>
+</body>
+</html>

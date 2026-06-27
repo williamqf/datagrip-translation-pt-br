@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas a <code>Arrays.asList()</code> que contêm no máximo um argumento.
+<p>
+  No JDK 9 e versões posteriores, tais chamadas podem ser substituídas por <code>Collections.singletonList()</code>, <code>Collections.emptyList()</code> ou <code>List.of()</code> para economizar memória.</p>
+<p>Especificamente, <code>Collections.emptyList()</code> e <code>List.of()</code> sem argumentos sempre retornam instâncias compartilhadas, enquanto <code>Arrays.asList()</code> sem argumentos cria um novo objeto a cada chamada.</p>
+<p>Observação: as listas retornadas por <code>Collections.singletonList()</code> e <code>List.of()</code> são imutáveis, enquanto a lista retornada por <code>Arrays.asList()</code> permite chamar o método <code>set()</code>.
+Isso pode quebrar o código em casos raros.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  List&lt;String&gt; empty = Arrays.asList();
+  List&lt;String&gt; one = Arrays.asList("one");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;String&gt; empty = Collections.emptyList();
+  List&lt;String&gt; one = Collections.singletonList("one");
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

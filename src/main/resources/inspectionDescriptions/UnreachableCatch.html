@@ -1,0 +1,38 @@
+<html>
+<body>
+Reporta seções <code>catch</code> que nunca são executadas, apesar de serem permitidas pela Especificação da Linguagem Java.
+<p>
+  Embora seções <code>catch</code> inalcançáveis geralmente não sejam permitidas pelo compilador Java e sejam reportadas como erros de compilação, em alguns casos, a análise exigida pela Especificação da Linguagem Java é incompleta.
+  Esta inspeção fornece uma análise aprimorada e reporta seções <code>catch</code> inalcançáveis que o compilador não reporta.
+  Essas seções são redundantes e podem ser removidas com segurança.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void method() {
+    try { 
+      throw new FileNotFoundException(); 
+    }
+    catch (FileNotFoundException e) { 
+      
+    }
+    catch (IOException e) {
+      // A especificação permite este catch
+      // mas ele nunca é executado
+    }
+  }
+</code></pre>
+<p>Uma correção rápida é fornecida para remover seções <code>catch</code> redundantes:</p>
+<pre><code>
+  void method() {
+    try { 
+      throw new FileNotFoundException(); 
+    }
+    catch (FileNotFoundException e) { 
+      
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2025.1</small></p>
+</body>
+</html>

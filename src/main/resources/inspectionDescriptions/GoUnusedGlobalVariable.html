@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata variáveis globais que foram definidas, mas nunca utilizadas no código.
+<p>Se houver variáveis não utilizadas, o código não será compilado.
+  Para obter detalhes sobre variáveis e importações não utilizadas, consulte <a href="https://go.dev/doc/effective_go#blank_unused">Unused imports and variables em go.dev</a>.
+</p>
+<pre><code>func main() {
+ a := 422
+}</code></pre>
+<p>O código no exemplo não será compilado. Portanto, ele será destacado como um erro. Para esses casos, você pode aplicar duas correções rápidas: <b>Excluir variável</b> e <b>Renomear para _</b>. A primeira correção rápida exclui a variável e a segunda converte a variável em um identificador em branco.</p>
+<p>Após aplicar a correção rápida <b>Renomear para _</b>:</p>
+<pre><code>func main() {
+ _ := 422
+}</code></pre>
+</body>
+</html>

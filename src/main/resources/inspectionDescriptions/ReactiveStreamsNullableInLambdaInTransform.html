@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Reporta operações de transformação que podem retornar <code>null</code> em uma cadeia de Reactive Streams.</p>
+
+<p>
+  Reactive Streams não suportam valores anuláveis, pois esses valores fazem com que esse código falhe.
+  A correção rápida sugere substituir <code>map()</code> por <code>mapNotNull</code>, omitindo assim a exceção.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">repository.findWithTailableCursorBy()
+    .map(e -> (Person)null)
+    .doOnNext(System.out::println)
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">repository.findWithTailableCursorBy()
+    .mapNotNull(e -> (Person)null)
+    .doOnNext(System.out::println)
+</code></pre>
+
+<p><small>Novidade na versão 2019.3</small></p>
+</body>
+</html>

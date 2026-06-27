@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas aos métodos <code>round()</code>, <code>ceil()</code>, <code>floor()</code> e <code>rint()</code> de <code>Math</code> e <code>StrictMath</code> com um <code>int</code> como argumento.
+<p>Esses métodos podem ser chamados quando se espera que os argumentos sejam <code>long</code> ou <code>double</code>, o que pode produzir resultados inesperados.</p>
+<p>Esta inspeção fornece uma correção capaz de simplificar tais expressões (exceto <code>round</code>) para uma conversão direta para <code>double</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int i = 2;
+  double d1 = Math.floor(i);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  int i = 2;
+  double d1 = i;
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.1</small></p>
+</body>
+</html>

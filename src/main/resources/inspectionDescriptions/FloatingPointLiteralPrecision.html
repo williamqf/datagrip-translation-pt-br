@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata literais de ponto flutuante dos tipos <code>Float</code> e <code>Double</code> que não podem ser representados com a precisão exigida pelo padrão <a href="https://en.wikipedia.org/wiki/IEEE_754">IEEE 754</a>.
+
+<p>
+    Por exemplo, <code>1.9999999999999999999</code> possui muitos dígitos significativos, portanto, sua representação como <code>Double</code> será arredondada para <code>2.0</code>.
+    Especificar dígitos em excesso pode ser enganoso, pois oculta o fato de que um valor arredondado será usado para os cálculos.
+</p>
+
+<p>
+    A correção rápida substitui o literal pelo valor arredondado que corresponde à representação real da constante.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val x: Float = 3.14159265359f
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  val x: Float = 3.1415927f
+</code></pre>
+</body>
+</html>

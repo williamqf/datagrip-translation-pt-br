@@ -1,0 +1,29 @@
+<html>
+<body>
+<p>Relata classes com anotações JSF específicas que não implementam a interface necessária:</p>
+
+<ul>
+  <li><code>@FacesComponent</code> deve estender <code>&lt;javax/jakarta&gt;.faces.component.FacesComponent</code></li>
+  <li><code>@FacesRenderer</code> deve estender <code>&lt;javax/jakarta&gt;.faces.render.Renderer</code></li>
+  <li><code>@FacesConverter</code> deve estender <code>&lt;javax/jakarta&gt;.faces.convert.Converter</code></li>
+  <li><code>@FacesValidator</code> deve estender <code>&lt;javax/jakarta&gt;.faces.validator.Validator</code></li>
+</ul>
+
+<p><strong>Exemplo:</strong></p>
+<pre><code>
+
+<strong>@FacesConverter</strong>(value="...")  // a classe deve estender 'javax.faces.convert.Converter'
+public class FooConverter {
+}
+
+<strong>@FacesRenderer</strong>(rendererType="..", componentFamily="..")  // a classe deve estender 'javax.faces.render.Renderer'
+public class FooRenderer {
+}
+
+<strong>@FacesValidator</strong>(value="...")  // a classe deve estender 'javax.faces.validator.Validator'
+public class FooValidator {
+}
+
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,92 @@
+<html>
+<body>
+<p>Relatórios de métodos com nomes de tipo mutators que não possuem cláusulas de parâmetros.</p>
+
+<p>Para um método com <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>,
+    é uma convenção ter uma cláusula de parâmetros vazia para indicar que não é apenas um método de acesso.</p>
+
+<p>O quick-fix adiciona uma cláusula de parâmetros vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Test {
+    def updateAll: Boolean
+  }
+</code></pre>
+<p>Após o quick-fix ser aplicado:</p>
+<pre><code>
+  trait Test {
+    def updateAll(): Boolean
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>
+
+<html>
+<body>
+<p>レポートには、ミューテーターのような名前を持ち、パラメーターの節を持たないメソッドが表示されます。</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">副作用</a>を持つメソッドの場合、単なるアクセサーメソッドではないことを示すために空のパラメーターの節を持つことが一般的な慣習となっています。</p>
+
+<p>クイックフィックスを使用すると、空のパラメーターの節が追加されます。</p>
+<p><b>例:</b></p>
+<pre><code>
+  trait Test {
+    def updateAll: Boolean
+  }
+</code></pre>
+<p>クイックフィックス適用後:</p>
+<pre><code>
+  trait Test {
+    def updateAll(): Boolean
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>
+
+<html>
+<body>
+<p>변경자와 같은 이름이 있지만 매개변수 절이 없는 메서드를 보고합니다.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">부작용</a> 메서드의 경우, 단순한 접근자 메서드가 아님을 나타내기 위해 빈 매개변수 절이 있는 것이 규칙입니다.</p>
+
+<p>빠른 수정을 통해 빈 매개변수 절이 추가됩니다.</p>
+<p><b>예:</b></p>
+<pre><code>
+  trait Test {
+    def updateAll: Boolean
+  }
+</code></pre>
+<p>빠른 수정을 적용한 후:</p>
+<pre><code>
+  trait Test {
+    def updateAll(): Boolean
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>
+
+<html>
+<body>
+<p>报告具有类似转换器名称且没有参数子句的方法。</p>
+
+<p>对于具有<a href="https://zh.wikipedia.org/wiki/%E7%BB%8D%E8%BD%AC%E7%94%A8">副作用</a>的方法，通常约定是一个空参数子句来指明它不仅仅是一个访问器方法。</p>
+
+<p>快速修复添加一个空参数子句。</p>
+<p><b>示例：</b></p>
+<pre><code>
+  trait Test {
+    def updateAll: Boolean
+  }
+</code></pre>
+<p>在应用快速修复后：</p>
+<pre><code>
+  trait Test {
+    def updateAll(): Boolean
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

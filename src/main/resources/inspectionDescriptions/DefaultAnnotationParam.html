@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata parâmetros de anotação que são atribuídos ao seu valor <code>default</code>.
+<p>Exemplo:</p>
+<pre><code>
+  @interface Test {
+      Class&lt;?> expected() default Throwable.class;
+  }
+
+  @Test(expected = Throwable.class)
+  void testSmth() {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  @Test()
+  void testSmth() {}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

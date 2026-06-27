@@ -1,0 +1,13 @@
+<html>
+<body>
+Reporta templates de string de expressão única que podem ser removidos com segurança.
+<p><b>Exemplo:</b></p>
+<pre><code>  val x = "Hello"
+  val y = "$x"
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>  val x = "Hello"
+  val y = x // &lt;== Atualizado
+</code></pre>
+</body>
+</html>

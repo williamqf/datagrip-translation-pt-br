@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata o uso do <code>map</code> junto com expressões que não produzem nenhum resultado.</p>
+<p>Se possível, esta inspeção sugere substituir tal chamada ao <code>map</code> por uma chamada ao <code>foreach</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Seq(1, 2).map(println)
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Seq(1, 2).foreach(println)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

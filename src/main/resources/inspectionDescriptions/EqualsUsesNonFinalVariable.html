@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata implementações de <code>equals()</code> que acessam variáveis não <code>final</code>. Esse acesso pode fazer com que <code>equals()</code> retorne resultados diferentes em diferentes momentos do ciclo de vida do objeto, o que pode causar problemas ao usar classes de coleção padrão.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Person {
+    private String lastName;
+
+    @Override
+    public boolean equals(Object obj) {
+      ...
+      Person other = (Person) obj;
+      if (lastName == null) {
+        if (!lastName.equals(other.lastName)) {
+        return false;
+      ...
+      }
+    }
+  }
+  </code>
+</pre>
+<!-- tooltip end -->
+
+</body>
+</html>

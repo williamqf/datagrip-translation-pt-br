@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata loops que, exceto pelos efeitos colaterais gerados na primeira iteração, não geram efeitos colaterais adicionais na segunda e nas iterações subsequentes. Isso pode indicar um erro de programação.
+<p>Tais loops podem iterar zero, uma ou infinitas vezes.
+Se não houver a possibilidade de um loop infinito, ele pode ser substituído por uma instrução <code>if</code>.
+  Caso contrário, o programa pode travar.</p>
+<p>Exemplo:</p>
+<pre><code>
+    public void foo(String baseName, String names) {
+        int suffix = 1;
+        String name = baseName;
+        while (names.contains(name)) {
+            // Erro: suffix não é atualizado, tornando o corpo do loop idempotente
+            name = baseName + suffix;
+        }
+    }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2018.1</small></p>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata modificadores de modalidade que coincidem com a modalidade padrão do elemento (<code>final</code> para a maioria dos elementos, <code>open</code> para membros com <code>override</code>).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>final</b> class Foo
+
+  open class Bar : Comparable&lt;Bar&gt; {
+      <b>open</b> override fun compareTo(other: Bar): Int = 0
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo
+
+  open class Bar : Comparable&lt;Bar&gt; {
+      override fun compareTo(other: Bar): Int = 0
+  }
+</code></pre>
+</body>
+</html>

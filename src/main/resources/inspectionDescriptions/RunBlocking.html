@@ -1,0 +1,35 @@
+<html>
+<body>
+Relata construtores <code>runBlocking</code> alcançáveis a partir de uma corrotina. 
+<p>As corrotinas compartilham threads para execução. Quando o construtor <code>runBlocking</code> é chamado a partir de uma corrotina, ele bloqueia a thread subjacente e impede que outras corrotinas usem esse recurso. Isso pode causar problemas de desempenho e, em casos graves, privação de threads (thread starvation).</p>
+<p>Esta inspeção fornece uma pilha de chamadas potencial de uma primitiva de corrotina (função suspend ou construtor) para um construtor <code>runBlocking</code>.</p>
+<p>Exemplo: </p>
+<pre><code>
+  suspend fun main() {
+      foo() 
+   }
+
+  fun foo() {
+      runBlocking { suspendFunction() }
+  }
+</code></pre>
+<p>Solução possível: </p>
+<pre><code>
+  suspend fun main() {
+      foo() 
+   }
+
+  suspend fun foo() {
+      suspendFunction()
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Explorar funções com sobrescritas</b> para configurar a análise de funções virtuais:</p>
+<ul>
+    <li>Use a opção <b>Não</b> para pular a análise de funções que possuam sobrescritas.</li>
+    <li>Use a opção <b>Sim, excluindo sobrescritas</b> para explorar apenas funções no tipo do chamado (callee) definido.</li>
+    <li>Use a opção <b>Sim, incluindo sobrescritas</b> para explorar a função e todas as suas sobrescritas.</li>
+</ul>
+
+</body>
+</html>

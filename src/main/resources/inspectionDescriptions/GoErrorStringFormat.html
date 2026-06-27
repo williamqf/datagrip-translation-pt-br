@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata problemas de formatação em strings de erro.
+<p>Exemplo:</p>
+<pre><code>err := fmt.Errorf("Cannot read the file!")
+log.Printf("Reading %s: %v", file, err)</code></pre>
+<p>De acordo com as <a href="https://github.com/golang/go/wiki/CodeReviewComments#error-strings">Error Strings no github.com/golang</a>, as strings de erro não devem começar com letra maiúscula ou terminar com pontuação, pois podem aparecer em outros contextos.
+</p>
+<p>Para corrigir a formatação, a correção rápida <b>Corrigir formatação da string de erro</b> pode ser aplicada. Após aplicar a correção rápida, a string de erro ficará assim:</p>
+<pre><code>err := fmt.Errorf("cannot read the file")
+log.Printf("Reading %s: %v", file, err)</code></pre>
+</body>
+</html>

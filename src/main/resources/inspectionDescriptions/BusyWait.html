@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas a <code>java.lang.Thread.sleep()</code> feitas dentro de um loop.
+<p>Tais chamadas indicam uma "espera ocupada" (busy waiting). A espera ocupada é geralmente ineficiente e pode causar deadlocks inesperados, pois a thread em espera ocupada não libera os recursos bloqueados.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+     volatile int x;
+     public void waitX() throws Exception {
+      while (x &gt; 0) {
+        Thread.sleep(10);// Aviso: Chamada a 'Thread.sleep()' dentro de um loop, possivelmente uma espera ocupada
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

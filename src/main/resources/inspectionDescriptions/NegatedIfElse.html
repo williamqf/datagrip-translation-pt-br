@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata instruções <code>if</code> que contêm um ramo <code>else</code> e uma condição negada.
+<p>Inverter a ordem dos ramos <code>if</code> e <code>else</code> geralmente aumenta a clareza de tais instruções.</p>
+<p>A instrução <code>if</code> atual pode ser invertida por meio de uma correção rápida.</p>
+<p>Exemplo:</p>
+<pre><code>
+    void m(Object o1, Object o2) {
+        if (o1 != o2) {
+            System.out.println(1);
+        }
+        else {
+            System.out.println(2);
+        }
+    }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+    void m(Object o1, Object o2) {
+        if (o1 == o2) {
+            System.out.println(2);
+        } else {
+            System.out.println(1);
+        }
+    }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar comparações '!= null'</b> para ignorar comparações na forma <code>!= null</code>.</p>
+<p>Use a opção <b>Ignorar comparações '!= 0'</b> para ignorar comparações na forma <code>!= 0</code>.</p>
+
+</body>
+</html>

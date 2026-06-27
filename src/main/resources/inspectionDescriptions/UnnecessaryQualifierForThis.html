@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata qualificações desnecessárias de <code>this</code> ou <code>super</code>.
+<p>
+  O uso de qualificadores em <code>this</code> ou <code>super</code> para remover a ambiguidade de referências de código pode facilmente tornar-se desnecessário por meio de refatorações automáticas e deve ser removido para fins de clareza.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+
+  class Bar extends Foo {
+    void bar() {
+      Bar.super.foo();
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+
+  class Bar extends Foo {
+    void bar() {
+      super.foo();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

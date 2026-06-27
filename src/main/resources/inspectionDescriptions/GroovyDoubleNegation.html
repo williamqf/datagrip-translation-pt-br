@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata duplas negações que podem ser simplificadas.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+if (!!functionCall()) {} // Dupla negação
+if (!(a != b)) {} // Dupla negação
+</code>
+</pre>
+<p>Após aplicar a correção rápida:</p>
+<pre>
+<code>
+if (functionCall()) {}
+if (a == b) {}
+</code>
+</pre>
+</body>
+</html>

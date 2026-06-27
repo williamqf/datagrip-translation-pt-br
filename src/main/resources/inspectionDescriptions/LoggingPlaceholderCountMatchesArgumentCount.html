@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata chamadas de log do SLF4J, Log4j2 e akka.event.LoggingAdapter, como <code>logger.info("{}: {}", key)</code>, nas quais a quantidade de espaços reservados <code>{}</code> na mensagem do logger não corresponde à quantidade de outros argumentos da chamada de log.
+<!-- tooltip end -->
+<p>
+  Use a opção de inspeção para especificar qual implementação o SLF4J utiliza.
+  Se <strong>Verificar automaticamente</strong> estiver selecionado, o <code>org.apache.logging.slf4j.Log4jLogger</code> será pesquisado no classpath.
+  Se este arquivo for encontrado ou se <strong>Sim</strong> for selecionado, situações em que o último parâmetro com um tipo de exceção possui um espaço reservado não serão relatadas para a API SLF4J.<br/>
+Exemplo:
+<pre><code lang="java">
+// Esse caso não será relatado se a opção "Sim" for selecionada
+log.error("For id {}: {}", "1", new RuntimeException());
+</code></pre>
+Nesse caso, 'new RuntimeException()' será impresso usando 'toString()' (seu stack trace não será impresso):
+<pre><code lang="text">
+For id 1: java.lang.RuntimeException
+</code></pre>
+
+Caso contrário, ele será destacado porque o último espaço reservado não é utilizado:
+<pre><code lang="text">
+For id 1: {}
+java.lang.RuntimeException: null
+</code></pre>
+
+A opção <strong>Não</strong> pode ser usada para sempre destacar esses casos quando um espaço reservado é usado para uma exceção, mesmo que o <code>org.apache.logging.slf4j.Log4jLogger</code> seja usado como backend.<br/>
+
+Esta opção aplica-se apenas ao SLF4J.
+<p>
+</body>
+</html>

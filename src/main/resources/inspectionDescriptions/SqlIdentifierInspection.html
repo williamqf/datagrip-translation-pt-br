@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata instâncias em que palavras-chave reservadas do SQL são usadas como nomes de identificadores em consultas.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE select (identity INT IDENTITY NOT NULL, order INT NOT NULL);</code></pre>
+<p>Usamos <code>select</code>, <code>identity</code> e <code>order</code> como nomes de tabela e coluna.
+  No entanto, eles também são palavras-chave reservadas no Microsoft SQL Server.
+  Portanto, para usá-los como nomes de objetos em consultas, você deve colocar esses identificadores entre aspas. Para colocá-los entre aspas, você pode usar a correção rápida <b>Colocar identificador entre aspas</b>.</p>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>CREATE TABLE [select] ([identity] INT IDENTITY NOT NULL, [order] INT NOT NULL);</code></pre>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata chamadas redundantes de <code>Stream</code> ou <code>Optional</code> (por exemplo, <code>map(x -&gt; x)</code>, <code>filter(x -&gt; true)</code>) ou chamadas redundantes de <code>sorted()</code> ou <code>distinct()</code>.
+<!-- tooltip end -->
+<p>Observe que uma operação de mapeamento em códigos como <code>streamOfIntegers.map(Integer::valueOf)</code> funciona como uma verificação <code>requireNonNull()</code>: ela lançará uma <code>NullPointerException</code> se a stream contiver <code>null</code>, portanto não é totalmente redundante.
+  Se você não deseja que tais casos sejam relatados, desative a opção <b>Relatar boxing redundante em Stream.map()</b>.</p>
+</body>
+</html>

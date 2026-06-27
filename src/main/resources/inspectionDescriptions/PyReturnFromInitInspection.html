@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>
+  Relata instruções <code>return</code> com um valor de retorno dentro do método <code>__init__</code> de uma classe.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Sum:
+    def __init__(self, a, b):
+        self.a = a
+        self.b = b
+        self.sum = a + b
+        return self.sum
+</code></pre>
+<p>Construtores não devem retornar nenhum valor. O método <code>__init__</code> deve apenas inicializar os valores dos membros da instância do novo objeto.</p>
+<p>A correção rápida proposta pelo IDE é remover a instrução <code>return</code>.</p>
+</body>
+</html>

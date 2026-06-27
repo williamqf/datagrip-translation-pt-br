@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata exceções declaradas na assinatura de um método que nunca são lançadas pelo próprio método ou por suas implementações e métodos que o sobrescrevem.
+<p>Esta inspeção ignora métodos relacionados à serialização, como os métodos <code>readObject()</code> e <code>writeObject()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void method() throws InterruptedException {
+    System.out.println();
+  }
+</code></pre>
+<p>A correção rápida remove exceções desnecessárias da declaração e normaliza instruções <code>try</code>-<code>catch</code> redundantes:</p>
+<pre><code>
+  void method() {
+    System.out.println();
+  }
+</code></pre>
+<p>
+  <b>Nota</b>: Por motivos de desempenho, algumas exceções podem não ser relatadas ao realçar no editor.
+  Para ver todos os resultados, execute a inspeção selecionando <b>Código | Inspecionar código</b> ou <b>Código | Analisar código | Executar inspeção por nome</b> no menu principal.
+</p>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar exceções lançadas por métodos de ponto de entrada</b> para não relatar exceções lançadas por métodos como <code>main()</code>.
+  Os métodos de ponto de entrada podem ser configurados nas configurações da inspeção <a href="settings://Errors?Unused%20Declaration%20entry%20point">Java | Redundância de declaração | Declaração não utilizada</a>.
+  <br><br></p>
+</body>
+</html>

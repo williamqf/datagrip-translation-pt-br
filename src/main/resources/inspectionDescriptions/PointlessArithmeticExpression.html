@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata expressões aritméticas sem sentido. Tais expressões incluem adição ou subtração de 0, multiplicação por 0 ou 1 e divisão por 1.
+<p>Tais expressões podem ser resultado de uma refatoração automática e é improvável que sejam a intenção original do desenvolvedor.</p>
+<p>A correção rápida simplifica essas expressões.</p>
+<p><b>Exemplo:</b>
+<pre><code>
+  void f(int a) {
+    int x = a - a;
+    int y = a + 0;
+    int res = x / x;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void f(int a) {
+    int x = 0;
+    int y = a;
+    int res = 1;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Observe que, em casos raros, a substituição sugerida pode não ser totalmente equivalente ao código original para todas as entradas possíveis. Por exemplo, esta inspeção sugere substituir <code>x / x</code> por <code>1</code>.
+  No entanto, se <code>x</code> for zero, o código original lançará uma <code>ArithmeticException</code> ou resultará em <code>NaN</code>.
+  Além disso, se <code>x</code> for <code>NaN</code>, o resultado também será <code>NaN</code>. É improvável que tal comportamento seja intencional.
+</p>
+</body>
+</html>

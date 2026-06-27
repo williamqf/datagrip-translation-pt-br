@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata <code>null</code> atribuído a uma variável <code>Optional</code> ou retornado de um método que retorna <code>Optional</code>.
+<p>É recomendado usar <code>Optional.empty()</code> (ou <code>Optional.absent()</code> para o Guava) para representar valores vazios.</p>
+<p>Exemplo:</p>
+<pre><code>
+  Optional&lt;Integer&gt; foo(boolean flag) {
+    return flag ? Optional.of(42) : null;
+  }
+</code></pre>
+<p>Após aplicar o ajuste rápido:</p>
+<pre><code>
+  Optional&lt;Integer&gt; foo(boolean flag) {
+    return flag ? Optional.of(42) : Optional.empty();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>
+  Use a opção <b>Relatar comparações de Optional com null</b> para também relatar comparações como <code>optional == null</code>. Embora isso possa estar correto em casos raros (por exemplo, campos opcionais com inicialização tardia), variáveis opcionais geralmente não são nulas e provavelmente o que se pretendia era <code>optional.isPresent()</code>.
+</p>
+<p><small>Novidade na versão 2017.2</small></p>
+</body>
+</html>

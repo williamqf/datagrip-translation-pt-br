@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata estados de cursor inválidos em rotinas SQL.
+<ul>
+  <li>A rotina possui uma instrução CLOSE ou FETCH, mas o cursor pode estar fechado.</li>
+  <li>A rotina possui uma instrução OPEN, mas o cursor pode estar aberto.</li>
+</ul>
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE t(col INT);
+
+CREATE PROCEDURE foo() AS
+BEGIN
+DECLARE my_cursor CURSOR FOR SELECT * FROM t;
+DECLARE a INT;
+FETCH my_cursor INTO a;
+CLOSE my_cursor;
+END;</code></pre>
+<p>De acordo com o <a href="https://docs.microsoft.com/en-us/sql/t-sql/language-elements/close-transact-sql">CLOSE (Transact-SQL) no docs.microsoft.com</a>, o CLOSE deve ser executado para um cursor aberto e não é permitido em cursores que foram apenas declarados ou que já estão fechados. Portanto, precisamos abrir o cursor para corrigir o aviso.</p>
+<pre><code>CREATE PROCEDURE foo() AS
+BEGIN
+DECLARE my_cursor CURSOR FOR SELECT * FROM t;
+DECLARE a INT;
+OPEN my_cursor;
+FETCH my_cursor INTO a;
+CLOSE my_cursor;
+END;</code></pre>
+</body>
+</html>

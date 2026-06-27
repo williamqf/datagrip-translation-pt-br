@@ -1,0 +1,64 @@
+<html>
+<body>
+<p>
+  Relata qualquer ação registrada no arquivo <code>plugin.xml</code> que instancie um objeto <code>com.intellij.openapi.actionSystem.Presentation</code> em seu construtor.
+</p>
+<p>
+  Qualquer construtor de <code>AnAction</code> com parâmetros instancia um objeto <code>Presentation</code>. No entanto, instanciar um objeto <code>Presentation</code> no construtor resulta em uma alocação de recursos que pode ser desnecessária. Em vez de criar uma instância de <code>Presentation</code> para armazenar texto, descrição ou ícones, é mais eficiente utilizar construtores sem argumentos de <code>AnAction</code> e outras classes base, seguindo a convenção de configurar texto, descrição e ícones no <code>plugin.xml</code>. O IDE carregará o texto, a descrição e os ícones apenas quando a ação for efetivamente exibida na UI.
+</p>
+<p>
+  A convenção para configurar texto, descrição e ícones é a seguinte:
+</p>
+<ul>
+  <li>
+    Defina o atributo <code>id</code> para a ação no arquivo <code>plugin.xml</code>.
+  </li>
+  <li>
+    Defina o atributo <code>icon</code> se um ícone for necessário.
+  </li>
+  <li>
+    Defina o texto e a descrição no pacote de mensagens associado (pode ser sobrescrito em <code>&lt;actions&gt;</code>):
+    <ul>
+      <li><code>action.&lt;action-id&gt;.text=Texto da ação traduzido</code></li>
+      <li><code>action.&lt;action-id&gt;.description=Descrição da ação traduzida</code></li>
+    </ul>
+  </li>
+</ul>
+<p><b>Exemplo ruim:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction(
+    KotlinBundle.message("action.new.file.text"),
+    KotlinBundle.message("action.new.file.description"),
+    KotlinIcons.FILE
+  )
+</code></pre>
+<pre><code lang="xml">
+  <!-- plugin.xml -->
+  &lt;action
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+  &lt;/action&gt;
+</code></pre>
+<p><b>Exemplo bom:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction()
+</code></pre>
+<pre><code lang="xml">
+  <!-- plugin.xml -->
+  &lt;action
+    id="Kotlin.NewFile"
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+    icon="org.jetbrains.kotlin.idea.KotlinIcons.FILE">
+  &lt;/action&gt;
+</code></pre>
+<pre><code lang="properties">
+  # KotlinBundle.properties
+  action.Kotlin.NewFile.text=Classe/arquivo Kotlin
+  action.Kotlin.NewFile.description=Cria uma nova classe ou arquivo Kotlin
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidades na versão 2023.2</small></p>
+</body>
+</html>

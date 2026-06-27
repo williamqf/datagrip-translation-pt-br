@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata o <i>fallthrough</i> em instruções <code>switch</code>. Embora ocasionalmente útil, o <i>fallthrough</i> geralmente não é intencional e pode levar a erros inesperados.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+switch(n) {
+  case 1:
+    print 1
+  case 2: // "case 1" faz fallthrough para "case 2". As instruções de "case 2" serão executadas imediatamente após "case 1".
+    print 2
+    break
+  default:
+    print "Default"
+}
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata indentação suspeita de instruções que seguem instruções de controle sem chaves.
+<p>
+  Com tal indentação, a instrução parece estar dentro da instrução de controle, mas na verdade ela será executada incondicionalmente após a instrução de controle.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Bar {
+      void foo(int i) {
+          if (i == 0)
+              System.out.println("foo");
+              System.out.println("bar"); // aviso
+          if (i == 1);
+              System.out.println("great"); // aviso
+          if (i == 42)
+              System.out.println("answer");
+                  System.out.println("question"); // aviso
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

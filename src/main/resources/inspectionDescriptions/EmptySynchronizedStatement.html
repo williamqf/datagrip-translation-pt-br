@@ -1,0 +1,24 @@
+<html>
+<body>
+Reporta instruções <code>synchronized</code> com o corpo vazio.
+<p>
+  Instruções <code>synchronized</code> vazias às vezes são usadas para aguardar que outras threads liberem um recurso específico. No entanto, não há garantia de que o mesmo recurso não será adquirido novamente logo após a conclusão da instrução <code>synchronized</code> vazia.
+  Para uma sincronização adequada, o recurso deve ser utilizado dentro do bloco <code>synchronized</code>.
+</p>
+<p>
+  Além disso, blocos <code>synchronized</code> vazios podem aparecer após a refatoração, ao remover código redundante. Nesse caso, o próprio bloco <code>synchronized</code> é redundante e também deve ser removido.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  synchronized(lock) {}
+</code></pre>
+<p>
+  A correção rápida sugere a remoção da instrução synchronized vazia.
+</p>
+<!-- tooltip end -->
+<p>
+  Esta inspeção está desativada em arquivos JSP.
+<p>
+
+</body>
+</html>

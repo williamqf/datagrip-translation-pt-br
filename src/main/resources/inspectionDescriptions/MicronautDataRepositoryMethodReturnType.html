@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata tipos de retorno incorretos para <a href="https://micronaut-projects.github.io/micronaut-data/latest/guide/#querying">métodos de repositório do Micronaut Data</a>.</p>
+<p>Os seguintes tipos de retorno são suportados:</p>
+<list>
+  <li>void</li>
+  <li>tipos primitivos</li>
+  <li>tipos simples</li>
+  <li><code>java.util.List</code> ou qualquer tipo <code>Iterable</code> comum</li>
+  <li><code>java.util.stream.Stream</code></li>
+  <li><code>java.util.Optional</code></li>
+  <li><code>io.micronaut.data.model.Page</code></li>
+  <li><code>io.micronaut.data.model.Slice</code></li>
+  <li><code>java.util.concurrent.Future</code> ou <code>java.util.concurrent.CompletableFuture</code></li>
+  <li>tipos compatíveis com Reactive Streams, tais como <code>Publisher</code>, <code>Single</code>, <code>Maybe</code>, <code>Flux</code>, <code>Mono</code>, etc.
+  </li>
+</list>
+</body>
+</html>

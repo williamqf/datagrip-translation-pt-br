@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas <code>toString()</code> usadas nos seguintes casos:
+<ul>
+  <li>Em concatenação de strings</li>
+  <li>Nos métodos <code>java.lang.StringBuilder#append()</code> ou <code>java.lang.StringBuffer#append()</code></li>
+  <li>Em métodos de <code>java.io.PrintWriter</code> ou <code>java.io.PrintStream</code></li>
+  <li>Em métodos de <code>org.slf4j.Logger</code></li>
+</ul>
+<p>Nesses casos, a conversão para string será tratada pelos métodos da biblioteca subjacente, não sendo necessária uma chamada explícita a <code>toString()</code>.
+  A remoção de chamadas <code>toString()</code> redundantes pode, às vezes, até melhorar o desempenho e reduzir a alocação de objetos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  System.out.println(this.toString())
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.out.println(this)
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Observe que, sem a chamada <code>toString()</code>, a semântica do código pode ser diferente: se a expressão for nula, a string <code>null</code> será usada em vez de lançar uma <code>NullPointerException</code>.</p>
+  <p>Use a opção <b>Relatar apenas se o qualificador for conhecido como não nulo</b> para evitar avisos sobre valores possivelmente nulos.
+  Remover o <code>toString()</code> explícito nesses casos altera a semântica de tempo de execução de lançar uma <code>NullPointerException</code> para aceitar silenciosamente o valor quando ele for <code>null</code>.
+</p>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata chamadas em receptores não nulos que só fazem sentido em receptores anuláveis.
+<p>Várias funções na biblioteca padrão, como <code>orEmpty()</code> ou <code>isNullOrEmpty</code>, só fazem sentido quando chamadas em um receptor de tipo anulável. Em outros casos, elas podem ser omitidas ou simplificadas, pois o resultado será o mesmo.</p>
+<p>As correções rápidas <b>Remover chamada redundante</b> e <b>Alterar chamada para ...</b> podem ser usadas para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun test(s: String) {
+      val x = s.orEmpty() // A correção rápida simplificará para 's'
+      val y = s.isNullOrEmpty() // A correção rápida simplificará para 's.isEmpty()'
+  }
+</code></pre>
+</body>
+</html>

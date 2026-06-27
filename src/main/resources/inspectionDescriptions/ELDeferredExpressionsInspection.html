@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata expressões dinâmicas onde expressões adiadas são esperadas ou expressões adiadas onde expressões dinâmicas são esperadas.
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+&lt;jsp:useBean id="exampleBean" scope="request" type="java.util.Date"/&gt;
+
+&lt;h:outputText id="${exampleBean.day}" value="#{exampleBean.day}" /&gt; // OK
+&lt;h:outputText id="#{exampleBean.day}" value="${exampleBean.day}" /&gt; // Erro: o atributo `id` requer uma expressão dinâmica, `value` - adiada 
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>
+Relata um limite superior explícito redundante <code>Any?</code> em parâmetros de tipo.
+No Kotlin, o limite superior padrão de um parâmetro de tipo é <code>Any?</code>, portanto não há necessidade de especificá-lo explicitamente.
+</p>
+
+<p>Exemplo:</p>
+<pre><code>// Antes
+fun &lt;T : Any?&gt; foo(t: T) {}
+class C&lt;T : Any?&gt;
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+fun &lt;T&gt; foo(t: T) {}
+class C&lt;T&gt;
+</code></pre>
+
+<p>
+A correção rápida remove o limite superior redundante e os dois-pontos que o precedem.
+</p>
+</body>
+</html>

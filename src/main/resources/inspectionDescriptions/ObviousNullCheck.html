@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas de métodos de verificação de nulo (por exemplo, <code>Objects.requireNonNull</code> ou <code>Assert.assertNotNull</code>) em valores que são claramente não nulos (por exemplo, um objeto recém-criado). Essa verificação é redundante e pode indicar um erro de programação.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  final String greeting = Objects.requireNonNull("Hi!");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  final String greeting = "Hi!";
+</code></pre>
+<!-- tooltip end -->
+<p>Novidade na versão 2017.2</p>
+</body>
+</html>

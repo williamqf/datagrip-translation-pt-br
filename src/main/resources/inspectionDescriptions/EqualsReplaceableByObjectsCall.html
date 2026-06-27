@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata expressões que podem ser substituídas por uma chamada a <code>java.util.Objects#equals</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void f(Object a, Object b) {
+    boolean result = a != null && a.equals(b);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  void f(Object a, Object b) {
+    boolean result = Objects.equals(a, b);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Substituir expressões como <code>a != null && a.equals(b)</code> por <code>Objects.equals(a, b)</code> altera ligeiramente a semântica. Use a opção <b>Realçar expressões como 'a != null && a.equals(b)'</b> para ativar ou desativar este comportamento.
+</p>
+</body>
+</html>

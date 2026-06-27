@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata placeholders não resolvidos configurados no contexto XML do Spring.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;beans&gt;
+    &lt;ctx:property-placeholder location="application.properties"/&gt;
+
+    &lt;bean class="beans.ServerComponent"&gt;
+      &lt;property name="serverName" value="${server.name}}"/&gt;
+      &lt;property name="port" value="${unknown.property}}"/&gt; &lt;!-- Relata "Não é possível resolver a chave da propriedade" --&gt;
+    &lt;/bean&gt;
+  &lt;/beans&gt;
+</code></pre>
+</body>
+</html>

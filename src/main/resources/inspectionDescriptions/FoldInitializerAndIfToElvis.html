@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata expressões <code>if</code> que verificam se uma variável é <code>null</code> imediatamente após a inicialização, as quais podem ser convertidas para o operador elvis no inicializador.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(foo: Int?, bar: Int): Int {
+      var i = foo
+      if (i == null) {
+          return bar
+      }
+      return i
+  }
+</code></pre>
+<p>A correção rápida converterá a expressão <code>if</code> com o inicializador em uma expressão elvis:</p>
+<pre><code>
+  fun test(foo: Int?, bar: Int): Int {
+      var i = foo ?: return bar
+      return i
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas de método <code>static</code> que são qualificadas por uma subclasse da classe declarante em vez da própria classe declarante.
+<p>
+  O Java permite esse tipo de qualificação de classe, mas essas chamadas podem indicar uma confusão sutil entre herança e sobrescrita.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Parent {
+    public static void print(String str) {}
+  }
+  class Child extends Parent {}
+
+  Child.print("Hello, world!");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Parent.print("Hello, world!");
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

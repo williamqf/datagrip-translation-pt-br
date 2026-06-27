@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas desnecessárias a <code>close()</code> no final de blocos <code>try-with-resources</code> e sugere a sua remoção.
+<p><b>Exemplo</b>:</p>
+<pre><code>
+  try(MyAutoCloseable ac = new MyAutoCloseable()) {
+    foo();
+    ac.close();
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  try(MyAutoCloseable ac = new MyAutoCloseable()) {
+    foo();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.1</small></p>
+</body>
+</html>

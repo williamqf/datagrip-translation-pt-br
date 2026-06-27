@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas de métodos Java que podem ser substituídas por funções Kotlin, como <code>System.out.println()</code>.
+<p>A substituição desse código remove dependências do Java e torna o código Kotlin mais idiomático.</p>
+<p>A correção rápida substitui a chamada do método Java pela chamada Kotlin equivalente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util.Arrays
+
+  fun main() {
+      val a = Arrays.asList(1, 3, null)
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun main() {
+      val a = listOf(1, 3, null)
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

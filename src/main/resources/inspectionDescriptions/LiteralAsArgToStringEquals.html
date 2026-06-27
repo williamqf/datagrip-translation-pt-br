@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas a <code>String.equals()</code> ou <code>String.equalsIgnoreCase()</code> que contêm argumentos literais de string.
+<p>Alguns padrões de codificação especificam que literais de string devem ser o qualificador de <code>equals()</code> em vez do argumento, a fim de minimizar <code>NullPointerException</code>.</p>
+<p>Uma correção rápida está disponível para trocar o literal e a expressão.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean isFoo(String value) {
+    return value.equals("foo");
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  boolean isFoo(String value) {
+    return "foo".equals(value);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

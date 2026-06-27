@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata tentativas de acesso à coluna 0 de um <code>java.sql.ResultSet</code> ou <code>java.sql.PreparedStatement</code>.
+Por razões históricas, as colunas de <code>java.sql.ResultSet</code> e <code>java.sql.PreparedStatement</code> são numeradas começando em <b>1</b>, e não em <b>0</b>, e o acesso à coluna 0 é um erro comum na programação JDBC.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String getName(ResultSet rs) {
+    <b>return</b> rs.getString(0);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

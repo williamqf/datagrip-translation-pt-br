@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata comparações em que os operandos esquerdo e direito representam a mesma expressão.
+Embora às vezes comparar uma expressão consigo mesma possa ser intencional, geralmente é fruto de um descuido.
+<p>Exemplo:</p>
+<pre><code>
+  // possivelmente left.getLength() == right.getLength() era o pretendido
+  boolean result = left.getLength() == left.getLength();
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Para ignorar comparações que podem produzir efeitos colaterais, use a opção <b>Ignorar condições com efeitos colaterais</b>.
+Desativar esta opção pode levar a falsos positivos, por exemplo, quando o mesmo método retorna valores diferentes em chamadas subsequentes.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  native int unknownMethod();
+  
+  ...
+  
+  if (unknownMethod() &gt; unknownMethod()) {
+    System.out.println("Got it");
+  }
+</code></pre>
+<p>Devido aos potenciais efeitos colaterais em <code>unknownMethod()</code> (no exemplo), o aviso só será acionado se a opção <b>Ignorar condições com efeitos colaterais</b> estiver desativada.</p>
+<p><small>Novo na versão 2024.2</small></p>
+</body>
+</html>

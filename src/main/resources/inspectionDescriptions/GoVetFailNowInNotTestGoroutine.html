@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas para <code>testing.T.FailNow</code> e métodos semelhantes em uma goroutine dentro de arquivos de teste.
+<p>Métodos como <code>FailNow</code> chamam <code>runtime.Goexit</code> e interrompem a goroutine que faz a chamada, em vez do teste.
+  Portanto, eles devem ser chamados apenas a partir da goroutine que executa o teste ou o benchmark.</p>
+<p>Para mais detalhes sobre o <code>FailNow</code>, consulte <a href="https://pkg.go.dev/testing#T.FailNow">func (*T) FailNow em go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>func TestFoo(t *testing.T) {
+  go func() {
+    t.Fatal("oops") // sai da goroutine, não do TestFoo
+  }()
+}</code></pre>
+<p>Após aplicar a correção rápida <b>Substituir por 'Error' e 'return'</b>:</p>
+<pre><code>func TestFoo(t *testing.T) {
+  go func() {
+    t.Error("oops")
+    return
+  }()
+}</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<html>
+<body>
+Relata métodos nos quais o número de pontos de <code>return</code> excede o valor máximo especificado.
+Métodos com muitos pontos de <code>return</code> podem ser confusos e difíceis de refatorar.
+<p>Um ponto de <code>return</code> pode ser uma instrução <code>return</code> ou o encerramento implícito ao final de um método <code>void</code> ou construtor.</p>
+<p><b>Exemplo:</b></p>
+<p>Se apenas duas instruções <code>return</code> forem permitidas, o seguinte método será relatado:</p>
+<pre><code>
+  void doSmth(User[] users) {
+    for (User user : users) {
+      if (cond1(user)) {
+        user.setId(getId());
+        return;
+      } else if (cond2(user)) {
+        if (cond3(user)) {
+          user.setId(getId());
+          return;
+        }
+      }
+    }
+  }
+</code></pre>
+<p>Considere reescrever o método para torná-lo mais fácil de entender:</p>
+<pre><code>
+  void doSmth(User[] users) {
+    for (User user : users) {
+      if (cond1(user) || cond2(user) && cond3(user)) {
+        user.setId(getId());
+        return;
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use o campo <b>Limite de pontos de return</b> para especificar o número máximo permitido de pontos de <code>return</code> para um método.</li>
+  <li>Use a opção <b>Ignorar guard clauses</b> para ignorar cláusulas de guarda.
+    Uma <i>guard clause</i> é uma instrução <code>if</code> que contém apenas uma instrução <code>return</code>.</li>
+  <li>Use a opção <b>Ignorar para métodos 'equals()'</b> para ignorar pontos de <code>return</code> dentro de métodos <code>equals()</code>.</li>
+</ul>
+</body>
+</html>

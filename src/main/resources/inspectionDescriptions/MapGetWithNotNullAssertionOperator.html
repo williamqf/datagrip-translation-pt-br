@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata <code>map.get()!!</code> que pode ser substituído por <code>map.getValue()</code>, <code>map.getOrElse()</code>, etc.
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun test(map: Map&lt;Int, String&gt;): String = map.get(0)!!
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+fun test(map: Map&lt;Int, String&gt;): String = map.getValue(0)
+</code></pre>
+</body>
+</html>

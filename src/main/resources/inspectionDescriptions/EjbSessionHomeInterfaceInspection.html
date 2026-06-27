@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata as seguintes violações da especificação EJB:
+<ul>
+  <li><code>create()</code> não está definido corretamente</li>
+  <li><code>finder()</code> não é permitido</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+public interface SessionHome extends javax.ejb.EJBHome {
+  Session create() throws java.rmi.RemoteException; // Erro: também deve lançar `javax.ejb.CreateException`
+}
+</code></pre>
+</body>
+</html>

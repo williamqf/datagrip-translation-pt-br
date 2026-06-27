@@ -1,0 +1,48 @@
+<html>
+<body>
+Relata loops, métodos semelhantes a <code>forEach</code> e <code>ContainerUtil.process()</code> que não possuem verificações de cancelamento.
+<p>É executado apenas em métodos com a anotação <code>com.intellij.util.concurrency.annotations.RequiresReadLock</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="kotlin">
+@RequiresReadLock
+fun doSomething() {
+  ...
+  for (item in items) {
+        ProgressManager.checkCanceled() // deve estar na primeira linha
+    ...
+  }
+
+  items.forEach {
+    ProgressManager.checkCanceled() // deve estar na primeira linha
+    ...
+  }
+  ...
+}
+</code></pre>
+
+<p>No caso de loops aninhados sem nada entre eles:</p>
+<pre><code lang="kotlin">
+@RequiresReadLock
+fun doSomething() {
+  ...
+  for (item in items) {
+        // nada entre eles
+        for (inner in item.inners) {
+            ProgressManager.checkCanceled() // deve estar apenas na primeira linha do loop interno
+      ...
+    }
+  }
+  ...
+}
+</code></pre>
+<p>
+    <code>com.intellij.openapi.progress.ProgressManager.checkCanceled()</code> deve ser usado em contextos de bloqueio, enquanto <code>com.intellij.openapi.progress.CoroutinesKt.checkCancelled()</code> deve ser usado em contextos de suspensão.
+</p>
+<p>
+    Para mais detalhes, consulte <a href="https://plugins.jetbrains.com/docs/intellij/background-processes.html#cancellation">Cancelamento de processos em segundo plano</a> na documentação do SDK do Plugin da Plataforma IntelliJ.
+</p>
+
+<!-- tooltip end -->
+<p><small>Novidades em 2023.1</small>
+</body>
+</html>

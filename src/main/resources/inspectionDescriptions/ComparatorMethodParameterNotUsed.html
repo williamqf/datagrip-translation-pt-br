@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata problemas nas implementações de <code>Comparator.compare()</code> e <code>Comparable.compareTo()</code>.
+<p>Os seguintes casos serão relatados:</p>
+<ul>
+  <li>
+    Parâmetros não utilizados. É provável que isto seja um erro de digitação, onde um parâmetro é comparado consigo mesmo, ou o método não foi implementado corretamente.
+  </li>
+  <li>
+    O método obviamente não retorna <code>0</code> para elementos idênticos. Tal método de comparação viola o contrato e pode produzir resultados imprevisíveis ao encontrar elementos iguais. Em particular, a ordenação pode falhar com uma exceção para determinados dados.</li>
+  <li>
+    O método de comparação nunca retorna valores positivos ou negativos. Para cumprir o contrato, se um método de comparação retorna um valor positivo, ele também deve retornar um valor negativo se os argumentos forem fornecidos na ordem inversa.
+  </li>
+  <li>
+    O método de comparação retorna <code>Integer.MIN_VALUE</code>. Embora permitido pelo contrato, isso pode ser propenso a erros, pois alguns locais de chamada podem tentar inverter incorretamente o valor de retorno do método de comparação usando um operador de menos unário.
+    O valor negado de <code>Integer.MIN_VALUE</code> é <code>Integer.MIN_VALUE</code>.
+  </li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Comparator&lt;String&gt; lambda =
+    (a, b) -&gt; a.length() &gt; b.length()
+              ? 0
+              : Math.random() &gt; 0.5 ? -1 : 1;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

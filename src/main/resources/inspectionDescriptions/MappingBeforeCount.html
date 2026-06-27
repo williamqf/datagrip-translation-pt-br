@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas redundantes da API <code>Stream</code>, como <code>map()</code> ou <code>boxed()</code> antes de uma chamada <code>count()</code>.
+<p>
+  Tais chamadas não alteram a contagem final e, portanto, podem ser removidas. O código pode depender de efeitos colaterais de lambdas nessas chamadas de mapeamento. No entanto, depender de efeitos colaterais dentro de uma cadeia de Stream é uma prática extremamente ruim. Não há garantia de que tal chamada não será otimizada em versões futuras do Java.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // a chamada map() é redundante
+  long count = list.stream().filter(s -> !s.isEmpty()).map(s -> s.trim()).count();
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2024.1</small></p>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata todas as expressões <code>new</code> cujos argumentos de tipo podem ser substituídos pelo operador diamante <code>&lt;&gt;</code>.
+<p>Exemplo:</p>
+<pre><code>
+  List&lt;String&gt; list = new ArrayList&lt;String&gt;(); // relata os argumentos de tipo do ArrayList
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;String&gt; list = new ArrayList&lt;&gt;();
+</code></pre>
+</body>
+</html>

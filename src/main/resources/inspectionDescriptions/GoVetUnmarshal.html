@@ -1,0 +1,14 @@
+<html>
+<body>
+Reporta chamadas para <code>json.Unmarshal</code> e funções semelhantes se o argumento passado para armazenar o resultado não for um ponteiro ou uma interface.
+<p>Essas chamadas falharão e retornarão um erro.</p>
+<p>Para obter detalhes sobre o <code>Unmarshal</code>, consulte <a href="https://pkg.go.dev/encoding/json#Unmarshal">func Unmarshal no go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>var animals []Animal
+err := json.Unmarshal(jsonData, animals) // sempre retorna um erro</code></pre>
+<p>Após aplicar o ajuste rápido <b>Prefixar com '&amp;'</b>:</p>
+<pre><code>var animals []Animal
+err := json.Unmarshal(jsonData, &animals)</code>
+</pre>
+</body>
+</html>

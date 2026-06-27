@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata regras de expressões <code>switch</code> ou instruções <code>switch</code> aprimoradas com corpos de expressão.
+Estas podem ser convertidas em blocos de código.
+<p>Exemplo:</p>
+<pre><code>
+  String message = switch (errorCode) {
+    case 404 -> "Not found!";
+    ...
+  };
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  String message = switch (errorCode) {
+    case 404 -> {
+                yield "Not found!";
+            }
+    ...
+  };
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

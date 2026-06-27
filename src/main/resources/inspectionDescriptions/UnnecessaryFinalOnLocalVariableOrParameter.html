@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata variáveis locais ou parâmetros declarados desnecessariamente como <code>final</code>.
+<p>Alguns padrões de codificação desencorajam declarações de variáveis como <code>final</code> por motivos de concisão.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    Foo(Object o) {}
+
+    void bar(final Object o) {
+      new Foo(o);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    Foo(Object o) {}
+
+    void bar(Object o) {
+      new Foo(o);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as opções desta inspeção para definir quais tipos de parâmetros ou variáveis locais devem ser relatados.
+</p>
+</body>
+</html>

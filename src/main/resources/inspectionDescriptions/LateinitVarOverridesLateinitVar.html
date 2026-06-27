@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata propriedades <code>lateinit var</code> que sobrescrevem outras propriedades <code>lateinit var</code>.
+<p>Uma instância de subclasse terá dois campos para uma única propriedade, e o campo da superclasse permanecerá sem uso.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    open class BaseClass {
+      open lateinit var name: String
+    }
+
+    class RealClass : BaseClass() {
+      override lateinit var name: String
+    }
+</code></pre>
+</body>
+</html>

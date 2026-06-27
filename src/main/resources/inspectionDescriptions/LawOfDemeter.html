@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata violações da <a href="https://en.wikipedia.org/wiki/Law_of_Demeter">Lei de Demeter</a>.
+<p>
+A Lei de Demeter não é exatamente uma lei, mas especifica uma diretriz de estilo: nunca chame um método em um objeto obtido a partir de outra chamada.
+O código que segue esta diretriz é mais fácil de manter, ajustar e refatorar, possui menos acoplamento entre métodos, menos duplicidade e melhor ocultação de informações. Por outro lado, pode ser necessário escrever muitos métodos wrapper para satisfazer esta diretriz.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean pay(Customer c, Invoice invoice) {
+    int dollars = c.getWallet().contents; // violação
+    if (dollars >= invoice.getAmount()) {
+      Wallet w = c.getWallet();
+      w.subtract(invoice.getAmount()); // violação
+      return true;
+    }
+    return false;
+  }
+</code></pre>
+O exemplo acima poderia ser melhor implementado como um método <code>payInvoice(Invoice invoice)</code> em <code>Customer</code>.
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar chamadas a métodos de biblioteca e acessos a campos de biblioteca</b> para ignorar violações da Lei de Demeter que não podem ser corrigidas sem alterar a biblioteca.
+</body>
+</html>

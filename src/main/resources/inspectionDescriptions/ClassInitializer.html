@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata inicializadores não <code>static</code> em uma classe.
+<p>Alguns padrões de codificação proíbem inicializadores de instância, recomendando o uso de construtores ou inicializadores de campo para inicialização.
+  Além disso, a remoção da palavra-chave <code>static</code> pode resultar na criação acidental de um inicializador não <code>static</code>, causando erros obscuros.
+</p>
+<p>Esta inspeção não relata inicializadores de instância em classes anônimas.<!-- tooltip end -->
+<p>
+  Use a opção <b>Avisar apenas se a classe tiver um ou mais construtores</b> para ignorar inicializadores de instância em classes que não possuem nenhum construtor.
+</p>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<html>
+<body>
+<p>Relata chamadas redundantes a <code>ReactorDebugAgent.init()</code>.</p>
+<p>
+  O IDE pode inicializar automaticamente o modo de depuração do Reactor, portanto, não é necessário chamar explicitamente <code>ReactorDebugAgent.init()</code> ou <code>Hooks.onOperatorDebug()</code>.
+  </p>
+
+  <p>Além disso, chamar simultaneamente <code>ReactorDebugAgent.init()</code> e <code>Hooks.onOperatorDebug()</code> fará com que o Reactor gere o dobro de frames de pilha de depuração.
+  </p>
+</body>
+</html>

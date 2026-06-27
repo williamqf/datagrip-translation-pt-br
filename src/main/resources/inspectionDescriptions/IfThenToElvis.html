@@ -1,0 +1,19 @@
+<html>
+<body>
+Reporta expressões <code>if-then</code> que podem ser convertidas em uma expressão Elvis (<code>?:</code>).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun maybeFoo(): String? = "foo"
+
+  var foo = maybeFoo()
+  val bar = if (foo == null) "hello" else foo
+</code></pre>
+<p>A correção rápida converte a expressão <code>if-then</code> em uma expressão Elvis (<code>?:</code>):</p>
+<pre><code>
+  fun maybeFoo(): String? = "foo"
+
+  var foo = maybeFoo()
+  val bar = foo ?: "hello"
+</code></pre>
+</body>
+</html>

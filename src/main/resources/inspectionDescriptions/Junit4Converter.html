@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata classes de teste JUnit 3 que podem ser convertidas em classes de teste JUnit 4.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  public class MainTestCase extends junit.framework.TestCase {
+    public void test() {
+      Assert.assertTrue(true);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  public class MainTestCase {
+    @org.junit.Test
+    public void test() {
+      Assert.assertTrue(true);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 5 ou superior e o JUnit 4 estiver disponível no classpath.</p>
+</body>
+</html>

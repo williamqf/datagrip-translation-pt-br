@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata erros de sintaxe no código Spring Expression Language (SpEL), como referências não resolvidas e locais inválidos.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+@Controller
+public class MyController {
+    @Value("#{T(java.lang.Math).<strong>unknown</strong>()}") // Não é possível resolver a propriedade ou o método 'unknown'
+    public void setValue(String s) {}
+}
+</code></pre>
+</body>
+</html>

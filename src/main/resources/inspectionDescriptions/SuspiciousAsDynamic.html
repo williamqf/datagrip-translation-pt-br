@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata o uso da função <code>asDynamic</code> em receptores de tipo dinâmico.
+<p>A função <code>asDynamic</code> não tem efeito em expressões de tipo dinâmico.</p>
+<p>A função <code>asDynamic</code> em um receptor de tipo dinâmico pode levar a problemas em tempo de execução, pois <code>asDynamic</code> será executada no ambiente JavaScript e tais funções podem não estar presentes em tempo de execução.
+    O uso pretendido desta função é em tipos comuns do Kotlin.</p>
+<p>A correção rápida <b>Remover chamada "asDynamic"</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun wrongUsage(d: Dynamic) {
+     d.asDynamic().foo() // &lt;== redundante, a correção rápida simplificará a expressão de chamada para "d.foo()"
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata quaisquer ponto e vírgulas desnecessários, incluindo ponto e vírgulas usados entre membros de classe, dentro de instruções de bloco ou após definições de classe.
+<p>Embora esses ponto e vírgulas sejam válidos em Java, eles são redundantes e podem ser removidos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class C {
+    ;
+    void m() throws Exception {
+        try (AutoCloseable r1 = createAutoCloseable();) {
+          ;
+        }
+    }
+    ;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class C {
+    void m() throws Exception {
+      try (AutoCloseable r1 = createAutoCloseable()) {
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata definições e usos inválidos de protocolos introduzidos no <a href="https://www.python.org/dev/peps/pep-0544/">PEP-544</a>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import Protocol
+
+
+class MyProtocol(Protocol):
+    def method(self, p: int) -> str:
+        pass
+
+
+class MyClass(MyProtocol):
+    def method(self, p: str) -> int: # o tipo de 'method' é incompatível com 'MyProtocol'
+        pass
+
+
+class MyAnotherProtocol(MyClass, Protocol): # todas as bases de um protocolo devem ser protocolos
+    pass
+
+</code></pre>
+</body>
+</html>

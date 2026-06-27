@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Inspeciona uma instrução if que avalia <code>Option</código> e sugere a substituição por <code>filter</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def condition(x: Int): Boolean = ???
+  val value = 3
+  if (condition(value)) Some(value) else None
+</code></pre>
+<p>Após a aplicação do reparo rápido:</p>
+<pre><code>
+  def condition(x: Int): Boolean = ???
+  val value = 3
+  Some(value).filter(condition)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

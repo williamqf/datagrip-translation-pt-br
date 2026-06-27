@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata classes ou arquivos que contêm vários métodos <code>main</code> sobrecarregados no Groovy 5.
+<p>
+  Quando uma classe ou arquivo possui vários métodos <code>main</code> com assinaturas diferentes, pode não estar claro qual deles serve como o ponto de entrada da aplicação, pois a invocação do método main ocorre no tempo de execução com base na presença de argumentos. Considere o seguinte exemplo:
+</p>
+<pre><code>
+class A {
+    void main(String[] args) {
+        println "1"
+    }
+
+    void main() {
+        println "2"
+    }
+}
+</code></pre>
+Se nenhum argumento for passado, <code>main()</code> será chamado; caso contrário, <code>main(String[])</code> será chamado.
+</body>
+</html>

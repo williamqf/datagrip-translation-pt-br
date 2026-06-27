@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata direções de ordenação redundantes, como ASC e DESC, na cláusula ORDER BY.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT, c INT);
+SELECT * FROM foo ORDER BY a ASC, b DESC, c ASC;</code></pre>
+<p>A palavra-chave ORDER BY ordena os registros em ordem crescente por padrão. Portanto, a palavra-chave <code>ASC</code> para as colunas <code>a</code> e <code>c</code> é redundante.</p>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3">
+      <font face="verdana" size="-1">
+        Este template embutido é usado para preenchimento do corpo de um método sobreposto toda vez que ele é gerado,
+        por exemplo, quando a função <code>Código | Sobrescrever método...</code> é chamada.<br>
+        O template é editável. Junto com expressões e comentários JavaScript, você também pode usar variáveis predefinidas.
+        Estas variáveis serão substituídas pelos valores correspondentes quando o template for aplicado.
+      </font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Variaveis predefinidas terão os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CHAMADA_SUPER}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">uma chamada de método <b>super</b>, para métodos <b>void</b> - <code><b>super</b>.<i>nome_do_metodo</i>();</code> com ou sem parâmetros;
+      para outros métodos - <code><b>return</b> <b>super</b>.<i>nome_do_metodo</i>();</code> com ou sem parâmetros
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${CHAMADA_PLANA_SUPER}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">uma chamada de método <b>super</b>, <code><b>super</b>.<i>nome_do_metodo</i>();</code> com ou sem parâmetros;
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${TIPO_RETORNO}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">tipo de retorno de um método criado</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${VALOR_RETORNO_PADRAO}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">valor retornado pelo método por padrão</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${NOME_DO_METODO}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">nome do método que está sendo sobreposto</font></td>
+  </tr>
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">Todas as variáveis predefinidas do template <i>Cabeçalho do Arquivo</i> (aba <i>Inclusões</i>) também estão disponíveis
+      (por exemplo:
+      <font face="verdana" size="-2"><b>${USUARIO}</b></font>,
+      <font face="verdana" size="-2"><b>${DATA}</b></font>,
+      etc.)</font>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

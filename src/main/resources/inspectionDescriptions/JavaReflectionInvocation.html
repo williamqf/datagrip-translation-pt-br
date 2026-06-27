@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata casos em que os argumentos fornecidos para <code>Method.invoke()</code> e <code>Constructor.newInstance()</code> não correspondem à assinatura especificada em <code>Class.getMethod()</code> e <code>Class.getConstructor()</code>.
+<p>Exemplo:</p>
+<pre><code>
+  Method m = myObj.getClass().getMethod("myMethod", <b>int</b>.class);
+  <i>// Este argumento deve ser um valor <b>int</b></i>
+  m.invoke(myObj, "<b>abc</b>");
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.2</small></p>
+</body>
+</html>

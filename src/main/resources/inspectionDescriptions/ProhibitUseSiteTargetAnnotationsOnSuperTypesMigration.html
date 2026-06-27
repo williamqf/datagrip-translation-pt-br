@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata destinos de anotação sem sentido em superclasses a partir do Kotlin 1.4.</p>
+<p>Destinos de anotação como <code>@get:</code> não têm sentido em superclasses e são proibidos.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  interface Foo
+
+  annotation class Ann
+
+  class E : @field:Ann @get:Ann @set:Ann @setparam:Ann Foo
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  interface Foo
+
+  annotation class Ann
+
+  class E : Foo
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem Kotlin do projeto ou módulo for 1.4 ou superior.</p>
+</body>
+</html>

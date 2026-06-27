@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata múltiplas ocorrências equivalentes da mesma expressão em um método (ou construtor, ou inicializador de classe) se o resultado da expressão puder ser reutilizado.
+<p>
+  Uma expressão é relatada se não tiver efeitos colaterais e seu resultado for sempre o mesmo (em termos de <code>Object.equals()</code>).
+  Exemplos de tais expressões são <code>a + b</code>, <code>Math.max(a, b)</code>, <code>a.equals(b)</code> e <code>s.substring(a,b)</code>. Para garantir que o resultado seja sempre o mesmo, é verificado se as variáveis usadas na expressão não alteram seus valores entre as ocorrências da expressão.</p>
+<p>
+  Tais expressões podem incluir métodos de classes imutáveis (como <code>String</code>, <code>BigDecimal</code>, etc.) e classes utilitárias (como <code>Objects</code> e <code>Math</code>, exceto <code>random()</code>).
+  Métodos comuns como <code>Object.equals()</code>, <code>Object.hashCode()</code>, <code>Object.toString()</code>,
+  <code>Comparable.compareTo()</code> e <code>Comparator.compare()</code> também podem ser usados, pois não possuem efeitos colaterais visíveis.
+</p>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Limiar de complexidade da expressão</b> para especificar o limite mínimo de complexidade da expressão. Especificar um número maior removerá os relatos de expressões curtas.
+</p>
+<p>
+  As chamadas <code>Path.of</code> e <code>Paths.get</code> são tratadas como equivalentes se tiverem os mesmos argumentos. Essas chamadas são sempre relatadas, independentemente da complexidade de seus argumentos. Esse comportamento pode ser ajustado usando um limiar de complexidade diferente.
+</p>
+<p><small>Novo na versão 2018.3</small></p>
+</body>
+</html>

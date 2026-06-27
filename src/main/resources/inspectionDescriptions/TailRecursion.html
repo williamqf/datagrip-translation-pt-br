@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata a recursão de cauda, ou seja, quando um método chama a si mesmo como sua última operação antes de retornar.
+<p>
+  A recursão de cauda sempre pode ser substituída por um loop, que é significativamente mais rápido.
+  Algumas JVMs realizam a otimização de chamada de cauda (tail-call optimization), enquanto outras não. Portanto, as soluções de recursão de cauda podem ter características de desempenho consideravelmente diferentes em diferentes máquinas virtuais.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  int factorial(int val, int runningVal) {
+    if (val == 1) {
+      return runningVal;
+    } else {
+      return factorial(val - 1, runningVal * val);
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  int factorial(int val, int runningVal) {
+    while (true) {
+      if (val == 1) {
+        return runningVal;
+      } else {
+        runningVal = runningVal * val;
+        val = val - 1;
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

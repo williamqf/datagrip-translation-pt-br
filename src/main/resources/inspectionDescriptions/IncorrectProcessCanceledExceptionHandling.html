@@ -1,0 +1,43 @@
+<html>
+<body>
+Relata as <code>ProcessCanceledException</code> que estão sendo tratadas de forma incorreta.
+
+<p>
+  <code>ProcessCanceledException</code> e seus sucessores não devem ser capturados, engolidos, registrados ou tratados de forma alguma.
+  Em vez disso, eles devem ser lançados novamente para que a infraestrutura possa tratá-los corretamente.
+</p>
+
+<p>
+  A inspeção relata as capturas explícitas de <code>ProcessCanceledException</code> ou seus sucessores, bem como as capturas de <code>RuntimeException</code>, <code>Exception</code> e <code>Throwable</code> que cobrem <code>ProcessCanceledException</code>.
+</p>
+
+<p>Exemplos:</p>
+
+<pre><code lang="java">
+// incorreto:
+try {
+  // ...
+} catch (ProcessCanceledException e) { // A exceção não deve ser engolida
+}
+
+// incorreto:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  LOG.error("Error occurred", e); // A exceção não deve ser registrada
+  throw e;
+}
+
+
+// correto:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  // Outras ações
+  throw e;
+}
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo no 2023.2</small></p>
+</body>
+</html>

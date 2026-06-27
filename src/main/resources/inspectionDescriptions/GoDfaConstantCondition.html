@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata condições no código que são sempre avaliadas como <code>true</code> ou <code>false</code>.
+  <p>Exemplo:</p>
+  <pre><code>
+func _(file *os.File) {
+    if file == nil {
+        return
+    }
+    if file == nil {
+    }
+}
+  </code></pre>
+<p>
+  No exemplo fornecido, a segunda condição <code>if file == nil</code> é redundante. Ela sempre será avaliada como <code>false</code> porque repete uma verificação que já foi realizada no código.
+</p>
+</body>
+</html>

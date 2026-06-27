@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata valores numéricos retornados de métodos que não estão em conformidade com o intervalo de retorno declarado para o método.
+Você pode usar várias anotações para declarar o intervalo de retorno de um método:
+<ul>
+  <li><code>org.jetbrains.annotations.Range</code> do pacote de anotações da JetBrains (especifica 'from' e 'to')</li>
+  <li><code>org.checkerframework.common.value.qual.IntRange</code> do pacote de anotações do Checker Framework (especifica 'from' e 'to')</li>
+  <li><code>org.checkerframework.checker.index.qual.GTENegativeOne</code> do pacote de anotações do Checker Framework (o intervalo é '>= -1')</li>
+  <li><code>org.checkerframework.checker.index.qual.NonNegative</code> do pacote de anotações do Checker Framework (o intervalo é '>= 0')</li>
+  <li><code>org.checkerframework.checker.index.qual.Positive</code> do pacote de anotações do Checker Framework (o intervalo é '> 0')</li>
+  <li><code>javax.annotation.Nonnegative</code> do pacote de anotações JSR 305 (o intervalo é '>= 0')</li>
+  <li><code>javax.validation.constraints.Min</code> (especifica o valor mínimo)</li>
+  <li><code>javax.validation.constraints.Max</code> (especifica o valor máximo)</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  @Range(from = 0, to = Integer.MAX_VALUE) int getValue() {
+    // Aviso: -1 está fora do intervalo declarado
+    return -1;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2021.2</small></p>
+</body>
+</html>

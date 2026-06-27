@@ -1,0 +1,17 @@
+<html>
+<body>
+Reporta operações redundantes em coleções, mapas ou arrays vazios.
+<p>
+  Iteração, remoção de elementos, ordenação e certas outras operações em coleções vazias não têm efeito e podem ser removidas. Além disso, elas podem indicar a presença de um bug.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (numbers.isEmpty()){
+    // Erro devido à ausência de negação
+    int max = numbers.stream().max(Comparator.naturalOrder()).get();
+    ...
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

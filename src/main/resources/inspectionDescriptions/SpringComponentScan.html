@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata pacotes não resolvidos na anotação <a href=https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/context/annotation/ComponentScan.html>@ComponentScan</a> e nos atributos de alias correspondentes da meta-anotação <code>@ComponentScan</code>.<br></p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @ComponentScan(basePackages = {
+     "com.my.company",
+     "com.unknown" // Relata "Não é possível resolver o pacote 'unknown'"
+  }) +
+  @Configuration +
+  public class MyConfiguration {}
+</code></pre>
+</body>
+</html>

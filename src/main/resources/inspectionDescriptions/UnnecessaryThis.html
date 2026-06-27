@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata qualificadores <code>this</code> desnecessários.
+<p>
+  O uso de <code>this</code> para desambiguar referências de código é desencorajado em muitos estilos de codificação e pode facilmente tornar-se desnecessário por meio de refatoração automática.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    int x;
+    void foo() {
+      this.x = 2;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    int x;
+    void foo() {
+      x = 2;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as configurações de inspeção para ignorar atribuições a campos.
+  Por exemplo, <code>this.x = 2;</code> não será relatado, mas <code>int y = this.x;</code> será.
+<p>
+</body>
+</html>

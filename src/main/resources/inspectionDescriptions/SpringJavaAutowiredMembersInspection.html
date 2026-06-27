@@ -1,0 +1,13 @@
+<html>
+<body>
+<p>RELATÓRIO nos campos/métodos injetados ou autowired de classes que não são Bean Spring válidos: <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Component.html">@Component</a>、<a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/stereotype/Service.html">@Service</a> etc.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+public class FooBeanClass {
+  @Autowired   // RELATÓRIO 'Membros autowired devem ser definidos em um Bean Spring válido: @Component、@Service etc.'
+  ServiceBean bean;
+  }
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>
+  Relata métodos de repositório CRUD do Spring Data para os quais o construtor de consultas <a href="https://docs.spring.io/spring-data/jpa/docs/current/reference/html/#repositories.query-methods.query-creation">Spring Data Query</a> não consegue gerar uma consulta correspondente.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+interface PersonRepository extends Repository&lt;Person, Long&gt; {
+  List&lt;Person&gt; findByEmailAddressAndLastname(EmailAddress emailAddress, String lastname);
+  List&lt;Person&gt; findByEmail<strong>Unknown</strong>AndLastname(EmailAddress emailAddress, String lastname); // Não foi possível resolver a propriedade 'Unknown'
+  List&lt;Person&gt; <strong>findByAndLastname</strong>(EmailAddress emailAddress, String lastname); // Nome da propriedade ausente
+
+  List&lt;Person&gt; findDistinctPeopleByLastnameOrFirstname(String lastname, String firstname);
+  List&lt;Person&gt; findPeopleDistinctBy<strong>Unknown</strong>OrFirstname(String lastname, String firstname); // Não foi possível resolver a propriedade 'Unknown'
+
+  List&lt;Person&gt; findByLastnameOrderByFirstnameAsc(String lastname);
+  List&lt;Person&gt; findByLastnameOrderBy<strong>Unknown</strong>Desc(String lastname);  // Não foi possível resolver a propriedade 'Unknown'
+}
+</code></pre>
+</body>
+</html>

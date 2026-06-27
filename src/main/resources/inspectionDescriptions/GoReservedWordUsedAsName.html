@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata declarações de variáveis, argumentos ou funções que se sobrepõem a palavras-chave integradas (built-in) ou reservadas.
+<p>Se você vir este erro, isso indica que seu código não está tão explícito quanto poderia e pode confundir outros usuários.</p>
+<p>Exemplo:</p>
+<pre><code>type byte struct{}
+type string interface{}</code></pre>
+<p>Os tipos <code>byte</code> e <code>string</code> conflitam com aliases de tipos integrados. Portanto, eles serão destacados.
+  Considere renomear tais declarações.</p>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata variáveis que excedem o comprimento de caracteres definido.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE PROCEDURE test() AS
+BEGIN
+DECLARE myVarOk VARCHAR(5) = 'abcde';
+DECLARE myVarExceeded VARCHAR(5) = 'abcde12345';
+
+SET myVarOk = 'xyz';
+SET myVarExceeded = '123456789';
+END;</code></pre>
+<p>A variável <code>myVarExceeded</code> é definida como <code>VARCHAR(5)</code>, mas ambos os valores atribuídos (<code>'abcde12345'</code> e <code>'123456789'</code>) excedem esse limite. Você pode truncar o valor atribuído ou aumentar o comprimento definido.
+  Para aumentar o comprimento, use a correção rápida <b>Aumentar comprimento do tipo</b>.
+</p>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>CREATE PROCEDURE test() AS
+BEGIN
+DECLARE myVarOk VARCHAR(5) = 'abcde';
+DECLARE myVarExceeded VARCHAR(10) = 'abcde12345';
+
+SET myVarOk = 'xyz';
+SET myVarExceeded = '123456789';
+END;</code></pre>
+</body>
+</html>

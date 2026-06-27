@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata chamadas ao método <code>forEach</code> de um Map do Java que podem ser substituídas pelo <b>forEach</b> do Kotlin.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(map: HashMap&lt;Int, String>) {
+      map.forEach { key, value ->
+          foo(key, value)
+      }
+  }
+
+  fun foo(i: Int, s: String) {}
+</code></pre>
+<p>A correção rápida adiciona parênteses:</p>
+<pre><code>
+  fun test(map: HashMap&lt;Int, String>) {
+      map.forEach { (key, value) ->
+          foo(key, value)
+      }
+  }
+
+  fun foo(i: Int, s: String) {}
+</code></pre>
+</body>
+</html>

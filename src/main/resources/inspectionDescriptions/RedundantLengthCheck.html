@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata verificações de comprimento de array desnecessárias que precedem uma iteração de array. Quando o comprimento do array é zero, a iteração é ignorada, portanto não há necessidade de verificar o comprimento explicitamente.
+<p>Exemplo:</p>
+<pre><code>
+  void f(String[] array) {
+    if (array.length != 0) { // verificação desnecessária
+      for (String str : array) {
+        System.out.println(str);
+      }
+    }
+  }
+</code></pre>
+<p>Uma correção rápida é sugerida para remover ou desembrulhar a verificação de comprimento:</p>
+<pre><code>
+  void f(String[] array) {
+    for (String str : array) {
+      System.out.println(str);
+    }
+  }
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.3</small></p>
+</body>
+</html>

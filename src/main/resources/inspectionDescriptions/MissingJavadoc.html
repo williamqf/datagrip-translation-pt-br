@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata comentários Javadoc e tags ausentes.
+<p>Exemplo:</p>
+<pre><code>
+  /**
+   * Relata "@param" ausente (se configurado).
+   */
+  public void sample(int param){
+  }
+</code></pre>
+<p>A correção rápida adiciona a tag ausente ou o comentário Javadoc ausente:</p>
+<pre><code>
+  /**
+   * Relata "@param" ausente (se configurado).
+   * @param param
+   */
+  public void sample(int param){
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+A inspeção pode ser configurada para ignorar elementos depreciados ou métodos acessores simples, como <code>getField()</code> ou <code>setField()</code>.
+</p>
+Você também pode configurar as tags necessárias e a visibilidade mínima exigida para elementos de código específicos, como métodos, campos, classes, pacotes, módulos, etc., usando as opções abaixo.
+</body>
+</html>

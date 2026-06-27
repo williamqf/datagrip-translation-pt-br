@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata <code>?: return null</code> redundantes</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(): Int? {
+      ...
+  }
+
+  fun test() : Int? {
+      return foo() <b>?: return null</b>
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun foo(): Int? {
+      ...
+  }
+
+  fun test() : Int? {
+      return foo()
+  }
+</code></pre>
+</body>
+</html>

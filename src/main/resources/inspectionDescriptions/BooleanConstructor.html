@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata a criação de objetos <code>Boolean</code>.
+<p>
+  Raramente é necessário criar novos objetos <code>Boolean</code> e, se feito com frequência, isso pode causar problemas de desempenho. Além disso, o construtor <code>Boolean</code> foi depreciado desde o Java 9 e pode ser removido ou tornar-se inacessível em versões futuras do Java.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Boolean b1 = new Boolean(true);
+  Boolean b2 = new Boolean(str);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Boolean b1 = Boolean.TRUE;
+  Boolean b2 = Boolean.valueOf(str);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

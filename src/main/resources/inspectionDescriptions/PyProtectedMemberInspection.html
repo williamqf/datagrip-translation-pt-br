@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Relata casos em que membros protected são acessados fora da classe, de descendentes da classe na qual foram definidos ou do módulo.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Foo:
+    def _protected_method(self):
+        pass
+
+
+class Bar(Foo):
+    def public_method(self):
+        self._protected_method()
+
+
+foo = Foo()
+foo._protected_method() # acesso ao método protected
+</code></pre>
+</body>
+</html>

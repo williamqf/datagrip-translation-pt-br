@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata comparações encadeadas que podem ser simplificadas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def do_comparison(x):
+      xmin = 10
+      xmax = 100
+      if x >= xmin and x &lt;= xmax:
+          pass
+</code></pre>
+<p>O IDE sugere simplificar <code>if x >= xmin and x &lt;= xmax</code>.
+  Após a aplicação do ajuste rápido, o código se torna:</p>
+<pre><code>
+  def do_comparison(x):
+      xmin = 10
+      xmax = 100
+      if xmin &lt;= x &lt;= xmax:
+          pass
+</code></pre>
+</body>
+</html>

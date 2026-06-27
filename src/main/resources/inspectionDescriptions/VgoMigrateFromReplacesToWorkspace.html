@@ -1,0 +1,18 @@
+<html>
+<body>
+Gera um arquivo 'go.work' usando diretivas 'replace'.
+<p>
+  Os espaços de trabalho do Go (Go workspaces) são um recurso introduzido no Go 1.18 que permite trabalhar em múltiplos módulos simultaneamente.<br>
+  Os espaços de trabalho são uma alternativa moderna às diretivas 'replace' que apontam para diretórios locais.<br>
+  Todos os módulos em um espaço de trabalho compartilham o mesmo conjunto de dependências, tornando a configuração mais simples, mais robusta e exigindo menos chamadas 'go list' para escanear a estrutura do projeto.<br>
+  A correção desta inspeção gera um novo arquivo 'go.work', mas não altera os arquivos existentes.
+</p>
+<p>
+  Por padrão, a severidade 'warning' é utilizada. Se o espaço de trabalho gerado incluir módulos Go que não foram substituídos no 'go.mod' original, nenhum aviso será exibido, pois a migração pode ter efeitos colaterais. No entanto, você ainda pode executar a correção manualmente.
+</p>
+<p>
+  Para mais detalhes sobre espaços de trabalho, consulte a <a href="https://go.dev/ref/mod#workspaces">Referência de Módulos Go</a>.<br>
+  Para uma introdução aos espaços de trabalho do Go, consulte o <a href="https://go.dev/doc/tutorial/workspaces">Tutorial: Introdução aos espaços de trabalho multimódulo</a>.
+</p>
+</body>
+</html>

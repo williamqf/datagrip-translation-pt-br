@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata o uso de <code>System.out</code> ou <code>System.err</code>.
+<p>Tais instruções são geralmente usadas para depuração temporária e devem ser removidas do código de produção ou substituídas por um utilitário de registro de log mais robusto.</p>
+
+<p>A correção rápida fornecida suporta <b>SLF4J</b> e <b>Log4j 2</b>.
+ Ela substitui as chamadas de <code>System.out</code> e <code>System.err</code> por chamadas de log.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public static void test(Object o) {
+    System.out.println("Test: "+ o);
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  private static final Logger log = LoggerFactory.getLogger(Test.class);
+
+  public static void test(Object o) {
+      log.info("Test: {}", o);;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Utilize a opção <b>Método de log para 'System.err'</b> para especificar o método usado para registrar mensagens para chamadas 'System.err'.
+  Utilize a opção <b>Método de log para 'System.out'</b> para especificar o método usado para registrar mensagens para chamadas 'System.out'.
+</p>
+</body>
+</html>

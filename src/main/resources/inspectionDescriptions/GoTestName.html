@@ -1,0 +1,11 @@
+thoughtful
+<html>
+<body>
+Relata nomes de testes, benchmarks e exemplos mal formatados.
+<p>De acordo com o <a href="https://pkg.go.dev/testing">pacote testing no go.dev</a>, os nomes devem seguir convenções especiais para que a ferramenta go possa processá-los corretamente.</p>
+<p>Exemplo:</p>
+<pre><code>func Testfoo(*testing.T) {} // a ferramenta 'go' não executará este teste</code></pre>
+<p>Após aplicar a correção rápida <b>Renomear para</b>:</p>
+<pre><code>func TestFoo(*testing.T) {}</code></pre>
+</body>
+</html>

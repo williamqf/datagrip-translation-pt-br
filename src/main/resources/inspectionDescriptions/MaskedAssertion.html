@@ -1,0 +1,43 @@
+<html>
+<body>
+Relata instruções <code>assert</code> e asserções de frameworks de teste suprimidas por blocos <code>catch</code> envolventes.
+Tais asserções nunca falharão, pois o <code>AssertionError</code> lançado será capturado e ignorado silenciosamente.
+<p><b>Exemplo 1:</b></p>
+<pre><code>
+  void javaAssertion() {
+    try {
+      ...
+      assert 1 == 2;
+    } catch (AssertionError e) {
+      // a asserção é ignorada silenciosamente
+    }
+  }
+</code></pre>
+<p><b>Exemplo 2:</b></p>
+<pre><code>
+  @Test
+  void testWithAssertJ() {
+    try {
+      ...
+      assertThat(1).as("test").isEqualTo(2);
+    } catch (AssertionError e) {
+      // a asserção é ignorada silenciosamente
+    }
+  }
+</code></pre>
+<p><b>Exemplo 3:</b></p>
+<pre><code>
+  @Test
+  void testWithJunit() {
+    try {
+      ...
+      assertEquals(1, 2);
+    } catch (AssertionError e) {
+      // a asserção é ignorada silenciosamente
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

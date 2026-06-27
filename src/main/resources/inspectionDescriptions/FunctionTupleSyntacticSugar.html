@@ -1,0 +1,16 @@
+<html>
+<body><p>Informa referências explícitas para FunctionN e TupleN que poderiam ser substituídas
+  por açúcar sintático.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  val func: Function1[Int, Int] =
+    a => a + 4
+</code></pre>
+<p>Depois que a correção rápida é aplicada:</p>
+<pre><code>
+  val func: (Int) => Int =
+    a => a + 4
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

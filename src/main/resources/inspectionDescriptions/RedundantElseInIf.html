@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Relata um <code>else</code> redundante em instruções <code>if</code> que possuem um <code>return</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(arg: Boolean): Int {
+      if (arg) return 0
+      else { // Este else é redundante, o código entre chaves pode simplesmente ser movido para a esquerda
+          someCode()
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun foo(arg: Boolean): Int {
+      if (arg) return 0
+      someCode()
+  }
+</code></pre>
+</body>
+</html>

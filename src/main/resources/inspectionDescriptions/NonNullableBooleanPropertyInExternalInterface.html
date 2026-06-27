@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>
+  Relata propriedades <code>Boolean</code> não anuláveis em interfaces externas em projetos Kotlin/JS.
+</p>
+<p>
+  As propriedades Boolean em interfaces externas devem ser anuláveis para lidar com casos em que o valor JavaScript pode ser <code>undefined</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>external interface MyInterface {
+    var enabled: Boolean // Aviso: deve ser Boolean?
+    var visible: Boolean // Aviso: deve ser Boolean?
+}</code></pre>
+<p><b>Após aplicar a correção rápida:</b></p>
+<pre><code>external interface MyInterface {
+    var enabled: Boolean?
+    var visible: Boolean?
+}</code></pre>
+</body>
+</html>

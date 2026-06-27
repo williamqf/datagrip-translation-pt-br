@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata funções que possuem a mesma assinatura de uma função declarada em uma classe base e que ocultam uma função não virtual.
+<p>Exemplo:</p>
+<pre>
+class Base {
+  public:
+    void operate() {}
+};
+
+class Derived : public Base {
+  public:
+    void operate() {}
+}
+</pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata oportunidades de simplificar verificações de igualdade de <code>Option</code> e <code>Some(x)</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  option == Some(x)
+  Some(x) != option
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  option.contains(x)
+  !option.contains(x)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

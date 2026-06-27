@@ -1,0 +1,62 @@
+<html>
+<body>
+<p>
+  Relata quaisquer ações registradas no arquivo <code>plugin.xml</code> e inicializa suas representações (texto, descrição ou ícone) dentro de seus construtores.
+</p>
+<p>
+  Carregar representações dentro de construtores pode levar à alocação de recursos, o que pode ser desnecessário. Uma abordagem mais eficiente é aproveitar os construtores sem argumentos de <code>AnAction</code> e outras classes base e seguir as convenções de configuração de texto, descrição e ícone no <code>plugin.xml</code>. O IDE só carregará o texto, a descrição e o ícone quando a ação for realmente exibida na IU.
+</p>
+<p>
+  As convenções para configurar texto, descrição e ícone são as seguintes:
+</p>
+<ul>
+  <li>
+    Definir o atributo <code>id</code> para a ação no arquivo <code>plugin.xml</code>.
+  </li>
+  <li>
+    Definir também o atributo <code>icon</code>, se necessário.
+  </li>
+  <li>
+    Definir texto e descrição no bundle de mensagens associado (pode ser substituído em <code>&lt;actions&gt;</code>):
+    <ul>
+      <li><code>action.&lt;action-id&gt;.text=Texto da ação traduzido</code></li>
+      <li><code>action.&lt;action-id&gt;.description=Descrição da ação traduzida</code></li>
+    </ul>
+  </li>
+</ul>
+<p><b>Exemplo ruim:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction(
+    KotlinBundle.message("action.new.file.text"),
+    KotlinBundle.message("action.new.file.description"),
+    KotlinIcons.FILE
+  )
+</code></pre>
+<pre><code lang="xml">
+  <!-- plugin.xml -->
+  &lt;action
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+  &lt;/action&gt;
+</code></pre>
+<p><b>Exemplo correto:</b></p>
+<pre><code lang="kotlin">
+  // NewKotlinFileAction.kt
+  internal class NewKotlinFileAction : AnAction()
+</code></pre>
+<pre><code lang="xml">
+  <!-- plugin.xml -->
+  &lt;action
+    id="Kotlin.NewFile"
+    class="org.jetbrains.kotlin.idea.actions.NewKotlinFileAction"
+    icon="org.jetbrains.kotlin.idea.KotlinIcons.FILE">
+  &lt;/action&gt;
+</code></pre>
+<pre><code lang="properties">
+  # KotlinBundle.properties
+  action.Kotlin.NewFile.text=Classe/arquivo Kotlin
+  action.Kotlin.NewFile.description=Cria uma nova classe ou arquivo Kotlin
+</code></pre>
+<p><small>Novo no 2023.2</small></p>
+</body>
+</html>

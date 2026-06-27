@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata métodos que podem ser definidos como <code>static</code> com segurança.
+Tornar métodos static sempre que possível reduz o consumo de memória e melhora a qualidade do código.
+<p>Um método pode ser <code>static</code> se as seguintes condições forem atendidas:</p>
+<ul>
+  <li>
+    Não é <code>synchronized</code>, <code>native</code> ou <code>abstract</code>,
+  </li>
+  <li>
+    Não faz referência a nenhum método não static ou campo não static na classe que o contém,
+  </li>
+  <li>
+    Não é uma sobrescrita e não é sobrescrito em subclasses.
+  </li>
+</ul>
+<!-- tooltip end -->
+<p>Configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>Se deve relatar apenas métodos <code>private</code> e <code>final</code> para melhorar o desempenho desta inspeção.</li>
+  <li>Se deve ignorar métodos vazios.</li>
+  <li>Se deve ignorar métodos default em interfaces ao usar o Java 8 ou superior.</li>
+  <li>
+    Se a correção rápida deve substituir o qualificador de instância por uma referência de classe ao chamar um método que foi definido como <code>static</code>; por exemplo, a chamada <code>myClass.m()</code> será substituída por <code>MyClass.m()</code>.
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<html>
+<body>
+<p>Relata problemas no contexto baseado em XML do <a href="https://spring.io/projects/spring-security">Spring Security</a>:</p>
+
+<ul>
+  <li>Referência de bean não resolvida</li>
+  <li>Tag ou atributo obrigatório ausente</li>
+  <li>Tipo de propriedade incorreto</li>
+  <li>Propriedade <code>enum</code> inconsistente</li>
+  <li>Tipo incorreto de bean referenciado</li>
+</ul>
+
+<p>Também relata os seguintes problemas:</p>
+
+<ul>
+  <li>Erro de configuração de &lt;https&gt;
+    <ul>
+      <li>&lt;http&gt; com o padrão '/**' deve ser o último</li>
+      <li>Múltiplos elementos &lt;http&gt; sem 'pattern' não são permitidos</li>
+    </ul>
+  </li>
+  <li>Erro de configuração de &lt;http&gt;
+    <ul>
+      <li>Tag vazia se <code>security='none'</code></li>
+    </ul>
+  </li>
+  <li>&lt;user-service&gt;
+    <ul>
+      <li>Deve possuir o atributo 'properties' ou uma lista de elementos &lt;user&gt;</li>
+    </ul>
+  </li>
+  <li>&lt;ldap-server&gt;
+    <ul>
+      <li>'manager-password' é obrigatório ao usar 'manager-dn'</li>
+      <li>Deve possuir 'user-context-mapper-ref' ou 'user-details-class'</li>
+    </ul>
+  </li>
+  <li> &lt;authentication-provider&gt;
+    <ul>
+      <li>Apenas um tipo de serviço de usuário é permitido</li>
+    </ul>
+  </li>
+  <li>&lt;global-method-security&gt;
+    <ul>
+      <li>O valor de 'pre-post-annotations' deve ser 'enabled' para usar &lt;pre-post-annotation-handling&gt;</li>
+      <li>'mode' com valor 'aspectj' não pode ser usado para &lt;protect-pointcut&gt; e &lt;intercept-url&gt;</li>
+      <li>O atributo 'requires-channel' é permitido apenas para o &lt;http&gt; pai</li>
+    </ul>
+  </li>
+  <li>&lt;protect&gt;
+    <ul>
+      <li>Misturar &lt;protect&gt; com &lt;global-method-security&gt; não é recomendado</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

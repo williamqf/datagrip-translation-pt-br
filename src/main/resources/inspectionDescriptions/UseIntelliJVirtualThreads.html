@@ -1,0 +1,22 @@
+thoughtful
+<html>
+<body>
+Relata instâncias onde <code>Thread.ofVirtual</code> é utilizado em vez de <code>IntelliJVirtualThreads.ofVirtual</code>.
+<p>
+  <code>Thread.ofVirtual</code> é uma API Java genérica para criar threads virtuais que não é adequada para as necessidades da plataforma IntelliJ.
+</p>
+<p>
+  A correção rápida substituirá o uso por <code>IntelliJVirtualThreads.ofVirtual</code>.
+</p>
+<p>
+  Exemplo:
+</p>
+<pre><code lang="java">
+// Incorreto:
+Thread thread = Thread.ofVirtual().start();
+
+// Correto:
+Thread thread = IntelliJVirtualThreads.ofVirtual().start();
+</code></pre>
+</body>
+</html>

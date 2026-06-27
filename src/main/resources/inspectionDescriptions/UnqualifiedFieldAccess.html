@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata acessos a campos que não são qualificados com <code>this</code> ou algum outro qualificador.
+<p>
+  Alguns estilos de código exigem que todos os acessos a campos sejam qualificados para evitar confusão com o acesso a variáveis locais ou parâmetros locais.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    int foo;
+
+    void bar() {
+      foo += 1;
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  class Foo {
+    int foo;
+
+    void bar() {
+      this.foo += 1;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

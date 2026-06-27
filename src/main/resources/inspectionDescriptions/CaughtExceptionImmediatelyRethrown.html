@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata blocos <code>catch</code> que não realizam nenhuma ação na exceção capturada, apenas a relançam imediatamente.
+Esses blocos <code>catch</code> são desnecessários e não tratam o erro.
+<!-- tooltip end -->
+<p><b>Exemplo:</b></p>
+<pre><code>
+        try {
+            new FileInputStream("");
+        } catch (FileNotFoundException e) {
+            throw e;
+        }
+</code></pre>
+
+</body>
+</html>

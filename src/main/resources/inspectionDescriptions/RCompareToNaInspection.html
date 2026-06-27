@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata o uso da constante <code>NA</code> em verificações de igualdade e sugere substituí-la pela função <code>is.na</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+if (a==NA){
+  print ("a is not available!")
+}
+</code></pre>
+<p>Ao aplicar a correção rápida, o código será alterado para:</p>
+<pre><code>
+if (is.na(a)){
+  print ("a is not available!")
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata métodos <code>clone()</code> que não declaram <code>throws CloneNotSupportedException</code>.
+<p>Se <code>throws CloneNotSupportedException</code> não for declarado, as subclasses do método não poderão proibir a clonagem da maneira padrão. Esta inspeção não relata métodos <code>clone()</code> declarados como <code>final</code> e métodos <code>clone()</code> dentro de classes <code>final</code>.</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a opção <b>Avisar apenas em métodos clone 'protected'</b> para indicar que esta inspeção deve gerar avisos apenas para métodos <code>protected clone()</code>.
+O livro <i>Effective Java</i> (2ª e 3ª edições) recomenda omitir a declaração <code>CloneNotSupportedException</code> em métodos <code>public</code>, pois métodos que não lançam exceções verificadas (checked exceptions) são mais fáceis de usar.
+<p>Exemplo:</p>
+<pre><code>
+  <b>public class</b> Example <b>implements</b> Cloneable {
+    // O método não declara 'throws CloneNotSupportedException'
+    <b>protected</b> Object clone() {
+        <b>try</b> {
+            <b>return</b> <b>super</b>.clone();
+        } <b>catch</b> (CloneNotSupportedException e) {
+            <b>return</b> null;
+        }
+    }
+  }
+</code></pre>
+
+</body>
+</html>

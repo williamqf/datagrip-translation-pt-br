@@ -1,0 +1,38 @@
+<html>
+<body>
+Reporta referências ambíguas no código SQL.
+<p>Por exemplo, quando um nome se refere tanto a uma coluna de tabela quanto a um parâmetro de rotina. A execução de tal código pode resultar em erros ou resultados inesperados devido a uma lógica de resolução contra-intuitiva. Geralmente, nomes com escopo mais local têm prioridade mais alta.</p>
+    <p>Exemplo (PostgreSQL):</p>
+    <pre><code>CREATE TABLE foo
+(
+    id   INT,
+    name VARCHAR(5)
+);
+CREATE FUNCTION func(name VARCHAR(5)) RETURNS INT AS
+$$
+DECLARE
+    b INT;
+BEGIN
+      -- `name` é ambíguo porque é usado como nome de coluna e parâmetro
+    SELECT COUNT(*) INTO b FROM foo t WHERE t.name = name;
+    RETURN b;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+  <p>No PostgreSQL, você pode usar a diretiva <code>#variable_conflict</code> para especificar explicitamente a referência correta. Por exemplo, use <code>#variable_conflict use_column</code> para referenciar o nome da coluna ou <code>#variable_conflict use_variable</code> para referenciar o parâmetro.</p>
+<pre><code>CREATE TABLE foo
+(
+    id   INT,
+    name VARCHAR(5)
+);
+CREATE FUNCTION func(name VARCHAR(5)) RETURNS INT AS
+$$
+    #variable_conflict use_column
+DECLARE
+    b INT;
+BEGIN
+    SELECT COUNT(*) INTO b FROM foo t WHERE t.name = name;
+    RETURN b;
+END;
+$$ LANGUAGE plpgsql;</code></pre>
+</body>
+</html>

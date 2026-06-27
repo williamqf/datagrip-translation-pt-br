@@ -1,0 +1,35 @@
+<html>
+<body>
+<p>Relata o uso da anotação <code>@targetName</code> em múltiplos alvos.</p>
+
+<p>A correção rápida remove a anotação <code>@targetName</code>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // 1
+  val list: List[Int] = (1 to 5).toList
+  @targetName("head_and_tail")
+  val (head, tail) = (list.head, list.tail)
+
+  // 2
+  enum E:
+    case A
+    @targetName("b_and_c")
+    case B, C
+    case D
+</code></pre>
+<p>Depois da correção rápida ser aplicada:</p>
+<pre><code>
+  // 1
+  val list: List[Int] = (1 to 5).toList
+  val (head, tail) = (list.head, list.tail)
+
+  // 2
+  enum E:
+    case A
+    case B, C
+    case D
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

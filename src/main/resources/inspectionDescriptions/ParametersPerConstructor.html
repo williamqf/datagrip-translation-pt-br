@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata construtores cujo número de parâmetros excede o limite máximo especificado.
+Tais objetos são difíceis de instanciar, especialmente se alguns dos parâmetros forem opcionais.
+Um construtor com excesso de parâmetros pode indicar a necessidade de refatoração.
+Por exemplo, considere a aplicação do padrão Builder.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public BankAccount(long accountNumber,
+                     String owner,
+                     double balance,
+                     double interestRate) {
+    // inicialização dos campos
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use o campo <b>Limite de parâmetros</b> para especificar o número máximo de parâmetros permitido em um construtor.</li>
+  <li>Use a lista <b>Ignorar construtores com as seguintes visibilidades</b> para especificar se a inspeção deve ignorar construtores com visibilidades específicas.</li>
+</ul>
+</body>
+</html>

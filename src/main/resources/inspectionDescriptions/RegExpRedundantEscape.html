@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata sequências de escape de caracteres redundantes que podem ser substituídas por caracteres não escapados, preservando seu significado.
+Muitas sequências de escape exigidas fora de classes de caracteres são redundantes dentro dos colchetes <code>[]</code> de uma classe de caracteres.
+<p>
+  Embora alguns dialetos (JavaScript, Python, etc.) permitam chaves de abertura <code>{</code> não escapadas fora de classes de caracteres, isso pode causar confusão e reduzir a portabilidade do padrão, pois alguns dialetos exigem que as chaves sejam escapadas como caracteres.
+  Portanto, esta inspeção não relata chaves de abertura escapadas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  \-\;[\.]
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  -;[.]
+</code></pre>
+<!-- tooltip end -->
+<p>
+A opção <b>Ignorar chaves e colchetes de fechamento escapados '}' e ']'</b> especifica se deve relatá-los quando o dialeto de RegExp permitir <code>\}</code> e <code>\]</code> não escapados fora de classes de caracteres.
+<p>
+Da mesma forma, a opção <b>Ignorar barra '/' escapada</b> especifica se deve relatar <code>\/</code> quando o dialeto de RegExp permitir barras não escapadas.
+<p><small>Novidade na versão 2017.3</small>
+</body>
+</html>

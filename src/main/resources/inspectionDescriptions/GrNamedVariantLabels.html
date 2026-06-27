@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata rótulos de argumento não resolvidos em chamadas de método anotadas com <code>@NamedVariant</code>/<code>@NamedParam</code>/<code>@NamedDelegate</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @groovy.transform.NamedVariant
+  def foo(a, b) {}
+
+  // Rótulo 'c' não resolvido
+  foo(a: 1, b: 2, c: 3)
+</code></pre>
+</body>
+</html>

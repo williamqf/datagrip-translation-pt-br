@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata o uso de <code>0</code> em índices de predicado ou em comparações com a função <code>position()</code>. Esse tipo de uso é quase certamente um bug, pois no XPath, os índices começam em <code>1</code> e <em>não</em> em <code>0</code>.
+
+<p><b>Exemplo:</b></p>
+
+<pre><code>
+  //someelement[<b>position() = 0</b>]</code> or <code>//something[<b>0</b>]
+</code></pre>
+</body>
+</html>

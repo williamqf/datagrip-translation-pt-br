@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata chamadas de construtor em supertipos de função que causarão erros de compilação a partir da versão 1.9.
+<p>Tipos de motivação:</p>
+<ul>
+    <li>
+        A implementação não cumpre a especificação ou documentação publicada
+    </li>
+</ul>
+
+<p><b>Mais detalhes</b>: <a href="https://youtrack.jetbrains.com/issue/KT-46344">KT-46344: Nenhum erro na chamada de construtor de superclasse em interface funcional na lista de supertipos</a></p>
+<p>A correção rápida remove a chamada do construtor.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  abstract class A : () -> Int()
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  abstract class A : () -> Int
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível da linguagem Kotlin do projeto ou módulo for 1.7 ou superior.</p>
+</body>
+</html>

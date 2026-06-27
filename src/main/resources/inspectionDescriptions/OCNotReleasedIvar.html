@@ -1,0 +1,13 @@
+<html>
+<body>
+Reporta todos os objetos retidos em variáveis de instância que não foram liberados.<br>
+Você ganha posse de um objeto se:<br>
+- Foi criado utilizando um método cujo nome começa com <code>alloc</code> ou <code>new</code> ou que contenha <code>copy</code><br>
+- Você enviou uma mensagem <code>retain</code> para ele<br>
+- Você definiu um valor para uma propriedade que tem um atributo <code>retain</code> ou <code>copy</code> e é sintetizada com a variável de instância<br>
+Para desistir da posse de um objeto, você precisa:<br>
+- Enviar a ele uma mensagem <code>release</code> ou <code>autorelease</code><br>
+- Atribuir <code>nil</code> a uma propriedade que é sintetizada com a variável de instância<br>
+Esta inspeção será desativada se ARC (Contágem Automática de Referências) estiver ativado. Se a caixa de seleção abaixo estiver desmarcada, você poderá liberar variáveis de instância em qualquer método da classe. Se estiver marcada, você poderá liberar variáveis de instância no método <code>dealloc</code>, <code>tearDown</code>, <code>applicationWillTerminate:</code>, <code>didTurnIntoFault</code> e em qualquer método que possa ser chamado a partir deles.
+</body>
+</html>

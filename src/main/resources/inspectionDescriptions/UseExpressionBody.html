@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata expressões <code>return</code> (uma única linha ou <code>when</code>) que podem ser substituídas pela sintaxe de corpo de expressão.
+<p>A sintaxe de corpo de expressão é recomendada no <a href="https://kotlinlang.org/docs/coding-conventions.html#functions">guia de estilo</a>.</p>
+<p>A correção rápida <b>Converter para corpo de expressão</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun sign(x: Int): Int {
+      return when { // &lt;== pode ser simplificado
+          x &lt; 0 -> -1
+          x > 0 -> 1
+          else -> 0
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun sign(x: Int): Int = when {
+      x &lt; 0 -> -1
+      x > 0 -> 1
+      else -> 0
+  }
+</code></pre>
+</body>
+</html>

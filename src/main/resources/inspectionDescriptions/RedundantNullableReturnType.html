@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata funções e variáveis com tipos de retorno anuláveis que nunca retornam ou se tornam <code>null</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun greeting(user: String): String? = "Hello, $user!"
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun greeting(user: String): String = "Hello, $user!"
+</code></pre>
+</body>
+</html>

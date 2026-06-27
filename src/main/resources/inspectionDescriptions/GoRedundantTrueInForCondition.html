@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata literais <code>true</code> redundantes em condições de loop <code>for</code>.
+
+<p>No Go, o loop <code>for</code> possui uma forma com uma condição implícita.
+  Isso significa que você pode criar um loop infinito escrevendo <code>for { }</code>.
+  Portanto, em casos com uma condição <code>true</code> (<code>for true { }</code>), o <code>true</code> é considerado redundante e pode ser omitido.</p>
+
+<p>Para obter detalhes sobre loops <code>for</code> no Go, consulte <a href="https://go.dev/doc/effective_go#for">For no go.dev</a>.
+</p>
+<p>Exemplo:</p>
+<pre><code>for true {
+  println("ping")
+}</code></pre>
+</body>
+</html>

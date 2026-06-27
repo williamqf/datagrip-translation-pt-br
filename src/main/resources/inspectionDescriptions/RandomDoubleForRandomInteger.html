@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata chamadas a <code>java.util.Random.nextDouble()</code> que são usadas para criar números inteiros positivos multiplicando o resultado por um fator e convertendo-o para um número inteiro.
+<p>
+  Para gerar números inteiros aleatórios dentro de um intervalo, <code>java.util.Random.nextInt(int)</code> é mais simples e eficiente.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int getRandomInt() {
+    return (int) ((new Random()).nextDouble() * SIZE);
+  }
+  </code>
+</pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  int getRandomInt() {
+    return (new Random()).nextInt(SIZE);
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

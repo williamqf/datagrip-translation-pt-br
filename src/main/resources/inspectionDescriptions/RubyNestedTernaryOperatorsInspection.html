@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata operadores ternários aninhados. Operadores ternários aninhados podem ser difíceis de ler e, geralmente, é melhor usar pelo menos uma instrução
+<code>if</code> em seu lugar.
+<p>Exemplo:</p>
+<p><code>min = x &lt; y ? (x &lt; z ? x : z) : (y &lt; z ? y : z)</code></p>
+
+Após a aplicação da correção rápida, o resultado será assim:
+
+<pre>
+<code>min = if x &lt; y
+  x &lt; z ? x : z
+else
+  y &lt; z ? y : z
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado pelo <a href="https://github.com/rubocop-hq/ruby-style-guide#no-nested-ternary">'Ruby Style Guide'</a></span>
+</p>
+</body>
+</html>

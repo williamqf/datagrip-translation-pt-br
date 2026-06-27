@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata construtores <code>public</code> em classes <code>abstract</code>.
+<p>
+  Como o construtor de uma classe <code>abstract</code> só pode ser chamado a partir dos construtores de suas subclasses, declará-lo como <code>public</code> pode ser confuso.
+</p>
+<p>A correção rápida tornará esses construtores protected.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  <b>public abstract class</b> Foo {
+    <b>public</b> Foo () { // Aviso: o modificador 'public' está presente
+        /* ... */
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  <b>public abstract class</b> Foo {
+    <b>protected</b> Foo () {
+        /* ... */
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a opção <b>Ignorar em classes não públicas</b> abaixo para ignorar construtores <code>public</code> em classes não públicas.</p>
+</body>
+</html>

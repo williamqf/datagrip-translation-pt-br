@@ -1,0 +1,61 @@
+<html>
+<body>
+Relata o uso de classes, campos e métodos depreciados.
+Uma correção rápida pode ser usada para converter automaticamente os usos depreciados quando as informações necessárias puderem ser extraídas do Javadoc do membro depreciado.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  class Interesting {
+
+    /**
+     * @deprecated use {@link #newHotness()} em vez disso
+     */
+    @Deprecated
+    public void oldAndBusted() {}
+
+    public void newHotness() {}
+  }
+  class ElseWhere {
+    void x(Interesting i) {
+      i.oldAndBusted(); // aviso de depreciação aqui
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  class Interesting {
+
+    /**
+     * @deprecated use {@link #newHotness()} em vez disso
+     */
+    @Deprecated
+    public void oldAndBusted() {}
+
+    public void newHotness() {}
+  }
+  class ElseWhere {
+    void x(Interesting i) {
+      i.newHotness();
+    }
+  }
+</code></pre>
+<p>Por padrão, esta inspeção não emitirá um aviso se for impossível ou difícil de evitá-lo. Por exemplo, o seguinte código não será relatado:</p>
+<pre><code lang="java">
+  abstract class A { // código da biblioteca
+     @Deprecated
+     abstract void m();
+  }
+  class B extends A { // código do projeto
+     @Override
+     void m() {
+        // realizarAlgo;
+     }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configurar inspeção:</p>
+<p>
+  Use as opções para desativar esta inspeção para membros depreciados, sobrescritas de métodos abstratos depreciados, instruções de importação não estáticas, métodos de classes depreciadas ou dentro da mesma classe de nível superior.
+</p>
+
+</body>
+</html>

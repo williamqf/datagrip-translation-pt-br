@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Relata casos em que uma chamada ao construtor <code>super</code> está ausente em uma classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Fruit:
+    def __init__(self):
+        pass
+
+
+class Pear(Fruit):
+    def __init__(self):
+        pass
+</code></pre>
+<p>A classe <code>Pear</code> deve conter uma chamada ao <code>super</code> dentro do método <code>__init__</code>.</p>
+<p>Após a aplicação do ajuste rápido, o código se torna:</p>
+<pre><code>
+class Fruit:
+    def __init__(self):
+        pass
+
+
+class Pear(Fruit):
+    def __init__(self):
+        super().__init__()
+</code></pre>
+</body>
+</html>

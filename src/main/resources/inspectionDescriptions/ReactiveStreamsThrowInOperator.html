@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata expressões <code>throw</code> em códigos de operadores Reactor/RxJava.</p>
+<p>Lançar exceções a partir de um operador Reactor/RxJava indica um possível problema, pois você pode retornar um erro "reativo": <code>Mono.error()</code> ou <code>Flowable.error()</code> de um <code>flatMap()</code>, ou chamar <code>sink.error()</code> a partir de um operador <code>handle()</code> do Reactor.
+</p>
+<p>
+Além disso, os métodos de fábrica do Reactor permitem retornar exceções verificadas (checked exceptions) sem erros, enquanto lançar tais exceções sem a classe <code>Exceptions</code> resultará em erros de compilação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+Flux.just(1, 2, 3).flatMap(i -> {
+            throw new RuntimeException();
+        })
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+Flux.just(1, 2, 3).flatMap(i -> {
+            return Flux.error(new RuntimeException());
+        })
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.3</small></p>
+</body>
+</html>

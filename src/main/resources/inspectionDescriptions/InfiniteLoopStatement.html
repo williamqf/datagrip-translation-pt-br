@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata instruções <code>for</code>, <code>while</code> ou <code>do</code> que só podem ser encerradas lançando uma exceção. Embora tais instruções possam estar corretas, elas geralmente são resultantes de erros de codificação.
+<p>Exemplo:</p>
+<pre><code>
+  for (;;) {
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+Use a opção <b>Ignorar quando colocado em Thread.run</b> para ignorar instruções de loop infinito em <code>Thread.run</code>.
+Isso pode ser útil para threads daemon.
+<p>Exemplo:</p>
+<pre><code>
+  new Thread(() -&gt; {
+    while (true) {
+    }
+  }).start();
+</code></pre>
+<p>
+</body>
+</html>

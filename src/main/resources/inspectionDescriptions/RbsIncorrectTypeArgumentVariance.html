@@ -1,0 +1,13 @@
+<html>
+<body>
+Reporta argumentos de tipo usados em instruções de herança (cláusulas de superclasse, self-types ou chamadas de inclusão) com variância incorreta. Os argumentos de tipo passados para uma instrução de herança devem corresponder à variância da variável de tipo declarada.
+<p>Exemplo:</p>
+<pre><code>module Enumerable[unchecked out A]
+end
+
+class Example[in A]
+  # A variável de tipo contravariante 'A' da classe 'Example' é usada como um argumento covariante
+  include Enumerable[A]
+end</code></pre>
+</body>
+</html>

@@ -1,0 +1,14 @@
+<html>
+<body>
+Reporta argumentos inválidos passados para métodos com parâmetros anotados com <code>@PropertyKey</code>.
+<p>Esses argumentos devem ser chaves de propriedade válidas no arquivo de propriedades correspondente.
+Além disso, esta inspeção verifica se o argumento <code>resourceBundle</code> da anotação <code>@PropertyKey</code> é um bundle de recursos existente.</p>
+<p>
+  Use a correção rápida para criar uma nova propriedade ou selecionar uma existente.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  @PropertyKey(resourceBundle = "myBundle") String value = "invalid.key";
+</code></pre>
+</body>
+</html>

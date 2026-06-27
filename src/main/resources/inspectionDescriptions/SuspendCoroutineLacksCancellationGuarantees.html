@@ -1,0 +1,24 @@
+<html>
+<body>
+Reporta o uso de <code>kotlin.coroutines.suspendCoroutine</code> e sugere substituí-lo por <code>kotlinx.coroutines.suspendCancellableCoroutine</code> quando a dependência <code>kotlinx.coroutines</code> estiver presente.
+<p>
+    A variante <code>suspendCancellableCoroutine</code> fornece suporte integrado para cancelamento, o que é importante para a concorrência estruturada e o gerenciamento adequado de recursos.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    suspend fun usage(): String {
+        return suspendCoroutine { continuation ->
+            continuation.resume("Hello!")
+        }
+    }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+    suspend fun usage(): String {
+        return suspendCancellableCoroutine { continuation ->
+            continuation.resume("Hello!")
+        }
+    }
+</code></pre>
+</body>
+</html>

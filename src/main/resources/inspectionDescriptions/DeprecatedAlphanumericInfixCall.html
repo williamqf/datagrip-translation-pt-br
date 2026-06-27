@@ -1,0 +1,88 @@
+<html>
+<body>
+<p>Reporta usos de definições alfanuméricas sem o modificador `infix` como operador infix.</p>
+
+<ul>
+<li>O quick-fix "Encapsular entre aspas invertidas" adiciona símbolos `<code>`</code> ao redor das chamadas.</li>
+<li>O quick-fix "Converter de expressão infix" converte a chamada infix para a sintaxe de método <code>.method(...)</code>.</li>
+<li>O quick-fix "Converter de tipo infix" converte o tipo infix para a sintaxe de prefixo <code>Type[...]</code>.</li>
+<li>O quick-fix "Converter de padrão infix" converte o padrão infix para a sintaxe de prefixo <code>pattern(...)</code>.</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class C:
+    def op(x: Int): Int = ???
+  type Or[X, Y]
+  case class Pair[T](x: T, y: T)
+
+  val c = C()
+  val p = Pair(1, 2)
+
+  c op 2
+  val or: Int Or String = ???
+  val _ Pair _ = p
+</code></pre>
+
+<p>Após o quick-fix "Encapsular entre aspas invertidas" ser aplicado:</p>
+<pre><code>
+  class C:
+    def op(x: Int): Int = ???
+  type Or[X, Y]
+  case class Pair[T](x: T, y: T)
+
+  val c = C()
+  val p = Pair(1, 2)
+
+  c `op` 2
+  val or: Int `Or` String = ???
+  val _ `Pair` _ = p
+</code></pre>
+
+<p>Após o quick-fix "Converter de expressão infix" ser aplicado:</p>
+<pre><code>
+  class C:
+    def op(x: Int): Int = ???
+  type Or[X, Y]
+  case class Pair[T](x: T, y: T)
+
+  val c = C()
+  val p = Pair(1, 2)
+
+  c.op(2)
+  val or: Int Or String = ???
+  val _ Pair _ = p
+</code></pre>
+
+<p>Após o quick-fix "Converter de tipo infix" ser aplicado:</p>
+<pre><code>
+  class C:
+    def op(x: Int): Int = ???
+  type Or[X, Y]
+  case class Pair[T](x: T, y: T)
+
+  val c = C()
+  val p = Pair(1, 2)
+
+  c op 2
+  val or: Or[Int, String] = ???
+  val _ Pair _ = p
+</code></pre>
+
+<p>Após o quick-fix "Converter de padrão infix" ser aplicado:</p>
+<pre><code>
+  class C:
+    def op(x: Int): Int = ???
+  type Or[X, Y]
+  case class Pair[T](x: T, y: T)
+
+  val c = C()
+  val p = Pair(1, 2)
+
+  c op 2
+  val or: Int Or String = ???
+  val Pair(_, _) = p
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

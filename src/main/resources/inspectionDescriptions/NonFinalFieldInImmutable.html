@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata quaisquer campos não <code>final</code> em uma classe anotada com <code>@Immutable</code>.
+Isso viola o contrato da anotação <code>@Immutable</code>.
+<p>Exemplo:</p>
+<pre><code>
+  import javax.annotation.concurrent.Immutable;
+  @Immutable
+  class Foo {
+    String bar = "foo";
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>As anotações <code>@GuardedBy</code> suportadas são:</p>
+<ul>
+  <li><code>net.jcip.annotations.GuardedBy</code></li>
+  <li><code>javax.annotation.concurrent.GuardedBy</code></li>
+  <li><code>org.apache.http.annotation.GuardedBy</code></li>
+  <li><code>com.android.annotations.concurrency.GuardedBy</code></li>
+  <li><code>androidx.annotation.GuardedBy</code></li>
+  <li><code>com.google.errorprone.annotations.concurrent.GuardedBy</code></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>
+  Relata métodos de repositório Jakarta NoSQL para os quais o builder não consegue gerar uma consulta correspondente.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+interface PersonRepository extends Repository&lt;Person, Long&gt; {
+  List&lt;Person&gt; findByEmailAndLastname(String email, String lastname);
+  List&lt;Person&gt; findByUnknownAndLastname(EmailAddress emailAddress, String lastname); // Não é possível resolver a propriedade 'Unknown'
+  List&lt;Person&gt; findByAndLastname(String email, String lastname); // Nome da propriedade ausente
+
+  List&lt;Person&gt; findByLastnameOrderByFirstnameAsc(String lastname);
+  List&lt;Person&gt; findByLastnameOrderByUnknownDesc(String lastname);  // Não é possível resolver a propriedade 'Unknown'
+}
+</code></pre>
+</body>
+</html>

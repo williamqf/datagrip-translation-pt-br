@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata barras (<code>/</code>) ou barras invertidas (<code>\</code>) em literais de string ou de caractere. Esses caracteres são frequentemente usados como separadores de arquivos e, se forem codificados de forma rígida (hardcoded), a portabilidade pode ser afetada.
+<p>
+  Esta inspeção não relata barras invertidas dentro de sequências de escape, nem barras imediatamente após o caractere '&lt;' ou imediatamente antes do caractere '&gt;', pois estas frequentemente indicam tags XML ou HTML em vez de nomes de arquivo.
+  Strings que representam IDs de <code>java.util.TimeZone</code>, strings que sejam expressões regulares válidas ou strings equivalentes a tipos de mídia MIME registrados na IANA também não são relatadas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  new File("C:\\Users\\Name");
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção para incluir <code>example/*</code> no conjunto de tipos de mídia reconhecidos.
+  Geralmente, é um erro usar o tipo de mídia MIME <code>example/*</code> fora de exemplos (por exemplo, em um cabeçalho <code>Content-Type</code>).
+</p>
+</body>
+</html>

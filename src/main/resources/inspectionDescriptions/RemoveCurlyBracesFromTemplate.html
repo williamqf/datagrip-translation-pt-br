@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata o uso de chaves em templates de string para envolver identificadores simples.
+<p>Use a correção rápida 'Remover chaves' para remover chaves redundantes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun redundant() {
+     val x = 4
+     val y = "${x}" // &lt;== redundante
+  }
+
+  fun correctUsage() {
+      val x = "x"
+      val y = "${x.length}" // &lt;== ok
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun redundant() {
+     val x = 4
+     val y = "$x"
+  }
+
+  fun correctUsage() {
+      val x = "x" &lt;== atualizado
+      val y = "${x.length}"
+  }
+</code></pre>
+</body>
+</html>

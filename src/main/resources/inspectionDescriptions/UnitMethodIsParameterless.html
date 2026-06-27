@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata métodos com tipos de resultado <code>Unit</code> que não têm cláusulas de parâmetros.</p>
+<p>Métodos com tipos de resultado <code>Unit</code> são somente executados por seus
+    <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>
+    e, por convenção, métodos com efeitos colaterais têm pelo menos uma cláusula de parâmetros (vazia).
+    </p>
+<p>O reparo rápido adiciona uma cláusula de parâmetros vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def test: Unit = ()
+</code></pre>
+<p>Após o reparo rápido ser aplicado:</p>
+<pre><code>
+  def test(): Unit = ()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

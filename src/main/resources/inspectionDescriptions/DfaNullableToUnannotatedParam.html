@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Esta inspeção identifica chamadas de método onde um argumento que poderia ser <code>null</code> é passado a um parâmetro que não é anotado com <code>@Nullable</code>, ajudando a detectar potenciais <code>NullPointerExceptions</code> antes que ocorram em tempo de execução.</p>
+<p>Esta inspeção é mostrada apenas para os métodos direcionados que estão no código-fonte do projeto.</p>
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+def test(@Nullable greeting: String): Unit = {
+  sayHello(greeting)
+}
+
+def sayHello(greeting: String): Unit = {
+  println(greeting.toLowerCase)
+}
+</code>
+</pre>
+<!-- tooltip end -->
+</body>
+</html>

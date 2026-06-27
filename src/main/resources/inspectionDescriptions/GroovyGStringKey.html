@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata instruções que usam objetos <code>groovy.lang.GString</code> como chaves de mapa.
+Geralmente, objetos <code>GString</code> são mutáveis e provavelmente não devem ser usados como chaves.
+Além disso, as entradas <code>GString</code> não podem ser acessadas usando um objeto <code>java.lang.String</code> com o mesmo valor.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+def map = [:]
+def key = 'foo'
+map &lt&lt ["${key}": 'bar']
+assert map[key] == null // resultado 'true' de uma comparação confusa
+</code>
+</pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.1</small></p>
+</body>
+</html>

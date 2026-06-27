@@ -1,0 +1,13 @@
+<html>
+<body>
+Valida o atributo de namespace nas declarações de módulos de conteúdo no arquivo plugin.xml.
+<p>
+  Esta inspeção relata os seguintes problemas:
+</p>
+<ul>
+  <li><strong>Namespace ausente</strong>: um namespace de conteúdo é obrigatório quando o conteúdo do plugin contém pelo menos um módulo com visibilidade não privada</li>
+  <li><strong>Formato de namespace inválido</strong>: o namespace deve corresponder ao padrão exigido (<code>[a-zA-Z0-9]+([_-][a-zA-Z0-9]+)*</code>) e o comprimento deve ter entre 5 e 30 caracteres</li>
+  <li><strong>Namespace inconsistente</strong>: todos os elementos de conteúdo devem definir o mesmo namespace</li>
+</ul>
+</body>
+</html>

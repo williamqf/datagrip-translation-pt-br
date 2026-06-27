@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata um descritor de módulo GWT que não registra as pastas padrão <i>client</i> ou <i>public</i>, mas registra pastas de código-fonte ou públicas personalizadas.
+<p>O GWT trata implicitamente a pasta <i>client</i> como um caminho de código-fonte do lado do cliente apenas quando não há tags <code>source</code> e <code>super-source</code> no arquivo gwt.xml.
+  Portanto, se a pasta <i>client</i> existir, mas não estiver registrada no arquivo gwt.xml, e o gwt.xml declarar tags <code>source</code> ou <code>super-source</code> personalizadas, isso provavelmente indica um erro.</p>
+<p>Da mesma forma, se o gwt.xml declarar uma pasta <i>public</i> personalizada, mas não registrar uma pasta existente com o nome padrão, isso também pode indicar um erro.</p>
+<p>A correção rápida adiciona o registro explícito das pastas padrão ao arquivo gwt.xml.</p>
+</body>
+</html>

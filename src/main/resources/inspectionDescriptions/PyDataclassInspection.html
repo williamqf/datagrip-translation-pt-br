@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata definições e usos inválidos de classes criadas com os módulos <code>dataclasses</code> ou <code>attr</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+import dataclasses
+
+
+@dataclasses.dataclass
+class FullName:
+    first: str
+    middle: str = ""
+    last: str
+</code></pre>
+</body>
+</html>

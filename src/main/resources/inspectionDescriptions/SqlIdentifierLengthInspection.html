@@ -1,0 +1,75 @@
+<html>
+<body>
+Reporta identificadores considerados muito longos. Os limites de tamanho variam de acordo com o banco de dados.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+(
+   ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo int
+);</code></pre>
+<p>No MySQL, identificadores não devem ultrapassar 64 caracteres.</p>
+<p>Considere as seguintes limitações de acordo com o banco de dados:</p>
+<ul>
+  <li><p>Sybase ASE:</p>
+    <ul>
+      <li>Nomes entre aspas: 253 caracteres</li>
+      <li>Nomes sem aspas: 255 caracteres</li>
+    </ul>
+  </li>
+  <li><p>Db2 LUW:</p>
+    <ul>
+      <li>BUFFER POOL, INDEX EXTENSION, TABLESPACE, TRANSFORM, TYPE MAPPING: 18 caracteres</li>
+      <li>Outros objetos: 128 caracteres</li>
+    </ul>
+  </li>
+  <li>Db2 iSeries: 128 caracteres</li>
+  <li><p>Db2 z/OS:</p>
+    <ul>
+      <li>DATABASE e TABLESPACE: 8 caracteres</li>
+      <li>Colunas e cursores com WITH RETURN: 30 caracteres</li>
+      <li>Outros objetos: 128 caracteres</li>
+    </ul>
+  </li>
+  <li>Derby: 128 caracteres</li>
+  <li>Exasol: 128 caracteres</li>
+  <li>HSQLDB: 128 caracteres</li>
+  <li><p>MySQL:</p>
+    <ul>
+      <li>Apelidos em consultas: 256 caracteres</li>
+      <li>USER e ROLE: 32 caracteres</li>
+      <li>Outros objetos: 64 caracteres</li>
+    </ul>
+  </li>
+  <li><p>MariaDB:</p>
+    <ul>
+      <li>USER: 80 caracteres</li>
+      <li>ROLE: 128 caracteres</li>
+      <li>Outros objetos: igual ao MySQL</li>
+    </ul>
+  </li>
+  <li>Microsoft SQL Server: 128 caracteres</li>
+  <li>Vertica: 128 caracteres</li>
+  <li>SQL 92: 128 caracteres</li>
+  <li>Snowflake: 255 caracteres</li>
+  <li>Redshift: 127 caracteres</li>
+  <li>PostgreSQL/Greenplum/Cockroach: 63 caracteres</li>
+  <li><p>Oracle:</p>
+    <ul>
+      <li><p>Nomes longos estão habilitados (<code>database.oracle.names.long</code> está especificado, e a versão do Oracle é anterior à 12.2 ou desconhecida):</p>
+        <ul>
+          <li>DISKGROUP, ROLLBACK SEGMENT, TABLESPACE, PLUGGABLE DATABASE: 30 caracteres</li>
+          <li>DATABASE: 8 caracteres</li>
+          <li>Outros objetos: 128 caracteres</li>
+        </ul>
+      </li>
+      <li>Nomes longos estão desabilitados:
+        <ul>
+          <li>DATABASE: 8 caracteres</li>
+          <li>DATABASE LINK: 128 caracteres</li>
+          <li>Outros objetos: 30 caracteres</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

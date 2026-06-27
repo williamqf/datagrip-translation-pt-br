@@ -1,0 +1,82 @@
+<html>
+<body>
+Relata problemas em arquivos de propriedades incluídos em resource bundles.
+<ul>
+  <li><b>Relatar traduções ausentes</b> <br><br>
+  Use esta opção para relatar propriedades que estão incluídas em um arquivo de propriedades pai, mas estão ausentes em propriedades herdadas (a menos que seja um dialeto de idioma).
+
+  <br><br> <p>Exemplo:</p>
+  <pre><code>
+    # messages.properties
+    abc=xxx
+
+    # messages_fr.properties
+    # Arquivo vazio
+  </code></pre>
+
+  A propriedade <code>abc</code> será relatada como não traduzida.
+  <br><br><br> </li>
+
+  <li><b>Relatar propriedades inconsistentes</b> <br><br>
+  Use esta opção para relatar propriedades que estão incluídas em arquivos de propriedades herdados, mas estão ausentes nas propriedades pai (ou propriedades irmãs, se não houver pai).
+
+  <br><br> <p>Exemplo:</p>
+  <pre><code>
+    # messages.properties
+    # Arquivo vazio
+
+    # messages_fr.properties
+    abc=xxx
+  </code></pre>
+
+  Aqui, a tradução da propriedade <code>abc</code> não está disponível para nenhum idioma além do francês; portanto, será relatada como ausente no arquivo de propriedades (padrão) <code>messages.properties</code>.
+  <br><br><br> </li>
+
+  <li><b>Relatar propriedades sobrescritas com o mesmo valor</b> <br><br>
+  Use esta opção para relatar propriedades que foram copiadas e coladas literalmente em vários arquivos de propriedades.<br>
+
+  <br><br> <p>Exemplo:</p>
+  <pre><code>
+    # messages.properties
+    abc=xxx
+
+    # messages_fr.properties
+    abc=xxx
+  </code></pre>
+  A propriedade <code>abc</code> será relatada no arquivo <code>messages_fr.properties</code> como herdada desnecessariamente.
+  <br><br><br> </li>
+
+  <li><b>Relatar propriedades sobrescritas com placeholders diferentes</b> <br><br>
+  Use esta opção para verificar a consistência dos placeholders em propriedades sobrescritas.
+
+  <br><br> <p>Exemplo:</p>
+  <pre><code>
+    # messages.properties
+    qwe={0}xxx{1}
+    abc={0}yyy{1}
+
+    # messages_fr.properties
+    qwe={0}xxx{0}xxx{1}
+    abc={0}yyy
+  </code></pre>
+
+  A propriedade <code>abc</code> será relatada como contendo placeholders de formato de mensagem que não correspondem a <code>messages.properties</code>.
+  <br><br><br> </li>
+
+  <li><b>Relatar propriedades sobrescritas com terminações de valores diferentes</b> <br><br>
+  Use esta opção para verificar a consistência das terminações em propriedades sobrescritas.
+  <br><br> <p>Exemplo:</p>
+
+  <pre><code>
+    # messages.properties
+    abc=xxxzzz
+
+    # messages_fr.properties
+    abc=xxx;
+  </code></pre>
+
+  A propriedade <code>abc</code> será relatada como terminando com um símbolo especial (<code>!</code> / <code>?</code> / <code>.</code> / <code>:</code> / <code>;</code>), enquanto o valor pai em <code>messages.properties</code> não termina.
+  </li>
+</ul>
+</body>
+</html>

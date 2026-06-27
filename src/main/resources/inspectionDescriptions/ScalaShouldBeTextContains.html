@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata o uso de <code>.getText.contains(char)</code> em PsiElement ou ASTNode e sugere a sua substituição por
+<code>PsiElement.textContains(char)</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  psiElement.getText.contains('x')
+</code></pre>
+<p>Depois de a correcção rápida ser aplicada:</p>
+<pre><code>
+  psiElement.textContains('x')
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

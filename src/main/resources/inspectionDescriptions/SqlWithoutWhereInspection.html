@@ -1,0 +1,10 @@
+<html>
+<body>
+Reporta o uso de instruções DELETE ou UPDATE sem uma cláusula WHERE.
+  <p>Sem uma cláusula WHERE, o DELETE exclui todos os dados da tabela, enquanto o UPDATE sobrescreve os valores de todas as linhas da tabela.</p>
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE t1 (a TEXT, b INT, c BOOLEAN);
+update t1 set  a = 'Smith';
+delete from t1;</code></pre>
+</body>
+</html>

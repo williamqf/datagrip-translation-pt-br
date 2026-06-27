@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata casos em que o número de parâmetros em VALUES não corresponde ao número de colunas na tabela de destino.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo(a INT, b INT, c INT);
+
+INSERT INTO foo VALUES (1,2,3,4)</code></pre>
+<p>A tabela <code>foo</code> possui três colunas, mas quatro valores são passados na instrução INSERT INTO.</p>
+</body>
+</html>

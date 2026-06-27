@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata classes não <code>Serializable</code> que definem os métodos <code>readObject()</code> ou <code>writeObject()</code>. Tais métodos nesse contexto geralmente indicam um erro.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class SampleClass {
+    private void readObject(ObjectInputStream str) {}
+    private void writeObject(ObjectOutputStream str) {}
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

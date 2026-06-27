@@ -1,0 +1,71 @@
+<html>
+<body>
+Inspeciona a declaração de membros JUnit com uma formatação incorreta que provavelmente não serão reconhecidos pelo framework JUnit.
+Esta inspeção relata problemas como:
+<ul>
+  <li>Campos anotados com <code>@RegisterExtension</code> que possuem o tipo errado ou que não foram declarados como static quando necessário.</li>
+  <li>Classes internas estáticas anotadas com <code>@Nested</code>.</li>
+  <li>Testes parametrizados definidos sem uma fonte.</li>
+  <li>Testes parametrizados com <code>MethodSource</code> contendo alvos desconhecidos, não estáticos ou sem argumentos.</li>
+  <li>
+    Testes parametrizados com <code>ValueSource</code> ou <code>EnumSource</code> que não podem ser convertidos para parâmetros de método.
+  </li>
+  <li>Testes anotados com <code>@Test</code>, <code>@ParameterizedTest</code> e <code>@RepeatedTest</code> simultaneamente.</li>
+  <li>Métodos <code>setup()</code> ou <code>tearDown()</code></li> não públicos, com tipo de retorno diferente de void ou que aceitam argumentos.</li>
+  <li>
+    Métodos não públicos ou não estáticos anotados com <code>@BeforeClass</code>, <code>@AfterClass</code>, <code>@BeforeAll</code> ou <code>@AfterAll</code>, com tipo de retorno diferente de void ou sem uma lista válida de parâmetros.
+  </li>
+  <li>
+    Métodos não públicos anotados com <code>@Before</code>, <code>@After</code>, <code>@BeforeEach</code> ou <code>@AfterEach</code>, com tipo de retorno diferente de void ou que aceitam argumentos.
+  </li>
+  <li><code>RepetitionInfo</code> injetado no método <code>@BeforeAll</code> ou <code>@AfterAll</code>.</li>
+  <li>
+    <code>RepetitionInfo</code> injetado nos métodos <code>@BeforeEach</code> ou <code>@AfterEach</code> usados por <code>@Test</code> anotados em teste.
+  </li>
+  <li>Campos e métodos anotados com <code>@DataPoint</code> ou <code>@DataPoints</code> que não são públicos ou estáticos.</li>
+  <li>
+    Campos e métodos anotados com <code>@Rule</code> que não são públicos ou não são subtipos de <code>TestRule</code> ou <code>MethodRule</code>.
+  </li>
+  <li>Campos e métodos anotados com <code>@ClassRule</code> que não são públicos, estáticos ou subtipos de <code>TestRule</code>.</li>
+  <li>
+    Métodos não públicos no <code>TestCase</code> que possuem o prefixo <code>test</code>, cujo tipo de retorno não é void, aceitam argumentos ou são estáticos.
+  </li>
+  <li>
+    Métodos não públicos anotados com <code>@Test</code>, cujo tipo de retorno não é void, aceitam argumentos ou são estáticos.
+  </li>
+</ul>
+
+<p><b>Exemplo de método <code>@Before</code> com formatação incorreta (Java):</b></p>
+<pre><code>@Before private int foo(int arg) { ... } </code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>@Before public void foo() { ... } </code></pre>
+
+<p><b>Exemplo de método de origem ausente (Kotlin):</b></p>
+<pre><code>
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+
+    companion object {
+      @JvmStatic
+      fun parameters(): Stream&lt;Arguments&gt; {
+        TODO("Not yet implemented")
+      }
+    }
+  }
+</code></pre>
+
+<!-- tooltip end -->
+<p>As anotações podem ser especificadas usando as opções de inspeção. Os parâmetros anotados com uma dessas anotações não serão relatados nos métodos de teste.
+</p>
+</body>
+</html>

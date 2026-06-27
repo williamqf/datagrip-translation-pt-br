@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata os seguintes problemas nos descritores usados para implantar módulos Web em um servidor:
+<ul>
+  <li>Referências a classes não instanciáveis</li>
+  <li>Referências a classes que não estendem a classe necessária</li>
+  <li>Referências a classes com escopo inadequado</li>
+  <li>Tags e valores de atributos vazios</li>
+  <li>Valores de tags e atributos que não correspondem ao padrão exigido (por exemplo, identificadores Java)</li>
+  <li>Tags que não contêm as sub-tags ou atributos obrigatórios</li>
+  <li>Tags que definem objetos com nomes duplicados</li>
+</ul>
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+&lt;web-app&gt;
+  &lt;filter-mapping&gt;
+    &lt;filter-name&gt;CustomFilter&lt;/filter-name&gt; // Erro: a sub-tag servlet-name ou url-pattern deve ser definida
+  &lt;/filter-mapping&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;CustomServletName&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/ baseUrl&lt;/url-pattern&gt; // Erro: o padrão URI não deve conter espaços em branco
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+</code></pre>
+</body>
+</html>

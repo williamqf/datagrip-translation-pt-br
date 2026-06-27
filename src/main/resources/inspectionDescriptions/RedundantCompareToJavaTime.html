@@ -1,0 +1,20 @@
+<!-- Copyright 2000-2022 JetBrains s.r.o. and contributors. Use of this source code is governed by the Apache 2.0 license. -->
+<html>
+<body>
+Relata as comparações `java.time` com chamadas `compareTo()` que podem ser substituídas por chamadas `isAfter()`, `isBefore()` ou `isEqual()`.
+<p>Exemplo:</p>
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.compareTo(date2) > 0;
+</code></pre>
+<p>Após a aplicação do quick-fix:</p>
+<pre><code>
+  LocalDate date1 = LocalDate.now();
+  LocalDate date2 = LocalDate.now();
+  boolean t = date1.isAfter(date2);
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo no 2022.3</small></p>
+</body>
+</html>

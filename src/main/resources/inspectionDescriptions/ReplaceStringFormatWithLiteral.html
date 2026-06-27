@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata chamadas <code>String.format</code> que podem ser substituídas por templates de string.
+<p>O uso de templates de string torna o código mais simples.</p>
+<p>A correção rápida substitui a chamada por um template de string.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun main() {
+      val id = &quot;abc&quot;
+      val date = &quot;123&quot;
+      val s = String.format(&quot;%s_%s_%s&quot;, id, date, id)
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun main() {
+      val id = &quot;abc&quot;
+      val date = &quot;123&quot;
+      val s = &quot;${id}_${date}_$id&quot;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

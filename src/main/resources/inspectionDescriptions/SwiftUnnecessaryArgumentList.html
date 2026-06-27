@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>
+  Relata parênteses vazios após uma chamada de função que utiliza um trailing closure.
+</p>
+<p>
+  Sugere a remoção dos parênteses vazios.
+</p>
+<!-- tooltip end -->
+<p>
+  <b>Exemplo:</b>
+</p>
+<pre><code>
+  any() { $0 > 0 }
+</code></pre>
+<p>
+  Após a aplicação da correção rápida:
+</p>
+<pre><code>
+  any { $0 > 0 }
+</code></pre>
+</body>
+</html>

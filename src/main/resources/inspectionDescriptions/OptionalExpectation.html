@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata anotações <code>expect</code> opcionais que não possuem uma anotação <code>actual</code> correspondente em alguns módulos de plataforma.
+<p><b>Exemplo:</b></p>
+<pre><code>// Código comum
+@OptionalExpectation
+expect annotation class JvmName(val name: String)
+
+@JvmName(name = "JvmFoo")
+fun foo() { }
+
+// Código JVM
+actual annotation class JvmName(val name: String)
+</code></pre>
+<p>Esta inspeção também relata casos em que <code>actual annotation class JvmName</code> é omitida para plataformas não JVM (por exemplo, Native).</p>
+</body>
+</html>

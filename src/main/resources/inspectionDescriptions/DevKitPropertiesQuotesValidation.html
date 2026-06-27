@@ -1,0 +1,19 @@
+<html>
+<body>
+Informa sobre o número errado de aspas ao redor dos parâmetros nos valores das propriedades.
+<p>
+  Se houver parâmetros nos valores das propriedades, o valor deve ser passado como um padrão para `java.text.MessageFormat`.
+  Isso significa que aspas simples são usadas para escape. Portanto, para que as aspas fiquem visíveis, aspas duplicadas devem ser usadas:
+<ul>
+  <li><code>'{0}'</code> &rarr; <code>{0}</code></li>
+  <li><code>''{0}''</code> &rarr; <code>'$valor$'</code></li>
+</ul>
+<p>
+  Ao usar o formato choice, o formato aninhado será avaliado como o próprio formato; portanto, uma segunda aspas dupla deve ser adicionada.
+  Ao passar `1`:
+<ul>
+  <li><code>{0, choice, 0#no|#1''{0}'' file}</code> &rarr; <code>{0} arquivos</code></li>
+  <li><code>{0, choice, 0#no|#1''''{0}'''' file}</code> &rarr; <code>'$numero_de_arquivos$' arquivos</code></li>
+</ul>
+</body>
+</html>

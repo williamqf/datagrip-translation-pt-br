@@ -1,0 +1,50 @@
+<html>
+<body>
+Relata blocos <code>catch</code> vazios ou que podem ignorar exceções.
+<p>Embora ocasionalmente seja intencional, blocos <code>catch</code> vazios podem complicar a depuração.
+Além disso, ignorar o parâmetro do <code>catch</code> pode ser um erro.
+  Finalmente, analisadores de código estático relatarão se for detectado que um bloco <code>catch</code> pode ignorar silenciosamente exceções importantes da VM, como <code>NullPointerException</code>. Ignorar tais exceções (sem registrá-las em log ou relançá-las) pode ocultar bugs.</p>
+
+<p>
+  Esta inspeção não relata nenhum parâmetro de <code>catch</code> nomeado como <code>ignore</code> ou <code>ignored</code>.
+  Pelo contrário, ela emitirá um aviso para parâmetros de <code>catch</code> nomeados como <code>ignore</code> ou <code>ignored</code> que estejam realmente sendo usados.
+  Além disso, esta inspeção não relata parâmetros de <code>catch</code> em fontes de teste nomeados como <code>expected</code> ou <code>ok</code>.
+</p>
+<p>
+  Você pode usar uma correção rápida para alterar o nome da exceção para <code>ignored</code>.
+  Para blocos <b>catch</b> vazios, uma correção rápida adicional é sugerida para gerar o corpo do <b>catch</b>.
+  Você pode modificar o modelo "Catch Statement Body" na aba "Código" em <a href="settings://fileTemplates">Configurações | Editor | Templates de arquivos e código</a>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    throwingMethod();
+  } catch (IOException ex) {
+
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  try {
+    System.out.println(System.in.read());
+  } catch (IOException ignored) {
+
+  }
+</code></pre>
+  <!-- tooltip end -->
+<p>Configurar inspeção:</p>
+<ul>
+  <li>
+    Use a opção <b>Não avisar quando o bloco 'catch' contiver comentários</b> para ignorar blocos <code>catch</code> que contenham comentários.
+  </li>
+  <li>
+    Use a opção <b>Não avisar quando o bloco 'catch' não estiver vazio</b> para ignorar blocos <code>catch</code> que contenham instruções ou comentários internamente, mas não usem a variável em si.
+  </li>
+  <li>
+    Use a opção <b>Não avisar quando uma exceção chamada 'ignore(d)' não for ignorada de fato</b> para ignorar variáveis nomeadas <code>ignored</code> que estejam em uso.
+  </li>
+</ul>
+
+<p><small>Novidade na versão 2018.1</small></p>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata quaisquer referências a classes no pacote padrão em arquivos JSP.
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="jsp">
+  &lt;%!
+  Integer countSomeUsefulStuff() {
+    ...
+    new ClassFromDefaultPackage(...); // Erro
+    new com.example.GoodClass(...); // OK
+  }
+  %&gt;
+  &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;Hello, JSP!&lt;/title&gt;
+    &lt;/head&gt;
+  &lt;/html&gt;
+</code></pre><br/>
+<!-- tooltip end -->
+<p>
+  <b>Nota:</b> Tais referências não serão resolvidas durante a compilação do JSP, pois as classes compiladas do JSP geralmente são colocadas em pacotes que não são o padrão (por exemplo, "org.apache.jsp" para o Tomcat, "com.ibm._jsp" para o WebSphere), e a importação a partir do pacote padrão não é permitida em Java.
+</p>
+</body>
+</html>

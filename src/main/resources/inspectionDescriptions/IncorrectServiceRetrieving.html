@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata os seguintes problemas ao recuperar serviços:
+<ul>
+  <li>Tentativa de recuperar um serviço não registrado.</li>
+  <li>Incompatibilidade ao recuperar serviços: tentativa de obter um serviço de nível de projeto como um serviço de nível de aplicação, ou vice-versa.</li>
+</ul>
+<p>Exemplo (Kotlin):</p>
+<pre><code lang="kotlin">
+@Service
+class MyAppService
+
+@Service(Service.Level.PROJECT)
+class MyProjectService(private val project: Project)
+</code></pre>
+<pre><code lang="kotlin">
+// Incorreto:
+val projectService = service&lt;MyProjectService&gt;()         // O serviço de nível de projeto é recuperado como um serviço de nível de aplicação
+val applicationService = project.service&lt;MyAppService&gt;() // O serviço de nível de aplicação é recuperado como um serviço de nível de projeto
+</code></pre>
+<pre><code lang="kotlin">
+// Correto:
+val projectService = project.service&lt;MyProjectService&gt;()
+val applicationService = service&lt;MyAppService&gt;();
+</code></pre>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small>
+</body>
+</html>

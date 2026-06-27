@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata casos em que chamadas de <code>Math.max()</code> ou <code>Math.min()</code> podem ser usadas em vez de calcular manualmente o valor mínimo ou máximo de dois números.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public int min(int a, int b) {
+    return b &lt; a ? b : a;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public int min(int a, int b) {
+    return Math.min(a, b);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Desativar para float e double</b> para desativar esta inspeção para os tipos <code>double</code> e <code>float</code>.
+  Isso é útil porque a correção rápida pode alterar ligeiramente a semântica dos tipos <code>float</code>/<code>double</code> ao lidar com <code>NaN</code>. No entanto, na maioria dos casos, esta correção rápida na verdade corrige bugs sutis que ocorrem quando o <code>NaN</code> não é considerado.
+</p>
+<p><small>Novo na versão 2019.2</small></p>
+</body>
+</html>

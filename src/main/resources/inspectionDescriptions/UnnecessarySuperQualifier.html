@@ -1,0 +1,43 @@
+<html>
+<body>
+Relata qualificadores <code>super</code> desnecessários em chamadas de método e referências de campo.
+<p>
+  Quando um campo ou método de uma superclasse não está oculto ou sobrescrito na classe de chamada, o qualificador <code>super</code> não é necessário.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+
+  class Bar extends Foo {
+    void bar() {
+      super.foo();
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    void foo() {}
+  }
+
+  class Bar extends Foo {
+    void bar() {
+      foo();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use as configurações de inspeção para ignorar qualificadores que ajudam a distinguir o acesso a membros da superclasse de membros de classes externas com o mesmo nome.
+<p>
+<p>
+  Consulte também as seguintes inspeções:
+</p>
+<ul>
+  <li><i>Java | Visibilidade | Acesso a campo herdado se assemelha ao acesso a elementos no código circundante</i></li>
+  <li><i>Java | Visibilidade | Chamada de método herdado se assemelha a uma chamada de método local</i></li>
+</ul>
+</body>
+</html>

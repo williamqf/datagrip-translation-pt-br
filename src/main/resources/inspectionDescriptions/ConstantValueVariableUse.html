@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata todos os usos de variáveis conhecidas como constantes.
+<p>Isso ocorre se o uso (leitura) de uma variável estiver cercado por instruções <code>if</code>, <code>while</code> ou <code>for</code> que contenham uma condição <code>==</code> comparando essa variável a uma constante.
+  Nesse caso, o uso da variável conhecida como constante pode ser substituído pela constante real.</p>
+<p>Exemplo:</p>
+<pre><code>
+    private static void foo(double number) {
+        if (number == 1.0) {
+            f(number);
+        }
+    }
+    private static void f(double number) {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+    private static void foo(double number) {
+        if (number == 1.0) {
+            f(1.0);
+        }
+    }
+    private static void f(double number) {}
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html><body>
+Relata strings em parâmetros de método e valores de retorno anotados com <code>@Nls</code> e as capitaliza para que estejam em conformidade com as regras de capitalização na maioria das diretrizes de UI de plataforma.
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  void setTitle(@NlsContexts.DialogTitle String title) {}
+  setTitle("This is sentence capitalization but should be title"); 
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  setTitle("This Is Sentence Capitalization but Should Be Title"); 
+</code></pre>
+</body></html>

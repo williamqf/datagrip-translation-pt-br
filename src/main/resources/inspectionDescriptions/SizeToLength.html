@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata chamadas de <code>array.size</code> e <code>string.size</code>.</p>
+<p>Embora essas chamadas sejam legítimas, requerem uma conversão implícita adicional para <code>SeqLike</code>.
+    Chamar <code>length</code> em arrays e strings pode fornecer vantagens significativas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Array(1, 2, 3, 4).size
+  "this is a string".size
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  Array(1, 2, 3, 4).length
+  "this is a string".length
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

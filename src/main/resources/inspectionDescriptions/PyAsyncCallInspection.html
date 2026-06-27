@@ -1,0 +1,23 @@
+<html>
+<body>
+<p>Relata corrotinas chamadas sem o uso da sintaxe <code>await</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+async def bar():
+    pass
+
+
+async def foo():
+    bar()
+</code></pre>
+<p>Após a aplicação da correção rápida, o código muda para:</p>
+<pre><code>
+async def bar():
+    pass
+
+
+async def foo():
+    await bar()
+</code></pre>
+</body>
+</html>

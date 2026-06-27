@@ -1,0 +1,64 @@
+<html>
+<body>
+Relata os seguintes problemas de <code>MessageFormat</code> em valores de propriedade:
+
+<p><b>Tipo de formato desconhecido</b>
+<p>
+  O <code>MessageFormat</code> suporta apenas os seguintes tipos de formato:
+<ul>
+  <li>number</li>
+  <li>date</li>
+  <li>time</li>
+  <li>choice</li>
+</ul>
+  Outros tipos de formato serão relatados.
+
+<p><b>Aspas não correspondentes</b>
+<pre><code>
+  property.key=Should't happen: {0}
+</code></pre>
+<p>
+  Uma aspa simples será interpretada como um escape até o final da propriedade e não aparecerá na string de resultado.
+  Na maioria dos casos, isso não é intencional.
+  Se uma aspa simples deve aparecer na string de resultado, aspas simples duplicadas devem ser usadas na propriedade.
+
+<p><b>Chaves não correspondentes</b>
+<p>
+  Cada marcador (placeholder) deve ter uma chave de fechamento.
+
+<p><b>Excesso de aspas</b>
+<p>
+  Em alguns casos (por exemplo, <code>it's</code>), espera-se apenas uma aspa na string de resultado.
+  Relata casos em que duas ou mais aspas são colocadas juntas na string de resultado.
+
+<p><b>Limites inferiores incorretos para <code>ChoiceFormat</code> aninhado</b>
+<p>
+  Os limites inferiores devem ser números e devem estar em ordem crescente.
+
+<p><b>Número incorreto de aspas ao redor dos parâmetros</b>
+<p>
+  Em padrões <code>java.text.MessageFormat</code>, aspas simples são usadas para escape.
+  Para que uma aspa seja visível, aspas duplicadas devem ser usadas.
+  Por exemplo, ao passar <code>1</code>:
+<ul>
+  <li><code>'{0}'</code> &rarr; <code>{0}</code></li>
+  <li><code>''{0}''</code> &rarr; <code>'1'</code></li>
+</ul>
+<p>
+  Ao usar o formato choice, o formato aninhado é avaliado como a própria string de formato e as aspas devem ser duplicadas duas vezes.
+  Por exemplo, ao passar <code>1</code>:
+<ul>
+  <li><code>{0, choice, 0#no|1#''{0}'' files}</code> &rarr; <code>{0} files</code></li>
+  <li><code>{0, choice, 0#no|1#''''{0}'''' files}</code> &rarr; <code>'1' files</code></li>
+</ul>
+
+<p><b>Notas</b>
+<p>
+  Os valores das propriedades são validados apenas se contiverem o texto literal <code>{0}</code>, <code>{0,</code>, <code>{1}</code> ou <code>{1,</code>.
+  Isso serve para garantir que esses valores de propriedade sejam realmente usados como padrões de <code>MessageFormat</code>.
+</p>
+
+<!-- tooltip end -->
+<p><small>Novidade na versão 2023.2</small>
+</body>
+</html>

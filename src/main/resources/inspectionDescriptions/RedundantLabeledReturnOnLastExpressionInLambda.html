@@ -1,0 +1,26 @@
+<html>
+<body>
+Reporta um <code>return</code> com rótulo usado na última expressão dentro de um lambda.
+
+<p>Tais retornos são redundantes e podem ser removidos com segurança.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun foo() {
+  listOf(1,2,3).find {
+    return@find true
+  }
+}
+</code></pre>
+
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+fun foo() {
+  listOf(1,2,3).find {
+    true
+  }
+}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

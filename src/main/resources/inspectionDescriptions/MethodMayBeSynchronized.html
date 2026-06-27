@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata métodos cujo corpo contém apenas uma instrução <code>synchronized</code>.
+A expressão de bloqueio para essa instrução <code>synchronized</code> deve ser igual a <code>this</code> para métodos de instância ou <code>[ClassName].class</code> para métodos estáticos.
+<p>
+  Para melhorar a legibilidade de tais métodos, o invólucro <code>synchronized</code> pode ser removido e o método pode ser marcado como <code>synchronized</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public int generateInt(int x) {
+    synchronized (this) {
+      return 1;
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  public synchronized int generateInt(int x) {
+    return 1;
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata propriedades que não seguem as convenções de nomenclatura.
+<p>As seguintes propriedades são relatadas:</p>
+<ul>
+    <li>Propriedades <code>private</code> em objetos e companion objects</li>
+</ul>
+<p>Você pode especificar o padrão desejado nas opções de inspeção.</p>
+<p><a href="https://kotlinlang.org/docs/coding-conventions.html#naming-rules">Convenções de nomenclatura recomendadas</a>: devem começar com um sublinhado ou letra maiúscula, usando camelCase.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Person {
+    companion object {
+      // Propriedade dentro de um companion object
+      private val NO_NAME = Person()
+    }
+  }
+</code></pre>
+
+</body>
+</html>

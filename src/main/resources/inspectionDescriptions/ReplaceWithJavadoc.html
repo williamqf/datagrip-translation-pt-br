@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata comentários comuns pertencentes a campos, métodos ou classes que podem ser substituídos por comentários Javadoc.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class Main {
+    /*
+    * Hello,
+    */
+    // World!
+    void f() {
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  public class Main {
+    /**
+     * Hello,
+     * World!
+     */
+    void f() {
+    }
+  }
+</code></pre>
+</body>
+</html>

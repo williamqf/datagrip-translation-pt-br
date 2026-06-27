@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata chamadas de métodos bloqueantes de thread em fragmentos de código onde as threads não devem ser bloqueadas.
+
+<p><b>Exemplo (Project Reactor):</b></p>
+<pre><code lang="java">
+Flux.just("1").flatMap(f -&gt; {
+    Flux&lt;String&gt; just = loadUsersFromDatabase();
+    just.toIterable(); // Erro: chamada de operador bloqueante em um escopo não bloqueante
+    return just;
+  }
+);
+</code></pre>
+
+<p>Considere executar o código bloqueante com um <a href="https://projectreactor.io/docs/core/release/reference/#faq.wrap-blocking">scheduler apropriado</a> (por exemplo, <code>Schedulers.boundedElastic()</code>) ou tente encontrar uma API não bloqueante alternativa.</p>
+
+<br/>
+
+<p><b>Exemplo (Kotlin Coroutines):</b></p>
+<pre><code lang="kotlin">
+suspend fun exampleFun() {
+    Thread.sleep(100); // Erro: chamada de método bloqueante em uma função suspend
+}
+</code></pre>
+
+<p>Considere executar o código bloqueante com um <a href="https://kotlinlang.org/docs/coroutine-context-and-dispatchers.html">dispatcher especial</a> (por exemplo, <code>Dispatchers.IO</code>) ou tente encontrar uma API não bloqueante alternativa.</p>
+
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Na lista <b>Anotações bloqueantes</b>, especifique as anotações que marcam métodos bloqueantes de thread.</li>
+  <li>Na lista <b>Anotações não bloqueantes</b>, especifique as anotações que marcam métodos não bloqueantes.</li>
+</ul>
+<p>As anotações especificadas podem ser usadas como <a href="https://www.jetbrains.com/help/idea/external-annotations.html">anotações externas</a>.</p>
+</body>
+</html>

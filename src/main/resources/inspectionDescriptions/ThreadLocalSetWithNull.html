@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata chamadas a <code>java.lang.ThreadLocal.set()</code> com <code>null</code> como argumento.
+<p>Esta chamada não libera recursos e pode causar vazamento de memória.</p>
+Isso ocorre porque:
+<ul>
+  <li>Primeiro, <code>ThreadLocal.set(null)</code> procura o mapa associado à thread atual. Se não houver tal mapa, ele será criado.</li>
+  <li>Ele define a chave e o valor: <code>map.set(this, value)</code>, onde <code>this</code> se refere à instância de <code>ThreadLocal</code>.</li>
+</ul>
+<p>O método <code>java.lang.ThreadLocal.remove()</code> deve ser usado para liberar recursos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  ThreadLocal&lt;Integer&gt; threadLocal = new ThreadLocal&lt;&gt;();
+  threadLocal.set(null);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  threadLocal.remove();
+</code></pre>
+<p><small>Novidade na versão 2023.2</small></p>
+</body>
+</html>

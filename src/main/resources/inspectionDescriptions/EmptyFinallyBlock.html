@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata blocos <code>finally</code> vazios.
+<p>Blocos <code>finally</code> vazios geralmente indicam um erro de codificação. Eles podem permanecer após a refatoração de código e podem ser removidos com segurança.</p>
+<p>Esta inspeção não relata blocos <code>finally</code> vazios encontrados em arquivos JSP.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    Files.readString(Paths.get("in.txt"));
+  } catch (IOException e) {
+    throw new RuntimeException(e);
+  } finally {
+
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:
+<pre><code>
+  try {
+    Files.readString(Paths.get("in.txt"));
+  } catch (IOException e) {
+    throw new RuntimeException(e);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

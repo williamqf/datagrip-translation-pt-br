@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata referências SQL não resolvidas.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE users(id INT, name VARCHAR(40));
+CREATE TABLE admins(id INT, col1 INT);
+
+SELECT users.id, admins.id FROM admins WHERE admins.id > 1;</code></pre>
+<p>A coluna <code>users.id</code> não foi resolvida porque a tabela <code>users</code> está ausente na cláusula FROM.</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+<body>
+Relata métodos anotados com JUnit quando usados em casos de teste de uma versão diferente do JUnit. Para determinar a versão do framework de um caso de teste, esta inspeção verifica a versão do framework da superclasse, quando disponível. Quando uma superclasse não está disponível, ela usará o framework mais utilizado no caso de teste.
+<p>Exemplo (anotações do JUnit 4 em um caso de teste do JUnit 3):</p>
+<pre><code lang="java">
+  public class MyTest extends TestCase {
+      @Test
+      public void foo() { }
+
+      @Test
+      @Ignore
+      public void testBar() { }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  public class MyTest extends TestCase {
+      public void testFoo() {}
+
+      public void _testBar() {}
+  }
+</code></pre>
+
+<p>Exemplo (anotações do JUnit 5 em um caso de teste do JUnit 4):</p>
+<pre><code lang="java">
+  public class MyTest {
+      @BeforeAll // método de ciclo de vida do JUnit 5
+      public void initialize() { }
+
+      @org.junit.Test  // anotação de teste do JUnit 4
+      public void test() {}
+
+      @org.junit.Test  // anotação de teste do JUnit 4
+      public void testWouldBeExecuted() {}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  public class MyTest {
+      @BeforeClass // método de ciclo de vida do JUnit 4
+      public void initialize() { }
+
+      @org.junit.Test  // anotação de teste do JUnit 4
+      public void test() {}
+
+      @org.junit.Test  // anotação de teste do JUnit 4
+      public void testWouldBeExecuted() {}
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

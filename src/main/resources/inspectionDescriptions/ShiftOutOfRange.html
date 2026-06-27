@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata operações de deslocamento em que o valor do deslocamento é uma constante fora do intervalo razoável.
+<p>Operações de deslocamento de inteiros fora do intervalo <code>0..31</code> e operações de deslocamento de long fora do intervalo <code>0..63</code> são relatadas. Deslocar por um valor negativo ou excessivamente grande quase certamente indica um erro de codificação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  int shiftSize = 32;
+  // Aviso: o deslocamento de 32 bits é equivalente ao deslocamento de 0 bits, portanto não há deslocamento.
+  int mask = (1 &lt;&lt; shiftSize) - 1;
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

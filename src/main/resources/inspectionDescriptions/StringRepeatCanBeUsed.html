@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata loops que podem ser substituídos por um único método <code>String.repeat()</code> (disponível a partir do Java 11).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void append(StringBuilder sb, int count, Object obj) {
+    for (int i = 0; i &lt; count; i++) {
+      sb.append(obj);
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  void append(StringBuilder sb, int count, Object obj) {
+    sb.append(String.valueOf(obj).repeat(Math.max(0, count)));
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Por padrão, esta inspeção pode envolver <code>count</code> com <code>Math.max(0, count)</code> se não for possível provar estaticamente que <code>count</code> não é negativo. Isso é feito para evitar possíveis mudanças semânticas, já que <code>String.repeat()</code> rejeita números negativos.
+  Se necessário, use a opção <b>Adicionar Math.max(0, count) para evitar possíveis mudanças semânticas</b> para desativar este comportamento.</p>
+  <p>Da mesma forma, a string a ser repetida pode ser envolvida em <code>String.valueOf</code> para evitar um possível <code>NullPointerException</code> se não for conhecido se ela pode ser <code>null</code>.
+</p>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 11 ou superior.</p>
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

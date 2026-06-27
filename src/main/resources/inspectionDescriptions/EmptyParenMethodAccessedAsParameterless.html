@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>Relata chamadas sem cláusulas de argumento se referindo a métodos com uma cláusula de parâmetro vazia.</p>
+
+<p>A convenção é que um método deve ter parênteses se tiver
+    <a href="https://pt.wikipedia.org/wiki/Efeito_colateral_(ci%C3%AAncia_da_computa%C3%A7%C3%A3o)">efeitos colaterais</a>.
+    Embora seja possível omitir cláusulas de argumento em chamadas de método
+    (para adaptar o <a href="https://pt.wikipedia.org/wiki/Princ%C3%ADpio_da_uniformidade_de_acesso">princípio de acesso uniforme</a> para Java),
+    é recomendado que os usuários adicionem uma cláusula de argumento vazia quando o método invocado representa mais que uma propriedade.</p>
+
+<p>A correção rápida adiciona uma cláusula de argumento vazia.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def teste(): Int = ???
+
+  teste
+</code></pre>
+<p>Após as correções rápidas serem aplicadas:</p>
+<pre><code>
+  def teste(): Int = ???
+
+  teste()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

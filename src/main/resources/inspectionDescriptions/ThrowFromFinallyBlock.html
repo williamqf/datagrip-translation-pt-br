@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata instruções <code>throw</code> dentro de blocos <code>finally</code>.
+Embora ocasionalmente intencionais, tais instruções <code>throw</code> podem ocultar exceções lançadas nos blocos <code>try</code> e <code>catch</code>, tornando o processo de depuração mais complexo.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Fascinating {
+    void doTask(Task t) {
+      try {
+        t.activity();
+      } finally {
+        if (!t.finish()) {
+          throw new IllegalStateException();
+        }
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Avisar em todos os pontos onde uma exceção declarada pode ser lançada</b> para também emitir avisos em chamadas de métodos que declaram exceções.</p>
+</body>
+</html>

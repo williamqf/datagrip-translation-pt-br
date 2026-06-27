@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata comparações da função <code>name()</code> com strings que contêm dois-pontos (<code>:</code>). Tal uso geralmente indica que um prefixo de namespace foi codificado rigidamente (hardcoded) na comparação. Consequentemente, o código falhará ao ser executado em um XML que utilize um prefixo diferente para o mesmo namespace.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;xsl:if test="name() = 'xlink:href'">...&lt;xsl:if>
+</code></pre>
+
+</body>
+</html>

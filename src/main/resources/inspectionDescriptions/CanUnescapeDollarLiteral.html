@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata casos em que caracteres de cifrão escapados em strings podem ser substituídos por literais comuns.
+<p>
+    O escape só é necessário quando o conteúdo após o cifrão puder ser mal interpretado como um item de interpolação de string.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun example() {
+    "The price today is \$10. The price tomorrow will be ${'$'}20."
+  }
+</code></pre>
+A correção rápida converte todos os caracteres de cifrão escapados que podem ser substituídos com segurança em caracteres de cifrão comuns:
+<pre><code>
+  fun example() {
+    "The price today is $10. The price tomorrow will be $20."
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

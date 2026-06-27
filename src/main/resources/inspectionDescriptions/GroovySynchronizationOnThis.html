@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata sincronizações que utilizam <code>this</code> como sua expressão de bloqueio.
+<p>
+  As estruturas relatadas incluem blocos <code>synchronized</code> que bloqueiam <code>this</code>, bem como chamadas para <code>wait()</code>, <code>notify()</code> ou <code>notifyAll()</code> direcionadas ao <code>this</code>.
+  Tais estruturas (como métodos sincronizados) tornam difícil rastrear o que está bloqueando um determinado objeto e podem levar a ataques de "negação de serviço" ao objeto. Como alternativa, considere o bloqueio em uma variável de instância private, permitindo controle total sobre o acesso a esse objeto.
+</p>
+</body>
+</html>

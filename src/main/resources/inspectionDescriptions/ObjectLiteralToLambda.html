@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata literais de objeto anônimo que implementam uma interface Java com um único método abstrato que podem ser convertidos em uma chamada usando uma expressão lambda.
+<p><b>Exemplo:</b></p>
+<pre><code>
+class SomeService {
+  val threadPool = Executors.newCachedThreadPool()
+    
+  fun foo() {
+    threadPool.submit(object : Runnable {
+      override fun run() {
+        println("hello")
+      }
+    })
+  }
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo() {
+    threadPool.submit { println("hello") }
+  }
+</code></pre>
+</body>
+</html>

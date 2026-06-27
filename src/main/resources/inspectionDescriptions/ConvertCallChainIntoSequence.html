@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata cadeias de chamadas em uma <code>Collection</code> que devem ser convertidas em uma <b>Sequence</b>.
+<p>Cada função de transformação de <code>Collection</code> (por exemplo, <code>map()</code> ou <code>filter()</code>) cria uma nova <code>Collection</code> (geralmente uma <code>List</code> ou um <code>Set</code>) internamente.
+    No caso de múltiplas chamadas subsequentes e uma grande quantidade de itens na <code>Collection</code>, o tráfego de memória pode ser significativo.
+    Nesses casos, é preferível usar uma <code>Sequence</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Entity(val key: String, val value: String)
+
+  fun getValues(lines: List&lt;String&gt;) = lines
+      .filter { it.isNotEmpty() }
+      .map { it.split(',', limit = 2) }
+      .filter { it.size == 2 }
+      .map { Entity(it[0], it[1]) }
+</code></pre>
+<p>A correção rápida envolverá a cadeia de chamadas com <code>asSequence()</code> e <code>toList()</code>:</p>
+<pre><code>
+  class Entity(val key: String, val value: String)
+
+  fun getValues(lines: List&lt;String&gt;) = lines
+      .asSequence()
+      .filter { it.isNotEmpty() }
+      .map { it.split(',', limit = 2) }
+      .filter { it.size == 2 }
+      .map { Entity(it[0], it[1]) }
+      .toList()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

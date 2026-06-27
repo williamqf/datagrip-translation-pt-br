@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata classes genéricas onde os parâmetros de tipo foram omitidos. Esse uso <i>bruto</i> (raw) de tipos genéricos, embora válido em Java, anula o propósito dos parâmetros de tipo e pode ocultar erros. Esta inspeção reflete o aviso <code>rawtypes</code> do <code>javac</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+//Aviso: uso bruto da classe parametrizada 'List'
+List list = new ArrayList&lt;String&gt;();
+//Uma lista de strings foi criada, mas também aceita um número inteiro
+list.add(1);
+</code></pre>
+<pre><code>
+//Sem aviso, pois não é possível fornecer argumentos de tipo durante a criação de um array
+IntFunction&lt;List&lt;?&gt;[]> fun = List[]::new;
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Ignorar construção de novos objetos</b> para ignorar tipos brutos usados na construção de objetos.</li>
+  <li>Use a opção <b>Ignorar conversões de tipo</b> para ignorar tipos brutos usados em casts de tipo.</li>
+  <li>Use a opção <b>Ignorar locais onde os parâmetros de tipo não compilam</b> para ignorar casos em que os parâmetros de tipo resultariam em erro de compilação (por exemplo, ao criar arrays ou sobrescrever métodos de biblioteca).</li>
+  <li>Use a opção <b>Ignorar tipos de parâmetros de métodos sobrescritos</b> para ignorar parâmetros de tipo usados em parâmetros de métodos sobrescritos.</li>
+  <li>Use a opção <b>Ignorar quando a correção rápida automática não estiver disponível</b> para ignorar casos em que uma correção rápida não pode ser aplicada.</li>
+</ul>
+</body>
+</html>

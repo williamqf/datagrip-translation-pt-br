@@ -1,0 +1,86 @@
+<html>
+<body>
+Relata casos em que <code>ProcessCanceledException</code> e <code>CancellationException</code> são tratados incorretamente.
+
+<p>
+  <code>ProcessCanceledException</code> e seus sucessores não devem ser capturados, omitidos, registrados em log ou tratados de forma alguma.
+  Em vez disso, devem ser relançados para que a infraestrutura do IntelliJ Platform possa tratá-los corretamente.
+</p>
+<p>
+  No contexto de corrotinas, <code>CancellationException</code> não deve ser capturada, omitida, registrada em log ou tratada de forma alguma.
+  Em vez disso, deve ser relançada para que a infraestrutura de corrotinas possa tratá-la corretamente.
+</p>
+
+<p>
+  A inspeção relata capturas explícitas de <code>ProcessCanceledException</code> (incluindo sucessores) e <code>CancellationException</code>, bem como capturas de <code>RuntimeException</code>, <code>Exception</code> e <code>Throwable</code> que abrangem exceções de cancelamento.
+</p>
+
+<h3>Exemplos:</h3>
+
+<h4><code>ProcessCanceledException</code>:</h4>
+
+<pre><code lang="java">
+// ruim:
+try {
+  // ...
+} catch (ProcessCanceledException e) { // a exceção não deve ser omitida
+}
+
+// incorreto:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  LOG.error("Error occurred", e); // a exceção não deve ser registrada no log
+  throw e;
+}
+
+
+// correto:
+try {
+  // ...
+} catch (ProcessCanceledException e) {
+  // ações adicionais
+  throw e;
+}
+</code></pre>
+
+<h4><code>CancellationException</code>:</h4>
+<pre><code lang="kotlin">
+// ruim:
+cs.launch {
+  try {
+    // ...
+  } catch (e: CancellationException) { // a exceção não deve ser omitida
+  }
+}
+
+// incorreto:
+suspend fun suspendingFunction() {
+  try {
+    // ...
+  } catch (ProcessCanceledException e) {
+    LOG.error("Error occurred", e); // a exceção não deve ser registrada no log
+    throw e;
+  }
+}
+
+
+// correto:
+cs.launch {
+  try {
+    // ...
+  } catch (ProcessCanceledException e) {
+    // ações adicionais
+    throw e;
+  }
+}
+</code></pre>
+
+<p>
+  <i>Observação: a inspeção está desativada em fontes de teste.</i>
+</p>
+
+<!-- tooltip end -->
+<p><small>Novo na versão 2023.2</small></p>
+</body>
+</html>

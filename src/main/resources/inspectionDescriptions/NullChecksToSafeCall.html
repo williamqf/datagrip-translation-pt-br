@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata verificações de nulo em cadeia que podem ser substituídas por chamadas seguras.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test(my: My?) {
+      if (my != null && my.foo() != null) {}
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun test(my: My?) {
+      if (my?.foo() != null) {}
+  }
+</code></pre>
+
+</body>
+</html>

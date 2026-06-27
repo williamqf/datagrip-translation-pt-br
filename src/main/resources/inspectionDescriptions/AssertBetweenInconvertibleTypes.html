@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas de métodos de asserção onde os tipos dos argumentos "expected" (esperado) e "actual" (atual) são incompatíveis.
+<p>Tais chamadas geralmente indicam a presença de um bug no teste.
+  Esta inspeção verifica os métodos relevantes do JUnit, TestNG e AssertJ.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  assertEquals("1", 1);
+  assertNotSame(new int[0], 0);
+
+  // Aviso fraco, possivelmente testando apenas o contrato equals()
+  assertThat(foo).as("user type").isNotEqualTo(bar);
+</code></pre>
+</body>
+</html>

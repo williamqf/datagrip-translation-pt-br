@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata o uso da cláusula <code>ORDER BY</code> sem <code>TOP</code>, <code>OFFSET</code> ou <code>FOR XML</code> em views, funções inline, tabelas derivadas, subqueries e expressões de tabela comuns.
+<p>Para obter informações detalhadas sobre o uso de <code>ORDER BY</code>, consulte a <a
+    href="https://docs.microsoft.com/en-us/sql/t-sql/queries/select-order-by-clause-transact-sql">cláusula SELECT - ORDER BY (Transact-SQL) em docs.microsoft.com</a>.</p>
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE foo (a INT NOT NULL, b  INT NOT NULL);
+
+SELECT *
+FROM (SELECT a, b
+FROM foo A
+WHERE a &lt; 89
+ORDER BY b) ALIAS;
+</code></pre>
+<p>Na subquery, o ORDER BY será realçado como um erro. Você pode adicionar TOP, OFFSET ou FOR XML à subquery.
+  Como alternativa, use a correção rápida <b>Remover elemento</b> para excluir a seção ORDER BY.</p>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>SELECT *
+FROM (SELECT a, b
+FROM foo A
+WHERE a &lt; 89) ALIAS;
+</code></pre>
+</body>
+</html>

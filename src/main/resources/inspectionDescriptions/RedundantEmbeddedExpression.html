@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões incorporadas redundantes em templates <code>STR</code>, como literais triviais ou expressões vazias.
+<p>Exemplo:</p>
+<pre><code>
+  System.out.println(STR."Hello \{"world"}");
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  System.out.println(STR."Hello world");
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidades na versão 2023.3</small></p>
+</body>
+</html>

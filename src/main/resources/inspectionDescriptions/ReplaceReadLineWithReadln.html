@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata chamadas a <code>readLine()</code> que podem ser substituídas por <code>readln()</code> ou <code>readlnOrNull()</code>.
+<p>
+    O uso das funções correspondentes torna o código mais simples.
+</p>
+<p>
+    A correção rápida substituirá <code>readLine()!!</code> por <code>readln()</code> e <code>readLine()</code> por <code>readlnOrNull()</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+    val x = readLine()!!
+    val y = readLine()?.length
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+    val x = readln()
+    val y = readlnOrNull()?.length
+</code></pre>
+</body>
+</html>

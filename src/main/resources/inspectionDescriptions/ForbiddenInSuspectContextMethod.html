@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata o uso inadequado de métodos em coroutines Kotlin que utilizam o contexto de thread (anotado com <code>@RequiresBlockingContext</code>).
+Muitos desses métodos possuem alternativas compatíveis com coroutines que podem ser usadas em um contexto <code>suspend</code>.
+
+<!-- tooltip end -->
+Exemplos:
+<ul>
+  <li><code>com.intellij.openapi.progress.ProgressManager.checkCanceled()</code> deve ser substituído por <code>com.intellij.openapi.progress.checkCancelled()</code></li>
+  <li><code>com.intellij.openapi.application.Application.invokeAndWait()</code> deve ser substituído por <code>withContext(Dispatchers.EDT)</code></li>
+  <li>etc.</li>
+</ul>
+</body>
+</html>

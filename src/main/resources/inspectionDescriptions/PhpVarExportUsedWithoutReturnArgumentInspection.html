@@ -1,0 +1,6 @@
+<html>
+<body>
+Relata chamadas a <code>var_export()</code> e <code>print_r()</code> sem o argumento <code>return</code> quando seus resultados são usados explicitamente.
+Tais chamadas são provavelmente causadas por um erro, pois se o argumento não for especificado, <code>var_export</code>/<code>print_r</code> sempre retornará <code>null</code>/<code>true</code>.
+</body>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o unboxing, que é o desempacotamento explícito de um valor primitivo envolvido (wrapped).
+<p>Para o Java 5 e versões posteriores, o unboxing é desnecessário e pode ser removido com segurança.</p>
+<p><b>Exemplo:</b></p>
+<ul>
+  <li><code>Integer i = Integer.valueOf(42).intValue();</code> &rarr; <code>Integer i = Integer.valueOf(42);</code></li>
+  <li><code>int k = Integer.valueOf(42).intValue();</code> &rarr; <code>int k = Integer.valueOf(42);</code>
+    <p>(Relatado apenas se a opção <b>Relatar apenas expressões de unboxing verdadeiramente redundantes</b> estiver desmarcada)</p></li>
+</ul>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Relatar apenas expressões de unboxing verdadeiramente redundantes</b> para relatar apenas o unboxing verdadeiramente redundante, onde o valor desempacotado é imediatamente empacotado (boxing), seja de forma implícita ou explícita.
+  Nesse caso, toda a etapa de unboxing-boxing pode ser removida. Esta inspeção não relata unboxing explícito simples.</p>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 5 ou superior.</p>
+</body>
+</html>

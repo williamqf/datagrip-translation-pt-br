@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/html">
+<body>
+<p>Relata o uso de <code>new</code> para instanciar classes de casos e sugere removê-lo.</p>
+
+<p>O método <code>apply</code> é fornecido automaticamente para classes de casos.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  case class Book(isbn: String)
+  val guide = new Book("978-0345391803")
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  case class Book(isbn: String)
+  val guide = Book("978-0345391803")
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

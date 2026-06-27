@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata instruções <code>try</code> que capturam <code>java.lang.ThreadDeath</code> e não relançam a exceção.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try {
+    executeInParallel(request);
+  } catch (ThreadDeath ex) { // aviso: ThreadDeath 'ex' não relançada
+    return false;
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

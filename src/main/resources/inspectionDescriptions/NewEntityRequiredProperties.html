@@ -1,0 +1,34 @@
+<html>
+<body>
+<code>ChangeScope</code> relata as propriedades não atribuídas de <code>Entity</code> ao criar com as funções <code>new</code> ou <code>getOrCreate</code>.
+<p>
+  Todas as propriedades não anuladas de <code>Entity</code> devem ser atribuídas ou anotadas com <code>@Many</code>.
+  Caso contrário, uma exceção de tempo de execução será lançada.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  interface A: Entity {
+    var x: Int
+    var y: Int?
+    @Many var z: Int
+    var p: Int
+  }
+
+  fun ChangeScope.foo() {
+    new(A::class) {
+      this.p = 0
+    }
+  }
+</code></pre>
+<p>A correção rápida gera atribuições para propriedades obrigatórias ausentes</p>
+<pre><code>
+  fun ChangeScope.foo() {
+    new(A::class) {
+      this.x = x
+      this.p = 0
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

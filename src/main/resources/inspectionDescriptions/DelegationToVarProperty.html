@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata a delegação de interface para uma propriedade <code>var</code>.
+<p>Apenas o valor inicial da propriedade é usado para a delegação; qualquer atribuição subsequente não a afetará.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Example(var text: CharSequence): CharSequence by text
+</code></pre>
+<p>A correção rápida substituirá a propriedade por uma propriedade imutável:</p>
+<pre><code>
+  class Example(val text: CharSequence): CharSequence by text
+</code></pre>
+<p>Se você precisar de mutabilidade por algum motivo, existe uma alternativa:</p>
+<pre><code>
+  class Example(text: CharSequence): CharSequence by text {
+      var text = text
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

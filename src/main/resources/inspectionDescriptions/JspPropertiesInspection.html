@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata propriedades não resolvidas em arquivos <code>*.properties</code>.
+
+<p><b>Exemplo de arquivo JSP:</b></p>
+<pre><code>
+&lt;%@ page contentType="text/html;charset=UTF-8" language="java" %&gt;
+&lt;%@ taglib uri="/tags/fmt" prefix="fmt" %&gt;
+
+&lt;fmt:message bundle="bundle.properties" key="unknown.property"/&gt; // Erro: não existe tal propriedade no arquivo referenciado
+</code></pre>
+</body>
+</html>

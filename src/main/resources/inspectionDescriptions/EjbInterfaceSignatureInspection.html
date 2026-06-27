@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata as seguintes violações da especificação EJB:
+<ul>
+  <li>A interface EJB não estende a interface EJB correta</li>
+  <li>A interface EJB não é pública ou não é final</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+public interface EntityRemote extends Runnable {} // Erro: a classe deve estender `javax.ejb.EJBObject`
+</code></pre>
+</body>
+</html>

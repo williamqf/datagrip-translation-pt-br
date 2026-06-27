@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata cadeias de condições que verificam intervalos de valores e que podem ser simplificadas para uma única verificação.
+<p>A correção rápida substituirá a cadeia de condições por uma expressão simplificada:</p>
+<p>Exemplo:</p>
+<pre><code>
+  x > 2 && x &lt; 4
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  x == 3
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  arr.length == 0 || arr.length > 1
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  arr.length != 1
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

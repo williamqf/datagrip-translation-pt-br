@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas a <code>Object.finalize()</code>.
+<p>Chamar <code>Object.finalize()</code> explicitamente pode resultar em um objeto em um estado inconsistente.
+  O coletor de lixo chama este método automaticamente em um objeto quando determina que não há mais referências a ele.</p>
+<p>Esta inspeção não relata chamadas a <code>super.finalize()</code> dentro de implementações de <code>finalize()</code>, pois elas são inofensivas.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  MyObject m = new MyObject();
+  m.finalize();
+  System.gc()
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

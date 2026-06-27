@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata instruções de atribuição no formato <code>x = atomic.AddUint64(&x, 1)</code>.
+<p>Tais operações não são atômicas, o que é um mau uso comum da API <code>sync/atomic</code>. Para torná-la atômica, remova a atribuição para usar uma chamada direta: <code>atomic.AddUint64(&x, 1)</code>. Nesse caso, o valor de <code>x</code> será atualizado de forma atômica por meio do endereço.</p>
+<p>Exemplo:</p>
+<pre><code>import (
+ "sync/atomic"
+)
+
+type Counter uint64
+
+func AtomicTests() {
+ x := uint64(1)
+ x = atomic.AddUint64(&x, 1)         // Erro "Atribuição direta a um valor atômico"
+ _, x = 10, atomic.AddUint64(&x, 1)  // Erro "Atribuição direta a um valor atômico"
+ x, _ = atomic.AddUint64(&x, 1), 10  // Erro "Atribuição direta a um valor atômico"
+}</code></pre>
+</body>
+</html>

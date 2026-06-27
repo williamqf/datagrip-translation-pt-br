@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata instruções <code>return</code> que retornam instâncias de classes anônimas, locais ou internas.
+Tais instâncias mantêm uma referência implícita à instância externa, o que pode impedir que a instância externa seja processada pela coleta de lixo.
+Qualquer chamador de um método que retorne tal instância pode causar um vazamento de memória ao reter a instância retornada.
+<!-- tooltip end -->
+<p>
+  Configuração da inspeção:
+</p>
+<ul>
+  <li>Use a opção <b>Ignorar retornos de métodos não públicos</b> para ignorar retornos de métodos <code>protected</code> ou package-private.
+    Retornos de métodos <code>private</code> são sempre ignorados.
+  </li>
+</ul>
+</body>
+</html>

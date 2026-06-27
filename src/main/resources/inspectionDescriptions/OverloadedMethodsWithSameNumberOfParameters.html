@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata métodos declarados na mesma classe que possuem o mesmo nome e o mesmo número de parâmetros.
+Tais sobrecargas podem ser muito confusas, pois pode não estar claro qual sobrecarga está sendo chamada.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Main {
+    public static void execute(Runnable r) {}
+    public static &lt;T&gt; void execute(RunnableFuture&lt;T&gt; c) {}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção para ignorar métodos sobrecarregados com tipos de parâmetros que sejam claramente incompatíveis.
+</p>
+</body>
+</html>

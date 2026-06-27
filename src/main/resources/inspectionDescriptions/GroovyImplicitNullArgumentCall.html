@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata chamadas sem argumentos para métodos que possuem apenas um parâmetro.
+Isso é equivalente a chamar usando <code>null</code>, mas esse comportamento geralmente é confuso e não intencional.
+<p><b>Exemplo:</b></p>
+<pre>
+<code>
+def foo(String s){}
+foo() // Esta chamada é na verdade uma chamada 'foo(null)'
+</code>
+</pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata casts inseguros com <code>return</code> em atribuições de variáveis ou argumentos de valor que podem ser substituídos por um cast seguro.
+<p>
+    A correção rápida substitui o cast inseguro por um cast seguro.
+</p>
+<p><b>Exemplo</b></p>
+<pre><code>
+    fun test(x: Any): Any? {
+        val y = x as String ?: return null
+    }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun test(x: Any): Any? {
+      val y = x as? String ?: return null
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

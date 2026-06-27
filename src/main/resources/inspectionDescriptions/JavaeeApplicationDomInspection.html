@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata os seguintes problemas no arquivo de configuração <code>application.xml</code>:
+<ul>
+  <li>Referências a classes não instanciáveis</li>
+  <li>Referências a classes que não estendem as classes necessárias</li>
+  <li>Referências a classes com escopo inadequado</li>
+  <li>Valores de tags e atributos que não correspondem aos padrões exigidos (por exemplo, identificadores Java)</li>
+  <li>Tags que não contêm as sub-tags ou atributos necessários</li>
+  <li>Tags que definem objetos com nomes duplicados</li>
+</ul>
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+&lt;application&gt;
+    &lt;module id="ExampleWebModule"&gt;
+      &lt;web&gt; // Erro: a sub-tag 'web-uri' deve ser definida
+        &lt;context-root&gt;ExampleWebApp&lt;/context-root&gt;
+      &lt;/web&gt;
+    &lt;/module&gt;
+&lt;/application&gt;
+</code></pre>
+</body>
+</html>

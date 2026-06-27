@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata métodos que aceitam um número arbitrário de parâmetros (também conhecidos como métodos varargs).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  enum EnumConstants {
+  A(null), B, C;
+
+  EnumConstants(String... ss) {}
+}
+</code></pre>
+<p>Uma correção rápida está disponível para substituir parâmetros de argumentos variáveis por parâmetros de array equivalentes. Os argumentos relevantes nas chamadas de método são envolvidos em expressões de inicializador de array.
+  Após a aplicação da correção rápida:</p>
+<pre><code>
+  enum EnumConstants {
+  A(null), B(new String[]{}), C(new String[]{});
+
+  EnumConstants(String[] ss) {}
+}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Métodos <i>varargs</i> surgiram no Java 5.
+  Esta inspeção ajuda no downgrade para compatibilidade reversa com versões anteriores do Java.
+</p>
+</body>
+</html>

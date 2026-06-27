@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata o uso de <code>Optional.ofNullable()</code> onde o argumento passado é sempre nulo ou sempre não nulo.
+Nesse caso, o uso de <code>Optional.ofNullable()</code> não faz sentido: <code>Optional.empty()</code> ou <code>Optional.of()</code> devem ser usados para declarar explicitamente a intenção de criar um Optional que é sempre vazio ou sempre não vazio, respectivamente. Também é possível que haja um erro no argumento de <code>Optional.ofNullable()</code>, portanto, ele deve ser verificado.
+<p>
+  Exemplo:
+</p>
+<pre><code>
+Optional&lt;String&gt; empty = Optional.ofNullable(null); // deve ser Optional.empty();
+Optional&lt;String&gt; present = Optional.ofNullable("value"); // deve ser Optional.of("value"); 
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

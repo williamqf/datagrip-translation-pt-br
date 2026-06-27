@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Inspeciona testes parametrizados com fontes de parâmetros com formato incorreto:</p>
+<ul>
+  <li><code>MethodSource</code> com alvo desconhecido ou o método não é static, <code>no-arg</code>.</li>
+  <li>Tipos <code>ValueSource</code> e <code>EnumSource</code> não podem ser convertidos em parâmetros de método.</li>
+  <li>Fonte não definida.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  class Test {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    void foo(String param) {}
+  }
+</code></pre>
+<p>Após a aplicação das correções rápidas:</p>
+<pre><code>
+  class Test {
+    private static Stream&lt;Arguments&gt; parameters() {
+        return Stream.empty();
+    }
+
+    @MethodSource("parameters")
+    @ParameterizedTest
+    void foo(String param) {}
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

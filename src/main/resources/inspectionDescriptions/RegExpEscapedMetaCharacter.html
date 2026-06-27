@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata metacaracteres escapados.
+Alguns estilos de código de expressão regular especificam que os metacaracteres devem ser colocados dentro de classes de caracteres para tornar a expressão regular mais fácil de entender.
+Esta inspeção não alerta sobre os metacaracteres <code>[</code>, <code>]</code> e <code>^</code>, pois esses caracteres podem exigir escape adicional dentro de uma classe de caracteres.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  \d+\.\d+
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  \d+[.]\d+
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2017.1</small>
+</body>
+</html>

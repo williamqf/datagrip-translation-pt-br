@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata divisões de inteiros onde o resultado é usado como um número de ponto flutuante.
+Tais divisões geralmente indicam um erro e podem produzir resultados inesperados devido ao truncamento que ocorre na divisão de inteiros.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  float x = 3.0F + 3 * 2 / 5;
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  float x = 3.0F + ((float) (3 * 2)) / 5;
+</code></pre>
+
+<!-- tooltip end -->
+</body>
+</html>

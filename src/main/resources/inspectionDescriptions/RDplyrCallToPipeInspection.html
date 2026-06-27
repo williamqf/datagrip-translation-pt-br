@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata chamadas dplyr aninhadas e sugere substituí-las por pipes.</p>
+<p><b>Exemplo:</b></p>
+<p>
+  <code>
+    summarise(filter(diamonds, depth > 62.0), mean = mean(carat))
+  </code>
+</p>
+<p>Ao aplicar a correção rápida, o código mudará para:</p>
+<p>
+  <code>
+    diamonds %>%
+    filter(depth > 62.0) %>%
+    summarise(mean = mean(carat))
+  </code>
+</p>
+</body>
+</html>

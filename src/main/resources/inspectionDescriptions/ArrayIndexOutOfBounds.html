@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões de acesso a variáveis de array ou ponteiro em que o índice pode estar fora dos limites do array ou do buffer alocado.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo() {
+      int buffer[100];
+
+      for (int i = 0; i &lt;= 100; i ++)
+          buffer[i] = 0; // buffer overflow quando <i>i</i> é igual a <i>100</i>
+  }
+</code></pre>
+<p><small>Novidades da versão 2022.2</small></p>
+</body>
+</html>

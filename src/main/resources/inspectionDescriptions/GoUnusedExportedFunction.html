@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata funções exportadas não utilizadas.
+<p>Em Go, se uma função começa com uma letra maiúscula, ela é exportada. Nomes de funções exportadas que estão definidas, mas nunca são utilizadas, serão esmaecidos.</p>
+<pre><code>// Função exportada não utilizada
+func ExportedUnusedFunc()  {
+
+}
+
+func main() {
+ fmt.Println("Hello")
+}</code></pre>
+</body>
+</html>

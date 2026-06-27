@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata os operadores <code>until</code> e <code>rangeTo</code> em loops <code>for</code> que podem ser substituídos por <code>Collection.indices</code> ou pela iteração sobre a coleção.
+<p>O uso de açúcar sintático pode tornar o código mais simples.</p>
+<p>A correção rápida substituirá o intervalo manual pela construção correspondente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (index in 0..args.size - 1) {
+          println(args[index])
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun main(args: Array&lt;String&gt;) {
+      for (element in args) {
+          println(element)
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

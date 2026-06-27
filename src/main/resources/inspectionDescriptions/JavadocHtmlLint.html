@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata os mesmos problemas de HTML em comentários Javadoc que o DocLint relata desde o Java 8.
+<p>Esta inspeção detecta os seguintes problemas:</p>
+<ul>
+  <li>Tags de fechamento automático, não fechadas, desconhecidas, mal posicionadas ou vazias</li>
+  <li>Atributos desconhecidos ou incorretos</li>
+  <li>Texto mal posicionado</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+/**
+ * Tag desconhecida: List&lt;String&gt;
+ * Tag não fechada: error&lt;/b&gt;
+ * Texto ou tag mal posicionada: &lt;ul&gt;&lt;li&gt;one&lt;/li&gt;, &lt;li&gt;two&lt;/li&gt;&lt;/ul&gt;
+ * Atributo incorreto ou vazio: &lt;a href=""&gt;&lt;/a&gt;
+ * Tag de fechamento automático: &lt;br/&gt;
+ * ...
+ */
+void sample(){ }
+</code></pre>
+</body>
+</html>

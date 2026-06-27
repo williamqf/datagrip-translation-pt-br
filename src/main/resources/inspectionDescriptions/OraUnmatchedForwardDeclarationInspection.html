@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata declarações de procedimentos e funções cujas implementações estão ausentes no código.
+<p>No Oracle, você pode declarar um procedimento ou função sem um corpo e escrever a implementação posteriormente. Esta inspeção relata os nomes de tais procedimentos ou funções que não foram implementados.</p>
+<p>Exemplo (Oracle):</p>
+<pre><code>DECLARE PROCEDURE foo(a int, b varchar2);
+BEGIN
+    NULL;
+END;</code></pre>
+<p>O procedimento <code>foo</code> foi declarado, mas sua implementação está ausente. Podemos adicionar a implementação para eliminar o erro.</p>
+<pre><code>DECLARE PROCEDURE foo(a int, b varchar2);
+  PROCEDURE foo(a int, b varchar2) IS
+BEGIN
+    NULL;
+END;
+BEGIN
+    NULL;
+END;</code></pre>
+</body>
+</html>

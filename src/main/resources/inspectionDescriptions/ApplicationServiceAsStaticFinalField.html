@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata o uso de serviços de aplicativo alocados para campos/propriedades estáticos finais.
+<p>
+  Essas alocações levam ao estado global, o que impede remover um aplicativo e configurar outro em testes. Assim, testes repetidos no mesmo processo podem falhar.
+  A única exceção é para chamadas de construtor explícitas usadas para armazenar instâncias virtuais/padrão.
+</p>
+<p>
+  A forma recomendada de evitar armazenamento de serviços envolvem buscar o serviço localmente ou envolvê-lo em um <code>java.util.function.Supplier</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  // Jeito incorreto
+  private static final ManagingFS ourInstance = ApplicationManager.getApplication().getService(ManagingFS.class);
+</code></pre>
+<pre><code lang="java">
+  // Jeito correto
+  private static final Supplier&lt;ManagingFS&gt; ourInstance = CachedSingletonsRegistry.lazy(() -> {
+    return ApplicationManager.getApplication().getService(ManagingFS.class);
+  });
+</code></pre>
+<pre><code lang="java">
+  // Exceção
+  private static final UniqueVFilePathBuilder DUMMY_BUILDER = new UniqueVFilePathBuilder()
+</code></pre>
+<p><small>Mudança recente em 2023.2</small>
+</body>
+</html>

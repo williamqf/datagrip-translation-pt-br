@@ -1,0 +1,34 @@
+<html>
+<body>
+Relata chamadas a métodos <code>abstract</code> da classe atual durante a construção do objeto.
+<p>Um método é chamado durante a construção do objeto se estiver em um dos seguintes locais:
+<ul>
+  <li>Construtor</li>
+  <li>Inicializador de instância não static</li>
+  <li>Inicializador de campo não static</li>
+  <li>Método <code>clone()</code></li>
+  <li>Método <code>readObject()</code></li>
+  <li>Método <code>readObjectNoData()</code></li>
+</ul>
+<p>Tais chamadas podem resultar em erros sutis, pois a inicialização do objeto pode ocorrer antes da chamada do método.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  abstract class Parent {
+    abstract void abstractMethod();
+  }
+
+  class Child extends Parent {
+    Child() {
+      abstractMethod();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção compartilha funcionalidades com as seguintes inspeções:</p>
+<ul>
+  <li>Método que pode ser sobrescrito chamado durante a construção do objeto</li>
+  <li>Método sobrescrito chamado durante a construção do objeto</li>
+</ul>
+<p>Apenas uma inspeção deve ser habilitada por vez para evitar avisos duplicados.</p>
+</body>
+</html>

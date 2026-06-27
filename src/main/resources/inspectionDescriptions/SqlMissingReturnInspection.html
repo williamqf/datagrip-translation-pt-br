@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata funções que não possuem uma instrução RETURN.
+
+<p>Exemplo (Oracle):</p>
+
+<pre>
+<code>CREATE FUNCTION foo RETURN int AS
+BEGIN
+END;
+</code></pre>
+
+<p>A função <code>foo</code> deve retornar um valor inteiro, mas o corpo da função não retorna nada. Para corrigir o erro, adicione uma instrução RETURN (por exemplo, <code>RETURN 1;</code>).</p>
+
+<pre><code>CREATE FUNCTION foo RETURN int AS
+BEGIN
+ RETURN 1;
+END;</code></pre>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata grupos de captura anônimos e retrovisores numéricos em expressões regulares.
+Estes são relatados apenas se o dialeto de expressão regular suportar grupos nomeados e referências a grupos nomeados.
+Grupos nomeados e retrovisores nomeados melhoram a legibilidade do código, portanto, recomenda-se utilizá-los em seu lugar.
+Quando a captura não for necessária, o uso de grupos de não captura (ou seja, <code>(?:xxx)</code> em vez de <code>(xxx)</code>) pode aumentar o desempenho da correspondência e reduzir o uso de memória.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  (\d\d\d\d)\1
+</code></pre>
+<p>Um padrão de expressão regular melhor seria:</p>
+<pre><code>
+  (?&lt;quad>\d\d\d\d)\k&lt;quad>
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2017.2</small>
+</body>
+</html>

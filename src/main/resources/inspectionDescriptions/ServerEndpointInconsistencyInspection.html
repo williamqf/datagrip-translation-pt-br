@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata erros de declaração de endpoint WebSocket.</p>
+<p>
+  De acordo com a especificação JSR 356, um endpoint WebSocket deve ter exatamente um método <code>@OnMessage</code> para cada tipo de mensagem: texto, binário e pong.
+</p>
+<p>
+  Classes de endpoint anotadas com <code>javax.websocket.server.ServerEndpoint</code> podem ter apenas um método com cada uma destas três anotações de ciclo de vida:
+</p>
+<ul>
+  <li><code>@OnOpen</code></li>
+  <li><code>@OnClose</code></li>
+  <li><code>@OnError</code></li>
+</ul>
+<p>
+  Classes de endpoint que estendem <code>javax.websocket.Endpoint</code> devem implementar os métodos de ciclo de vida correspondentes em vez de usar anotações.
+</p>
+</body>
+</html>

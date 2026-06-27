@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata instruções <code>throw</code> que lançam exceções inadequadas.
+Por exemplo, uma exceção pode ser inadequada por ser genérica demais, como <code>java.lang.Exception</code> ou <code>java.io.IOException</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void setup(Mode mode) {
+      if (mode == null)
+          throw new RuntimeException("Problem during setup"); // Aviso: exceção proibida 'RuntimeException' lançada
+      ...
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a lista de <b>Exceções proibidas</b> para especificar quais exceções devem ser relatadas.<p>
+</body>
+</html>

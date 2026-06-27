@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata métodos com nomes semelhantes a acessores que possuem uma cláusula de parâmetro vazia.</p>
+<p>Métodos que seguem o contrato de nomenclatura <a href="https://en.wikipedia.org/wiki/JavaBean">JavaBean</a> para acessores
+    devem não ter <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)"> efeitos colaterais</a>.
+    A convenção recomendada para esses métodos é usar um método sem parâmetros sempre que não houver parâmetros.</p>
+<p>Esta convenção promove o <a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que diz que o código do cliente não deve ser afetado por uma decisão de implementar um atributo como um campo ou  método.</p>
+<p>A correção rápida remove a cláusula de parâmetro vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Teste {
+    def hasProperty(): Boolean
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  trait Teste {
+    def hasProperty: Boolean
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção não relatará métodos que sobrescrevem outros membros.</p>
+</body>
+</html>

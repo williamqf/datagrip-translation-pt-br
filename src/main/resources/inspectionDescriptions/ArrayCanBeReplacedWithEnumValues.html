@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata arrays de constantes de enum que podem ser substituídos por uma chamada a <code>EnumType.values()</code>.
+<p>Normalmente, ao atualizar tal enum, você também deve atualizar o array. No entanto, se você usar <code>EnumType.values()</code> em vez disso, nenhuma modificação será necessária.</p>
+<p>Exemplo:</p>
+<pre><code>
+  enum States {
+     NOT_RUN, IN_PROGRESS, FINISHED;
+  }
+  
+  handleStates(new States[] {NOT_RUN, IN_PROGRESS, FINISHED});
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  handleStates(States.values());
+</code></pre>
+<p><small>Novidade na versão 2019.1</small></p>
+</body>
+</html>

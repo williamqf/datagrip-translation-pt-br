@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas da função <code>errors.As</code> quando o segundo argumento não é um ponteiro para uma interface ou para um tipo que
+  implementa um erro.
+<p>Essas chamadas causarão pânico no tempo de execução.</p>
+<p>Para obter mais informações sobre a função <code>As</code>, consulte <a href="https://pkg.go.dev/errors#As">func As at go.dev</a>.</p>
+<p>Exemplo:</p>
+<pre><code>_, err := os.Open("não existente")
+var pathError *fs.PathError
+se errors.As(err, pathError) { // é necessário um ponteiro para *fs.PathError
+}</code></pre>
+<p>Após a aplicação da correção rápida <b>Adicionar '&amp;'</b>:</p>
+<pre><code>_, err := os.Open("não existente")
+var pathError *fs.PathError
+se errors.As(err, &pathError) {
+}</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção somente será relatada se a versão da linguagem for 1.13 ou superior.</p>
+</body>
+</html>

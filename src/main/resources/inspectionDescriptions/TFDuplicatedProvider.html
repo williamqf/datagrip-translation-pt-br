@@ -1,0 +1,34 @@
+<html>
+<body>
+<p>Relata provedores duplicados.</p>
+
+<p>Exemplo de problema:</p>
+<pre><code>
+provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
+provider "kubernetes" {
+  config_path = "~/kube/kubeconfig-0728633f-2c4a-4d2b-9eb7-bc629d5e7f37"
+}</code>
+</pre>
+<p>
+  Uma das maneiras de resolver esse problema é adicionar um <b>alias</b> e especificá-lo explicitamente ao criar recursos no provedor desejado.
+</p>
+
+<p>Exemplo de correção:</p>
+<pre><code>
+  provider "kubernetes" {
+  config_path = "~/.kube/config"
+}
+
+provider "kubernetes" {
+  config_path = "~/kube/kubeconfig-0728633f-2c4a-4d2b-9eb7-bc629d5e7f37"
+  alias = "cloud"
+}
+</code>
+</pre>
+
+<em>Suportado por</em>: <a href="https://plugins.jetbrains.com/plugin/7808-terraform-and-hcl">plugin Terraform and HCL</a>
+</body>
+</html>

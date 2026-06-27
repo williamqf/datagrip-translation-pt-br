@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata inicializações perigosas de array (como <code>$arr[] = value</code>).
+<p>
+  Essa prática não é recomendada porque, se <code>$arr</code> já contiver algum valor (por exemplo, uma string de uma variável de requisição), esse valor permanecerá e <code>[]</code> pode, na verdade, representar o operador de acesso a string. É melhor sempre inicializar as variáveis por meio de atribuição direta.
+</p>
+<p>Para obter mais detalhes, consulte <a href="https://www.php.net/manual/en/language.types.array.php#language.types.array.syntax.modifying">Creating/modifying with square bracket syntax (php.net)</a>.
+</p>
+</body>
+</html>

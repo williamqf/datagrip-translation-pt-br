@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata classes que implementam <code>java.lang.Comparable</code>, mas não sobrescrevem <code>equals()</code>.
+<p>
+  Se <code>equals()</code> não for sobrescrito, a implementação de <code>equals()</code> será inconsistente com a implementação de <code>compareTo()</code>. Se objetos de tal classe forem adicionados a uma coleção como <code>java.util.SortedSet</code>, essa coleção violará o contrato de <code>java.util.Set</code> definido em termos de <code>equals()</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Length implements Comparable&lt;Length> {
+    private int cm = 0;
+
+    @Override
+    public int compareTo(@NotNull Length o) {
+      if (cm == o.cm) return 0;
+      return cm &lt; o.cm ? -1 : 1;
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Length implements Comparable&lt;Length> {
+    private int cm = 0;
+
+    @Override
+    public int compareTo(@NotNull Length o) {
+      if (cm == o.cm) return 0;
+      return cm &lt; o.cm ? -1 : 1;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      return o instanceof Length && compareTo((Length) o) == 0;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

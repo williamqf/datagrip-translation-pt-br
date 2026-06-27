@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata casos em que uma verificação de igualdade deve ser usada em vez do operador elvis.
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun check(a: Boolean? = null) {
+    if (a ?: false) throw IllegalStateException()
+}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+fun check(a: Boolean? = null) {
+    if (a == true) throw IllegalStateException()
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,10 @@
+<html>
+<body>
+Relata variáveis em branco opcionais em loops <code>range</code>.
+<p>Ao usar um loop <code>range</code> para iterar sobre um slice, dois valores são retornados para cada iteração. O primeiro valor é o número do índice e o segundo valor é uma cópia do elemento nesse índice. Se você não precisar do segundo valor, poderá omitir esse elemento em vez de usar um identificador em branco.</p>
+<p>Exemplo:</p>
+<pre><code>for a, _ = range v {} // `for a, _ =` é o mesmo que `for a =`</code></pre>
+<p>Para remover o identificador em branco, você pode usar a correção rápida <b>Excluir argumento em branco</b>. Após aplicar a correção rápida, o código ficará assim:</p>
+<pre><code>for a = range v {}</code></pre>
+</body>
+</html>

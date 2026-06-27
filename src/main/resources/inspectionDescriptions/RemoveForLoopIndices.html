@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata loops <code>for</code> que iteram sobre coleções usando a função <code>withIndex()</code>, mas sem utilizar a variável de índice.
+<p>Use a correção rápida "Remover o índice do loop 'for'" para limpar o código.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(bar: List&lt;String&gt;) {
+     for ((index : Int, value: String) in bar.withIndex()) { // &lt;== 'index' não é utilizado
+         println(value)
+     }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun foo(bar: List&lt;String&gt;) {
+      for (value: String in bar) { // &lt;== '.withIndex()' e 'index' foram removidos
+          println(value)
+      }
+  }
+</code></pre>
+</body>
+</html>

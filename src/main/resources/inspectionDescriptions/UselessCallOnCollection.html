@@ -1,0 +1,14 @@
+<html>
+<body>
+Reporta chamadas <code>filter...</code> da biblioteca padrão em coleções que já foram filtradas.
+<p>Várias funções na biblioteca padrão, como <code>filterNotNull()</code> ou <code>filterIsInstance</code>, só fazem sentido quando chamadas em um receiver com um tipo diferente do tipo do resultado. Caso contrário, tais chamadas podem ser omitidas, pois o resultado será o mesmo.</p>
+<p>A correção rápida <b>Remover chamada redundante</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun test(list: List&lt;String&gt;) {
+      val x = list.filterNotNull() // a correção rápida simplificará para 'list'
+      val y = list.filterIsInstance&lt;String&gt;() // a correção rápida simplificará para 'list'
+  }
+</code></pre>
+</body>
+</html>

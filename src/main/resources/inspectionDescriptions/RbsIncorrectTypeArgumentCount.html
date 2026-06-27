@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata referências a tipos genéricos com um número incorreto de argumentos de tipo. É um erro usar um tipo genérico sem passar a quantidade correta de argumentos de tipo.
+<p>Uma correção rápida pode ser usada para corrigir a quantidade de argumentos de tipo passados.</p>
+<p>Exemplo:</p>
+<pre><code>class Example[A]
+end
+
+# Muitos argumentos de tipo fornecidos
+type example = Example[untyped, untyped]</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>class Example[A]
+end
+
+type example = Example[untyped]</code></pre>
+</body>
+</html>

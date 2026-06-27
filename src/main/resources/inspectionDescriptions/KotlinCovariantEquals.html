@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata um <code>equals()</code> que aceita um tipo de argumento diferente de <code>Any?</code> quando a classe não possui outro <code>equals()</code> que aceite o tipo <code>Any?</code> como seu argumento.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+      fun equals(other: Foo?): Boolean {
+          return true
+      }
+  }
+</code></pre>
+<p>Para corrigir este problema, crie um método <code>equals()</code> que aceite um argumento do tipo <code>Any?</code>.</p>
+</body>
+</html>

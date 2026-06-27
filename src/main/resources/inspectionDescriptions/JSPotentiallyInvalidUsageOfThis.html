@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o uso de <code>this</code> em closures para referenciar propriedades de um contexto externo. <p>Exemplo:</p>
+<pre><code>
+function Outer() {
+  this.outerProp = 1;
+  function inner() {
+    // Inadequado, pois o 'outerProp' de Outer 
+    // não será atualizado aqui como esperado
+    // ao chamar 'new Outer()'
+    this.outerProp = 2;
+  }
+  inner();
+}
+</code></pre>
+</body>
+</html>

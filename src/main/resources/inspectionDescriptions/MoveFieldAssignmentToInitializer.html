@@ -1,0 +1,25 @@
+<html>
+<body>
+Sugere a substituição da inicialização de um campo que utiliza atribuição pela inicialização na declaração do campo.
+<p>Reporta apenas quando a atribuição do campo está localizada em um inicializador de instância ou static, e quando parece seguro combiná-la com a declaração do campo.
+  Em outros casos (como atribuições dentro de construtores), a correção rápida é oferecida sem destaque, pois a correção pode alterar a semântica.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class MyClass {
+    static final int intConstant;
+    
+    static {
+      intConstant = 10;
+    }
+  }
+</code></pre>
+A correção rápida moverá o valor atribuído para o inicializador do campo e removerá o inicializador de classe, se possível:
+<pre><code>
+  class MyClass {
+    static final int intConstant = 10;
+  }
+</code></pre>
+<!-- tooltip end -->
+<small>Desde 2017.2</small>
+</body>
+</html>

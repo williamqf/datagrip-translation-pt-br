@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata a comparação direta de erros, como o uso de <code>==</code>, e sugere o uso de <code>errors.Is</code>.
+<p>A partir do Go 1.13, os erros podem ser envolvidos usando a função <code>fmt.Errorf</code> e o verbo <code>%w</code>. Portanto, a comparação direta de erros usando uma verificação de igualdade falhará para erros envolvidos. A maneira preferencial de verificar erros específicos é usar a função <a href="https://pkg.go.dev/errors#Is">errors.Is</a> da biblioteca padrão, pois esta função percorre a cadeia de erros envolvidos ao verificar um erro específico.</p>
+<p>Para obter detalhes sobre o <code>errors.Is</code>, consulte <a href="https://go.dev/blog/go1.13-errors">Working with Errors in Go 1.13</a>.</p>
+<p>A correção rápida substituirá a comparação direta de erros por uma chamada a <code>errors.Is</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+if err == MyError {
+  fmt.Println("MyErr")
+}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+if errors.Is(err, MyError) {
+  fmt.Println("MyErr")
+}
+</code></pre>
+</body>
+</html>

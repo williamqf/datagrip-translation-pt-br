@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata expressões condicionais negadas por uma expressão de prefixo, pois tais construções podem ser confusas.
+<p>Uma correção está disponível para propagar a negação externa para ambos os ramos.</p>
+<p>Exemplo:</p>
+<pre><code>
+  !(i == 1 ? a : b)
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  i == 1 ? !a : !b
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

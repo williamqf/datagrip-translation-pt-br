@@ -1,0 +1,30 @@
+<html>
+<body>
+<p>Informa as definições sem uma anotação <code>@targetName</code> que sobrescrevem definições com anotação <code>@targetName</code>.</p>
+
+<p>Consulte <a href="https://docs.scala-lang.org/scala3/reference/other-new-features/targetName.html">A anotação @targetName</a>.</p>
+
+<p>O quick-fix adiciona a anotação <code>@targetName</code> com o nome externo da definição sobreposta.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait A:
+    @targetName("multiplicar")
+    def *(i: Int): A
+
+  class B extends A:
+    override def *(i: Int): A = ???
+</code></pre>
+<p>Depois que o quick-fix for aplicado:</p>
+<pre><code>
+  trait A:
+    @targetName("multiplicar")
+    def *(i: Int): A
+
+  class B extends A:
+    @targetName("multiplicar")
+    override def *(i: Int): A = ???
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

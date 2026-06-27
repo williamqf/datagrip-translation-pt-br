@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata o uso de coleções imutáveis em entidades JPA.
+<p>
+  Detecta propriedades anotadas com <code>@OneToMany</code> ou <code>@ManyToMany</code> que possuem tipos de coleção imutáveis (<code>List</code>, <code>Set</code>, <code>Map</code>).
+  Sugere o uso de tipos de coleção mutáveis (<code>MutableList</code>, <code>MutableSet</code>, <code>MutableMap</code>) para garantir a compatibilidade com o Hibernate.
+</p>
+<p>
+  Trecho de código:
+</p>
+<pre><code>
+@Entity
+open class User(
+  @Id
+  val id: Long = 0L,
+  @OneToMany
+  val orders: List<Order> = listOf(),
+)
+</code></pre>
+Após a aplicação da correção rápida:
+<pre><code>
+@Entity
+open class User(
+  @Id
+  val id: Long = 0L,
+  @OneToMany
+  val orders: MutableList<Order> = mutableListOf(),
+)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

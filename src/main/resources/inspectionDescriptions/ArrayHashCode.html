@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata cálculos de hash code incorretos para arrays.
+<p>Para calcular corretamente o hash code de um array, faça o seguinte:</p>
+<ul>
+  <li>Use <code>Arrays.hashcode()</code> para arrays lineares</li>
+  <li>Use <code>Arrays.deepHashcode()</code> para arrays multidimensionais</li>
+</ul>
+Estes métodos também devem ser usados com <code>Objects.hash()</code> quando a sequência de valores de entrada contiver um array, por exemplo, <code>Objects.hash(string, Arrays.hashcode(array))</code>:
+<!-- tooltip end -->
+<p>
+</body>
+</html>

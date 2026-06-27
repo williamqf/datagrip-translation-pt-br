@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata aliases de <code>SELECT</code> com nomes que coincidem com nomes de colunas na cláusula <code>FROM</code>.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT, b INT, c INT);
+SELECT a b, c FROM foo;</code></pre>
+<p>A coluna <code>a</code> usa o alias <code>b</code>, mas o nome <code>b</code> também é usado por uma coluna na tabela <code>foo</code>.</p>
+</body>
+</html>

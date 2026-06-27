@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata conversões de expressões como <code>string(x)</code>, em que <code>x</code> é um inteiro, mas não um byte ou rune.
+
+<p>Essas conversões não são recomendadas porque retornam a representação UTF-8 do ponto de código Unicode <code>x</code>, em vez da representação de string decimal de <code>x</code> que se poderia esperar. Além disso, se <code>x</code> representar um ponto de código inválido, a conversão não poderá ser rejeitada estaticamente.</p>
+
+<p>Para conversões que pretendem usar pontos de código, considere substituí-las por <code>string(rune(x))</code>. Caso contrário, <code>strconv.Itoa</code> e suas funções equivalentes retornarão a representação de string do valor na base desejada.</p>
+<p>Exemplo:</p>
+<pre><code>func main() {
+ a := 1
+ _ = string(a)
+}</code></pre>
+<p>Após aplicar a correção rápida <b>Converter inteiro para rune</b>:</p>
+<pre><code>func main() {
+ a := 1
+ _ = string(rune(a))
+}</code></pre>
+</body>
+</html>

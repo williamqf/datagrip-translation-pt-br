@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata rótulos de retorno redundantes fora de expressões lambda.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test() {
+      return@test
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test() {
+      return
+  }
+</code></pre>
+</body>
+</html>

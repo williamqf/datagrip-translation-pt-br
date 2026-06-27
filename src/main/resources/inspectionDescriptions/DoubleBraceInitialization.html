@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata a <a href="https://www.c2.com/cgi/wiki?DoubleBraceInitialization">inicialização com chaves duplas</a>.
+<p>A inicialização com chaves duplas tem um desempenho inferior em comparação com a inicialização convencional, pois requer o carregamento de uma classe adicional.</p>
+<p>Ela também pode causar falhas na comparação <code>equals()</code> se o método <code>equals()</code> não aceitar subclasses como parâmetros.</p>
+<p>O uso da inicialização com chaves duplas em um contexto não estático pode causar vazamentos de memória. Isso ocorre porque ela define uma classe anônima que, quando compilada com versões do javac anteriores ao Java 18, fará referência ao objeto circundante.</p>
+<p>Além disso, em versões anteriores ao Java 9, a inicialização com chaves duplas não podia ser combinada com o operador diamond, pois era incompatível com classes anônimas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  List&lt;Integer&gt; list = new ArrayList&lt;&gt;() {{
+    add(1);
+    add(2);
+  }};
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  List&lt;Integer&gt; list = new ArrayList&lt;&gt;();
+  list.add(1);
+  list.add(2);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

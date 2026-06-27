@@ -1,0 +1,21 @@
+<html>
+<body>
+<p>Detecta chamadas de método do Gradle que podem estar posicionadas incorretamente.</p>
+  Os buildscripts do Gradle contêm muitos closures aninhados, tornando a estrutura do código semelhante a uma linguagem de marcação.
+  Devido ao comportamento da linguagem DSL, métodos que podem ser escritos em um closure externo também podem ser usados em um closure interno.
+  Tais métodos podem não fazer sentido quando escritos fora de seu escopo. <br>Às vezes, pode ser difícil detectar essa situação.
+  O objetivo desta inspeção é encontrar tais métodos.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+repositories {
+  // O delegate de 'repositories' possui o método 'exclusiveContent', que pode ser escrito aqui
+  maven {
+    // O delegate de 'maven' possui o método 'content', que pode ser escrito aqui,
+    // mas 'exclusiveContent' também pode ser usado
+    exclusiveContent {} // 'exclusiveContent' é reportado
+  }
+}
+</code></pre>
+</body>
+</html>

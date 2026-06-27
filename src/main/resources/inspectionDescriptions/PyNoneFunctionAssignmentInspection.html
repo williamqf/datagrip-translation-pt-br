@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata casos em que uma atribuição é feita usando uma função que não retorna nenhum valor.</p>
+Esta inspeção é semelhante à <a href="https://docs.pylint.org/en/1.6.0/features.html#id6">inspeção E1111 do pylint</a>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+def just_print():
+    print("Hello!")
+
+
+action = just_print()
+</code></pre>
+<p>A correção rápida sugerida pela IDE é remover esta atribuição.</p>
+</body>
+</html>

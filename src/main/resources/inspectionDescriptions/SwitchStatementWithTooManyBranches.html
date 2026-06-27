@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata instruções ou expressões <code>switch</code> com rótulos <code>case</code> em excesso.
+<p>Instruções switch longas como essas podem ser confusas e talvez devam ser refatoradas.
+  Às vezes, isso não é um problema (por exemplo, se um domínio for muito complexo e houver um enum contendo um grande número de constantes).</p>
+<p>Exemplo:</p>
+<pre><code>
+    switch (x) {
+        case 1 -> {}
+        case 2 -> {}
+        case 3 -> {}
+        case 4 -> {}
+        case 5 -> {}
+        case 6 -> {}
+        case 7 -> {}
+        case 8 -> {}
+        case 9 -> {}
+        case 10 -> {}
+        case 11,12,13 -> {}
+        default -> {}
+    }
+</code></pre>
+<!-- tooltip end -->
+<p>Use o campo <b>Número máximo de ramificações</b> para especificar o número máximo esperado de rótulos <code>case</code>.
+<p>
+</body>
+</html>

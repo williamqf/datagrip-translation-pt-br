@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata chamadas ao método <code>java.lang.Thread.sleep()</code> dentro de blocos ou métodos <code>synchronized</code>.
+<p>
+  O uso de <code>sleep()</code> dentro de um bloco <code>synchronized</code> pode causar degradação de desempenho, baixa escalabilidade e possivelmente até deadlocks. Considere usar <code>wait()</code> em seu lugar, pois ele liberará o bloqueio mantido.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  synchronized (lock) {
+    Thread.sleep(100);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

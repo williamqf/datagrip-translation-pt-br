@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata partes de expressões booleanas que são sempre <code>true</code>, sempre <code>false</code> ou redundantes.
+Essas expressões booleanas podem ser simplificadas, o que aumenta a legibilidade do código. Em alguns casos, isso também indica a presença de outros problemas.
+
+<p>Exemplo:</p>
+<pre><code>func isNonZero(x, y int) bool {
+  // A segunda comparação ou é sempre true,
+  // ou nem sequer é executada
+  return x > 0 && x > 0
+}</code></pre>
+<p>Você pode aplicar a correção rápida <b>Simplificar expressão</b> à parte <code>x > 0 && x > 0</code>. Após a aplicação da correção rápida, a expressão será: <code>x > 0</code>.</p>
+</body>
+</html>

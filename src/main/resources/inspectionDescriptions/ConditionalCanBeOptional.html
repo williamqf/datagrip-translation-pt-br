@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata condições de verificação de <code>null</code> e sugere substituí-las por cadeias <code>Optional</code>.
+<p>Exemplo:</p>
+<pre><code>
+  return str == null ? "" : str.trim();
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  return Optional.ofNullable(str).map(String::trim).orElse("");
+</code></pre>
+<p>Embora a substituição nem sempre seja mais curta, ela pode ser útil para refatorações posteriores (por exemplo, alterar o valor de retorno do método para <code>Optional</code>).</p>
+<p>Observe que, quando o ramo não nulo da condição retorna um valor nulo, a etapa de mapeamento correspondente produzirá um <code>Optional</code> vazio, possivelmente alterando a semântica. Se a preservação da semântica não puder ser provada estaticamente, o nome da ação de correção rápida incluirá a notificação "(possivelmente altera a semântica)" e o realce da inspeção será desativado.</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.1</small></p>
+</body>
+</html>

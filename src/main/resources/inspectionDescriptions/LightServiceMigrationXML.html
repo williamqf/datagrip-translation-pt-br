@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata serviços registrados no <code>plugin.xml</code> que podem ser convertidos em serviços leves (light services).
+<p>
+  Serviços que não se destinam a ser substituídos não precisam ser registrados no arquivo <code>plugin.xml</code>.
+  Em vez disso, a classe de serviço pode ser anotada com <code>@com.intellij.openapi.components.Service</code>. Para serviços em nível de projeto, especifique <code>@Service(Service.Level.PROJECT)</code>.
+<p>
+  Requisitos:
+<ul>
+  <li>IntelliJ Platform 2019.3 ou superior.</li>
+  <li>A classe de serviço deve ser <code>final</code>.</li>
+  <li><code>serviceInterface</code> não está especificado.</li>
+  <li>Se o serviço em nível de aplicativo for <code>com.intellij.openapi.components.PersistentStateComponent</code>, o roaming deverá ser desativado (<code>roamingType = RoamingType.DISABLED</code>).
+  </li>
+  <li>Nenhum dos seguintes atributos está especificado: <code>os</code>, <code>client</code>, <code>overrides</code>, <code>id</code>, <code>preload</code>, <code>configurationSchemaKey</code>.</li>
+</ul>
+<p>Também relata serviços registrados no <code>plugin.xml</code> cujas classes já possuem a anotação <code>@Service</code>.
+<p>
+  Para mais detalhes, consulte <a href="https://plugins.jetbrains.com/docs/intellij/plugin-services.html">Serviços</a> na documentação do SDK de Plugins da plataforma IntelliJ.
+</p>
+<p>
+  Consulte também a inspeção <code>Plugin DevKit | Código | O serviço pode ser convertido em um serviço leve</code>.
+</p>
+
+<!-- tooltip end -->
+<p><small>Novidades na 2023.2</small>
+</body>
+</html>

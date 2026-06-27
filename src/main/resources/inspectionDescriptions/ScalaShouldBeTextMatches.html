@@ -1,0 +1,14 @@
+<html>
+<body>
+<p>Relata o uso de <code>PsiElement.getText</code> ao comparar com uma string e sugere substituí-lo por <code>PsiElement.textMatches</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  psiElement.getText == "null"
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  psiElement.textMatches("null")
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

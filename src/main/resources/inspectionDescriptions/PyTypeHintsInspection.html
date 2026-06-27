@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata o uso inválido de dicas de tipo (type hints).</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+from typing import TypeVar
+
+T0 = TypeVar('T1') # o argumento de 'TypeVar' deve ser 'T0'
+
+
+def b(p: int) -> int:  # o tipo foi especificado tanto no comentário quanto na anotação
+    # type: (int) -> int
+    pass
+
+
+def c(p1, p2): # argumentos demais para a assinatura de tipo
+    # type: (int) -> int
+    pass
+</code></pre>
+<p>As correções rápidas disponíveis sugerem várias ações. Você pode renomear, remover ou mover o elemento problemático. Também é possível modificar manualmente a declaração de tipo para garantir que o aviso não seja exibido.</p>
+</body>
+</html>

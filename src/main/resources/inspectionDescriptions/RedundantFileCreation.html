@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata a criação redundante de <code>File</code> em um dos seguintes construtores quando apenas um caminho <code>String</code> poderia ser utilizado: <code>FileInputStream</code>, <code>FileOutputStream</code>, <code>FileReader</code>, <code>FileWriter</code>, <code>PrintStream</code>, <code>PrintWriter</code>, <code>Formatter</code>.
+<p>Exemplo:</p>
+<pre><code>
+InputStream is = new FileInputStream(new File("in.txt"));
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+InputStream is = new FileInputStream("in.txt");
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2020.3</small></p>
+</body>
+</html>

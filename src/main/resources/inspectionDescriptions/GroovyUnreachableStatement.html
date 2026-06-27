@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata instruções inacessíveis. Isso pode ocorrer se a instrução estiver posicionada após um loop infinito ou após as instruções <code>return</code>, <code>break</code> ou <code>continue</code>.</p>
+<p><b>Exemplo:</b>
+<pre><code>
+  <b>void</b> foo (int n) {
+      if (n < 1) {
+          return
+          <b>print('This statement is unreachable')</b>
+      }
+      while (true){
+          print ('Hello, world!')
+      }
+      <b>print('This statement is unreachable too')</b>
+  }
+</code></pre>
+</body>
+</html>

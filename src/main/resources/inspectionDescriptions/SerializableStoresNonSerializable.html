@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata quaisquer referências a variáveis locais não <code>Serializable</code> externas a lambdas, classes locais e classes anônimas <code>Serializable</code>.
+<p>
+  Quando uma variável local é referenciada a partir de uma classe anônima, seu valor é armazenado em um campo implícito dessa classe. O mesmo ocorre para classes locais e lambdas. Se o tipo da variável não for <code>Serializable</code>, a serialização falhará.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  interface A extends Serializable {
+      abstract void foo();
+  }
+  class B {}
+  class C {
+      void foo() {
+          B b = new B();
+          A a = new A() {
+              @Override
+              public void foo() {
+                  System.out.println(b); // aviso
+              }
+          };
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

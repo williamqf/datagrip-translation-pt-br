@@ -1,0 +1,16 @@
+<html>
+<body>
+Reporta alocações de memória (seja pelo operador <code>new</code> ou pela função <code>malloc()</code>) que não foram liberadas antes de se tornarem inacessíveis.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class MyClass {
+      int* leakedField = new int;
+  };
+
+  void foo() {
+      MyClass* c = new MyClass;
+      delete c;
+  }
+</code></pre>
+</body>
+</html>

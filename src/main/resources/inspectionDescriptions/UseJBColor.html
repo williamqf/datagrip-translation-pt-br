@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata o uso de <code>java.awt.Color</code>.
+<p>
+  Isso pode não detectar temas "escuros" (por exemplo, o "Darcula" integrado), o que pode resultar em uma aparência desagradável da UI.
+</p>
+<p>
+  A correção rápida substitui o uso por <code>JBColor</code>, que permite definir variantes de cores "escuras".
+</p>
+<p>Exemplo:</p>
+<pre><code lang="java">
+// Incorreto:
+Color darkGreen = new Color(12, 58, 27);
+Color blue = Color.BLUE;
+
+// Correto:
+Color darkGreen = new JBColor(12, 58, 27);
+Color blue = JBColor.BLUE;
+Color green = new JSColor(new Color(12, 58, 27), new Color(27, 112, 39));
+</code></pre>
+</body>
+</html>

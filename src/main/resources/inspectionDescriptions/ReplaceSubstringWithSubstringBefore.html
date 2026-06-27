@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas como <code>s.substring(0, s.indexOf(x))</code> que podem ser substituídas por <code>s.substringBefore(x)</code>.
+<p>O uso de <code>substringBefore()</code> torna o código mais simples.</p>
+<p>A correção rápida substituirá a chamada <code>substring</code> por <code>substringBefore</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(s: String) {
+      s.substring(0, s.indexOf('x'))
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(s: String) {
+      s.substringBefore('x')
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

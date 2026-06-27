@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Inspeciona as anotações do JBoss Seam Dependent Bijection, onde o tipo da propriedade (variável de campo ou forma de acesso) não corresponde ao tipo de variável de contexto.</p>
+
+
+<p><strong>Exemplo:</strong></p>
+
+<pre><code>
+   @In("loggedInUser")
+   private User user;
+</code>
+</pre>
+
+<p>A variável <code>loggedInUser</code> deve ser atribuível a <code>User</code> ou uma de suas subclasses.</p>
+</body>
+</html>

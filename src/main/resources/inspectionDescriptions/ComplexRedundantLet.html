@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata chamadas <code>let</code> redundantes baseadas em argumentos.
+<p>Quando um parâmetro lambda é usado apenas como um qualificador em uma expressão de chamada, o <code>let</code> é redundante.</p>
+<p>Se for necessário nomear a expressão de qualificação, declare uma variável local.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun splitNumbers() {
+      "1,2,3".let { it.split(',') }
+  }
+</code></pre>
+<p>A correção rápida remove a chamada <code>let()</code> extra:</p>
+<pre><code>
+  fun example() {
+      "1,2,3".split(',')
+  }
+</code></pre>
+<p>Ou:</p>
+<pre><code>
+  fun splitNumbers() {
+      val numbers = "1,2,3"
+      numbers.split(',')
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

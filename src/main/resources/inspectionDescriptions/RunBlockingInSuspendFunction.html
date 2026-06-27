@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata chamadas <code>runBlocking</code> dentro de funções <code>suspend</code>.
+<p>O uso de <code>runBlocking</code> dentro de uma função <code>suspend</code> bloqueia a thread de chamada, contrariando o propósito da programação assíncrona.</p>
+<p>A correção rápida pode substituir a chamada <code>runBlocking</code> por uma das seguintes alternativas, dependendo do contexto:</p>
+<ul>
+    <li>Uma chamada <code>run</code>.</li>
+    <li>Uma chamada <code>withContext</code> ao usar um <code>CoroutineContext</code> específico.</li>
+    <li>Código direto em linha sem o wrapper <code>runBlocking</code>.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+suspend fun something() {
+  runBlocking {
+    code() // A thread é bloqueada aqui
+  }
+}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+suspend fun something() {
+  code() // Executa de forma assíncrona
+}
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2025.1</small></p>
+</body>
+</html>

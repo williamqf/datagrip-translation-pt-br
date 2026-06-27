@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata referências a variáveis que são verificadas quanto à nulidade em uma condição de instrução <code>if</code> ou expressão condicional, mas não são utilizadas dentro dessa instrução <code>if</code>.
+<p>
+  Isso geralmente significa que a verificação é desnecessária ou que a variável não foi referenciada dentro da instrução <code>if</code> por engano.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void test(Integer i) {
+    if (i != null) { // aqui 'i' não é utilizado dentro da instrução 'if'
+      System.out.println();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

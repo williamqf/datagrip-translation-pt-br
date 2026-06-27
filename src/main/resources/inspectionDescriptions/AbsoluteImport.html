@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata importações totalmente qualificadas que podem ser relative ao pacote base (<b>Settings | Languages & Frameworks | Scala | Base Packages</b>).
+<p>Aplicável somente quando a opção <b>Exceto para o pacote base</b> é habilitada em <b>Settings | Editor | Code Style |
+  Scala | Imports</b>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  package org.example.application
+  package ui
+
+  import org.example.application.model.Data
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  package org.example.application
+  package ui
+
+  import model.Data
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

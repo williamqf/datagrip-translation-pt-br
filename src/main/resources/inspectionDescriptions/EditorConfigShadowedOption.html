@@ -1,0 +1,15 @@
+<!-- Copyright 2000-2018 JetBrains s.r.o. Use of this source code is governed by the Apache 2.0 license that can be found in the LICENSE file. -->
+<html>
+<body>
+Relata propriedades que já foram definidas em outras seções.
+<p>Exemplo:
+<pre><code>
+[*.java]
+indent_size=4
+[{*.java,*.js}]
+indent_size=2
+</code></pre>
+A segunda seção também inclui todos os arquivos <code>*.java</code>, mas também redefine <code>indent_size</code>.
+Como resultado, o valor "2" será usado para arquivos que correspondam a <code>*.java</code>.
+</body>
+</html>

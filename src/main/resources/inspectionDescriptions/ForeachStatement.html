@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata instruções <code>for</code> aprimoradas.
+<p>Exemplo:</p>
+<pre><code>
+  for (int x: Arrays.asList(1, 2, 3)) {
+    System.out.println(x);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  for (Iterator&lt;Integer&gt; iterator = Arrays.asList(1, 2, 3).iterator(); iterator.hasNext(); ) {
+    final int x = iterator.next();
+    System.out.println(x);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  A <i>instrução</i> <code>for</code> <i>aprimorada</i> surgiu no Java 5.
+  Esta inspeção ajuda a realizar o downgrade para compatibilidade com versões anteriores do Java.
+</p>
+
+</body>
+</html>

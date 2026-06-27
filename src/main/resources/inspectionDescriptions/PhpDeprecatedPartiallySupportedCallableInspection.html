@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata usos depreciados de callables que são suportados por <code>call_user_func($callable)</code>, mas não por <code>$callable()</code>.
+<!-- tooltip end -->
+<p>A partir do PHP 8.2, os seguintes callables foram depreciados:</p>
+<pre><code>"self::method"</code>
+<code>"parent::method"</code>
+<code>"static::method"</code>
+<code>["self", "method"]</code>
+<code>["parent", "method"]</code>
+<code>["static", "method"]</code>
+<code>["Foo", "Bar::method"]</code>
+<code>[new Foo, "Bar::method"]</code></pre>
+<p>
+  Para mais detalhes, consulte <a href="https://wiki.php.net/rfc/deprecate_partially_supported_callables">Deprecate partially supported callables (php.net)</a>.
+</p>
+
+</body>
+</html>

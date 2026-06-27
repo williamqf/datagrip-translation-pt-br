@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata blocos <code>try-finally</code> contendo <code>resource.close()</code> no <code>finally</code> que podem ser convertidos em chamadas <code>resource.use()</code>.
+<p>O <code>use()</code> é mais legível e menos propenso a erros, pois elimina a necessidade de uma chamada explícita a <code>close()</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun example() {
+      val reader = File("file.txt").bufferedReader()
+      try {
+          reader.lineSequence().forEach(::print)
+      } finally {
+          reader.close()
+      }
+  }
+</code></pre>
+<p>Após a aplicação do quick fix:</p>
+<pre><code>
+  fun example() {
+      File("file.txt").bufferedReader().use { reader ->
+          reader.lineSequence().forEach(::print)
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

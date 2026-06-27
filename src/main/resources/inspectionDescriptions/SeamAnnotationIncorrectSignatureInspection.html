@@ -1,0 +1,67 @@
+<html>
+<body>
+<p>Relata as anotações do Seam em classes ou métodos com assinaturas inválidas ou campos do tipo inválidos.</p>
+
+<ul>
+  <li>
+    <p><code>@Name</code> é inválido em interfaces e classes abstratas. É necessário um construtor sem argumentos na classe anotada.</p>
+  </li>
+  <li>
+    <p><code>@In</code> deve aparecer em campos ou métodos setter, como <code>void setUser(User user)</code>.</p>
+    <ul>
+      <li>Tipo de retorno void</li>
+      <li>Um argumento</li>
+      <li>Não estático</li>
+      <li>O nome deve começar com <code>set</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><code>@Out</code> deve aparecer em campos ou métodos getter, como <code>User getUser()</code>.</p>
+    <ul>
+      <li>Tipo de retorno não void</li>
+      <li>Sem argumentos</li>
+      <li>Não estático</li>
+      <li>O nome deve começar com <code>get</code>, opcionalmente <code>is</code> se o tipo de retorno for <code>boolean</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><strong>@DataModel</strong> deve aparecer em campos ou métodos getter (mesmo que a anotação <code>@Out</code>).
+    O tipo de campo ou o tipo de retorno deve ser um dos seguintes:</p>
+    <ul>
+      <li><code>java.util.List</code></li>
+      <li><code>java.util.Set</code></li>
+      <li><code>java.util.Map</code></li>
+    </ul>
+  </li>
+  <li>
+    <p><code>@DataModelSelection</code> deve aparecer em métodos setter.</p>
+  </li>
+  <li>
+    <p><code>@DataModelSelectionIndex</code> deve aparecer em métodos setter.</p>
+  </li>
+  <li>
+    <p><code>@Factory</code> e <code>@Unwrap</code> devem aparecer em métodos com a seguinte assinatura:</p>
+    <ul>
+      <li>Tipo de retorno não void</li>
+      <li>Sem parâmetros ou com um único parâmetro <code>org.jboss.seam.Component</code> (ou seu supertipo)</li>
+      <li>Não estático</li>
+    </ul>
+  </li>
+  <li>
+    <p><code>@Create</code> deve aparecer em métodos com a seguinte assinatura:</p>
+    <ul>
+      <li>Sem parâmetros ou com um único parâmetro <code>org.jboss.seam.Component</code> (ou seu supertipo)</li>
+      <li>Não estático</li>
+    </ul>
+  </li>
+  <li>
+    <p><code>@Destroy</code> deve aparecer em métodos com a seguinte assinatura:</p>
+    <ul>
+      <li>Tipo de retorno void</li>
+      <li>Sem parâmetros</li>
+      <li>Não estático</li>
+    </ul>
+  </li>
+</ul>
+</body>
+</html>

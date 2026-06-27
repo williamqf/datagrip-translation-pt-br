@@ -1,0 +1,45 @@
+<html>
+<body>
+Relata classes de <a href="https://github.com/junit-team/junit4/wiki/parameterized-tests">teste parametrizado</a> do JUnit 4 que usam a anotação <code>@RunWith(Parameterized.class)</code>, mas não incluem um método provedor de dados com a anotação <code>@Parameterized.Parameters</code> ou a assinatura desse método está incorreta. Tais classes de teste não podem ser executadas.
+Os métodos provedores de dados devem ser <code>public</code> e <code>static</code> e ter um tipo de retorno <code>Iterable</code> ou <code>Object[]</code>.
+<p>Sugere a criação de um método provedor de parâmetros vazio ou a alteração da assinatura do método provedor de dados incorreto.</p>
+
+<p><b>Exemplo:</b><p>
+<pre><code lang="java">
+  @RunWith(Parameterized.class)
+  public class ImportantTest {
+    private int input;
+    private int expected;
+
+    ImportantTest(int input, int expected) {
+      this.input = input;
+      this.expected = expected;
+    }
+
+    // ... casos de teste
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  @RunWith(Parameterized.class)
+  public class ImportantTest {
+    private int input;
+    private int expected;
+
+    ImportantTest(int input, int expected) {
+      this.input = input;
+      this.expected = expected;
+    }
+
+    @Parameters
+    public static Iterable&lt;Object[]> parameters() {
+      return null;
+    }
+
+    // ... test cases
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

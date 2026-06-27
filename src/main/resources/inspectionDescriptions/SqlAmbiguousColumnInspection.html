@@ -1,0 +1,12 @@
+<html>
+<body>
+Reporta colunas que possuem o mesmo nome, mas pertencem a tabelas diferentes.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo(id INT PRIMARY KEY);
+CREATE TABLE bar(id INT PRIMARY KEY);
+
+SELECT foo.id, bar.id FROM foo, bar WHERE id > 0;</code></pre>
+<p>A coluna <code>id</code> aparece nas tabelas <code>foo</code> e <code>bar</code>. Você precisa qualificar o nome da coluna para que a consulta esteja correta.</p>
+<pre><code>SELECT foo.id, bar.id FROM foo, bar WHERE foo.id > 0;</code></pre>
+</body>
+</html>

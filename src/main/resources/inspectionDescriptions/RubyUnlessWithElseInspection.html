@@ -1,0 +1,28 @@
+<html>
+<body>
+Relata instruções <code>unless</code> usadas com <code>else</code>. É preferível colocar a ramificação positiva primeiro.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+a = 1
+unless a > 2
+  puts 'a is 2 or less'
+else
+  puts 'a is greater than 2'
+end</code>
+</pre>
+
+Uma correção rápida pode ser usada para converter <code>unless</code> em <code>if</code>. Após aplicar a correção rápida, o resultado será:
+
+<pre>
+<code># Boa prática
+a = 1
+if a > 2
+  puts 'a is greater than 2'
+else
+  puts 'a is 2 or less'
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado pelo <a href="https://github.com/rubocop-hq/ruby-style-guide#no-else-with-unless">'Ruby Style Guide'</a></span></p>
+</body>
+</html>

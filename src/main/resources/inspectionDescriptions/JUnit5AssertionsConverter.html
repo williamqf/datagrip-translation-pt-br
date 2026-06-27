@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Relata chamadas a métodos em qualquer uma das classes <code>junit.framework.Assert</code>, <code>org.junit.Assert</code> ou <code>org.junit.Assume</code> em testes JUnit 5.</p>
+<p>Embora esses testes funcionem corretamente, a migração para <code>org.junit.jupiter.api.Assertions</code>/<code>org.junit.jupiter.api.Assumptions</code> ajuda a evitar dependências de versões legadas do JUnit.</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  import org.junit.Assert;
+  import org.junit.jupiter.api.Test;
+
+  public class MyTest {
+    @Test
+    public void simpleTest() {
+      Assert.assertEquals(4, 2 + 2);
+    }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  import org.junit.jupiter.api.Assertions;
+  import org.junit.jupiter.api.Test;
+
+  public class MyTest {
+    @Test
+    public void simpleTest() {
+      Assertions.assertEquals(4, 2 + 2);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,77 @@
+<html>
+<body>
+Relata declarações de membros de teste JUnit que estão com formato incorreto e que provavelmente não serão reconhecidas pelo framework de teste JUnit.
+Esta inspeção relata os seguintes problemas:
+<ul>
+  <li>Classes de teste que não podem ser instanciadas</li>
+  <li>Campos anotados com <code>@RegisterExtension</code> com tipo incorreto ou que não foram declarados como <code>static</code> quando necessário</li>
+  <li>Classes internas <code>static</code> ou <code>private</code> anotadas com <code>@Nested</code></li>
+  <li>Testes parametrizados definidos sem uma fonte</li>
+  <li>Testes parametrizados contendo um <code>@MethodSource</code> com um alvo desconhecido, não <code>static</code> ou sem argumentos</li>
+  <li>Incompatibilidade de tipo entre os parâmetros do método de teste parametrizado e os valores especificados em <code>@ValueSource</code> ou <code>@EnumSource</code></li>
+  <li>Testes anotados com mais de uma das anotações: <code>@Test</code>, <code>@ParameterizedTest</code> ou <code>@RepeatedTest</code></li>
+  <li>Métodos <code>setup()</code> ou <code>tearDown()</code> não <code>public</code>, cujo tipo de retorno não seja <code>void</code> ou que aceitem argumentos</li>
+  <li>Método <code>suite()</code> que seja <code>private</code>, aceite argumentos ou não seja <code>static</code></li>
+  <li>
+    Métodos anotados com <code>@BeforeClass</code>, <code>@AfterClass</code>, <code>@BeforeAll</code> ou <code>@AfterAll</code> que não sejam <code>public</code>, não sejam <code>static</code>, cujo tipo de retorno não seja <code>void</code> ou que não possuam uma lista de parâmetros válida
+  </li>
+  <li>
+    Métodos anotados com <code>@Before</code>, <code>@After</code>, <code>@BeforeEach</code> ou <code>@AfterEach</code> que não sejam <code>public</code>, cujo tipo de retorno não seja <code>void</code> ou que aceitem argumentos
+  </li>
+  <li><code>RepetitionInfo</code> injetado em métodos <code>@BeforeAll</code> ou <code>@AfterAll</code></li>
+  <li>
+    <code>RepetitionInfo</code> injetado em métodos <code>@BeforeEach</code> ou <code>@AfterEach</code> usados por testes anotados com <code>@Test</code>
+  </li>
+  <li>Campos e métodos não <code>public</code> ou não <code>static</code> anotados com <code>@DataPoint</code> ou <code>@DataPoints</code></li>
+  <li>
+    Campos e métodos anotados com <code>@Rule</code> que não sejam <code>public</code> ou não sejam subtipos de <code>TestRule</code> ou <code>MethodRule</code>
+  </li>
+  <li>Campos e métodos anotados com <code>@ClassRule</code> que não sejam <code>public</code>, não sejam <code>static</code> ou não sejam subtipos de <code>TestRule</code></li>
+  <li>
+    Métodos dentro de uma subclasse de <code>TestCase</code> com o prefixo <code>test</code> que não sejam <code>public</code>, cujo tipo de retorno não seja <code>void</code>, que aceitem argumentos ou sejam <code>static</code>
+  </li>
+  <li>
+    Métodos anotados com <code>@Test</code> que não sejam <code>public</code>, cujo tipo de retorno não seja <code>void</code>, aceitem argumentos ou sejam <code>static</code>
+  </li>
+</ul>
+
+Observe que, em Kotlin, as funções de suspensão possuem argumentos e tipos de retorno não void. Portanto, elas também não serão executadas pelo executor de testes JUnit. Esta inspeção também relatará este problema.
+
+<p><b>Exemplo de método <code>@Before</code> com formato incorreto:</b></p>
+<pre><code lang="java">
+  @Before private int foo(int arg) { }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="java">
+  @Before public void foo() { }
+</code></pre>
+
+<p><b>Exemplo de fonte de método ausente (Kotlin):</b></p>
+<pre><code lang="kotlin">
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code lang="kotlin">
+  class Example {
+    @MethodSource("parameters")
+    @ParameterizedTest
+    fun foo(param: String) { ... }
+
+    companion object {
+      @JvmStatic
+      fun parameters(): Stream&lt;Arguments&gt; {
+        TODO("Not yet implemented")
+      }
+    }
+  }
+</code></pre>
+
+<!-- tooltip end -->
+<p>Utilize as opções da inspeção para especificar as anotações. Parâmetros anotados com qualquer uma das anotações especificadas não serão relatados.
+</p>
+</body>
+</html>

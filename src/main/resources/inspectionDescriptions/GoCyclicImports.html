@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata importações cíclicas.
+
+<p>Exemplo:</p>
+<pre><code>
+package packageA
+
+import someModule/packageB
+</code></pre>
+
+<pre><code>
+package packageB
+
+import someModule/packageA
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões de atribuição aninhadas em outras expressões.
+<p>Tais expressões podem ser confusas e violam o princípio de design geral de que qualquer construção deve realizar apenas uma tarefa.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  String userName;
+  // Aviso: o resultado da atribuição a 'userName' é utilizado
+  String message = "Hello " + (userName = "Alice") + "!"
+  System.out.println(message);
+  System.out.println("Goodbye " + userName);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

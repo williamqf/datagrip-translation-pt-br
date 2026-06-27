@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata objetos não <code>Serializable</code> usados como argumentos para <code>java.io.ObjectOutputStream.write()</code>. Tais chamadas resultarão em uma exceção em tempo de execução.
+<p>
+  Esta inspeção assume que objetos dos tipos <code>java.util.Collection</code> e <code>java.util.Map</code> são <code>Serializable</code>, a menos que seus tipos declarados não sejam <code>Serializable</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public class IWantToSerializeThis {
+    public static void main(String[] args) throws IOException {
+      try(var stream = new ObjectOutputStream(Files.newOutputStream(Paths.get("output")))) {
+        // Aviso -- falhará com NotSerializableException
+        stream.writeObject(new IWantToSerializeThis());
+      }
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

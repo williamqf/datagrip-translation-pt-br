@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata parâmetros de tipo que podem ter variância <code>in</code> ou <code>out</code>.
+<p>O uso de variância <code>in</code> e <code>out</code> permite uma inferência de tipo mais precisa e uma semântica de código mais clara no Kotlin.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Box&lt;T&gt;(val obj: T)
+
+  fun consumeString(box: Box&lt;String&gt;) {}
+  fun consumeCharSequence(box: Box&lt;CharSequence&gt;) {}
+
+  fun usage(box: Box&lt;String&gt;) {
+      consumeString(box)
+      consumeCharSequence(box) // erro de compilação
+  }
+</code></pre>
+<p>A correção rápida adiciona o modificador de variância correspondente:</p>
+<pre><code>
+  class Box&lt;out T&gt;(val obj: T)
+
+  fun consumeString(box: Box&lt;String&gt;) {}
+  fun consumeCharSequence(box: Box&lt;CharSequence&gt;) {}
+
+  fun usage(box: Box&lt;String&gt;) {
+      consumeString(box)
+      consumeCharSequence(box) // OK
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

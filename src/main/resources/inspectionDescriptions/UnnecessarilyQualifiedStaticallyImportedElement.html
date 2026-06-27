@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata o uso de membros importados estaticamente que são qualificados pelo nome da classe que os contém.
+<p>Essa qualificação é desnecessária e pode ser removida, pois membros importados estaticamente podem ser acessados diretamente pelo nome do membro.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import static foo.Test.WIDTH;
+
+  class Bar {
+    void bar() {
+      System.out.println(Test.WIDTH);
+    }
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  import static foo.Test.WIDTH;
+
+  class Bar {
+    void bar() {
+      System.out.println(WIDTH);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

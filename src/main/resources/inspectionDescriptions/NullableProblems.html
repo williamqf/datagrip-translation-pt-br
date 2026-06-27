@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata problemas relacionados a anotações de nulidade.
+<p><b>Exemplos:</b></p>
+<ul>
+  <li>Método de sobreposição não anotado:
+    <pre><code>
+abstract class A {
+  @NotNull abstract String m();
+}
+class B extends A {
+    String m() { return "empty string"; }
+}
+    </code></pre>
+  </li>
+  <li>Tipo primitivo anotado: <code>@NotNull int myFoo;</code> </li>
+  <li><code>@Nullable</code> e <code>@NotNull</code> no mesmo membro: <code>@Nullable @NotNull String myFooString;</code></li>
+  <li>Coleção de elementos anuláveis atribuída a uma coleção de elementos não nulos:
+    <pre><code>
+void testList(List&lt;@Nullable String> nullableList) {
+   List&lt;@NotNull String> list2 = nullableList;
+}
+    </code></pre>
+  </li>
+</ul>
+<!-- tooltip end -->
+<p>Use o botão <b>Configurar anotações</b> para especificar anotações de nulidade e as caixas de seleção para ajustar onde a inspeção deve exibir avisos.</p>
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 5 ou superior e se as anotações de nulidade estiverem disponíveis no classpath.</p>
+</body>
+</html>

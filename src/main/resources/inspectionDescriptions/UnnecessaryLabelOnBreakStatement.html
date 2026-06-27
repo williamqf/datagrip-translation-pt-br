@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata instruções <code>break</code> com rótulos desnecessários. Tais rótulos não alteram o fluxo de controle, mas dificultam o acompanhamento do código.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  label:
+  for(int i = 0; i &lt; 10; i++) {
+    if (shouldBreak()) break label;
+    // faz algo
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  label:
+  for(int i = 0; i &lt; 10; i++) {
+    if (shouldBreak()) break;
+    // faz algo
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

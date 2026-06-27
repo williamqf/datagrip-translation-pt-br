@@ -1,0 +1,25 @@
+<html>
+<body>
+Reporta chamadas de método cujos resultados são ignorados.
+<p>Ignorar o resultado é perfeitamente legítimo para muitos métodos, mas para outros, é quase certamente um erro. Exemplos de métodos onde ignorar o resultado provavelmente é um erro incluem o <code>java.io.inputStream.read()</code>, que retorna o número real de bytes lidos, e qualquer método em <code>java.lang.String</code> ou <code>java.math.BigInteger</code>. Esses métodos não produzem efeitos colaterais, portanto, ignorar seus resultados não teria sentido.
+</p>
+<p>As chamadas aos seguintes métodos serão inspecionadas:</p>
+<ul>
+  <li>Getters simples (que não fazem nada além de retornar um campo)</li>
+  <li>Métodos especificados nas configurações desta inspeção</li>
+  <li>Métodos anotados com <code>org.jetbrains.annotations.Contract(pure=true)</code></li>
+  <li>Métodos anotados com .*.<code>CheckReturnValue</code></li>
+  <li>Métodos em classes ou pacotes anotados com <code>javax.annotation.CheckReturnValue</code></li>
+  <li>Todos os métodos que não sejam de biblioteca (opcional)</li>
+</ul>
+<p>Chamadas para métodos anotados com <code>@CanIgnoreReturnValue</code> do Error Prone ou AssertJ não serão reportadas.
+
+<!-- tooltip end -->
+<p>
+  Use as configurações da inspeção para especificar as classes a serem verificadas.
+  Os métodos são correspondidos por nome ou padrão de nome usando a sintaxe de expressão regular do Java.
+  Para classes, use o nome totalmente qualificado. Cada entrada se aplica à classe e a todos os seus sucessores.
+<p>
+
+</body>
+</html>

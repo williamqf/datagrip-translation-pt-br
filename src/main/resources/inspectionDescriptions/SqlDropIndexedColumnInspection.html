@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata tentativas de excluir uma coluna de uma tabela indexada. Esta inspeção está disponível no Microsoft SQL Server e no Sybase ASE.
+<p>Exemplo (Microsoft SQL Server):</p>
+<pre><code>CREATE TABLE test_index
+(
+col  INT NOT NULL,
+col2 INT NOT NULL,
+col3 INT NOT NULL UNIQUE,
+col4 VARCHAR(200)
+);
+
+CREATE UNIQUE INDEX aaaa ON test_index (col, col2);
+
+ALTER TABLE test_index
+DROP COLUMN col;</code></pre>
+<p>Não é possível excluir a coluna <code>col</code> porque ela está em uma tabela indexada. Para excluir a coluna, primeiro você deve excluir o índice <code>aaaa</code> (por exemplo, DROP INDEX aaaa).</p>
+</body>
+</html>

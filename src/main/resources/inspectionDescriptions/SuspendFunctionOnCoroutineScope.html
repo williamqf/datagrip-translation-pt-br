@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata chamadas e acessos a extensões ou membros de <code>CoroutineScope</code> dentro de uma função <code>suspend</code> que possui um receptor <code>CoroutineScope</code>.
+<p>Quando uma função é <code>suspend</code> e possui um receptor <code>CoroutineScope</code>, o acesso ao <code>CoroutineContext</code> por meio de <code>kotlin.coroutines.coroutineContext</code> e <code>CoroutineScope.coroutineContext</code> é ambíguo, e esses dois contextos geralmente são diferentes.</p>
+<p>
+Para melhorar essa situação, você pode envolver a chamada suspeita em <code>coroutineScope { ... }</code> ou remover o receptor <code>CoroutineScope</code> da função.
+</p>
+</body>
+</html>

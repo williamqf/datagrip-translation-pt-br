@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata a instanciação de classes genéricas nas quais o símbolo <b>&lt;&gt;</b> (diamond) é usado em vez de parâmetros de tipo.
+
+<p>A correção rápida substitui <b>&lt;&gt;</b> (diamond) por parâmetros de tipo explícitos.</p>
+<p>Exemplo:</p>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;&gt;()</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>List&lt;String&gt; list = new ArrayList&lt;String&gt;()</code></pre>
+<!-- tooltip end -->
+<p>
+  O <i>operador diamond</i> surgiu no Java 7.
+  Esta inspeção ajuda a fazer o downgrade para compatibilidade reversa com versões anteriores do Java.
+</p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata definições incorretas dos seguintes itens relacionados a EJBs de entidade:
+<ul>
+  <li>A classe não implementa as interfaces esperadas (EJBLocalObject, EJBObject, etc.)</li>
+  <li>Modificadores de classe EJB incorretos</li>
+  <li>A classe não define um construtor público sem argumentos</li>
+  <li>Uso de classe em vez de interface ou interface em vez de classe</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+public final class SessionEJB implements javax.ejb.SessionBean {
+  private SessionEJB() {} // Erro: a classe deve definir um construtor público sem argumentos
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+<body>
+Reporta qualquer uso de <code>java.sql.DriverManager</code>
+para adquirir uma conexão JDBC. 
+<p>
+  <code>java.sql.DriverManager</code>
+  foi substituído por <code>javax.sql.Datasource</code>, que
+  permite pool de conexão e outras otimizações.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  Connection conn = DriverManager.getConnection(url, username, password);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

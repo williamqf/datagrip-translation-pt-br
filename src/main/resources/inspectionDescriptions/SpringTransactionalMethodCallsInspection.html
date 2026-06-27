@@ -1,0 +1,6 @@
+<html>
+<body>
+<a href="https://docs.spring.io/spring-framework/docs/current/reference/html/data-access.html#transaction-declarative-annotations">Uso de @Transactional</a>: No modo proxy (padrão), apenas chamadas de métodos externos que passam pelo proxy são interceptadas.
+Isso significa que uma autochamada (ou seja, um método dentro do objeto alvo chamando outro método do próprio objeto alvo) não resultará em uma transação real em tempo de execução, mesmo que o método chamado esteja marcado com @Transactional.
+</body>
+</html>

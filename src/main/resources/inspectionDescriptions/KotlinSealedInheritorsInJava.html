@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata tentativas de herdar de uma interface ou classe sealed do Kotlin a partir de código Java.
+<p><b>Exemplo:</b></p>
+<pre><code>
+// Arquivo Kotlin: MathExpression.kt
+
+sealed class MathExpression
+
+data class Const(val number: Double) : MathExpression()
+data class Sum(val e1: MathExpression, val e2: MathExpression) : MathExpression()
+</code></pre>
+<pre><code>
+// Arquivo Java: NotANumber.java
+
+public class NotANumber extends MathExpression {
+}
+</code></pre>
+</body>
+</html>

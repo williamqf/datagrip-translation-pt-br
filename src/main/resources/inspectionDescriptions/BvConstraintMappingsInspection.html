@@ -1,0 +1,37 @@
+<html>
+<body>
+<p>Relata elementos incorretos em arquivos de Bean Validation <code>&lt;constraint-mappings&gt;</code>:</p>
+
+<ul>
+  <li>Referência a classes que não podem ser instanciadas</li>
+  <li>Referência a uma classe que não estende a classe necessária</li>
+  <li>Referência a uma classe com escopo inadequado</li>
+  <li>Tags e valores de atributos vazios</li>
+  <li>Valores de tags e atributos que não correspondem ao padrão necessário (por exemplo, identificadores Java)</li>
+  <li>Tags que não contêm tags filhas ou atributos necessários</li>
+  <li>Tags que definem objetos com nomes duplicados</li>
+</ul>
+
+<p><strong>Exemplo:</strong></p>
+<pre><code>
+&lt;constraint-mappings version="1.1"&gt;
+    &lt;bean class="my.UserClass" ignore-annotations="false"&gt;
+        &lt;field name="name"&gt;
+            &lt;constraint annotation="<strong>java.lang.String</strong>"/&gt;  &lt;!--'java.lang.String' não é uma anotação Java --&gt;
+        &lt;/field&gt;
+
+        &lt;field name="name"&gt;
+            &lt;constraint annotation="javax.validation.constraints.Size"&gt;
+                &lt;element name="min"&gt;<strong>non-number</strong>&lt;/element&gt;    &lt;!-- deve ser um número entre '-2.147.483.648' e '2.147.483.647' --&gt;
+            &lt;/constraint&gt;
+        &lt;/field&gt;
+
+        &lt;getter name="<strong>zzz</strong>"&gt; &lt;!-- Não é possível resolver o símbolo 'zzz' --&gt;
+            &lt;valid/&gt;
+        &lt;/getter&gt;
+
+    &lt;/bean&gt;
+&lt;/constraint-mappings&gt;
+</code></pre>
+</body>
+</html>

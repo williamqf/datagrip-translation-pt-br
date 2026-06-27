@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata os seguintes erros de especificação JPA:
+<ul>
+  <li>Classes de listener de entidade sem um construtor público sem argumentos</li>
+  <li>Métodos de listener de entidade com assinaturas incorretas</li>
+</ul><br/>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Entity
+  @EntityListeners(value = JavaEntityListener.class)
+  class JavaEntity { ... }
+
+  class JavaEntityListener {
+
+    @PostLoad
+    void postLoad(String parameter) { ... } // Erro: o método 'postLoad' deve receber um parâmetro do tipo 'Object' aqui
+  }
+</code></pre>
+</body>
+</html>

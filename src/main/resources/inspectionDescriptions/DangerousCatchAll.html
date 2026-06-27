@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata os padrões nos blocos <code>catch</code> que correspondem a todos os tipos.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try f() catch {
+    case e => ???
+  }
+</code></pre>
+<p>Após a aplicação das correções rápidas:</p>
+<pre><code>
+  try f() catch {
+    case e: Throwable => ???
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

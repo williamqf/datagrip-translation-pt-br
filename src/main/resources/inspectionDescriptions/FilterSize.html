@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata os usos de <code>filter</code> e <code>size</code> (ou <code>length</code>) e sugere substituí-los por <code>count</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  var x: Seq[Int]
+  x.filter(p).size
+</code></pre>
+<p>Após a aplicação do quick-fix:</p>
+<pre><code>
+  var x: Seq[Int]
+  x.count(p)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

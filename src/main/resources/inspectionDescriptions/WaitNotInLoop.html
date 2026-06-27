@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata chamadas <code>wait()</code> que não são feitas dentro de um loop.
+<p>
+  <code>wait()</code> é geralmente usado para suspender uma thread até que alguma condição se torne verdadeira.
+  Uma thread pode ser acordada por diferentes motivos, portanto, a condição deve ser verificada após o retorno da chamada <code>wait()</code>.
+  Usar um loop é uma maneira fácil de realizar essa verificação.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class BoundedCounter {
+    private int count;
+    synchronized void inc() throws InterruptedException {
+      if (count >= 10) wait();
+      ++count;
+    }
+  }
+</code></pre>
+<p>O código adequado deve ser semelhante a:</p>
+<pre><code>
+  class BoundedCounter {
+    private int count;
+    synchronized void inc() throws InterruptedException {
+      while (count >= 10) wait();
+      ++count;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

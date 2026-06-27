@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata padrões de formato de data e hora inválidos.
+<p>Os seguintes erros são relatados:</p>
+<ul>
+  <li>Letras de padrão não suportadas, como "TT"</li>
+  <li>Uso de caracteres reservados, como "#"</li>
+  <li>Uso incorreto de preenchimento (padding)</li>
+  <li>Colchetes desbalanceados</li>
+  <li>Número incorreto de letras de padrão consecutivas</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+  DateTimeFormatter.ofPattern("[][]]"); // ']' de fechamento sem '[' de abertura
+  DateTimeFormatter.ofPattern("TT"); // letra de padrão 'T' inválida
+  DateTimeFormatter.ofPattern("{"); // caractere reservado '{' utilizado
+  DateTimeFormatter.ofPattern("MMMMMM"); // excesso de letras de padrão 'M' consecutivas
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novo na versão 2022.3</small>
+</body>
+</html>

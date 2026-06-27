@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata o acesso à propriedade <code>.length</code> de um array na parte condicional de instruções de loop. Em ambientes com recursos altamente restritos, tais chamadas podem afetar negativamente o desempenho.
+<p>
+  Esta inspeção é destinada ao Java ME e outros ambientes com recursos altamente restritos.
+  Aplicar os resultados desta inspeção sem critério pode afetar negativamente a clareza e o design do código.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  void foo(Object[] x) {
+    for (int i = 0; i &lt; x.length; i++) { /**/ }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

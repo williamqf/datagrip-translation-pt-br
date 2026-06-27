@@ -1,0 +1,42 @@
+<html>
+<body>
+Relata classes vazias e arquivos Java vazios.
+<p>Uma classe é considerada vazia se não contiver campos, métodos, construtores ou inicializadores. Classes vazias às vezes permanecem após grandes mudanças ou refatorações.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Example {
+    List&lt;String&gt; getList() {
+       return new ArrayList&lt;&gt;() {
+
+       };
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class Example {
+    List&lt;String&gt; getList() {
+       return new ArrayList&lt;&gt;();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>
+    Use a opção <b>Ignorar se anotado por</b> para especificar anotações especiais. A inspeção ignorará as classes marcadas com essas anotações.
+  </li>
+  <li><p>
+    Use a opção <b>Ignorar se a classe for uma parametrização de um supertipo</b> para ignorar classes que parametrizam uma superclasse. Exemplo:
+  </p>
+    <pre><code>class MyList extends ArrayList&lt;String&gt; {}</code></pre>
+  </li>
+  <li>
+    Use a opção <b>Ignorar subclasses de java.lang.Throwable</b> para ignorar classes que estendem <code>java.lang.Throwable</code>.
+  </li>
+  <li>
+    Use a opção <b>Comentários contam como conteúdo</b> para ignorar classes que contêm comentários.
+  </li>
+</ul>
+</body>
+</html>

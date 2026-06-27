@@ -1,0 +1,40 @@
+<html>
+<body>
+<p>Informa sobre uma assinatura incorreta de métodos anotados com <code>@Deployment</code></p>
+<p>
+  De acordo com a <a href="https://docs.jboss.org/arquillian/reference/1.0.0.Alpha5/en-US/html/gettingstarted.html#d0e451">documentação do Arquillian</a>, uma classe de teste do Arquillian deve definir um arquivo de implantação usando um método public static com uma assinatura específica, anotado com <code>@Deployment</code>.
+</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Este caso de teste não será iniciado pelo Arquillian, pois o método Deployment não é estático
+  @RunWith(Arquillian.class)
+  public class SomeTest {
+    @Deployment
+    public JavaArchive createDeployment() {
+      throw new UnsupportedOperationException("Implement me");
+    }
+
+    @Test
+    public void testSomething() {
+      Assert.fail("To be implemented");
+    }
+  }
+</code></pre>
+<p>Após a correção rápida:</p>
+<pre><code>
+  @RunWith(Arquillian.class)
+  public class SomeTest {
+    @Deployment
+    public static JavaArchive createDeployment() {
+      throw new UnsupportedOperationException("Implement me");
+    }
+
+    @Test
+    public void testSomething() {
+      Assert.fail("To be implemented");
+    }
+  }
+</code></pre>
+</body>
+</html>

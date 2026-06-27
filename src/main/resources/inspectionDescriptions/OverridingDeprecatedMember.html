@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata declarações que herdam de membros obsoletos.
+<p><b>Exemplo:</b></p>
+<pre><code>
+open class BaseService {
+  @Deprecated("obsoleto", replaceWith = ReplaceWith("connection"))
+  open fun connect() {}
+
+  open fun connection() {}
+} 
+
+class SomeService: BaseService() {
+  override fun connect() {
+    super.connect()
+  }
+}
+</code></pre>
+</body>
+</html>

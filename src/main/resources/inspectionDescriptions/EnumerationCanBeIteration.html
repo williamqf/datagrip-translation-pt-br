@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata chamadas de métodos <code>Enumeration</code> usadas em coleções que podem ser substituídas por construções <code>Iterator</code> equivalentes.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Enumeration&lt;String&gt; keys = map.keys();
+  while (keys.hasMoreElements()) {
+    String name = keys.nextElement();
+  }
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  Iterator&lt;String&gt; iterator = map.keySet().iterator();
+  while (iterator.hasNext()) {
+    String name = iterator.next();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

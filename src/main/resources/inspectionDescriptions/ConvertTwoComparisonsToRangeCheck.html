@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata duas comparações consecutivas que podem ser convertidas em uma verificação de intervalo.
+<p>A verificação em relação a um intervalo torna o código mais simples ao remover a duplicação do alvo do teste.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun checkMonth(month: Int): Boolean {
+      return month >= 1 && month &lt;= 12
+  }
+</code></pre>
+<p>A correção rápida substituirá a verificação baseada em comparação por uma verificação de intervalo:</p>
+<pre><code>
+  fun checkMonth(month: Int): Boolean {
+      return month in 1..12
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,60 @@
+<html>
+<body>
+Relata atribuições que não são utilizadas após a atribuição.
+Se não for utilizada, é recomendável remover a atribuição para encurtar o código e evitar atribuições redundantes.
+<p>Os seguintes casos serão relatados:</p>
+<ul>
+  <li>Variáveis que nunca são lidas após a atribuição</li>
+  <li>Variáveis que são sempre sobrescritas por um novo valor antes de serem lidas</li>
+  <li>Inicializadores de variáveis redundantes (por um dos dois motivos acima)</li>
+</ul>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>
+Use a opção <b>Relatar inicializadores redundantes</b> para relatar inicializadores redundantes:
+</p>
+<pre><code>
+  int getI() {
+    int i = 0; // inicialização redundante
+    i = 2;
+    return i;
+  }
+</code></pre>
+<p>
+Use a opção <b>Relatar expressões de prefixo que podem ser substituídas por expressões binárias</b> para relatar situações em que a expressão <code>++i</code> pode ser substituída por <code>i + 1</code>:
+</p>
+<pre><code>
+  int preInc(int value) {
+    int res = value;
+    return ++res;
+  }
+</code></pre>
+<p>
+Use a opção <b>Relatar expressões de sufixo onde o valor alterado não é usado</b> para relatar casos de <code>i++</code> onde o valor de <code>i</code> não é usado posteriormente:
+</p>
+<pre><code>
+  int postInc(int value) {
+    int res = value;
+    return res++;
+  }
+</code></pre>
+<p>
+Use a opção <b>Relatar variáveis de padrão cujos valores nunca são usados</b> para relatar casos em que o valor de uma variável de padrão é sobrescrito antes de ser lido:
+</p>
+<pre><code>
+  if (object instanceof String s) {
+      s = "hello";
+      System.out.println(s);
+  }
+</code></pre>
+<p>
+Use a opção <b>Relatar parâmetros de iteração cujos valores nunca são usados</b> para relatar situações em que o valor do parâmetro de iteração de um comando <code>for</code> aprimorado é sobrescrito antes de ser lido:
+</p>
+<pre><code>
+  for (String arg : args) {
+      arg = "test";
+      System.out.println(arg);
+  }
+</code></pre>
+</body>
+</html>

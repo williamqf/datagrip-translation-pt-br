@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata classes que implementam <code>Serializable</code> e não declaram um campo <code>serialVersionUID</code>.
+<p>
+  Sem um campo <code>serialVersionUID</code>, quaisquer alterações feitas na classe tornarão as versões serializadas anteriormente ilegíveis.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  class Main implements Serializable {
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code lang="java">
+  class Main implements Serializable {
+      private static final long serialVersionUID = -1446398935944895849L;
+  }
+</code></pre>
+Ao usar um nível de linguagem do JDK 14 ou superior, a correção rápida também adicionará a anotação <code>java.io.Serial</code>.
+<!-- tooltip end -->
+<p>Configure a inspeção usando as seguintes opções:</p>
+<ul>
+  <li>
+    Liste as classes cujos sucessores esta inspeção não deve relatar.
+    Isso se aplica a classes que herdam <code>Serializable</code> de uma superclasse, mas não se destinam à serialização.
+  </li>
+  <li>
+    Se as classes anônimas <code>Serializable</code> devem ser ignoradas.
+  </li>
+</ul>
+</body>
+</html>

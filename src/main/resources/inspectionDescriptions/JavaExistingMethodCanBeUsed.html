@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata trechos de código Java idênticos a métodos <code>static</code> existentes e sugere a reutilização desses métodos. Reutilizar métodos existentes torna o código mais curto e legível.
+<!-- tooltip end -->
+<p>Exemplo:</p>
+<pre><code lang="java">
+  static List&lt;String&gt; readFileAndTrim(Path path) throws IOException {
+    List&lt;String&gt; lines = Files.readAllLines(path);
+    return lines.stream().map(String::trim).toList();
+  }
+  
+  static List&lt;String&gt; readFileAndTrim(String path) throws IOException {
+    Path p = Path.of(path);
+    List&lt;String&gt; lines = Files.readAllLines(p);
+    return lines.stream().map(String::trim).toList();
+  }
+</code></pre>
+Aqui, o segundo método é muito semelhante ao primeiro, o qual pode ser reutilizado em sua implementação.
+Após a aplicação da correção rápida, o resultado será o seguinte:
+<pre><code lang="java">
+  static List&lt;String&gt; readFileAndTrim(Path path) throws IOException {
+    List&lt;String&gt; lines = Files.readAllLines(path);
+    return lines.stream().map(String::trim).toList();
+  }
+
+  static List&lt;String&gt; readFileAndTrim(String path) throws IOException {
+    Path p = Path.of(path);
+    return readFileAndTrim(p);
+  }
+</code></pre>
+<p><small>Novidade na versão 2024.1</small></p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html>
+<body>
+Relata classes que podem ser serializadas ou desserializadas.
+<p>
+  Se uma classe suportar a interface <code>Serializable</code> e seus métodos <code>readObject()</code> e <code>writeObject()</code> não forem definidos para sempre lançar uma exceção, ela poderá ser serializada. Classes serializáveis podem ser perigosas em códigos destinados ao uso seguro.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class DeserializableClass implements Serializable { // A classe não contém um método 'writeObject()' que lança uma exceção
+    private int sensitive = 736326;
+
+    private void readObject(ObjectInputStream in) {
+        throw new Error();
+    }
+}
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  class DeserializableClass implements Serializable {
+    private int sensitive = 736326;
+
+    private void readObject(ObjectInputStream in) {
+        throw new Error();
+    }
+
+    private void writeObject(java.io.ObjectOutputStream out) throws java.io.IOException {
+        throw new java.io.NotSerializableException("DeserializableClass");
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Configure a inspeção usando as seguintes opções:
+</p>
+<ul>
+  <li>
+    Liste as classes cujos sucessores não devem ser relatados por esta inspeção.
+    Isso se aplica a classes que herdam <code>Serializable</code> de uma superclasse, mas não se destinam à serialização.
+    Observe que, em vez de ignorar essas classes, pode ser mais seguro adicionar os métodos <code>readObject()</code> e <code>writeObject()</code> que sempre lançam uma exceção.
+  </li>
+  <li>
+    Se as classes anônimas serializáveis devem ser ignoradas.
+  </li>
+</ul>
+</body>
+</html>

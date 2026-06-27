@@ -1,0 +1,36 @@
+<html>
+<body>
+Relata referências não resolvidas para elementos de configuração de plugin.
+
+<h4>Extensões</h4>
+<p>
+  Referenciar extensões com um <code>id</code> desconhecido pode causar erros em tempo de execução.
+</p>
+<p>
+  Os seguintes pontos de extensão são suportados:
+<ul>
+  <li><code>com.intellij.advancedSetting</code> em chaves <code>advanced.setting.*</code> de resource bundle</li>
+  <li><code>com.intellij.experimentalFeature</code> em <code>Experiments.isFeatureEnabled()/setFeatureEnabled()</code></li>
+  <li><code>com.intellij.notificationGroup</code> no construtor de <code>Notification</code> e em <code>NotificationGroupManager.getNotificationGroup()</code>
+  </li>
+  <li><code>com.intellij.registryKey</code> no parâmetro <code>key</code> de métodos <code>Registry</code></li>
+  <li><code>com.intellij.toolWindow</code> em chaves <code>toolwindow.stripe.*</code> de resource bundle</li>
+</ul>
+
+<h4>Pontos de extensão</h4>
+<p>
+  Nomes de pontos de extensão que referenciam a declaração <code>&lt;extensionPoint></code> correspondente no <code>plugin.xml</code>.
+<ul>
+  <li>Construtor e <code>create()</code> de <code>com.intellij.openapi.extensions.ExtensionPointName</code></li>
+  <li>Construtor de <code>com.intellij.openapi.extensions.ProjectExtensionPointName</code></li>
+  <li>Construtores de <code>com.intellij.openapi.util.KeyedExtensionCollector</code> e herdeiros</li>
+</ul>
+</p>
+
+<h4>Ações/Grupos</h4>
+<p>
+  Referências a <code>id</code> de <code>&lt;action></code> ou <code>&lt;group></code> declarados no <code>plugin.xml</code>.
+</p>
+
+</body>
+</html>

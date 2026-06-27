@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relata testes de fuzzing quando a versão do SDK do Go é anterior à 1.18.</p>
+
+<p>O teste de fuzzing é um método de teste automatizado que envolve a busca direcionada por dados de entrada que podem causar falhas no programa ou expor comportamentos inválidos. O Go oferece suporte a testes de fuzzing a partir da versão 1.18.</p>
+<p>Exemplo de teste de fuzzing:</p>
+<pre><code>
+func Div(a, b int) int {
+	return a / b
+}
+
+func FuzzDiv(f *testing.F) {
+	f.Fuzz(func(t *testing.T, a, b int) {
+		Div(a, b) // Relata erro de tempo de execução: divisão de inteiro por zero
+	})
+}
+</code></pre>
+<p>
+  Consulte <a href="https://go.dev/doc/fuzz/">Go Fuzzing</a> para obter mais informações.
+</p>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata campos de classe interna que possuem o mesmo nome de um campo na classe envolvente.
+Devido a essa nomeação, você pode acabar usando erroneamente o campo da classe interna quando a intenção era usar o campo da classe envolvente com o mesmo nome.
+<p>Uma correção rápida sugere a renomeação do campo da classe interna.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Outer {
+    private String name;
+
+    class Inner {
+      private String name;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use esta opção para escolher se esta inspeção deve relatar todos os conflitos de nomes ou apenas conflitos com campos visíveis para a classe interna.
+</p>
+
+</body>
+</html>

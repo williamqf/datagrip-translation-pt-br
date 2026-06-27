@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata declarações de slice que usam um inicializador literal vazio em vez de <code>nil</code>.
+<p>Slices vazios podem ser representados por <code>nil</code> ou por um literal de slice vazio. Eles são funcionalmente equivalentes — seu <code>len</code> e <code>cap</code> são ambos zero — mas o slice nil é o estilo preferido.
+  Para mais informações sobre slices vazios, consulte <a href="https://github.com/golang/go/wiki/CodeReviewComments#declaring-empty-slices">Declaring Empty Slices no github.com/golang</a>.</p>
+<p>Exemplo:</p>
+<pre><code>s := []string{}</code></pre>
+<p>Para alterar a declaração, use o ajuste rápido <b>Substituir por declaração de slice nil (alterar semântica)</b>.
+  Após aplicar o ajuste rápido:</p>
+<pre><code>var s []string</code></pre>
+</body>
+</html>

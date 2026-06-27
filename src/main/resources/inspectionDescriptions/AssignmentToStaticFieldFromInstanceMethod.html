@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata atribuições ou modificações de campos <code>static</code> de dentro de métodos de instância.
+<p>Embora seja sintaticamente correto, esse tipo de atribuição é difícil de ser realizado com segurança e geralmente é o resultado de marcar um campo como <code>static</code> de forma não intencional.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Counter {
+    private static int count = 0;
+
+    void increment() {
+      // Alerta: atualizando um campo static
+      // a partir de um método de instância
+      count++;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

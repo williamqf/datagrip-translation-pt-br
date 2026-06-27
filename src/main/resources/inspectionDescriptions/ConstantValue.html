@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata expressões e condições que sempre produzem o mesmo resultado, como <code>true</code>, <code>false</code>, <code>null</code> ou <code>0</code>.
+Tais expressões podem ser substituídas pelo valor constante correspondente ou podem indicar um bug no código.
+<p>Exemplo:</p>
+<pre><code>  // Sempre true
+  // Motivo: || foi usado em vez de &&
+  if (x &gt; 0 || x &lt; 10) {}
+
+  System.out.println(str.trim());
+  // Sempre false
+  // Motivo: a variável foi desreferenciada antes da verificação de null
+  if (str == null) {}
+</code></pre>
+<p>
+  O comportamento da inspeção pode ser controlado por anotações, como anotações de <a href="https://www.jetbrains.com/help/idea/nullable-and-notnull-annotations.html">nulidade</a>, a anotação <code><a href="https://www.jetbrains.com/help/idea/contract-annotations.html">@Contract</a></code>, a anotação <code>@Range</code>, etc.
+</p>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Não relatar asserções com condições provadas estaticamente como sempre true</b> para evitar relatar asserções que são provadas estaticamente como sempre verdadeiras. Isso inclui condições como <code>if (alwaysFalseCondition) throw new IllegalArgumentException();</code>.</li>
+  <li>Use a opção <b>Ignorar instruções assert</b> para controlar como a inspeção lida com instruções <code>assert</code>.
+    Por padrão, presume-se que as asserções sejam executadas (modo <code>-ea</code>).
+    Quando esta opção está ativada, as asserções são ignoradas (modo <code>-da</code>).</li>
+  <li>Use a opção <b>Avisar quando uma constante for armazenada em uma variável</b> para exibir avisos quando uma variável cujo valor é conhecido por ser constante for usada.</li>
+</ul>
+<p>
+  Antes da versão 2022.3 do IntelliJ IDEA, esta inspeção fazia parte da inspeção <i>Condições constantes e exceções</i>.
+  Esta inspeção foi dividida em duas: <i>Valores constantes</i> e <i>Nulidade e problemas de fluxo de dados</i>.
+</p>
+</body>
+</html>

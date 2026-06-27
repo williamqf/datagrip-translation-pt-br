@@ -1,0 +1,39 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td ><font face="verdana" size="-1">
+    Substitui uma expressão de literal de string (por exemplo, </font><code>String s = "Hello";</code><font face="verdana" size="-1">)
+    por uma expressão de código Java internacionalizada
+    (por exemplo, </font><code>String s = myResourceBundle.getString("hello");</code><font face="verdana" size="-1">).<br>
+    Este template incorporado é editável. Junto com as expressões e comentários Java, pode também utilizar variáveis predefinidas que
+    serão então expandidas nos valores correspondentes.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas assumem os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${RESOURCE_BUNDLE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Expressão do tipo <b>java.util.ResourceBundle</b>, cuja instância está disponível neste contexto.</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Nome da chave de propriedade especificada no ficheiro de propriedades correspondente.
+      Normalmente, é o valor utilizado para o parâmetro do método <b>ResourceBundle.getString()</b>.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">Valor da propriedade definido no ficheiro de propriedades correspondente.
+      Este é o valor do literal da string Java original.
+    </font></td>
+  </tr>
+</table>
+</body>
+</html>

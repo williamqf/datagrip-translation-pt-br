@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata modificações de variáveis com atribuições simples (por exemplo, <code>y = y + x</code>) que podem ser substituídas por uma atribuição com operador.
+<p>A correção rápida substituirá a atribuição pelo operador de atribuição correspondente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo() {
+      val list = mutableListOf(1, 2, 3)
+      list = list + 4
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun foo() {
+      val list = mutableListOf(1, 2, 3)
+      list += 4
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

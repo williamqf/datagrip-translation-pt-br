@@ -1,0 +1,14 @@
+<html>
+<body>
+Relata problemas de assinatura para funções integradas.
+<p>Esta inspeção relata números incorretos de argumentos, palavras-chave inválidas, tipos de dados incorretos e outros problemas.</p>
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE foo (a INT, b INT, c INT)
+
+SELECT IFNULL() FROM foo; -- erro
+SELECT IFNULL(a) FROM foo; -- erro
+SELECT IFNULL(a, b) FROM foo; -- correto
+SELECT IFNULL(a, b, c) FROM foo; -- erro</code></pre>
+<p>No MySQL, a função <code>IFNULL()</code> aceita estritamente dois argumentos. Portanto, apenas a consulta <code>SELECT IFNULL(a, b) FROM foo;</code> está correta.</p>
+</body>
+</html>

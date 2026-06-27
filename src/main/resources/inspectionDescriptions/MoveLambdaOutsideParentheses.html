@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata expressões lambda dentro de parênteses que podem ser movidas para fora.
+<p><b>Exemplo:</b></p>
+<pre><code>
+fun square(a: Int, b: (Int) -&gt; Int) {
+  b(a * a)
+}
+
+fun foo() {
+  square(2, { it })
+}
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+fun foo() {
+  square(2){ it }
+}
+</code></pre>
+</body>
+</html>

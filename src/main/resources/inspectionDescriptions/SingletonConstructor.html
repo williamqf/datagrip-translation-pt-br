@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Relata construtores em classes anotadas com <code>@Singleton</code>, a menos que sejam declarados como não estritos.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  @Singleton
+  class Foo{
+      Foo(){
+      }
+  }
+</code></pre>
+<p>Existem duas correções rápidas possíveis: remover o construtor ou declarar o <code>@Singleton</code> como não estrito.</p>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  @Singleton
+  class Foo{
+  }
+</code></pre>
+<p>ou:</p>
+<pre><code>
+  @Singleton(<b>strict = false</b>)
+  class Foo{
+      Foo(){
+      }
+  }
+</code></pre>
+</body>
+</html>

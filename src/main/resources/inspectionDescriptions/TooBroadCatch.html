@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata blocos <code>catch</code> com parâmetros mais genéricos do que as exceções lançadas pelo bloco <code>try</code> correspondente.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  try  {
+    File file = new File(pathToFile);
+    return file.getAbsolutePath();
+  } catch (Exception ex) { // aviso: o 'catch' de 'Exception' é muito abrangente, ocultando a exceção 'RuntimeException'
+    return defaultFilePath;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  try  {
+    File file = new File(pathToFile);
+    return file.getAbsolutePath();
+  } catch (RuntimeException ex) {
+    return defaultFilePath;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<ul>
+  <li>Use a opção <b>Avisar apenas para RuntimeException, Exception, Error ou Throwable</b> para que esta inspeção avise apenas sobre as exceções mais comuns.</li>
+  <li>Use a opção <b>Ignorar exceções que ocultam outras, mas são lançadas por si mesmas</b> para ignorar qualquer exceção que oculte outras, mas que ainda possa ser lançada e, portanto, não seja tecnicamente muito abrangente.</li>
+</ul>
+</body>
+</html>

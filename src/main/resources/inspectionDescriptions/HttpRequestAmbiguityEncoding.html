@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>
+  Detecta '+' em strings de consulta codificadas. Não está claro se ele deve ser codificado como um espaço ou como o caractere '+'.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  GET https://example.com/api?name=John+Doe%40example.com
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  GET https://example.com/api?name=John%20Doe%40example.com
+</code></pre>
+</body>
+</html>

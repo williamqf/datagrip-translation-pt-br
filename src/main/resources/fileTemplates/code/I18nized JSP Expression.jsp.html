@@ -1,0 +1,42 @@
+<html>
+<body>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse" bordercolor="#111111">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">
+    Substitui o texto em JSP,
+    por exemplo:</font>
+    <br>
+      <code>&lt;<b>html</b>&gt;&lt;<b>body</b>&gt;<br>
+        Hello!<br>
+        &lt;/<b>body</b>&gt;&lt;/<b>html</b>&gt;</code>
+      <br>
+      <font face="verdana" size="-1">por tags personalizadas de JSP internacionalizadas, por exemplo:</font>
+      <br>
+      <code>&lt;<b>html</b>&gt;&lt;<b>body</b>&gt;<br>
+        &lt;<b>bean:message</b>key="HelloKey"/&gt;<br>
+        &lt;/<b>body</b>&gt;&lt;/<b>html</b>&gt;</code>
+    <br>
+      <font face="verdana" size="-1">Este modelo integrado é editável. Além das expressões permitidas no contexto JSP, você pode usar variáveis predefinidas que serão expandidas para os valores correspondentes.</font>
+    </td>
+  </tr>
+</table>
+<table width="100%" border="0" cellpadding="5" cellspacing="0" style="border-collapse: collapse">
+  <tr>
+    <td colspan="3"><font face="verdana" size="-1">As variáveis predefinidas aceitam os seguintes valores:</font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_KEY}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O nome da chave da propriedade especificada no arquivo de propriedades correspondente.
+    </font></td>
+  </tr>
+  <tr>
+    <td valign="top"><nobr><font face="verdana" size="-2"><b>${PROPERTY_VALUE}</b></font></nobr></td>
+    <td width="10"></td>
+    <td width="100%" valign="top"><font face="verdana" size="-1">O valor da propriedade especificado no arquivo de propriedades correspondente.
+      Este é o valor da seleção de texto JSP original.
+    </font></td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata assinaturas incompatíveis para os métodos <code>__new__</code> e <code>__init__</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class MyClass(object):
+    def __new__(cls, arg1):
+        return super().__new__(cls)
+
+    def __init__(self):
+        pass
+</code></pre>
+<p>Se <code>__new__</code> e <code>__init__</code> tiverem argumentos diferentes, não será possível instanciar <code>MyClass</code>.</p>
+<p>O IDE sugere a aplicação da refatoração "Alterar Assinatura" como uma correção.</p>
+</body>
+</html>

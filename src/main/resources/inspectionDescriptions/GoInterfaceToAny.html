@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata o uso de interfaces vazias como tipos ou restrições de tipo.
+<p>
+  Uma interface vazia representa o conjunto de todos os tipos.
+  O Go 1.18 introduziu o alias mais explícito <code>any</code> para <code>interface{}</code>, que é equivalente a <code>interface{}</code> em todos os aspectos.
+</p>
+<p>A inspeção é acionada se uma interface vazia for usada como um tipo ou restrição de tipo.
+  Aliases de interfaces vazias e interfaces que incorporam exclusivamente outras interfaces vazias não acionam a inspeção.</p>
+<p>Considere usar o alias mais explícito <code>any</code> em seu lugar.</p>
+</body>
+</html>

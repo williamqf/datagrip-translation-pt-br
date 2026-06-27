@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata o boxing explícito, ou seja, o empacotamento de valores primitivos em objetos.
+<p>No Java 5 e versões posteriores, o boxing manual explícito é desnecessário e pode ser removido com segurança.</p>
+<p><b>Exemplos:</b></p>
+<ul>
+  <li><code>Integer i = new Integer(1);</code> &rarr; <code>Integer i = Integer.valueOf(1);</code></li>
+  <li><code>int i = Integer.valueOf(1);</code> &rarr; <code>int i = 1;</code></li>
+</ul>
+
+<!-- tooltip end -->
+<p>
+Use a opção <b>Relatar apenas expressões de boxing verdadeiramente redundantes</b> para relatar apenas o boxing que for verdadeiramente redundante, onde o valor sofrer unboxing imediato, implícita ou explicitamente.
+Nesse caso, toda a etapa de boxing-unboxing pode ser removida. Esta inspeção não relata o boxing explícito simples.
+<p>Esta inspeção apenas relata se o nível de linguagem do projeto ou módulo for 5 ou superior.</p>
+</body>
+</html>

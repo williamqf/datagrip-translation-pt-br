@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata variáveis interpoladas (de instância ou globais) sem chaves em substituições de expressão.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+@name = 'John Doe'
+puts &quot;Hi #@name&quot;</code>
+</pre>
+
+Uma correção rápida pode ser usada para inserir as chaves ausentes. Após a aplicação da correção rápida, o resultado será:
+
+<pre>
+<code># Boa prática
+@name = 'John Doe'
+puts &quot;Hi #{@name}&quot;</code>
+</pre>
+</body>
+</html>

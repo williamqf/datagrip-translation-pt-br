@@ -1,0 +1,38 @@
+<html>
+<body>
+Reporta declarações de variáveis locais e acessores para componentes de record em instruções 'for' aprimoradas que podem ser substituídos por variáveis de padrão, que geralmente são mais compactas.
+<p><b>Exemplo:</b></p>
+<pre><code>
+record Record(Integer x, String y) {
+}
+
+public static void test(List&lt;Record&gt; records) {
+    for (Record record : records) {
+        System.out.println(record.y());
+        Integer x = record.x;
+        System.out.println(x);
+    }
+}
+</code></pre>
+<p>Pode ser substituído por:</p>
+<pre><code>
+record Record(Integer x, String y) {
+}
+
+public static void test(List&lt;Record&gt; records) {
+    for (Record(Integer x, String y) : records) {
+        System.out.println(y);
+        System.out.println(x);
+    }
+}
+</code></pre>
+<!-- tooltip end -->
+<ul>
+  <li>Use a opção <b>Limite de profundidade de aninhamento</b> para especificar o número máximo de padrões de desconstrução aninhados a serem reportados</li>
+  <li>Use a opção <b>Número máximo de componentes de record a serem desconstruídos</b> para especificar o número máximo de componentes que um record pode conter para ser usado em padrões de desconstrução</li>
+  <li>Use a opção <b>Número máximo de componentes de record não utilizados</b> para especificar o número máximo de componentes não utilizados na instrução <code>for</code></li>
+</ul>
+
+<p><small>Novo na versão 2023.1</small></p>
+</body>
+</html>

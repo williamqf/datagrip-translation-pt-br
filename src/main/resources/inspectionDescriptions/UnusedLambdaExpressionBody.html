@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata chamadas com um valor de retorno não utilizado em que a função chamada retorna um lambda a partir de um corpo de expressão.
+<p>
+Se houver um <code>=</code> entre o cabeçalho da função e o bloco do corpo, o código dentro da função não será avaliado, o que pode levar a um comportamento incorreto.
+</p>
+<p>A ação <b>Remover o token = da declaração da função</b> pode ser usada para corrigir o código automaticamente.</p>
+<p>Exemplo:</p>
+<pre><code>
+  fun printHello() = { println("Hello") }
+
+  fun main() {
+      printHello() // esta função não imprime nada
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun printHello() { println("Hello") }
+
+  fun main() {
+      printHello()
+  }
+</code></pre>
+</body>
+</html>

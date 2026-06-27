@@ -1,0 +1,17 @@
+<html>
+<body>
+<p>Relata o uso de "equals" em arrays e iteradores.</p>
+<p>Equals em arrays e iteradores verifica igualdade de referência, o que raramente é útil.
+    Esta inspeção sugere comparar seu conteúdo via <code>sameElements</code>.</p>
+<pre><code>
+  Array(1) == Array(1) //false
+  Iterator(1) == Iterator(1) //false
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  Array(1) sameElements Array(1) //true
+  Iterator(1) sameElements Iterator(1) //true
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

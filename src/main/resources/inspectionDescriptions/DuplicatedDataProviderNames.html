@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata provedores de dados <code>TestNG</code> com o mesmo nome, o que causaria uma <code>org.testng.TestNGException</code>.
+<p>Exemplo:</p>
+<pre><code>
+  public class DuplicatedDataProviders {
+    @DataProvider
+    public Object[][] intTestData() { // Duplicata 1
+      return new Integer[][]{
+        new Integer[]{1, 1},
+      };
+    }
+
+    @DataProvider(name = "intTestData")
+    public Object[][] someTestData() { // Duplicata 2
+      return new Integer[][]{
+        new Integer[]{1, 1},
+      };
+    }
+
+    @Test(dataProvider = "intTestData")
+    public void testIsOK(Integer key, Integer value) {
+      assertEquals(key, value);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+</body>
+</html>

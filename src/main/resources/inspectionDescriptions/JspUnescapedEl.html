@@ -1,0 +1,72 @@
+<html>
+<body>
+Relata dados não seguros em expressões EL não escapadas em páginas JSP. Tais casos podem levar a vulnerabilidades de <a href="https://en.wikipedia.org/wiki/Cross-site_scripting">Cross-site scripting (XSS)</a>.
+<p>
+  A descrição abaixo utiliza o termo dados <b>não contaminados</b> (untainted) para se referir a dados seguros e confiáveis, em oposição a <b>contaminados</b> (tainted - não seguros, não confiáveis). Consulte <a href="https://en.wikipedia.org/wiki/Taint_checking">verificação de contaminação (taint checking)</a> para obter mais informações.
+</p>
+<p>
+  Objetos seguros (não contaminados) são:
+</p>
+<ul>
+  <li>Tipos de dados primitivos (exceto <code>char</code>)</li>
+  <li>Resultados de chamadas de métodos marcados como untainted</li>
+  <li>Resultados de chamadas de funções de escape</li>
+  <li>Campos marcados como untainted</li>
+</ul>
+<p>
+Para os dados fornecidos, as páginas JSP podem ter contextos diferentes e, se os dados forem seguros para um contexto, isso não significa necessariamente que sejam seguros para todos os contextos.
+Consulte a <a href="https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html#output-encoding">Cross-Site Scripting Prevention Cheat Sheet</a> para obter exemplos. Esta inspeção ignora dados marcados como untainted (seguros) em <b>todos</b> os contextos.
+</p>
+<p>
+  Esta inspeção suporta as seguintes opções para marcar métodos e campos como seguros:
+</p>
+<ul>
+  <li>Usando qualquer anotação da lista configurável de anotações untainted</li>
+  <li>Configurando uma lista de métodos e campos seguros</li>
+  <li>Todos os campos static final podem ser marcados como untainted selecionando a opção "Tratar campos static final como untainted" na guia "Métodos e campos não contaminados"</li>
+</ul>
+<p>
+  Esta inspeção não destaca locais onde dados não seguros alcançam uma marcação de segurança em páginas JSP.
+  Por exemplo, a tag <code>out</code> da taglib JSTL é segura porque escapa o valor fornecido por padrão.
+  A lista de marcações de segurança é configurável (omitir o valor de <code>tag</code> ou <code>attribute</code> permite definir todo o escopo).
+</p>
+<p>A correção rápida "Envolver com a tag JSTL &lt;out&gt;" envolve a expressão EL com a tag JSTL <code>&lt;out&gt;</code>.</p>
+<p>Antes:</p>
+<pre>
+  <code>
+    ${foo}
+  </code>
+</pre>
+<p>Depois:</p>
+<pre>
+  <code>
+  &lt;%@ taglib prefix=&quot;c&quot; uri=&quot;http://java.sun.com/jsp/jstl/core&quot; %&gt;
+&lt;c:out value=&quot;${foo}&quot;/&gt;
+  </code>
+</pre>
+<p>A correção "Envolver com a função JSTL escapeXml()" envolve valores não seguros com a função de escape <code>escapeXml</code>.</p>
+<p>Antes:</p>
+<pre>
+  <code>
+  &lt;%@ taglib prefix=&quot;custom&quot; uri=&quot;WEB_INF/custom.tld&quot; %&gt;
+  &lt;custom:tag value=&quot;${foo}&quot;/&gt;
+  </code>
+</pre>
+<p>Depois:</p>
+<pre>
+  <code>
+    &lt;%@ taglib prefix=&quot;custom&quot; uri=&quot;WEB_INF/custom.tld&quot; %&gt;
+    &lt;%@ taglib prefix=&quot;fn&quot; uri=&quot;http://java.sun.com/jsp/jstl/functions&quot; %&gt;
+    &lt;custom:tag value=&quot;${fn:escapeXml(foo)}&quot;/&gt;
+  </code>
+</pre>
+<p>Existem mais correções rápidas para adicionar a tag selecionada às tags seguras ou para anotar métodos (ou campos) relevantes com uma anotação untainted.</p>
+<p>
+  Funções de escape personalizadas podem ser adicionadas (consulte a guia "Funções de escape").
+  Atualmente, ela contém funções do JSTL que retornam valores seguros (por exemplo, a conhecida função <code>escapeXml</code>).
+  Não é necessário definir funções JSTL duas vezes usando URIs de namespace diferentes.
+  Se um entre http://java.sun.com/jsp/jstl/functions ou http://java.sun.com/jstl/functions for usado, o outro também será verificado. Também é possível ignorar funções de escape em qualquer lugar com base no nome.
+  Para fazer isso, deixe o campo URI do namespace vazio.
+</p>
+</body>
+</html>

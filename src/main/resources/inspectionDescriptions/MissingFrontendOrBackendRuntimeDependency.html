@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata a ausência das dependências de runtime <code>intellij.platform.frontend</code> ou <code>intellij.platform.backend</code> no descritor de módulo (XML).
+<p>O desenvolvimento remoto introduziu módulos marcadores para módulos destinados a serem carregados no modo frontend ou backend:</p>
+<ul>
+  <li><code>intellij.platform.frontend</code></li>
+  <li><code>intellij.platform.backend</code></li>
+</ul>
+<p>
+  Se tais dependências não forem especificadas, a IDE carregará módulos irrelevantes para o modo atual; por exemplo, no modo frontend, ela carregará módulos de backend.
+  Isso afetará o desempenho e pode causar erros.
+</p>
+<p>Esta inspeção baseia-se na convenção de nomenclatura de módulos frontend/backend (<code>*.frontend</code>/<code>*.backend</code>).</p>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2025.2</small>
+</body>
+</html>

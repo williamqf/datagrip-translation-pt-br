@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata palavras-chave <code>then</code> redundantes em blocos <code>if/unless</code> de múltiplas linhas.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+if x > y then
+  x = y
+end</code>
+</pre>
+
+Uma correção rápida pode ser usada para remover a palavra-chave <code>then</code>.
+
+<pre>
+<code># Boa prática
+if x > y
+  x = y
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado pelo <a href="https://github.com/rubocop/ruby-style-guide/blob/master/README.adoc#then-in-multi-line-expression">'RuboCop'</a>.</span></p>
+</body>
+</html>

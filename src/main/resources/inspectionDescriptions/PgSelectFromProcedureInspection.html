@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata casos em que um SELECT é executado a partir de uma função ou DBLINK sem um alias tipado (por exemplo, <code>AS t1 (s VARCHAR)</code>).
+  <p>Este requisito não se aplica a funções escalares.</p>
+<p>Exemplo (PostgreSQL):</p>
+<pre><code>CREATE FUNCTION produce_a_table() RETURNS RECORD AS $$
+SELECT 1;
+$$ LANGUAGE sql;
+SELECT * FROM produce_a_table() AS s (c1 INT);
+SELECT * FROM produce_a_table() AS s (c1);
+SELECT * FROM DBLINK('dbname=mydb', 'SELECT proname, prosrc FROM pg_proc') AS t1;</code></pre>
+<p><code>AS s (c1 INT)</code> possui um alias tipado, enquanto <code>AS s (c1)</code> e <code>AS t1</code> não possuem.
+  Neste caso, a segunda chamada de <code>produce_a_table()</code> e o <code>DBLINK()</code> serão destacados.
+</p>
+</body>
+</html>

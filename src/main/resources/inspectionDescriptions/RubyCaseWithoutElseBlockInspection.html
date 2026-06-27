@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata instruções <code>case</code> que não contêm um bloco <code>else</code>. Um bloco <code>else</code> deve estar sempre presente para especificar o resultado padrão quando nenhuma correspondência for encontrada.
+<p>Exemplo:</p>
+<pre>
+<code># Má prática
+case status
+when :active
+  perform_action
+end</code>
+</pre>
+
+Uma correção rápida está disponível para inserir o bloco <code>else</code>. Após a aplicação da correção rápida, o resultado será o seguinte:
+
+<pre>
+<code># Boa prática
+case status
+when :active
+  perform_action
+else
+  # digite o código aqui
+end</code>
+</pre>
+<p><span style="font-size: smaller;">Inspirado no <a href="https://github.com/martinjandrews/roodi">'Roodi'</a></span></p>
+</body>
+</html>

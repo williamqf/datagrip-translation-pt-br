@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata declarações marcadas com <code>@ApiStatus.ScheduledForRemoval</code> que já deveriam ter sido removidas da versão atual da biblioteca declarante.
+<!-- tooltip end -->
+<p>Ela compara a versão especificada para a remoção programada com a versão que pode ser definida abaixo.</p>
+<p>
+  Especifique a versão como uma string separada por pontos, opcionalmente acrescida dos sufixos
+  <code>alpha</code>, <code>beta</code>, <code>snapshot</code> ou <code>eap</code>.
+</p>
+<p>Exemplos de versões válidas: <code>1.0</code>, <code>2.3.1</code>, <code>2018.1</code>, <code>7.5-snapshot</code>, <code>3.0-eap</code>.
+</p>
+<p>
+  A comparação de versões é intuitiva, por exemplo: <code>1.0 &lt; 2.0</code>, <code>1.0-eap &lt; 1.0</code>, <code>2.3-snapshot &lt; 2.3</code>, etc.
+  Para detalhes sobre a lógica de comparação, consulte a implementação do <a
+  href="https://github.com/JetBrains/intellij-community/blob/master/platform/util-rt/src/com/intellij/util/text/VersionComparatorUtil.java">VersionComparatorUtil</a>.
+</p>
+</body>
+</html>

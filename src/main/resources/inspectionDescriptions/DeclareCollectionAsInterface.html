@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata declarações de variáveis <code>Collection</code> feitas usando classes de coleção como tipos em vez das interfaces apropriadas. Se o enfraquecimento do tipo da variável resultar em erros de compilação, nenhum aviso será emitido.
+<p>Exemplo:</p>
+<pre><code>
+  // Aviso: a classe de coleção concreta ArrayList foi usada.
+  int getTotalLength(ArrayList&lt;String&gt; list) {
+    return list.stream().mapToInt(String::length).sum();
+  }
+
+  // Sem aviso, pois o método trimToSize() não está disponível
+  // na interface List
+  void addData(ArrayList&lt;String&gt; data) {
+    data.add("Hello");
+    data.add("World");
+    data.trimToSize();
+  }
+</code></pre>
+Uma correção rápida sugere o uso da interface de coleção apropriada (por exemplo, <code>Collection</code>, <code>Set</code> ou <code>List</code>).
+<!-- tooltip end -->
+</body>
+</html>

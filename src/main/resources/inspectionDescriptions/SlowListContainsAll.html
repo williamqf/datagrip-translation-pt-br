@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas de <code>containsAll()</code> em <code>java.util.List</code>.
+<p>
+  A complexidade de tempo desta chamada de método é O(n&middot;m), onde n é o número de elementos na lista em que o método é chamado e m é o número de elementos na coleção passada como parâmetro para o método.
+  Esta pode ser uma operação dispendiosa quando a lista é grande.
+</p>
+<p>
+  A correção rápida envolverá a lista em um <code>new java.util.HashSet&lt;&gt;()</code>, pois o tempo necessário para criar um <code>java.util.HashSet</code> a partir de uma <code>java.util.List</code> e executar <code>containsAll()</code> no <code>java.util.HashSet</code> é O(n+m).
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  public boolean check(List&lt;String&gt; list, Collection&lt;String&gt; collection) {
+    // Complexidade O(n&middot;m)
+    return list.containsAll(collection);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  public boolean check(List&lt;String&gt; list, Collection&lt;String&gt; collection) {
+    // Complexidade O(n+m)
+    return new HashSet&lt;&gt;(list).containsAll(collection);
+  }
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2022.1</small></p>
+</body>
+</html>

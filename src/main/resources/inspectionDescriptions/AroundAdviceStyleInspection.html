@@ -1,0 +1,14 @@
+<html>
+<body>
+Ao usar o advice <code>@Around</code>, lembre-se de duas coisas:
+<ul>
+  <li>É necessário chamar <code>org.aspectj.lang.ProceedingJoinPoint#proceed</code>, caso contrário, a chamada não alcançará o alvo.</li>
+  <li>É necessário retornar o valor resultante dessa chamada (tipo <code>java.lang.Object</code>), caso contrário, o valor de retorno nunca chegará ao chamador original.</li>
+</ul>
+<p>No entanto, as duas condições a seguir quase sempre indicam um erro de codificação:</p>
+<ul>
+  <li>A assinatura do método <code>@Around</code> não utiliza <code>ProceedingJoinPoint</code> como o primeiro argumento: neste caso, a chamada não pode alcançar o alvo.</li>
+  <li>A assinatura do método <code>@Around</code> não utiliza <code>Object</code> como o tipo de retorno: neste caso, o valor de retorno do método alvo é sempre perdido.</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html>
+<body>
+Relata alocações de objetos ou arrays dentro de loops. Embora não seja necessariamente um problema, alocações de objetos dentro de loops são um bom lugar para encontrar vazamentos de memória e problemas de desempenho.
+<p>
+  Esta inspeção relata as seguintes construções:
+</p>
+<ul>
+  <li>Alocação explícita através do operador <code>new</code></li>
+  <li>Métodos conhecidos por retornar novos objetos</li>
+  <li>Referências de métodos vinculadas a instâncias</li>
+  <li>Lambdas que capturam variáveis ou referências a <code>this</code></li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  // Alocação explícita
+  for (Status status : Status.values()) {
+    declarationsMap.put(status, new ArrayList&lt;&gt;());
+  }
+
+  // Lambda capturando variável
+  String message = "Engine running.";
+  for (Engine engine : engines) {
+      if (!isRunning(engine)) {
+          logger.warn(() -> {
+              return String.format(message);
+          });
+      }
+  }
+
+  // Referência de método vinculada à instância
+  for(Node node : nodes) {
+    descriptor = node.getDescription();
+    descriptor.ifPresent(dynamicTestExecutor::execute);
+  }
+</code>
+</pre>
+<!-- tooltip end -->
+</body>
+</html>

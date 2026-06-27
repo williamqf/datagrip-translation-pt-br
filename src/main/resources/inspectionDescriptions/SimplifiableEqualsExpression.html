@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata comparações com <code>null</code> precedendo chamadas de <code>equals()</code> que utilizam um argumento constante.
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  if (s != null && s.equals("literal")) {}
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  if ("literal".equals(s)) {}
+</code></pre>
+<!-- tooltip end -->
+<p>
+    Use as configurações da inspeção para relatar chamadas de <code>equals()</code> com argumentos não constantes quando for comprovado que o argumento de <code>equals()</code> não é <code>null</code>.
+</p>
+</body>
+</html>

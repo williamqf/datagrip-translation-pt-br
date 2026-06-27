@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata chamadas suspeitas a <code>Collection.toArray()</code>.
+<p>Os seguintes tipos de chamadas são considerados suspeitos:</p>
+<ul>
+  <li>
+    O tipo do argumento do array não é o mesmo que o tipo do array para o qual o resultado é convertido.
+  </li>
+  <li>
+    O tipo do argumento do array não corresponde ao parâmetro de tipo na declaração da coleção.
+  </li>
+</ul>
+<p><b>Exemplo:</b></p>
+<pre><code>
+void m1(List list) {
+  Number[] ns = (Number[]) list.toArray(new String[0]);
+}
+
+void m2(List&lt;Number&gt; list) {
+  Number[] ns = list.toArray(new String[0]);
+}
+</code></pre>
+
+
+</body>
+</html>

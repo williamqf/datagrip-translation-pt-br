@@ -1,0 +1,31 @@
+<html>
+<body>
+<p>Relata chamadas recursivas ao método <code>equals</code>(<code>==</code>).</p>
+<p>
+    No Kotlin, <code>==</code> compara valores de objetos chamando o método <code>equals</code> internamente.
+    Por outro lado, <code>===</code> compara objetos por referência.
+</p>
+<p>
+    O operador <code>===</code> é comumente usado em implementações do método <code>equals</code>.
+    No entanto, o <code>===</code> pode ser confundido erroneamente com <code>==</code>, o que pode levar a uma recursão infinita.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class X {
+      override fun equals(other: Any?): Boolean {
+          if (<b>this == other</b>) return true
+          return false
+      }
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class X {
+      override fun equals(other: Any?): Boolean {
+          if (<b>this === other</b>) return true
+          return false
+      }
+  }
+</code></pre>
+</body>
+</html>

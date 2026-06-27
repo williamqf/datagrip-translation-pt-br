@@ -1,0 +1,26 @@
+<html>
+<body>
+Relata as seguintes violações da especificação EJB:
+<ul>
+  <li>Tipo de propriedade injetada inválido</li>
+  <li>A referência EJB é inconsistente com o `ejb-jar.xml`</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+@LocalBean
+@Stateless
+public class ExampleBean {
+
+  private AnotherBean anotherBean;
+
+  @Inject
+  public void getAnotherBean() { // Erro: a injeção deve ser realizada em um campo ou método setter
+    return anotherBean;
+  }
+
+  ...
+}
+</code></pre>
+</body>
+</html>

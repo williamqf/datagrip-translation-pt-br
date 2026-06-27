@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata prefixos inválidos definidos na anotação <code>@ConfigurationProperties</code>:</p>
+<ul>
+  <li>Prefixo ausente</li>
+  <li>Prefixo vazio</li>
+  <li>Prefixo duplicado</li>
+  <li>Prefixo em uma notação diferente de kebab-case</li>
+</ul>
+<p>
+  A inspeção é acionada em classes anotadas com <code>@ConfigurationProperties</code> que não estão registradas via <code>@EnableConfigurationProperties</code>, marcadas como componentes Spring ou detectadas via <code>@ConfigurationPropertiesScan</code>.</p>
+<!-- tooltip end -->
+<p>
+  Quando a versão do Spring Boot do projeto ou módulo é definida como 2.2.0 ou superior, esta inspeção é acionada apenas em classes anotadas com <code>@ConfigurationProperties</code> que não são detectadas via <code>@ConfigurationPropertiesScan</code>.
+</p>
+<p><small>Novidade na versão 2018.3</small></p>
+</body>
+</html>

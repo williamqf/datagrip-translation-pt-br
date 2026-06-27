@@ -1,0 +1,15 @@
+<html>
+<body>
+<p>Relata tipos de Bean incorretos em referências definidas na configuração <code>&lt;flow&gt;</code>.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  &lt;flow&gt;
+    ...
+    &lt;exception-handler bean="<strong>dummyBean</strong>"/&gt; &lt;!-- O Bean deve ser do tipo 'org.springframework.webflow.engine.FlowExecutionExceptionHandler' --&gt;
+    &lt;bean id="dummyBean" class="java.lang.String"/&gt;
+    ...
+  &lt;/flow&gt;</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

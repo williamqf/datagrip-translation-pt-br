@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata atribuições de variáveis a si mesmas.
+<p>A correção rápida remove atribuições redundantes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun test() {
+      var bar = 1
+      bar = bar
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun test() {
+      var bar = 1
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

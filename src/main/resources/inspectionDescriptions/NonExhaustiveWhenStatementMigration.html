@@ -1,0 +1,67 @@
+<html>
+<body>
+Relata instruções <code>when</code> não exaustivas que causarão erros de compilação a partir da versão 1.7.
+<p>Tipos de motivação:</p>
+<ul>
+    <li>
+        Padrões de uso problemáticos/sem sentido que precisam ser desencorajados/bloqueados (por exemplo, comportamento contraintuitivo)
+        <ul>
+            <li>
+                O código é propenso a erros
+            </li>
+        </ul>
+    </li>
+    <li>
+        Inconsistência no design (tratamento diferente em diferentes contextos)
+    </li>
+</ul>
+<p>Tipos de impacto:</p>
+<ul>
+    <li>
+        Compilação. Alguns códigos que costumavam ser compilados não serão mais compilados
+        <ul>
+            <li>
+                Em alguns casos, tais códigos funcionavam sem exceções
+                <ul>
+                    <li>
+                        Alguns desses códigos podiam ser compilados sem qualquer aviso
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+
+<p><b>Mais detalhes</b>: <a href="https://youtrack.jetbrains.com/issue/KT-47709">KT-47709: Tornar as instruções when com sujeitos enum, sealed e boolean exaustivas por padrão</a></p>
+<p>A correção rápida adiciona o ramo <code>else -> {}</code> ausente.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  sealed class <b>Base</b> {
+      class <b>A</b> : <b>Base</b>()
+      class <b>B</b> : <b>Base</b>()
+  }
+
+  fun test(base: <b>Base</b>) {
+      when (base) {
+          is <b>Base</b>.<b>A</b> -> ""
+      }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  sealed class <b>Base</b> {
+      class <b>A</b> : <b>Base</b>()
+      class <b>B</b> : <b>Base</b>()
+  }
+
+  fun test(base: <b>Base</b>) {
+      when (base) {
+          is <b>Base</b>.<b>A</b> -> ""
+          else -> {}
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção só é relatada se o nível de linguagem Kotlin do projeto ou módulo for 1.6 ou superior.</p>
+</body>
+</html>

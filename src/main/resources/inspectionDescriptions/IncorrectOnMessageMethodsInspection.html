@@ -1,0 +1,51 @@
+<html>
+<body>
+<p>Relata métodos WebSocket incorretos anotados com <code>@OnMessage</code>.</p>
+
+<p>
+  Esta anotação marca um método que processa mensagens WebSocket recebidas. Cada ponto de extremidade (endpoint) WebSocket pode ter apenas um método de tratamento de mensagens para cada formato de mensagem WebSocket (texto, binário, pong). Métodos anotados com <code>@OnMessage</code> podem ter o seguinte conjunto de parâmetros em qualquer ordem:
+</p>
+
+<ul>
+  <li>
+    Pode conter um dos seguintes conjuntos de parâmetros:
+    <ul>
+      <li>
+        Se o método estiver processando uma mensagem de texto:
+        <ul>
+          <li><code>String</code> para receber a mensagem completa</li>
+          <li>Um tipo primitivo Java ou classe equivalente para receber a mensagem completa convertida para esse tipo</li>
+          <li>Um par de <code>String</code> e booleano para receber a mensagem em partes</li>
+          <li><code>Reader</code> para receber a mensagem completa como um stream de bloqueio</li>
+          <li>Qualquer parâmetro de objeto para o qual o ponto de extremidade tenha um decodificador de texto (<code>Decoder.Text</code> ou <code>Decoder.TextStream</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        Se o método estiver processando uma mensagem binária:
+        <ul>
+          <li><code>byte[]</code> ou <code>ByteBuffer</code> para receber a mensagem completa</li>
+          <li>Um par de <code>byte[]</code> e booleano, ou <code>ByteBuffer</code> e booleano para receber a mensagem em partes</li>
+          <li><code>InputStream</code> para receber a mensagem completa como um stream de bloqueio</li>
+          <li>Qualquer parâmetro de objeto para o qual o ponto de extremidade tenha um decodificador binário (<code>Decoder.Binary</code> ou <code>Decoder.BinaryStream</code>)
+          </li>
+        </ul>
+      </li>
+      <li>
+        Se o método estiver processando uma mensagem pong:
+        <ul>
+          <li><code>PongMessage</code> para tratar a mensagem pong</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>Qualquer número de parâmetros <code>String</code> ou primitivos Java anotados com <code>@PathParam</code> para pontos de extremidade do servidor</li>
+  <li>Um parâmetro <code>Session</code> opcional</li>
+</ul>
+
+<p>
+  Se o método retornar um valor, o runtime do WebSocket o interpretará como uma mensagem a ser retornada ao par (peer).
+  Os tipos de retorno permitidos são <code>String</code>, <code>ByteBuffer</code>, <code>byte[]</code>, qualquer primitivo Java ou classe equivalente, e qualquer tipo com um codificador (encoder). Se o método retornar um valor primitivo Java, a implementação deverá construir a mensagem de texto a ser enviada usando a representação de string Java padrão do primitivo Java, a menos que o desenvolvedor tenha fornecido um codificador para o tipo configurado para este ponto de extremidade, caso em que esse codificador deve ser usado. Se o método retornar uma classe equivalente a um primitivo Java, a implementação deverá construir a mensagem de texto a partir do equivalente primitivo conforme descrito anteriormente.
+</p>
+</body>
+</html>

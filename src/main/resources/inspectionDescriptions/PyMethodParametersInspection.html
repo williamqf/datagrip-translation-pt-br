@@ -1,0 +1,28 @@
+<html>
+<body>
+<p>Relata métodos que não possuem o primeiro parâmetro, geralmente chamado de <code>self</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Movie:
+
+   def show():
+       pass
+</code></pre>
+<p>Após a aplicação do ajuste rápido, o código torna-se:</p>
+<pre><code>
+class Movie:
+
+   def show(self):
+       pass
+</code></pre>
+<p>A inspeção também relata problemas de nomenclatura em métodos de classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+class Movie:
+    @classmethod
+    def show(abc):
+        pass
+</code></pre>
+<p>Como o primeiro parâmetro de um método de classe deve ser <code>cls</code>, o IDE oferece um ajuste rápido para renomeá-lo.</p>
+</body>
+</html>

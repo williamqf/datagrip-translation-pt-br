@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata parâmetros de tipo que possuem o mesmo nome de um tipo visível no escopo atual. Esses nomes de parâmetro podem ser confusos.
+<!-- tooltip end -->
+<p>Exemplo:</p>
+<pre><code>
+  abstract class MyList&lt;T&gt; extends AbstractList&lt;T&gt; {
+    private List&lt;T&gt; elements;
+    // O parâmetro de tipo 'T' oculta o parâmetro de tipo 'T'
+    public &lt;T&gt; T[] toArray(T[] array) {
+        return elements.toArray(array);
+    }
+}
+</code></pre>
+</body>
+</html>

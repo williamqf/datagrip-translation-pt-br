@@ -1,0 +1,31 @@
+<html>
+<body>
+Relata qualquer cadeia de instruções <code>if</code>-<code>else</code> em que todas as condições das instruções sejam expressões <code>instanceof</code> ou expressões de igualdade de classe (por exemplo, comparação com <code>String.class</code>).
+Tal construção geralmente indica uma falha no design orientado a objetos, que exige que esse despacho baseado em tipo seja feito por meio de chamadas de método polimórfico em vez de cadeias explícitas de testes de tipo.
+<p>Exemplo:</p>
+<pre><code>
+  double getArea(Shape shape) {
+    // Aviso: falha de abstração.
+    // É melhor declarar o método abstrato getArea() na
+    // interface shape e implementá-lo em cada herdeiro.
+    if (shape instanceof Point) {
+      return 0;
+    }
+    if (shape instanceof Circle) {
+      return Math.PI *
+        Math.pow(((Circle) shape).radius(), 2);
+    }
+    if (shape instanceof Rectangle) {
+      return ((Rectangle) shape).width() *
+        ((Rectangle) shape).height();
+    }
+    throw new IllegalArgumentException();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a caixa de seleção abaixo para ignorar expressões <code>instanceof</code> em classes de biblioteca.
+<p>
+
+</body>
+</html>

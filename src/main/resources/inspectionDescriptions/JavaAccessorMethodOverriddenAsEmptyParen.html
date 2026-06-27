@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Relata métodos com cláusula de parâmetros vazia que sobrescrevem métodos de acesso Java.</p>
+
+<p>Métodos que seguem o contrato de nomenclatura <a href="https://en.wikipedia.org/wiki/JavaBean">JavaBean</a> para acessadores devem
+    não ter <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>.
+    A convenção recomendada é usar um método sem parâmetros sempre que não houver
+    parâmetros e o método não tiver efeitos colaterais.
+    Esta convenção promove o <a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que afirma que o código do cliente não deve ser afetado pela decisão de implementar um atributo como um campo ou método.</p>
+
+<p>O problema é que o Java não implementa o princípio de acesso uniforme
+    e não permite métodos sem cláusulas de parâmetros.
+    Para preencher essa lacuna, o Scala permite que você sobrescreva métodos com cláusulas de parâmetros vazias com
+    métodos sem cláusulas de parâmetros.</p>
+
+<p>A correção rápida remove a cláusula de parâmetro vazia.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class TestException extends Exception {
+    override def getMessage(): String = ???
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  class TestException extends Exception {
+    override def getMessage: String = ???
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

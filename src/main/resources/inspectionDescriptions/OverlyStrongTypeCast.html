@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata casts de tipo excessivamente fortes. Por exemplo, realizar o cast de um objeto para <code>ArrayList</code> quando o cast para <code>List</code> seria suficiente.
+<p>
+  <b>Observação</b>: Semelhante à inspeção <i>Cast de tipo redundante</i>, se você estiver usando intencionalmente um cast excessivamente forte para gerar uma <code>ClassCastException</code>, a aplicação de uma correção para esta inspeção pode alterar a semântica do programa.
+</p>
+<p>Exemplo:</p>
+<pre><code>
+  interface Super {
+    void doSmth();
+  }
+  interface Sub extends Super { }
+
+  void use(Object obj) {
+    // Aviso: ((Super)obj).doSmth() pode ser usado
+    ((Sub)obj).doSmth();
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a caixa de seleção abaixo para ignorar casts quando houver uma verificação <code>instanceof</code> correspondente no código.
+</body>
+</html>

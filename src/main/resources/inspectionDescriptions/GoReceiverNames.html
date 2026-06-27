@@ -1,0 +1,8 @@
+<html>
+<body>
+Relata nomes de receptor como <code>me</code>, <code>this</code>, <code>self</code> ou nomes que diferem de outros nomes de receptor para este tipo.
+<p>Exemplo:</p>
+<pre><code>func (self *MeterSnapshot) Rate5() float64 { return math.Float64frombits(self.rate5) }</code></pre>
+<p>De acordo com <a href="https://github.com/golang/go/wiki/CodeReviewComments#receiver-names">Receiver Names no github.com/golang</a>, você não deve usar nomes genéricos como "me", "this" ou "self". Esses identificadores são típicos em linguagens orientadas a objetos e podem conferir um significado especial ao método.</p>
+</body>
+</html>

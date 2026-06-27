@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata comentários que não começam com o nome do elemento exportado.
+<p>De acordo com <a href="https://github.com/golang/go/wiki/CodeReviewComments#comment-sentences">Comment Sentences em github.com/golang</a>, é uma convenção colocar o nome do elemento exportado no início do comentário.</p>
+<p>Exemplo:</p>
+<pre><code>// Representa uma requisição para executar um comando.
+type Request struct {}</code></pre>
+
+<p>O comentário começa com uma descrição da struct em vez do nome da struct. Para seguir a regra da convenção, você pode aplicar a correção rápida <b>Adicionar prefixo ao comentário</b>. Após a aplicação da correção rápida, o comentário será semelhante a este:</p>
+<pre>
+// Request representa uma requisição para executar um comando.
+type Request struct {} // melhor
+</pre>
+</body>
+</html>

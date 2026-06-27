@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Relata o uso de <a href="https://docs.python.org/2/reference/datamodel.html#new-style-and-classic-classes">classes de estilo clássico</a>. Esta inspeção se aplica apenas ao Python 2.
+<p><b>Exemplo:</b></p>
+<pre><code>
+class A:
+    pass
+</code></pre>
+<p>Após a aplicação da correção rápida fornecida pelo IDE, este fragmento de código será alterado para:</p>
+<pre><code>
+class A(object):
+    def __init__(self):
+        pass
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+Relata métodos e campos <code>static</code> que são usados apenas em classes fora da classe que os contém. Esses membros podem ser movidos para a classe que os utiliza.
+Esta inspeção ignora métodos de fábrica e membros acessados a partir de classes anônimas dentro da classe do membro.
+Sobrecargas de conveniência que chamam um método com o mesmo nome na mesma classe, mas com menos parâmetros, também são ignoradas.
+<!-- tooltip end -->
+<p>
+Use a primeira caixa de seleção para suprimir esta inspeção quando os membros static forem usados apenas em classes de teste.
+<p>
+Use a segunda caixa de seleção abaixo para ignorar o uso de membros dentro de classes anônimas, classes locais ou classes internas não static.
+<p>
+Use a terceira caixa de seleção abaixo para não avisar sobre membros que não podem ser movidos sem problemas, por exemplo, se um método com a mesma assinatura já existir na classe de destino ou se campos ou métodos usados dentro do método se tornarem inacessíveis após a movimentação.
+<p>
+Use a quarta caixa de seleção para ignorar membros localizados em classes utilitárias.
+</body>
+</html>

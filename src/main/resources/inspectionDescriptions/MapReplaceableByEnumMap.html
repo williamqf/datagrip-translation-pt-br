@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata a instanciação de objetos <code>java.util.Map</code> cujo tipo de chave é uma classe enum. Tais objetos <code>java.util.Map</code> podem ser substituídos por objetos <code>java.util.EnumMap</code>.
+<p>
+  A implementação <code>java.util.EnumMap</code> pode ser muito mais eficiente, pois a estrutura de dados subjacente é um array simples.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  Map&lt;MyEnum, String&gt; myEnums = new HashMap&lt;&gt;();
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  Map&lt;MyEnum, String&gt; myEnums = new EnumMap&lt;&gt;(MyEnum.class);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

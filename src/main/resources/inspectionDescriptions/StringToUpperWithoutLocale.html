@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata chamadas a <code>toUpperCase()</code> ou <code>toLowerCase()</code> em objetos <code>String</code> que não especificam um <code>java.util.Locale</code>. Nesses casos, a localidade padrão do sistema é usada, o que pode causar problemas em ambientes internacionalizados.
+<p>
+  Por exemplo, o código <code>"i".toUpperCase().equals("I")</code> retorna <code>false</code> nas localidades turca e azeri, onde o 'i' com ponto e o 'i' sem ponto são letras distintas. Ao executar em uma localidade turca, chamar <code>toUpperCase()</code> em uma string em inglês contendo 'i' retornará um resultado incorreto. Alternativamente, isso pode causar erros ao processar strings que devem ser tratadas como independentes de localidade, como tags HTML.
+</p>
+<!-- tooltip end -->
+</body>
+</html>

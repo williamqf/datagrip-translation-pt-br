@@ -1,0 +1,20 @@
+<html>
+<body>
+<p>Reporta funções que não possuem uma declaração de tipo de retorno especificada.</p>
+<p>Exemplo:</p>
+<pre><code>
+// Falta a declaração do tipo de retorno na função foo()
+function foo()
+{
+    return "foo";
+}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+function foo(): string
+{
+    return "foo";
+}
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Relata métodos com uma cláusula de parâmetro vazia que sobrepõem métodos sem cláusulas de parâmetro.</p>
+
+<p>A convenção recomendada é utilizar um método sem cláusulas de parâmetro quando não houver parâmetros e o método não tiver
+    <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>.</p>
+
+<p>Esta convenção promove o <a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que diz que o código do cliente não deve ser afetado por uma decisão de implementar um atributo como um campo ou método.</p>
+
+<p>De acordo com o <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">princípio de substituição de Liskov</a>,
+    sempre que um método sobreposto não tiver uma cláusula de parâmetro, o método de sobreposição também deve ser declarado como um método sem efeitos colaterais.</p>
+
+<p>A correção rápida remove a cláusula de parâmetro vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  trait Base { def isOk: Boolean }
+
+  class Impl extends Base {
+    override def isOk(): Boolean = ???
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  trait Base { def isOk: Boolean }
+
+  class Impl extends Base {
+    override def isOk: Boolean = ???
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

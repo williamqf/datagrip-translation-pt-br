@@ -1,0 +1,25 @@
+<html>
+<body>
+<p>Relata definições inválidas de <a href="https://docs.python.org/3/library/typing.html#typing.NamedTuple">typing.NamedTuple</a>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+import typing
+
+
+class FullName(typing.NamedTuple):
+    first: str
+    last: str = ""
+    middle: str
+</code></pre>
+<p>A correção consiste em posicionar os campos que possuem valores padrão após os campos sem valores padrão:</p>
+<pre><code>
+import typing
+
+
+class FullName(typing.NamedTuple):
+    first: str
+    middle: str
+    last: str = ""
+</code></pre>
+</body>
+</html>

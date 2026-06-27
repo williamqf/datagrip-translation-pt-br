@@ -1,0 +1,55 @@
+<html>
+<body>
+Relata casos em que um objeto não seguro é passado para um método com um parâmetro marcado com a anotação <code>@Untainted</code>, retornado de um método anotado ou atribuído a um campo, parâmetro ou variável local anotado. Os métodos <code>set</code> e <code>get</code> do Kotlin para campos não são suportados como pontos de entrada.
+<p>
+  Objetos seguros (na mesma classe) são:
+<ul>
+  <li>Literais de string, instâncias de interface ou objetos enum</li>
+  <li>Resultados de chamadas de métodos marcados como <code>@Untainted</code></li>
+  <li>Campos private, atribuídos apenas com literais de string e que possuem um inicializador seguro</li>
+  <li>Campos final que possuem um inicializador seguro</li>
+  <li>Variáveis locais ou parâmetros marcados como <code>@Untainted</code> e que não foram atribuídos a partir de um objeto não seguro</li>
+</ul>
+Este campo, variável local ou parâmetro não deve ser passado como argumento para um método ou usado como qualificador, ou deve ser um tipo primitivo, seu invólucro (wrapper) ou um objeto imutável.
+
+Além disso, campos static final também são considerados seguros.
+<p>
+  A análise é executada apenas dentro de um arquivo. Para processar dependências de outras classes, use as opções.
+  A análise se estende a métodos private ou static e possui limites de profundidade de propagação.
+<p>
+  Exemplo:
+<pre>
+<code lang="java">
+  void doSmth(boolean b) {
+    String s = safe();
+    String s1 = "other";
+    if (b) s1 = s;
+    sink(s);
+  }
+
+  String sink(@Untainted String s) {}
+</code>
+</pre>
+<p>
+  Aqui não há atribuição de string não segura para <code>s</code>, portanto nenhum aviso é gerado. Por outro lado:
+<pre>
+<code lang="java">
+  void doSmth(boolean b) {
+    String s = safe();
+    String s1 = "other";
+    s1 = foo();
+    if (b) s = s1;
+    sink(s);        // Aviso aqui
+  }
+  
+  String foo();
+
+  String sink(@Untainted String s) {}
+</code>
+</pre>
+<p>
+  Aqui há um aviso porque <code>s1</code> possui um estado desconhecido após a atribuição do resultado da chamada de <code>foo</code>.
+  <!-- tooltip end -->
+<p><small>Novidade na versão 2021.2</small></p>
+</body>
+</html>

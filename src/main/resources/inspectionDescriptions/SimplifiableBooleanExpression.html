@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata expressões booleanas que podem ser simplificadas.
+<p>Exemplo:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = !(foo ^ bar);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = foo == bar;
+  }
+</code></pre>
+
+<p>Exemplo:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = (foo && bar) || !foo;
+  }
+  </code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  void f(boolean foo, boolean bar) {
+    boolean b = !foo || bar;
+  }
+  </code></pre>
+
+<!-- tooltip end -->
+</body>
+</html>

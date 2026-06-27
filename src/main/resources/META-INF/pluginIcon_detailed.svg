@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradient -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#2B2D30"/>
+      <stop offset="100%" stop-color="#141517"/>
+    </linearGradient>
+    
+    <!-- Database Cyan/Blue Gradient -->
+    <linearGradient id="dbGrad" x1="57" y1="38" x2="93" y2="76" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00B4DB"/>
+      <stop offset="100%" stop-color="#0083B0"/>
+    </linearGradient>
+    
+    <!-- Speech Bubble Green Gradient -->
+    <linearGradient id="bubbleGrad" x1="15" y1="45" x2="75" y2="95" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#00A859"/>
+      <stop offset="100%" stop-color="#007d40"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Card -->
+  <rect x="0" y="0" width="120" height="120" rx="28" fill="url(#bgGrad)"/>
+  <rect x="1" y="1" width="118" height="118" rx="27" fill="none" stroke="#FFFFFF" stroke-opacity="0.08" stroke-width="2"/>
+
+  <!-- Database Shadow (Vector-based) -->
+  <ellipse cx="75" cy="72" rx="20" ry="6" fill="#000000" opacity="0.4"/>
+
+  <!-- Database Cylinder Stack (Representing DataGrip) -->
+  <g id="database" opacity="0.85">
+    <!-- Top Cylinder -->
+    <path d="M 55 35 V 45 C 55 49.5 95 49.5 95 45 V 35 Z" fill="url(#dbGrad)" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.2"/>
+    <ellipse cx="75" cy="35" rx="20" ry="6" fill="#1e2022" stroke="url(#dbGrad)" stroke-width="1.5"/>
+    
+    <!-- Middle Cylinder -->
+    <path d="M 55 47 V 57 C 55 61.5 95 61.5 95 57 V 47 Z" fill="url(#dbGrad)" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.2"/>
+    <ellipse cx="75" cy="47" rx="20" ry="6" fill="#1e2022" stroke="url(#dbGrad)" stroke-dasharray="2,2" stroke-width="1"/>
+    
+    <!-- Bottom Cylinder -->
+    <path d="M 55 59 V 69 C 55 73.5 95 73.5 95 69 V 59 Z" fill="url(#dbGrad)" stroke="#FFFFFF" stroke-opacity="0.1" stroke-width="1.2"/>
+    <ellipse cx="75" cy="59" rx="20" ry="6" fill="#1e2022" stroke="url(#dbGrad)" stroke-dasharray="2,2" stroke-width="1"/>
+    <ellipse cx="75" cy="69" rx="20" ry="6" fill="none" stroke="url(#dbGrad)" stroke-width="1.5"/>
+  </g>
+
+  <!-- Speech Bubble Shadow (Vector-based) -->
+  <path d="M 25 48 L 65 48 C 70.5 48 75 52.5 75 58 L 75 88 C 75 93.5 70.5 98 65 98 L 38 98 L 20 108 L 25 98 C 19.5 98 15 93.5 15 88 L 15 58 C 15 52.5 19.5 48 25 48 Z" fill="#000000" opacity="0.35"/>
+
+  <!-- Speech Bubble Overlay (Representing Translation to Portuguese) -->
+  <path d="M 25 45 L 65 45 C 70.5 45 75 49.5 75 55 L 75 85 C 75 90.5 70.5 95 65 95 L 38 95 L 20 105 L 25 95 C 19.5 95 15 90.5 15 85 L 15 55 C 15 49.5 19.5 45 25 45 Z"
+        fill="url(#bubbleGrad)" stroke="#FFFFFF" stroke-opacity="0.15" stroke-width="1.5"/>
+
+  <!-- "PT" Outlined Vector Path (No text elements used for max compatibility) -->
+  <path d="M 24 60 h 8 a 5 5 0 0 1 0 10 h -4 v 10 h -4 z M 28 64 v 2 h 4 a 1 1 0 0 0 0 -2 z M 40 60 h 12 v 4 h -4.5 v 16 h -3 V 64 H 40 z" fill="#FFFFFF"/>
+
+  <!-- Circular Brazilian Flag Badge -->
+  <g id="brazil-flag" transform="translate(56 70)">
+    <!-- Blue outer ring/glow -->
+    <circle cx="0" cy="0" r="10" fill="#007d40" stroke="#FFFFFF" stroke-width="1.2"/>
+    <circle cx="0" cy="0" r="9" fill="#00A859"/>
+    
+    <!-- Yellow Diamond -->
+    <polygon points="0 -7 7.5 0 0 7 -7.5 0" fill="#FFCC00"/>
+    
+    <!-- Blue Circle -->
+    <circle cx="0" cy="0" r="4.2" fill="#0052B4"/>
+    
+    <!-- White Arch Stripe -->
+    <path d="M -3.8 1 C -1.5 -1.2 1.5 -1.2 3.8 1" fill="none" stroke="#FFFFFF" stroke-width="0.9"/>
+  </g>
+</svg>

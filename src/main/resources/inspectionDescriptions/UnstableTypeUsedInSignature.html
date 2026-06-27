@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata declarações de classes, métodos e campos que referenciam tipos de API instáveis em suas assinaturas, mas que não estão marcados com a mesma anotação de instabilidade.
+<p>
+  Esta inspeção garante que as assinaturas de APIs públicas não exponham nenhum tipo <i>instável</i> (interno, experimental).
+  Por exemplo, se um método retorna uma classe <i>experimental</i>, o método em si é considerado <i>experimental</i>, pois mudanças incompatíveis no tipo (remoção ou movimentação para outro pacote) resultariam em mudanças incompatíveis na assinatura do método.
+</p>
+<!-- tooltip end -->
+<p>Use a lista abaixo para especificar as anotações que marcam APIs instáveis.</p>
+</body>
+</html>

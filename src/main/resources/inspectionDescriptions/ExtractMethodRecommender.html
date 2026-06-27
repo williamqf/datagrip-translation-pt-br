@@ -1,0 +1,13 @@
+<html>
+<body>
+Sugere a extração de fragmentos de código para um método separado para tornar o código mais claro. 
+Esta inspeção possui várias heurísticas para selecionar bons candidatos para extração, incluindo as seguintes:
+<ul>
+  <li>O fragmento extraído não possui fluxo de controle não local</li>
+  <li>O fragmento extraído possui uma e apenas uma variável de saída</li>
+  <li>Não há usos de variáveis de saída semelhantes dentro e fora do fragmento extraído</li>
+  <li>O fragmento extraído possui poucos parâmetros de entrada (por padrão, no máximo três; configurável nas opções de inspeção)</li>
+  <li>O fragmento extraído não é menor que o comprimento configurado (por padrão, 500 caracteres), mas não é maior que 60% do corpo do método que o contém</li>
+</ul>
+</body>
+</html>

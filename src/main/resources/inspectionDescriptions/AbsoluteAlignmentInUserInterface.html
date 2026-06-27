@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata o uso de constantes de alinhamento absoluto no AWT e Swing. Aplicativos internacionalizados usam alinhamento relativo, pois ele segue as configurações de orientação de componentes da localidade.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  JPanel panel = new JPanel(new BorderLayout(2, 2));
+  JLabel label = new JLabel("Hello World");
+  panel.add(label, BorderLayout.NORTH);
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  JPanel panel = new JPanel(new BorderLayout(2, 2));
+  JLabel label = new JLabel("Hello World");
+  panel.add(label, BorderLayout.PAGE_START);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

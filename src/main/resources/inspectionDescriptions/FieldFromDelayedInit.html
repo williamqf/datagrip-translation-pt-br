@@ -1,0 +1,19 @@
+<html>
+<body>
+<p>Relata campos definidos em subclasses de <code>DelayedInit</code> que são inicializados somente quando o método <code>main</code> é executado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Test {
+    println(MyApp.initializedLater) // imprime 0
+  }
+  object MyApp extends DelayedInit {
+    val initializedLater = 3
+    override def delayedInit(body: => Unit): Unit = {
+      new Test
+      corpo
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

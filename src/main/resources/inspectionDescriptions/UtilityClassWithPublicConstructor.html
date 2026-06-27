@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata classes utilitárias que possuem um construtor <code>public</code>.
+<p>Uma classe utilitária declara todos os campos e métodos como <code>static</code>. Criar um construtor <code>public</code> em tal classe é confuso e pode levar à instanciação acidental da classe.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  public final class UtilityClass {
+    public UtilityClass(){
+    }
+    public static void foo() {}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  public final class UtilityClass {
+    private UtilityClass(){
+    }
+    public static void foo() {}
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+<body>
+Relata instruções ou expressões <code>switch</code> nas quais a ramificação <code>default</code> está posicionada antes de outro caso.
+Tais construções podem causar confusão desnecessária.
+Se possível, uma correção rápida é fornecida para mover a ramificação <code>default</code> para a última posição.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  switch (n) {
+      default:
+          System.out.println();
+          break;
+      case 1:
+          break;
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  switch (n) {
+    case 1:
+        break;
+    default:
+        System.out.println();
+        break;
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+
+</body>
+</html>

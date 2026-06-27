@@ -1,0 +1,22 @@
+<html>
+<body>
+Relata parâmetros de tipo não utilizados.
+<pre><code>func main() {
+ printAll(
+  42,
+  "bird",
+ )
+}
+
+func printAll[I int, S string](
+ i I,
+ s string,
+) {
+ fmt.Println(i)
+ fmt.Println(s)
+}</code></pre>
+<p>A função <b>printAll</b> possui dois parâmetros de tipo, <code>I</code> e <code>S</code>, mas apenas o primeiro é utilizado.
+  Portanto, <code>S string</code> ficará esmaecido.
+</p>
+</body>
+</html>

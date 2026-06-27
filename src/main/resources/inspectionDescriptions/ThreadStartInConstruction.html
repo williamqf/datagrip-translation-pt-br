@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata chamadas a <code>start()</code> em <code>java.lang.Thread</code> ou em qualquer uma de suas subclasses durante a construção do objeto.
+<p>
+  Embora tais construções sejam ocasionalmente úteis, elas devem ser evitadas devido a problemas de herança.
+  Subclasses de uma classe que inicia uma thread durante a construção do objeto não terão concluído sua própria lógica de inicialização antes que a thread comece.
+</p>
+<p>Esta inspeção não relata se a classe que inicia a thread estiver declarada como <code>final</code>.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class MyThread extends Thread {
+    MyThread() {
+      start();
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

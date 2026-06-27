@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata parâmetros de tipo e argumentos de tipo curinga que são declarados explicitamente para estender <code>java.lang.Object</code>.
+<p>Tais cláusulas 'extends' são redundantes, pois <code>java.lang.Object</code> é o supertipo de todas as classes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  class ClassA&lt;T extends Object&gt; {}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Se a cláusula 'extends Object' precisar ser mantida devido a uma anotação, desative a opção <b>Ignorar quando java.lang.Object estiver anotado</b>.
+  Isso pode ser útil, por exemplo, se você estiver usando um analisador de nulidade e a cláusula 'extends Object' contiver uma anotação <code>@Nullable</code>/<code>@NotNull</code>.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  class MyClass&lt;T extends @NotNull Object&gt; {}
+</code></pre>
+
+</body>
+</html>

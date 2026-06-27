@@ -1,0 +1,23 @@
+<html>
+<body>
+Relata quaisquer referências a classes internas que sejam qualificadas desnecessariamente pelo nome da classe envolvente.
+<p>Essa qualificação pode ser removida com segurança, o que às vezes adiciona uma importação para a classe interna.</p>
+<p>Exemplo:</p>
+<pre><code>
+  class X {
+     X.Y foo;
+     class Y{}
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class X {
+     Y foo;
+     class Y{}
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Use a opção <b>Ignorar referências que exigem importação</b> para ignorar as referências a classes internas onde a remoção da qualificação adicionaria uma importação.
+<p>
+</body>
+</html>

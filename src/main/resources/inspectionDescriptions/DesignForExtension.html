@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata métodos que não sejam <code>static</code>, <code>private</code>, <code>final</code> ou <code>abstract</code> e que possuam um corpo não vazio.
+<p>
+  Codificar em um estilo que evite tais métodos protege o contrato da classe de ser quebrado por suas subclasses. O benefício deste estilo é que as subclasses não podem corromper o estado da superclasse ao esquecer de chamar o método super. O custo é que a flexibilidade das subclasses é limitada; especificamente, elas não podem impedir a execução do código na superclasse. Use a correção rápida para adicionar os modificadores ausentes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    public boolean equals(Object o) { return true; }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  class Foo {
+    public final boolean equals(Object o) { return true; }
+  }
+</code></pre>
+Esta inspeção destina-se a códigos que serão usados em ambientes seguros e pode não ser apropriada para ambientes menos restritivos.
+<!-- tooltip end -->
+</body>
+</html>

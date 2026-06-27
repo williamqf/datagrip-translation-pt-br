@@ -1,0 +1,24 @@
+<html>
+<body>
+Relata variáveis locais usadas apenas na instrução <code>return</code> subsequente ou que sejam cópias exatas de outras variáveis.
+<p>Tais variáveis podem ser incorporadas (inline) com segurança para tornar o código mais claro.</p>
+
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun sum(a: Int, b: Int): Int {
+      val c = a + b
+      return c
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun sum(a: Int, b: Int): Int {
+      return a + b
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>Configuração da inspeção:</p>
+<p>Use a opção <b>Relatar variáveis retornadas imediatamente</b> para relatar variáveis que são retornadas logo em seguida.
+    Essas variáveis podem, em alguns casos, aumentar a legibilidade do código quando recebem nomes descritivos, e é por isso que esta opção é desativada por padrão.</p>
+</body>
+</html>

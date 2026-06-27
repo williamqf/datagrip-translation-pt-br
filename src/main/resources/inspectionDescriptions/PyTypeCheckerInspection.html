@@ -1,0 +1,24 @@
+<html>
+<body>
+<p>Relata erros de tipo em expressões de chamada de função, destinos e valores de retorno. Em linguagens de tipagem dinâmica, isso pode ocorrer em um número limitado de casos.</p>
+<p>Os tipos dos parâmetros de função podem ser especificados em docstrings ou em anotações de função do Python 3.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+def foo() -> int:
+    return "abc" # esperado int, obtido str
+
+
+a: str
+a = foo() # esperado str, obtido int
+</code></pre>
+<p>Uma correção rápida pode ser usada para alterar o tipo problemático:</p>
+<pre><code>
+def foo() -> str:
+    return "abc"
+
+
+a: str
+a = foo()
+</code></pre>
+</body>
+</html>

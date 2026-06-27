@@ -1,0 +1,15 @@
+<html>
+<body>
+Relata expressões <code>Optional</code> usadas como condições em instruções <code>if</code> ou expressões condicionais que podem ser reescritas em estilo funcional.
+Os resultados geralmente são mais curtos e fáceis de ler.
+<p>Exemplo:</p>
+<pre><code>
+  if (str.isPresent()) str.get().trim();
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  str.ifPresent(String::trim);
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

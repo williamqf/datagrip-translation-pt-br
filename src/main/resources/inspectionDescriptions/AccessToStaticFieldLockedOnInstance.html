@@ -1,0 +1,25 @@
+<html>
+<body>
+Relata o acesso a campos <code>static</code> não constantes que estão bloqueados em <code>this</code> ou em um campo de instância de <code>this</code>.
+<p>
+  Bloquear um campo <code>static</code> em dados de instância não impede que outras instâncias modifiquem esse campo, o que pode levar a condições de corrida inesperadas.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  static String test;
+  public void foo() {
+      synchronized (this) {
+          System.out.println(test); // aviso
+      }
+  }
+</code></pre>
+<p>
+  Existe uma correção rápida que permite ignorar campos <code>static</code> de tipos específicos.
+  Os tipos ignorados podem ser gerenciados nas opções de inspeção.
+</p>
+<!-- tooltip end -->
+<p>
+  Use as opções de inspeção para especificar quais classes usadas para campos <code>static</code> devem ser ignoradas.
+<p>
+</body>
+</html>

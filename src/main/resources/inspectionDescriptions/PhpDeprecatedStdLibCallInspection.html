@@ -1,0 +1,29 @@
+<html>
+<body>
+Relata chamadas para funções da biblioteca padrão do PHP que foram depreciadas a partir do PHP 8.1.
+<!-- tooltip end -->
+<p>
+  As seguintes chamadas são relatadas:
+</p>
+<ul>
+  <li>
+    Chamadas a <code>key()</code>, <code>current()</code>, <code>next()</code>, <code>prev()</code> e <code>reset()</code> que utilizam um objeto como argumento.
+  </li>
+  <li>
+    Chamadas a <code>mb_check_encoding()</code> sem argumentos.
+  </li>
+  <li>
+    Chamadas a <code>get_class()</code>, <code>get_parent_class()</code> e <code>get_called_class()</code> sem argumentos.
+  </li>
+  <li>
+    Chamadas a <code>IntlCalendar::roll()</code> passando um booleano como o argumento <code>$value</code>.
+  </li>
+  <li>
+    Chamadas a <code>ctype_*()</code> com argumentos que não sejam string.
+  </li>
+</ul>
+<p>
+  Para mais detalhes, consulte <a href="https://wiki.php.net/rfc/deprecations_php_8_1">PHP RFC: Deprecations for PHP 8.1</a>.
+</p>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata o uso de operadores de igualdade que podem causar coerção de tipo inesperada.
+Sugere a substituição de <code>==</code> e <code>!=</code> pelos operadores de igualdade seguros para tipos <code>===</code> e <code>!==</code>.
+<p>Dependendo da opção selecionada, um dos seguintes casos será relatado:</p>
+<ul>
+  <li>
+    Todos os usos dos operadores <code>==</code> e <code>!=</code>.
+  </li>
+  <li>
+    Todos os usos, exceto para comparações com null. Alguns estilos de código permitem o uso de <code>x == null</code> em vez de <code>x === null || x === undefined</code>.
+  </li>
+  <li>
+    Apenas expressões suspeitas, como comparações <code>==</code> ou <code>!=</code> com <code>0</code>, <code>''</code>, <code>null</code>, <code>true</code>, <code>false</code> ou <code>undefined</code>.
+  </li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<html>
+<body>
+<p>Informa que falta <code>=</code> entre o tipo de retorno e o corpo da função.</p>
+<p>Um tipo não pode ser refinado quando usado como o tipo de retorno de uma função.
+    No entanto, quando há um <code>=</code> ausente entre o tipo de retorno e o corpo da função, ele pode parecer refinado.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def test(): T {}
+</code></pre>
+<p>Após a correção rápida ser aplicada</p>
+<pre><code>
+  def test(): T = {}
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

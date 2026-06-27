@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata declarações que possuem modificadores que não estão na ordem preferencial padrão (conforme descrito na Java Language Specification).
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+    native public final void foo();
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  class Foo {
+    public final native void foo();
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

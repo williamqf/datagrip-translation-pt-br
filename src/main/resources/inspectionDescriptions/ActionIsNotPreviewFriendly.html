@@ -1,0 +1,38 @@
+<html>
+<body>
+Relata campos em implementações de <code>LocalQuickFix</code> e <code>IntentionAction</code> que impedem o funcionamento correto da operação de visualização de intenção (intent preview). Além disso, relata o uso excessivo da anotação <code>@SafeFieldForPreview</code> em campos cujos tipos já são conhecidos como seguros.
+<p>
+  A visualização de intenção é um recurso da plataforma IntelliJ que mostra as alterações que seriam feitas no arquivo atual após a aplicação de uma correção rápida ou ação de intenção. Para implementar essa funcionalidade em correções rápidas, o método <code>LocalQuickFix.generatePreview()</code> é chamado com um <code>ProblemDescriptor</code> personalizado que aponta para uma cópia não física do arquivo atual. Em ações de intenção, <code>IntentionAction.generatePreview()</code> é chamado com a cópia não física do arquivo atual e um editor virtual.
+  Geralmente, esses métodos apenas delegam para <code>LocalQuickFix.applyFix()</code> ou <code>IntentionAction.invoke()</code>.
+  No entanto, algumas correções rápidas podem referenciar elementos físicos direta ou indiretamente e usá-los para escrita. Como a correção rápida tenta atualizar o PSI físico em vez do não físico, a visualização não funciona.
+  Para evitar isso, a implementação padrão de <code>generatePreview()</code> delega apenas se todos os campos de instância da classe de correção rápida ou ação de intenção tiverem tipos seguros (primitivos, String, etc.).
+</p>
+<p>
+  Você pode corrigir este problema de várias maneiras:
+</p>
+<ol>
+  <li>
+    Se o campo não armazena, de fato, nenhuma referência de PSI, ou se o PSI é usado apenas para leitura,
+    você pode anotar o campo com <code>@SafeFieldForPreview</code>. Se o tipo do campo nunca puder armazenar nenhuma referência de PSI gravável, você também pode usar <code>@SafeTypeForPreview</code>.
+  </li>
+  <li>
+    Você pode sobrescrever o método <code>getFileModifierForPreview()</code> e criar uma cópia da correção rápida, revinculando-a à cópia não física do arquivo fornecida como parâmetro. Use <code>PsiTreeUtil.findSameElementInCopy()</code> para encontrar o elemento PSI correspondente na cópia não física fornecida.
+  </li>
+  <li>
+    Em vez de armazenar referências de PSI em campos, tente extrair todas as informações necessárias de <code>ProblemDescriptor.getPsiElement()</code> na correção rápida ou do arquivo/editor fornecido na ação de intenção.
+    Você também pode herdar da classe abstrata <code>LocalQuickFixAndIntentionActionOnPsiElement</code> e implementar seus métodos <code>invoke()</code> e <code>isAvailable()</code>, que possuem os parâmetros
+    <code>startElement</code> e <code>endElement</code>. Esses parâmetros são mapeados automaticamente para a cópia não física do arquivo.
+  </li>
+  <li>
+    Você pode sobrescrever o método <code>generatePreview()</code> e fornecer um comportamento de visualização totalmente personalizado.
+    Por exemplo, você pode exibir um documento HTML personalizado em vez da visualização real, caso sua ação realize operações além da modificação do arquivo atual.
+  </li>
+</ol>
+<p>
+  Esta inspeção não relata se houver uma implementação personalizada de <code>getFileModifierForPreview()</code> ou <code>generatePreview()</code>. No entanto, isso não significa que a implementação esteja correta e que a visualização funcione.
+  Por favor, realize testes. Além disso, observe que os resultados da visualização são calculados em uma thread de segundo plano, portanto, você não pode iniciar uma ação de escrita ou realizar qualquer operação que exija uma ação de escrita durante a visualização. Por fim, se <code>startInWriteAction()</code> retornar <code>false</code>, a visualização não será gerada automaticamente. Nesse caso, é necessária uma implementação personalizada de <code>generatePreview()</code>.
+</p>
+<!-- tooltip end -->
+<p><small>Novo na versão 2022.1</small></p>
+</body>
+</html>

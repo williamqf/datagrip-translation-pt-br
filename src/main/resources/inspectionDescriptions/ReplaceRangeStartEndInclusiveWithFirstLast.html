@@ -1,0 +1,20 @@
+<html>
+<body>
+Relata as propriedades <code>Range.start</code> e <code>Range.endInclusive</code> <b>com boxing</b>.
+<p>Essas propriedades podem ser substituídas pelas propriedades <code>first</code> e <code>last</code> <b>sem boxing</b> para evitar chamadas redundantes.</p>
+<p>A correção rápida substitui as propriedades <code>start</code> e <code>endInclusive</code> pelas propriedades <code>first</code> e <code>last</code> correspondentes.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun foo(range: CharRange) {
+      val lastElement = range.endInclusive
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  fun foo(range: CharRange) {
+      val lastElement = range.last
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

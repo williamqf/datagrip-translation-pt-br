@@ -1,0 +1,33 @@
+<html>
+<body>
+<p>Relata métodos sem cláusulas de parâmetros que substituem métodos Java com nomes tipo modificadores.</p>
+<p>Scala permite substituir métodos Java sem parâmetros sem cláusulas de parâmetros.
+    Isso ocorre principalmente para permitir que o código Scala substitua métodos acessores Java da mesma forma que métodos acessores Scala.
+    Ou seja, sem cláusula de parâmetro e, portanto, aderir ao <a href="https://en.wikipedia.org/wiki/Uniform_access_principle">princípio de acesso uniforme</a>,
+    que diz que o código do cliente não deve ser afetado pela decisão de implementar um atributo como um campo ou método.</p>
+
+<p>No entanto, para métodos com <a href="https://en.wikipedia.org/wiki/Side_effect_(computer_science)">efeitos colaterais</a>,
+    é convencional ter uma cláusula de parâmetro vazia.
+    Isso estaria de acordo com o <a href="https://en.wikipedia.org/wiki/Liskov_substitution_principle">princípio da substituição de Liskov</a>, segundo o qual, quando um método substituído tem efeitos colaterais,
+    o método de substituição também deve ser declarado como um método com efeitos colaterais.</p>
+
+<p>A correção rápida adiciona uma cláusula de parâmetro vazia.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  import java.util
+
+  class Test extends util.ArrayList[String] {
+    override def clear: Unit = ???
+  }
+</code></pre>
+<p>Após a correção rápida ser aplicada:</p>
+<pre><code>
+  import java.util
+
+  class Test extends util.ArrayList[String] {
+    override def clear(): Unit = ???
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

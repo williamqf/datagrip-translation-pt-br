@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata comparações de <code>.size()</code> ou <code>.length()</code> com o literal <code>0</code> que podem ser substituídas por uma chamada a <code>.isEmpty()</code>.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  boolean emptyList = list.size() == 0;
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  boolean emptyList = list.isEmpty();
+  </code></pre>
+<!-- tooltip end -->
+<p>
+  Use a tabela <b>Classes ignoradas</b> para adicionar classes para as quais nenhuma comparação de <code>.size()</code> ou <code>.length()</code> deve ser substituída.
+</p>
+<p>Use a opção <b>Ignorar expressões que seriam substituídas por <code>!isEmpty()</code></b> para ignorar quaisquer expressões que seriam substituídas por <code>!isEmpty()</code>.
+</p>
+</body>
+</html>

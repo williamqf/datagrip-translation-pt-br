@@ -1,0 +1,23 @@
+<html>
+<body>
+
+Relata os seguintes problemas em arquivos de configuração XML:
+<ul>
+  <li>Referências a classes não instanciáveis</li>
+  <li>Referências a classes que não estendem a classe exigida</li>
+  <li>Referências a classes com escopo inadequado</li>
+  <li>Valores de tags e atributos que não correspondem ao padrão exigido (por exemplo, identificadores Java)</li>
+  <li>Tags que não contêm tags filhas ou atributos obrigatórios</li>
+  <li>Tags que definem objetos com nomes duplicados</li>
+</ul>
+
+<p><b>Exemplo:</b></p><br/>
+<pre><code>
+&lt;persistence&gt;
+    &lt;persistence-unit name="example-persistence-unit"&gt;
+        &lt;provider&gt;org.example.SomeRandomClass&lt;/provider&gt; // Erro: a classe provider deve implementar a interface PersistenceProvider
+    &lt;/persistence-unit&gt;
+&lt;/persistence&gt;
+</code></pre>
+</body>
+</html>

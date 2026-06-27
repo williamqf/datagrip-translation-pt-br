@@ -1,0 +1,12 @@
+<html>
+<body>
+<p>Relata lambdas ou funções anônimas que são criadas e usadas imediatamente.</p>
+<!-- tooltip end -->
+<pre><code>
+  <b>fun</b> test() {
+      ({ println() })() // redundante
+      (<b>fun</b>() { println() })() // redundante
+  }
+</code></pre>
+</body>
+</html>

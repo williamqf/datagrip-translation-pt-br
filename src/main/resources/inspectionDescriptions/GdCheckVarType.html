@@ -1,0 +1,18 @@
+<html>
+<body>
+<p>Relata casos em que faltam dicas de tipo explícitas em declarações de variáveis e constantes GDScript quando o tipo pode ser inferido e sinaliza o uso tipado da atribuição <code>:=</code>.</p>
+<!-- tooltip end -->
+<p>Observação:</p>
+<ul>
+  <li>Sugere a adição de um tipo quando a expressão do inicializador tem um tipo concreto que não seja <code>Variant</code>/<code>null</code>.</li>
+  <li>Ignora tipos semelhantes a recursos que não podem ser resolvidos com precisão.</li>
+  <li>A atribuição <code>:=</code> não pode ser usada com dicas de tipo explícitas. Use <code>=</code> quando um tipo for especificado.</li>
+</ul>
+<p>Exemplo:</p>
+<pre><code>
+var hp = 100          # Sugestão: var hp: int = 100
+var hp: int := 100    # Erro: a atribuição ":=" não pode ser tipada
+var hp: int = 100     # Correto
+</code></pre>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata operações de atribuição que podem ser substituídas por atribuições compostas.
+<p>O código que utiliza operadores de atribuição é mais curto e, possivelmente, mais claro.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>  x = x + 3;
+  x = x / 3;
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>  x += 3;
+  x /= 3;
+</code></pre>
+<!-- tooltip end -->
+<p>
+Utilize a opção <b>Ignorar operadores condicionais</b> para ignorar <code>&amp;&amp;</code> e <code>||</code>. A substituição de operadores condicionais por atribuições compostas transformará a avaliação preguiçosa (lazy evaluation) em avaliação imediata (eager evaluation), o que pode alterar a semântica da expressão.
+</p>
+<p>
+Utilize a opção <b>Ignorar operadores ambíguos</b> para ignorar os operadores menos conhecidos <code>^</code> e <code>%</code>.
+</p>
+</body>
+</html>

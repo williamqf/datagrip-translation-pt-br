@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata anotações <code>@Suppress</code> que podem ser removidas com segurança, pois os diagnósticos do compilador associados não se aplicam mais neste contexto.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun doSmth(@Suppress("UNUSED_PARAMETER") used: Int) {
+    println(used)
+  }
+</code></pre>
+
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  fun doSmth(used: Int) {
+    println(used)
+  }
+</code></pre>
+</body>
+</html>

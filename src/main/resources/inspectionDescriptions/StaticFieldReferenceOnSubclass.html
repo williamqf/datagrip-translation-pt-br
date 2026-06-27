@@ -1,0 +1,33 @@
+<html>
+<body>
+Relata acessos a campos <code>static</code> onde a chamada é qualificada por uma subclasse da classe declarante em vez da própria classe declarante.
+<p>
+  O Java permite esse tipo de qualificação, mas tal acesso pode indicar uma confusão sutil entre herança e sobrescrita.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Parent {
+    static int foo = 0;
+  }
+
+  class Child extends Parent { }
+
+  void bar() {
+    System.out.println(Child.foo);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida, o resultado será:</p>
+<pre><code>
+  class Parent {
+    static int foo = 0;
+  }
+
+  class Child extends Parent { }
+
+  void bar() {
+    System.out.println(Parent.foo);
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

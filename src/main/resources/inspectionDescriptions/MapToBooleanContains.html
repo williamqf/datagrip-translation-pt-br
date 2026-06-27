@@ -1,0 +1,22 @@
+<html>
+<body>
+<p>Relatórios mapeando uma coleção para valores booleanos e utilizando <code>contains</code> sobre ela.</p>
+
+<p>A correção rápida usa <code>.exists()</code> ou <code>!.forall()</code> ao invés.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  def p(x: Int): Boolean = ???
+  var seq: Seq[Int]
+  seq.map(p).contains(true)
+  seq.map(p).contains(false)
+</code></pre>
+<p>Depois de aplicar a correção rápida:</p>
+<pre><code>
+  def p(x: Int): Boolean = ???
+  var seq: Seq[Int]
+  seq.exists(p)
+  !seq.forall(p)
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

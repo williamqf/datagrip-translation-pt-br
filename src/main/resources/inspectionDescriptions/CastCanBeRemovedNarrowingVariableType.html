@@ -1,0 +1,19 @@
+<html>
+<body>
+Relata casts de tipo que podem ser removidos se o tipo da variável for restringido ao tipo do cast.
+<p>Exemplo:</p>
+<pre><code>
+  Object x = "  string  ";
+  System.out.println(((String)x).trim());
+</code></pre>
+<p>
+Aqui, alterar o tipo de <code>x</code> para <code>String</code> torna o cast redundante. A correção rápida sugerida atualiza o tipo da variável e remove todos os casts redundantes dessa variável:
+</p>
+<pre><code>
+  String x = "  string  ";
+  System.out.println(x.trim());
+</code></pre>
+<!-- tooltip end -->
+<p><small>Novidade na versão 2018.2</small></p>
+</body>
+</html>

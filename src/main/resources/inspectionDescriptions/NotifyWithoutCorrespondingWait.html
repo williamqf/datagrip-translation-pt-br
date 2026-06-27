@@ -1,0 +1,13 @@
+<html>
+<body>
+Relata chamadas a <code>Object.notify()</code> ou <code>Object.notifyAll()</code> para as quais nenhuma chamada correspondente a <code>Object.wait()</code> pode ser encontrada.
+<p>Esta inspeção relata apenas chamadas cujo alvo são campos da classe atual.</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  synchronized (synList) {
+    synList.notify(); // synList.wait() nunca é chamado
+  }
+</code></pre>
+<!-- tooltip end -->
+</body>
+</html>

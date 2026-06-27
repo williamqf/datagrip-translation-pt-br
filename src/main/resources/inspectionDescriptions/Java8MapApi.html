@@ -1,0 +1,51 @@
+<html>
+<body>
+Relata padrões de uso comuns de <code>java.util.Map</code> e sugere substituí-los por:
+<code>getOrDefault()</code>, <code>computeIfAbsent()</code>, <code>putIfAbsent()</code>, <code>merge()</code> ou <code>replaceAll()</code>.
+<p>Exemplo:</p>
+<pre><code>
+  map.containsKey(key) ? map.get(key) : "default";
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  map.getOrDefault(key, "default");
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  List&lt;String&gt; list = map.get(key);
+  if (list == null) {
+    list = new ArrayList&lt;&gt;();
+    map.put(key, list);
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  map.computeIfAbsent(key, localKey -> new ArrayList&lt;&gt;());
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  Integer val = map.get(key);
+  if (val == null) map.put(key, 1);
+  else map.put(key, val + 1);
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  map.merge(key, 1, (localKey, localValue) -> localValue + 1);
+</code></pre>
+<p>Exemplo:</p>
+<pre><code>
+  for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) {
+    map.put(entry.getKey(), transform(entry.getValue()));
+  }
+</code></pre>
+<p>Após a aplicação da correção rápida:</p>
+<pre><code>
+  map.replaceAll((localKey, localValue) -> transform(localValue));
+</code></pre>
+
+<!-- tooltip end -->
+<p>Observe que, se o código extraído em uma expressão lambda modificar o mesmo <code>Map</code>, a substituição por <code>computeIfAbsent()</code> ou <code>merge()</code> pode não funcionar corretamente para algumas implementações de <code>Map</code>. Por padrão, se este código tiver efeitos colaterais, nenhum aviso será exibido. Se necessário, ative a opção <b>Sugerir substituição mesmo que a lambda possa ter efeitos colaterais</b> para exibir sempre o aviso.</p>
+<p>Além disso, a semântica pode mudar devido ao tratamento diferente de valores <code>null</code> em métodos antigos como <code>put()</code> e métodos novos como <code>computeIfAbsent()</code> ou <code>merge()</code>; você deve levar isso em consideração se for importante armazenar valores <code>null</code> no <code>Map</code> fornecido. A inspeção não sugerirá a substituição quando o valor for conhecido estaticamente como nulo, mas para valores onde a nulidade é desconhecida, a substituição ainda será sugerida. Nesses casos, recomendamos suprimir o aviso e adicionar um comentário explicativo.
+</p>
+</body>
+</html>

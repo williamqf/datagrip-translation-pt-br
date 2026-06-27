@@ -1,0 +1,32 @@
+<html>
+<body>
+Relata os seguintes erros de especificação JPA:
+<ul>
+  <li>Múltiplos atributos configurados para um método ou campo</li>
+  <li>Atributo ilegal usado em um objeto Embeddable (JPA 1.0)</li>
+  <li>Metadados de atributo de persistência não especificados no campo ou no getter da propriedade</li>
+  <li>Nenhum setter ou getter fornece acesso baseado em propriedade</li>
+</ul>
+
+<p><b>Exemplo:</b></p>
+<pre><code lang="java">
+  @Entity
+  @Table(name = "TABLE")
+  public class JavaEntity {
+
+    private Integer id; // Erro: tanto o getter quanto o setter devem estar presentes
+
+    public Integer getId() { ... }
+
+
+
+    private String data;
+
+    public String getData() { ... }
+
+    @Basic // Erro: anotações de persistência devem estar no campo ou no método getter
+    public void setData(String data) { ... }
+  }
+</code></pre><br/>
+</body>
+</html>

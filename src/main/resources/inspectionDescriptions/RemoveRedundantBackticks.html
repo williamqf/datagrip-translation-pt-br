@@ -1,0 +1,21 @@
+<html>
+<body>
+Relata crases redundantes em referências.
+<p>
+    Algumas palavras-chave do Kotlin são identificadores válidos em Java, como: <code>in</code>, <code>object</code>, <code>is</code>.
+    Se uma biblioteca Java usar uma palavra-chave do Kotlin para um método, você ainda poderá chamar esse método fazendo o escape com o caractere de crase (<code>`</code>), por exemplo, <code>foo.`is`(bar)</code>.
+    Às vezes, esse escape é redundante e pode ser omitido com segurança. Esta inspeção localiza e relata tais casos e é acompanhada pela correção rápida "Remover crases redundantes", permitindo que você modifique o código destacado.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  fun `is`(x: String) {}
+  fun foo() {
+      `is`("bar") // 'is' é uma palavra-chave, as crases são obrigatórias
+  }
+
+  fun `test that smth works as designed`() {} // OK, identificador complexo para melhorar a legibilidade
+
+  val `a` = 1  // Crases não são necessárias
+</code></pre>
+</body>
+</html>

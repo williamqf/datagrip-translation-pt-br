@@ -1,0 +1,27 @@
+<html>
+<body>
+<p>
+  Relata declarações incorretas de comandos do Spring Shell:
+</p>
+<ul>
+  <li>Descrição do comando ausente</li>
+  <li>O comando não está dentro de <code>org.springframework.shell.standard.@ShellComponent</code></li>
+</ul>
+<p>Exemplo:</p>
+<pre><code lang="java">
+// Todos os métodos serão relatados porque o @ShellComponent está ausente
+class MathCommands {
+
+  @ShellMethod("")
+  public int sum(int a, int b) { // O método será relatado porque a descrição está vazia
+    return a + b;
+  }
+
+  @ShellMethod
+  public int mul(int a, int b) { // O método será relatado porque a descrição está ausente
+    return a * b;
+  }
+}
+</code></pre>
+</body>
+</html>

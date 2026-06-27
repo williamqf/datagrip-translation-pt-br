@@ -1,0 +1,9 @@
+<html>
+<body>
+Relata chamadas de <code>strings.Replace</code> em que a contagem de substituições é <code>0</code> em vez de <code>-1</code>.
+<p>O argumento de contagem que indica o número de substituições de string não deve ser <code>0</code>, pois não substitui nada e torna a chamada da função redundante. Use <code>-1</code> em vez disso.</p>
+<p>Exemplo:</p>
+<pre><code>a := strings.Replace("SSS", "S", "H", 0) // não substitui nada
+b := strings.Replace("SSS", "S", "H", -1) // substitui todas as ocorrências de S por H</code></pre>
+</body>
+</html>

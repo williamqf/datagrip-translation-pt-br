@@ -1,0 +1,78 @@
+<html>
+<head>
+    <style type="text/css">
+<!--
+    th {font-family:monospace;vertical-align:top;}
+    td {font-family:monospace;text-align:center;}
+-->
+    </style>
+</head>
+<body>
+<p>Denuncia as anotações <code>@Scope</code>, <code>@Role</code> e <code>@DataModel</code> que especificam escopo não suportado para um determinado componente.</p>
+
+<p>A tabela abaixo lista os escopos que são suportados para cada tipo de componente (em negrito o escopo padrão):</p>
+<table border="1">
+    <tr>
+        <th></th>
+        <th>Stateless<br>Session Bean</th>
+        <th>Stateful<br>Session Bean</th>
+        <th>Entity Bean</th>
+        <th>Java Bean</th>
+    </tr>
+    <tr>
+        <th>STATELESS</th>
+        <td><b>X</b></td>
+        <td></td>
+        <td></td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <th>EVENT</th>
+        <td></td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <th>PAGE</th>
+        <td></td>
+        <td></td>
+        <td>x</td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <th>CONVERSATION</th>
+        <td></td>
+        <td><b>X</b></td>
+        <td><b>X</b></td>
+        <td><b>X</b></td>
+    </tr>
+    <tr>
+        <th>SESSION</th>
+        <td></td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <th>BUSINESS_PROCESS</th>
+        <td></td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+    </tr>
+    <tr>
+        <th>APPLICATION</th>
+        <td></td>
+        <td>x</td>
+        <td>x</td>
+        <td>x</td>
+    </tr>
+
+</table>
+
+<p>A variável de contexto <code>@DataModel</code> tem restrições diferentes para seu escopo: se nenhum escopo for especificado, o escopo será o mesmo que o do componente que o envolve (EVENT se o componente estiver no escopo STATELESS).
+Ou, especifique escopo PAGE para a variável de contexto <code>@DataModel</code>.</p>
+
+</body>
+</html>

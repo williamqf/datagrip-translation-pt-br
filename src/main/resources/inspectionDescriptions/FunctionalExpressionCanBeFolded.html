@@ -1,0 +1,18 @@
+<html>
+<body>
+Relata referências de método ou expressões lambda que apontam para um método do seu próprio tipo de interface funcional, permitindo a substituição pelo qualificador correspondente para remover alocações de objetos desnecessárias.
+
+<p>Exemplo:</p>
+<pre><code>
+  SwingUtilities.invokeLater(r::run);
+  SwingUtilities.invokeAndWait(() -> r.run());
+</code></pre>
+<p>Após a aplicação do ajuste rápido:</p>
+<pre><code>
+  SwingUtilities.invokeLater(r);
+  SwingUtilities.invokeAndWait(r);
+</code></pre>
+<!-- tooltip end -->
+<p>Esta inspeção relata apenas se o nível de linguagem do projeto ou módulo for 8 ou superior.</p>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<html>
+<body>
+Relata expressões que resultam em overflow durante o cálculo.
+Geralmente, isso ocorre acidentalmente e indica a presença de um bug. Por exemplo, o uso de um tipo incorreto ou um deslocamento que deveria ter sido feito na direção oposta.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  float a = 1.0f/0.0f;
+  long b = 30 * 24 * 60 * 60 * 1000;
+  long c = 1000L &lt;&lt; 62;
+</code></pre>
+</body>
+</html>

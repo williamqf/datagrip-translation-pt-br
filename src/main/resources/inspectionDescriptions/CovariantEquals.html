@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata métodos <code>equals()</code> que aceitam um tipo de argumento diferente de <code>java.lang.Object</code>, caso a classe que os contém não possua outra sobrecarga de <code>equals()</code> que aceite <code>java.lang.Object</code> como seu tipo de argumento.
+<p>
+  Uma versão covariante de <code>equals()</code> não sobrescreve o método <code>Object.equals(Object)</code>. Isso pode resultar em comportamento inesperado em tempo de execução. Por exemplo, se a classe for usada para construir uma classe de coleção padrão, que espera que o método <code>Object.equals(Object)</code> seja sobrescrevido.
+</p>
+<p><b>Exemplo:</b></p>
+<pre><code>
+  class Foo {
+      public boolean equals(Foo foo) {  // aviso
+          return false;
+      }
+  }
+  class Bar {
+      public boolean equals(Bar bar) {  // nenhum aviso aqui
+          return false;
+      }
+      @Override
+      public boolean equals(Object obj) {
+          return false;
+      }
+  }
+</code></pre>
+<!-- tooltip end -->
+
+</body>
+</html>

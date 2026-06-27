@@ -1,0 +1,27 @@
+<html>
+<body>
+Relata variáveis e tipos de retorno de métodos que podem ser alterados para tipos mais abstratos (mais genéricos).
+Isso torna o código mais abstrato e, portanto, aumenta a reusabilidade.
+<p>Exemplo:</p>
+<pre><code>
+  // O tipo do parâmetro pode ser enfraquecido para java.util.List
+  void processList(ArrayList&lt;String&gt; list) {
+    if (list.isEmpty()) return;
+    System.out.println("Processing");
+    for (String s : list) {
+      System.out.println("String: " + s);
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Ative a caixa de seleção <b>Somente enfraquecer para interface</b> abaixo para relatar problemas apenas quando o tipo puder ser enfraquecido para um tipo de interface.
+</p>
+<p>
+  Ative a caixa de seleção <b>Não sugerir enfraquecimento para variáveis declaradas como 'var'</b> abaixo para evitar o relato de variáveis locais declaradas com a palavra-chave 'var' (Java 10+).
+</p>
+<p>
+As <b>Classes de parada</b> destinam-se a evitar que uma classe seja enfraquecida além do nível das classes de parada, mesmo que isso seja possível.
+Em alguns casos, isso pode melhorar a legibilidade.
+</body>
+</html>

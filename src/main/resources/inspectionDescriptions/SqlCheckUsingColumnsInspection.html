@@ -1,0 +1,11 @@
+<html>
+<body>
+Relata colunas na cláusula USING que não existem em ambas as tabelas.
+<p>Exemplo (MySQL):</p>
+<pre><code>CREATE TABLE t1 (i INT, j INT);
+CREATE TABLE t2 (k INT, l INT);
+SELECT * FROM t1 JOIN t2 USING (j);</code></pre>
+<p>Na cláusula USING, o nome da coluna deve existir em ambas as tabelas, e a consulta SELECT unirá automaticamente essas tabelas usando o nome da coluna fornecido. Como não temos a coluna <code>j</code> em <code>t2</code>, podemos reescrever a consulta usando ON. A cláusula ON pode unir tabelas mesmo quando os nomes das colunas não coincidem em ambas as tabelas.</p>
+<pre><code>SELECT * FROM t1 JOIN t2 ON t1.j = t2.l;</code></pre>
+</body>
+</html>

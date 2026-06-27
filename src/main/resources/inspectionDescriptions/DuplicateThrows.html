@@ -1,0 +1,17 @@
+<html>
+<body>
+Relata exceções duplicadas na lista <code>throws</code> de um método.
+<p>Exemplo:</p>
+<pre><code>
+  void f() throws Exception, Exception {}
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  void f() throws Exception {}
+</code></pre>
+<!-- tooltip end -->
+<p>
+  Use a opção <b>Ignorar exceções que subclassificam outras exceções</b> para ignorar exceções que são subclasses de outras exceções.
+</p>
+</body>
+</html>

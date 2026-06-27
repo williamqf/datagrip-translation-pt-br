@@ -1,0 +1,34 @@
+<html>
+<body>
+Reporta campos não <code>final</code> em tipos <code>enum</code>.
+Campos não <code>final</code> introduzem um estado mutável global, o que geralmente é considerado indesejável.
+<p><b>Exemplo:</b></p>
+<pre><code>
+  enum Enum {
+    FIRST("first"),
+    SECOND("second");
+
+    public String str;
+
+    Enum(String str) {
+        this.str = str;
+    }
+  }
+</code></pre>
+<p>Após aplicar a correção rápida:</p>
+<pre><code>
+  enum Enum {
+    FIRST("first"),
+    SECOND("second");
+
+    public final String str;
+
+    Enum(String str) {
+        this.str = str;
+    }
+  }
+</code></pre>
+<!-- tooltip end -->
+Use a opção "Ignorar campos que não podem ser tornados 'final'" para avisar apenas sobre campos que podem se tornar <code>final</code> usando a correção rápida.
+</body>
+</html>
